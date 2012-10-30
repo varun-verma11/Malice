@@ -11,9 +11,9 @@
 
 \author{Magdalena Gocek \and Varun Verma \and Harshwardhan Ostwal}
 
-\date{\today}         % inserts today's date
+% \date{\today}         % inserts today's date
 
-\title{}            % generates the title from the data above
+\maketitle            % generates the title from the data above
 
 \section{Introduction}
 
@@ -36,9 +36,16 @@ the following things:
 %environment instead.
 
 \section{BNF Grammar} 
+	Identifier $\rightarrow$ [a-zA-Z][a-z]*
+	\\
+	Letter $\rightarrow$ [a-z]
+	\\
+	Number $\rightarrow$ [0-9]+
 
 \begin{verbatim}
-	Identifier
+	Identifier $\rightarrow$ [a-zA-Z][a-z]*
+	Letter $\rightarrow$ [a-z]
+	Number \righarrow [0-9]+
 \end{verbatim}
 
 To include maths formulas in text put them between \$ symbols like this
