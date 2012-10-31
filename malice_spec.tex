@@ -35,12 +35,19 @@ the following things:
 %If you do not like numbered sections, use the \texttt{section*\{...\}}
 %environment instead.
 
-\section{BNF Grammar} 
-	Identifier $\rightarrow$ [a-zA-Z][a-z]*
-	\\
-	Letter $\rightarrow$ [a-z]
-	\\
-	Number $\rightarrow$ [0-9]+
+\section{BNF Grammar}
+	\begin{tabbing}
+	\hspace*{9mm}\=\hspace*{10mm}\=\kill
+		\> Identifier $\rightarrow$ [a-zA-Z][a-z]* \\
+		\> Letter $\rightarrow$ [a-z] \\
+		\> Number $\rightarrow$ [0-9]+ \\
+		\> Data $\rightarrow$ Number $\mid$ Identifier \\
+		\> Function $\rightarrow$ Drank $\mid$ Ate \\
+		\> Expr	$\rightarrow$ Number $\mid$ Identifier $\mid$ MONOOP Expr 
+					$\mid$ Data BINOP Data \\
+		\> BINOP $\rightarrow$ '+' $\mid$ '$\%$' $\mid$ '/' $\mid$ '\^' 
+							$\mid$ '$\&$' $\mid$ '$\mid$' $\mid$ '$\ast$' \\
+	\end{tabbing}
 
 \begin{verbatim}
 	Identifier $\rightarrow$ [a-zA-Z][a-z]*
@@ -55,7 +62,6 @@ Or to display a formula on a line on its own you do this:
     g(y) = y^2
 \]
 
-\section{
 \section{Semantics}
 
 Here is a numbered list.
