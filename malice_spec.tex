@@ -40,7 +40,7 @@ the following things:
 	\begin{tabbing}
 	\hspace*{9mm}\=\hspace*{25mm}\=\kill
 		\> Identifier $\rightarrow$ [a-zA-Z][a-z]* \\
-		\> Letter $\rightarrow$ [a-z] \\
+		\> Letter $\rightarrow$ [a-zA-Z] \\
 		\> Number $\rightarrow$ [0-9]+ \\
 		\> Data $\rightarrow$ Number $\mid$ Identifier \\
 		\> Function $\rightarrow$ Drank $\mid$ Ate \\
@@ -52,11 +52,10 @@ the following things:
 		\\
 		\> DataType $\rightarrow$ \emph{'number'} $\mid$ \emph{'letter'} \\
 		\\
-		\> Statement $\rightarrow$ Identifier \emph{'was a'} DataType \\
+		\> Statement $\rightarrow$ Identifier \emph{'was a'} DataType \{ \emph{'too'} \}\\
 		\> \> $\mid$ Identifier \emph{'became'} \{Letter $\mid$ Expr\} \\
 		\> \>	$\mid$ Expr \emph{'said' 'Alice'} \\
 		\> \> $\mid$ Identifier Function \\
-		\> \>	$\mid$ Statement \emph{'too'} \\
 	\end{tabbing}
 
 \begin{verbatim}
@@ -73,95 +72,89 @@ the following things:
 		\item Different Types of Statements (See Section~\ref{sec:statements})
 		\item The program Structure (See Section~\ref{sec:progStr}) 
 	\end{itemize}
-The structure of the program written in \emph{MAlice} can be described using the above items. A simple
-\emph{MAlice} program makes use of the variables and functions which are building blocks
-for most of the widely used language. Each of the above component named about is described further
-in their respective sections. The limitations to each of the component is also defined.
+	The structure of the program written in \emph{MAlice} can be described using the above items. A simple
+	\emph{MAlice} program makes use of the variables and functions which are building blocks
+	for most of the widely used language. Each of the above component named about is described further
+	in their respective sections. The limitations to each of the component is also defined.
 
-\subsection{Data Types and Variables}
-\label{sec:dtypes}
-	\emph{MAlice} only consists of two basic data types which are:
-	\begin{itemize}
-		\item Letter (See~\ref{sec:letter})
-		\item Number (See~\ref{sec:num})
-	\end{itemize}
-	These are the only two data types which can be supported by the language \emph{MAlice}. MAlice
-	supports variables(See~\ref{sec:var}) as well.
-	\subsubsection{Number}
-	\label{sec:num}
-	MAlice uses a 9-bit signed integer representation to represent the data type number. The data of type
-	number in MAlice is stored in \emph{Two's Complement} representation. This uses the most signifincant
-	bit is defined as a complement. 
-	This contstrains the data type number to have a specified range of \emph{-256 to 255}. This
-	contrain also introduces some errors which would need to be dealt with during compile time as
-	well as run time. The error which would be reported are as follows:
-	\begin{itemize}
-		\item {\bf OutOfBoundError}: This error can be encoutered at run time. 
-					This error is caused when during
-					runtime a value for the data type number is outwith the range (\emph{-256 to 255}).
-		\item {\bf InvalidAssignment}: This error would be encountered if a 
-					variable of type number has been assigned a value of number which is 
-					outwith the range of the data type number. This error
-					would also encoutered when a variable of a type \emph{letter} is assigned to a \emph{number}
-					or vice versa.
-	\end{itemize}
-	the data which can be represented by the data type \emph{number} in MAlice. The signed representation
-	allows us to represent negative number in MAlice.
+	\subsection{Data Types and Variables}
+	\label{sec:dtypes}
+		\emph{MAlice} only consists of two basic data types which are:
+		\begin{itemize}
+			\item Letter (See~\ref{sec:letter})
+			\item Number (See~\ref{sec:num})
+		\end{itemize}
+		These are the only two data types which can be supported by the language \emph{MAlice}. MAlice
+		supports variables(See~\ref{sec:var}) as well.
+		\subsubsection{Number}
+			\label{sec:num}
+			MAlice uses a 9-bit signed integer representation to represent the data type number. The data of type
+			number in MAlice is stored in \emph{Two's Complement} representation. This uses the most signifincant
+			bit is defined as a complement. 
+			This contstrains the data type number to have a specified range of \emph{-256 to 255}. This
+			contrain also introduces some errors which would need to be dealt with during compile time as
+			well as run time. The error related to type number which could be encountered are as follows:
+			\begin{itemize}
+				\item {\bf OutOfBoundError}: This error can be encoutered at run time. 
+							This error is caused when during
+							runtime a value for the data type number is outwith the range (\emph{-256 to 255}).
+				\item {\bf InvalidAssignment}: This error would be encountered if a 
+							variable of type number has been assigned a value of number which is 
+							outwith the range of the data type number. 
+			\end{itemize}
 	
 	\subsubsection{Letter}
-	\label{sec:letter}
-	This is for letter.
+		\label{sec:letter}
+			The letter data type can contain ASCII characters only within 'a' to 'z' and 'A' and 'Z'.
+			This data type would use the respective ASCII representation to store the character.
 
 	\subsubsection{Variables}
-	\label{sec:var}
-	This is for variables.
+		\label{sec:var}
+			Varibles in MAlice have an String identifier like in most other programming languages.
+			The identifier for a variable can only contains letters (i.e. 'a' to 'z' and 'A' to 'Z'.
+			The first character can be either upper case or lower case but the following character has to be
+			lower case. For example, "TExt" and "MyVar" are not valid identifiers whereas "Variable" and
+			"variable" are valid. Variable can be of type 
+			\emph{number or letter} in MAlice. The errors related to Variables which could be encountered are:
+			\begin{itemize}
+				\item {\bf InvalidAssignment}: A variable of type 'number' can not be assigned to a variable which
+					has a type 'letter' or vice versa.
+				\item {\bf ***NAMETHISERROR***}: An identifier name which has already been initialised can not
+					be used again. All identifier names have to be unique.
+			\end{itemize}
+	
+	\subsection{Mathematical Operations}
+	\label{sec:mathOper}
+		MAlice supports various different mathematical operations. The functionality of all the mathematical
+		operations supported by MAlice is described below:
+		\begin{itemize}
+			\item {\bf '+'}: This is mathematical add operator and returns the sum of the given two arguments.
+			\item {\bf '$\%$'}: This is the modulus operator and returns the modulus for the given two arguments.
+			\item {\bf '/'}: This is the 
+		\end{itemize}
+ 
+	\subsection{Predefined Functions}
+	\label{sec:preFunc}
+	This is predefined sunctions
 
-\subsection{Mathematical Operations}
-\label{sec:mathOper}
-This is mathematical operations
+	\subsection{Statements}
+	\label{sec:statements}
+	This is statement
 
-\subsection{Predefined Functions}
-\label{sec:preFunc}
-This is predefined sunctions
+	\subsection{The Program Structure}
+	\label{sec:progStr}
+	This is the structure of the program.
 
-\subsection{Statements}
-\label{sec:statements}
-This is statement
-
-\subsection{The Program Structure}
-\label{sec:progStr}
-This is the structure of the program.
-
-\section{Assumption}
-\label{sec:assumption}
-\begin{itemize}
-	\item No variables are allowed with a digit in their name.
-	\item	Variable can start with either a lower case or uppper case character but any character
-				in the name of the variable can be upper case.
-	\item The number data type in \emph{MAlice} is a \emph{9-bit} signed integer.
-				This defined the limit of the number data type in Malice to be -256 to 255.
-				Any other assignment outside these bouds would cause a \emph{RunTime Error}.
-\end{itemize}
-
-
-\begin{enumerate}
-
-    \item
-    This is item 1.
-    
-    \item
-    And this is item 2.
-    
-\end{enumerate}
-
-And here is a bulleted list.
-
-\begin{itemize}
-
-    \item
-    The parts of the list are called items here too.
-    
-\end{itemize}
+	\section{Assumption}
+	\label{sec:assumption}
+	\begin{itemize}
+		\item No variables are allowed with a digit in their name.
+		\item	Variable can start with either a lower case or uppper case character but any character
+					in the name of the variable can be upper case.
+		\item The number data type in \emph{MAlice} is a \emph{9-bit} signed integer.
+					This defined the limit of the number data type in Malice to be -256 to 255.
+					Any other assignment outside these bouds would cause a \emph{RunTime Error}.
+	\end{itemize}
 
 Finally for this document, if you want to include a reference
 then you put it into a \texttt{thebibliography\{...\}}
