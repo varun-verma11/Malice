@@ -49,13 +49,17 @@ the following things:
 		\> BINOP $\rightarrow$ '+' $\mid$ '$\%$' $\mid$ '/' $\mid$ '\^{ }' 
 							$\mid$ '$\&$' $\mid$ '$\mid$' $\mid$ '$\ast$' \\
 		\> MONOOP $\rightarrow$ '$\mathtt{\sim}$'\\
-		\\
 		\> DataType $\rightarrow$ \emph{'number'} $\mid$ \emph{'letter'} \\
 		\\
 		\> Statement $\rightarrow$ Identifier \emph{'was a'} DataType \{ \emph{'too'} \}\\
 		\> \> $\mid$ Identifier \emph{'became'} \{Letter $\mid$ Expr\} \\
 		\> \>	$\mid$ Expr \emph{'said' 'Alice'} \\
 		\> \> $\mid$ Identifier Function \\
+		\> StatementConjunctions $\rightarrow$ '.' $\mid$ 'and' $\mid$ 'but' $\mid$ ',' $\mid$ 'then' \\
+		\> StatementList $\rightarrow$ EPSILON** \\ 
+		\> \> $\mid$ Statement StatementConjuctions Statement \{StatementConjunctions Statement\} \\
+	 	\\
+		\> Program $\rightarrow$ \emph{'The' 'looking-glass' 'hatta' 'opened'} StatementList '\emph{closed}'
 	\end{tabbing}
 
 \begin{verbatim}
@@ -130,49 +134,61 @@ the following things:
 		\begin{itemize}
 			\item {\bf '+'}: This is mathematical add operator and returns the sum of the given two arguments.
 			\item {\bf '$\%$'}: This is the modulus operator and returns the modulus for the given two arguments.
-			\item {\bf '/'}: This is the 
+			\item {\bf '/'}: This is the division operator. A runtime error would be encountered while trying to
+				divide by 0.
+			\item {\bf '\^{ }'}: This bitwise XOR operator. The return value is bitwise XOR operation on each
+				individual bits of the given two arguments.
+			\item {\bf '$\&$'}: This is bitwise AND operator. This return value is obtained by carrying out 
+				logical AND operation on individual bits of the given two arguments.
+			\item {\bf '$\mid$'}: This is bitwise OR operation. This returns value is obtained by carrying out 
+				logical OR operation on the individual bits of the given two arguments.
+			\item {\bf '$\ast$'}: This is mathematical multiply operator. The return value is the product of the
+				given two arguments.
+			\item {\bf '$\mathtt{\sim}$'}: This is bitwise NOT operator. The return value is obtained by carrying
+				out logical NOT operation on individual bits of the given argument.
 		\end{itemize}
  
 	\subsection{Predefined Functions}
 	\label{sec:preFunc}
-	This is predefined sunctions
+		MAlice only has two built-in functions. These functions are \emph{"drank"} and \emph{"ate"}. The function
+		\emph{"drank"} decrements the value of the given argument by 1 and \emph{"ate"} increments the value of the
+		given argument by 1. These functions can only be applied to variables of type number.
 
 	\subsection{Statements}
 	\label{sec:statements}
-	This is statement
+		MAlice supports the follwing type of programming statments:
+		\begin{itemize}
+			\item {\bf Initialisation Statement}: The initialisation in MAlice is done by using the identifier
+		 		for the variable and then defining its data type as follows:
+				\begin{verbatim}
+					Identifier was a number. Variable was a letter.
+				\end{verbatim}	
+				The Identifer and Variable are the names which would be used to access these variables throughout
+				the program and 'letter' and 'number' are the data types of each of the variables.
+			\item {\bf Assignment Statement}: The assignment can be done either using other letters, variables, numbers,
+				mathematical operations or by applying functions.
+				\begin{verbatim}
+					Identifier became 2. Variable became 'e'. Identifier became Identifier*4.
+					Identifier drank.
+				\end{verbatim}
+				The keyword \emph{"became"} initialises the given variable with the specified value, for example,
+				'e' in the second case and 2 for the first case.
+			\item {\bf Print Statement}: The print statement is used to output to the standard output. The print
+				statment is as follows which print 24 to standard output:
+				\begin{verbatim}
+					Variable said Alice. 6*4 said Alice.
+				\end{verbatim}
+			\item {\bf Function Statement}: There are only two functions which are in domain of MAlice which are
+				\emph{"drank"} and \emph{"ate"}. These functions are applied on variables and the statement for these 
+				functions can only be where 'drank' and then 'ate' is applied to Variable:
+				\begin{verbatim}
+					Variable drank. Variable ate.	
+				\end{verbatim}
+		\end{itemize}
+		These statements can be joined using the one of the following keywords or symbols, \{ \emph{'.' , ',' , 'and' , 'then' , 'but'}\}.
 
 	\subsection{The Program Structure}
 	\label{sec:progStr}
-	This is the structure of the program.
-
-	\section{Assumption}
-	\label{sec:assumption}
-	\begin{itemize}
-		\item No variables are allowed with a digit in their name.
-		\item	Variable can start with either a lower case or uppper case character but any character
-					in the name of the variable can be upper case.
-		\item The number data type in \emph{MAlice} is a \emph{9-bit} signed integer.
-					This defined the limit of the number data type in Malice to be -256 to 255.
-					Any other assignment outside these bouds would cause a \emph{RunTime Error}.
-	\end{itemize}
-
-Finally for this document, if you want to include a reference
-then you put it into a \texttt{thebibliography\{...\}}
-environment (see below in source file) and then 
-cite it like this \cite{lamport94}
-(you will need to run \texttt{latex} twice to get it to process the citation),
-or you can use BibTex but that is probably overkill for now.
-
-\begin{thebibliography}{9}
-
-\bibitem{lamport94}
-  Leslie Lamport,
-  \emph{\LaTeX: A Document Preparation System}.
-  Addison Wesley, Massachusetts,
-  2nd Edition,
-  1994.
-
-\end{thebibliography}
-
-
+		The program in MAlice starts with \emph{"The looking-glass hatta ()"} and next line the keyword \emph{"opened"}
+		and then code body of program in MAlice and then the final keyword \emph{"closed"}.
 \end{document}
