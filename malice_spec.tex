@@ -11,8 +11,6 @@
 
 \author{Magdalena Gocek \and Varun Verma \and Harshwardhan Ostwal}
 
-% \date{\today}         % inserts today's date
-
 \maketitle            % generates the title from the data above
 
 \section{Introduction}
@@ -38,7 +36,7 @@ the following things:
 \section{BNF Grammar}
 \label{sec:bnf}
 	\begin{tabbing}
-	\hspace*{9mm}\=\hspace*{25mm}\=\kill
+	\hspace*{8mm}\=\hspace*{25mm}\=\kill
 		\> Identifier $\rightarrow$ [a-zA-Z][a-z]* \\
 		\> Letter $\rightarrow$ [a-zA-Z] \\
 		\> Number $\rightarrow$ [0-9]+ \\
@@ -52,12 +50,11 @@ the following things:
 		\> DataType $\rightarrow$ \emph{'number'} $\mid$ \emph{'letter'} \\
 		\\
 		\> Statement $\rightarrow$ Identifier \emph{'was a'} DataType \{ \emph{'too'} \}\\
-		\> \> $\mid$ Identifier \emph{'became'} \{Letter $\mid$ Expr\} \\
+		\> \> $\mid$ Identifier \emph{'became'} ( Letter $\mid$ Expr ) \\
 		\> \>	$\mid$ Expr \emph{'said' 'Alice'} \\
 		\> \> $\mid$ Identifier Function \\
 		\> StatementConjunctions $\rightarrow$ '.' $\mid$ 'and' $\mid$ 'but' $\mid$ ',' $\mid$ 'then' \\
-		\> StatementList $\rightarrow$ EPSILON** \\ 
-		\> \> $\mid$ Statement StatementConjuctions Statement \{StatementConjunctions Statement\} \\
+		\> StatementList $\rightarrow$ $\epsilon$ $\mid$ Statement StatementConjuctions Statement \{StatementConjunctions Statement\} \\
 	 	\\
 		\> Program $\rightarrow$ \emph{'The' 'looking-glass' 'hatta' 'opened'} StatementList '\emph{closed}'
 	\end{tabbing}
@@ -99,12 +96,11 @@ the following things:
 			contrain also introduces some errors which would need to be dealt with during compile time as
 			well as run time. The error related to type number which could be encountered are as follows:
 			\begin{itemize}
-				\item {\bf OutOfBoundError}: This error can be encoutered at run time. 
-							This error is caused when during
-							runtime a value for the data type number is outwith the range (\emph{-256 to 255}).
 				\item {\bf InvalidAssignment}: This error would be encountered if a 
 							variable of type number has been assigned a value of number which is 
 							outwith the range of the data type number. 
+				\item {\bf IntegerOverflow}: This would be caused if the accumulating result or the final result
+							for an expression is outwith the range of the integer. 
 			\end{itemize}
 	
 	\subsubsection{Letter}
@@ -130,21 +126,21 @@ the following things:
 	\subsection{Mathematical Operations}
 	\label{sec:mathOper}
 		MAlice supports various different mathematical operations. The functionality of all the mathematical
-		operations supported by MAlice is described below:
+		operations supported by MAlice is described below with the precedence in brackets:
 		\begin{itemize}
-			\item {\bf '+'}: This is mathematical add operator and returns the sum of the given two arguments.
-			\item {\bf '$\%$'}: This is the modulus operator and returns the modulus for the given two arguments.
-			\item {\bf '/'}: This is the division operator. A runtime error would be encountered while trying to
+			\item {\bf '+'(4)}: This is mathematical add operator and returns the sum of the given two arguments.
+			\item {\bf '$\%$'(3)}: This is the modulus operator and returns the modulus for the given two arguments.
+			\item {\bf '/'(3)}: This is the division operator. A runtime error would be encountered while trying to
 				divide by 0.
-			\item {\bf '\^{ }'}: This bitwise XOR operator. The return value is bitwise XOR operation on each
+			\item {\bf '\^{ }'(9)}: This bitwise XOR operator. The return value is bitwise XOR operation on each
 				individual bits of the given two arguments.
-			\item {\bf '$\&$'}: This is bitwise AND operator. This return value is obtained by carrying out 
+			\item {\bf '$\&$'(8)}: This is bitwise AND operator. This retur1)n value is obtained by carrying out 
 				logical AND operation on individual bits of the given two arguments.
-			\item {\bf '$\mid$'}: This is bitwise OR operation. This returns value is obtained by carrying out 
+			\item {\bf '$\mid$'(10)}: This is bitwise OR operation. This returns value is obtained by carrying out 
 				logical OR operation on the individual bits of the given two arguments.
-			\item {\bf '$\ast$'}: This is mathematical multiply operator. The return value is the product of the
+			\item {\bf '$\ast$'(3)}: This is mathematical multiply operator. The return value is the product of the
 				given two arguments.
-			\item {\bf '$\mathtt{\sim}$'}: This is bitwise NOT operator. The return value is obtained by carrying
+			\item {\bf '$\mathtt{\sim}$'(2)}: This is bitwise NOT operator. The return value is obtained by carrying
 				out logical NOT operation on individual bits of the given argument.
 		\end{itemize}
  
@@ -186,6 +182,8 @@ the following things:
 				\end{verbatim}
 		\end{itemize}
 		These statements can be joined using the one of the following keywords or symbols, \{ \emph{'.' , ',' , 'and' , 'then' , 'but'}\}.
+		These symbols seperate the statements and each statement is executed in sequential order. Any statement which does not comply with
+		the rules of BNF would cause a \emph{SyntaxError}.
 
 	\subsection{The Program Structure}
 	\label{sec:progStr}
