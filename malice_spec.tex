@@ -41,7 +41,7 @@ the following things:
 		\> Letter $\rightarrow$ [a-zA-Z] \\
 		\> Number $\rightarrow$ [0-9]+ \\
 		\> Data $\rightarrow$ Number $\mid$ Identifier \\
-		\> Function $\rightarrow$ Drank $\mid$ Ate \\
+		\> Function $\rightarrow$ '\emph{drank}' $\mid$ '\emph{ate}' \\
 		\> Expr	$\rightarrow$ Number $\mid$ Identifier $\mid$ MONOOP Expr 
 					$\mid$ Data BINOP Data \{ BINOP Data \}\\
 		\> BINOP $\rightarrow$ '+' $\mid$ '$\%$' $\mid$ '/' $\mid$ '\^{ }' 
@@ -55,8 +55,8 @@ the following things:
 		\> \> $\mid$ Identifier Function \\
 		\> StatementConjunctions $\rightarrow$ '.' $\mid$ 'and' $\mid$ 'but' $\mid$ ',' $\mid$ 'then' \\
 		\> StatementList $\rightarrow$ $\epsilon$ $\mid$ Statement StatementConjuctions Statement \{StatementConjunctions Statement\} \\
-	 	\\
-		\> Program $\rightarrow$ \emph{'The' 'looking-glass' 'hatta' 'opened'} StatementList '\emph{closed}'
+	 	\> FunctionName $\rightarrow$ Identifier \\
+		\> Program $\rightarrow$ FunctionName  \emph{'()' 'opened' } StatementList '\emph{closed}'
 	\end{tabbing}
 
 \begin{verbatim}
@@ -187,6 +187,6 @@ the following things:
 
 	\subsection{The Program Structure}
 	\label{sec:progStr}
-		The program in MAlice starts with \emph{"The looking-glass hatta ()"} and next line the keyword \emph{"opened"}
+		The program in MAlice starts with function name with empty bracket \emph {"()"} and next line the keyword \emph{"opened"}
 		and then code body of program in MAlice and then the final keyword \emph{"closed"}.
 \end{document}
