@@ -15,13 +15,9 @@
 
 \section{Introduction}
 \label{sec:intro}
-This is \emph{specification for MAlice}. This would define the language
-constructs for the language MAlice. This specification consists of
-the following things:
-\begin{itemize}
-	\item Language Syntax Definition
-	\item Language Semantics Definition
-\end{itemize}
+This specification defines the language constructs of MAlice, focusing on  
+the syntax and the semantics of the language. The syntax will be defined
+using the Backus-Naur Form (BNF) grammar.
 
 %\textbf{quite easy to get started}.
 %Try playing around with this file and see. 
@@ -33,29 +29,35 @@ the following things:
 %If you do not like numbered sections, use the \texttt{section*\{...\}}
 %environment instead.
 
-\section{BNF Grammar}
+\section{The syntax of MAlice}
 \label{sec:bnf}
 	\begin{tabbing}
 	\hspace*{8mm}\=\hspace*{25mm}\=\kill
-		\> Identifier $\rightarrow$ [a-zA-Z][a-z]* \\
-		\> Letter $\rightarrow$ [a-zA-Z] \\
 		\> Number $\rightarrow$ [0-9]+ \\
+		\> Letter $\rightarrow$ [a-zA-Z] \\
+		\> Identifier $\rightarrow$ [a-zA-Z][a-z]* \\
+
+	 	\> FunctionName $\rightarrow$ Identifier \\
 		\> Data $\rightarrow$ Number $\mid$ Identifier \\
-		\> Function $\rightarrow$ '\emph{drank}' $\mid$ '\emph{ate}' \\
-		\> Expr	$\rightarrow$ Number $\mid$ Identifier $\mid$ MONOOP Expr 
+		\> Expr	$\rightarrow$ Data $\mid$ MONOOP Expr 
 					$\mid$ Data BINOP Data \{ BINOP Data \}\\
 		\> BINOP $\rightarrow$ '+' $\mid$ '$\%$' $\mid$ '/' $\mid$ '\^{ }' 
 							$\mid$ '$\&$' $\mid$ '$\mid$' $\mid$ '$\ast$' \\
 		\> MONOOP $\rightarrow$ '$\mathtt{\sim}$'\\
+
 		\> DataType $\rightarrow$ \emph{'number'} $\mid$ \emph{'letter'} \\
-		\\
+		\> Function $\rightarrow$ '\emph{drank}' $\mid$ '\emph{ate}' \\
+
+		
 		\> Statement $\rightarrow$ Identifier \emph{'was a'} DataType \{ \emph{'too'} \}\\
 		\> \> $\mid$ Identifier \emph{'became'} ( Letter $\mid$ Expr ) \\
 		\> \>	$\mid$ Expr \emph{'said' 'Alice'} \\
 		\> \> $\mid$ Identifier Function \\
-		\> StatementConjunctions $\rightarrow$ '.' $\mid$ 'and' $\mid$ 'but' $\mid$ ',' $\mid$ 'then' \\
-		\> StatementList $\rightarrow$ $\epsilon$ $\mid$ Statement StatementConjuctions Statement \{StatementConjunctions Statement\} \\
-	 	\> FunctionName $\rightarrow$ Identifier \\
+
+				
+		\> StatementConjunctions $\rightarrow$ \emph{'.'} $\mid$ \emph{'and'} $\mid$ \emph{'but'} $\mid$ \emph{','} $\mid$ \emph{'then'} \\
+		\> StatementList $\rightarrow$ $\epsilon$ $\mid$ Statement StatementConjuctions \{Statement StatementConjunctions\} \\
+
 		\> Program $\rightarrow$ FunctionName  \emph{'()' 'opened' } StatementList '\emph{closed}'
 	\end{tabbing}
 
@@ -64,129 +66,122 @@ the following things:
 
 \section{Semantics}
 \label{sec:semantics}
-	\emph{MAlice} domain consists of following things which are described futher in the
-		referenced sub sections:
+	MAlice programs make use of the following:
 	\begin{itemize}
-		\item Data Types and Variables (See Section~\ref{sec:dtypes})
-		\item Mathematical Operations (See Section~\ref{sec:mathOper})
-		\item Predefined Functions (See Section~\ref{sec:preFunc})
-		\item Different Types of Statements (See Section~\ref{sec:statements})
-		\item The program Structure (See Section~\ref{sec:progStr}) 
+		\item Variables and Data Types
+		\item Mathematical Operations 
+		\item Predefined Functions  
 	\end{itemize}
-	The structure of the program written in \emph{MAlice} can be described using the above items. A simple
-	\emph{MAlice} program makes use of the variables and functions which are building blocks
-	for most of the widely used language. Each of the above component named about is described further
-	in their respective sections. The limitations to each of the component is also defined.
+	The following sub-sections describe each of these in more detail and state their limitations.
+	The structure of a MAlice program is also defined.
 
-	\subsection{Data Types and Variables}
-	\label{sec:dtypes}
-		\emph{MAlice} only consists of two basic data types which are:
-		\begin{itemize}
-			\item Letter (See~\ref{sec:letter})
-			\item Number (See~\ref{sec:num})
-		\end{itemize}
-		These are the only two data types which can be supported by the language \emph{MAlice}. MAlice
-		supports variables(See~\ref{sec:var}) as well.
-		\subsubsection{Number}
-			\label{sec:num}
-			MAlice uses a 9-bit signed integer representation to represent the data type number. The data of type
-			number in MAlice is stored in \emph{Two's Complement} representation. This uses the most signifincant
-			bit is defined as a complement. 
-			This contstrains the data type number to have a specified range of \emph{-256 to 255}. This
-			contrain also introduces some errors which would need to be dealt with during compile time as
-			well as run time. The error related to type number which could be encountered are as follows:
+	\subsection{Program Structure}
+	\label{sec:progStr}
+		Each MAlice program starts with the name of a function followed by a pair of brackets and the function definition. 
+		The function definition begins with the keyword \emph{"opened"} which is followed by a sequence of statements. Each statement 
+		within the function definition is indented. The function definition ends with the keyword \emph{"closed"}, which terminates the program.
+
+	\subsection{Variables and Data Types}
+	\label{sec:vardtypes}
+
+	\subsubsection{Data Types}
+	\label{sec:dtypes}		
+		Malice supports two basic data types, \emph{number} and \emph{letter}. The letter 
+		data type is represented by a single ASCII character ranging from 'a' to 'z' and 
+		'A' to 'Z'. The number data type is represented by a 9-bit signed integer. MAlice uses the 
+		Two's Copmlement representation for the number data type which defines
+		the most significant bit to be the complement. This constraints the data type number 
+		to have a specified range of \emph{-256 to 255} and introduces following errors which 
+		will need to be dealt with during compiling or at run time: 
+
 			\begin{itemize}
 				\item {\bf InvalidAssignment}: This error would be encountered if a 
-							variable of type number has been assigned a value of number which is 
-							outwith the range of the data type number. 
-				\item {\bf IntegerOverflow}: This would be caused if the accumulating result or the final result
-							for an expression is outwith the range of the integer. 
+							variable of type number was assigned a value that is 
+							out of the range of the data type number. 
+				\item {\bf IntegerOverflow}: This error would be met if the accumulating result or the final result
+							of an expression is out of the range of the integer. 
 			\end{itemize}
 	
-	\subsubsection{Letter}
-		\label{sec:letter}
-			The letter data type can contain ASCII characters only within 'a' to 'z' and 'A' and 'Z'.
-			This data type would use the respective ASCII representation to store the character.
-
 	\subsubsection{Variables}
 		\label{sec:var}
-			Varibles in MAlice have an String identifier like in most other programming languages.
-			The identifier for a variable can only contains letters (i.e. 'a' to 'z' and 'A' to 'Z'.
-			The first character can be either upper case or lower case but the following character has to be
-			lower case. For example, "TExt" and "MyVar" are not valid identifiers whereas "Variable" and
-			"variable" are valid. Variable can be of type 
-			\emph{number or letter} in MAlice. The errors related to Variables which could be encountered are:
+			Variables in MAlice have a String identifier which consists of letters only.
+			The identifier can start with upper or lower case letter and all the 
+			following letters must be lower case. For example, "TExt" and "MyVar" are not 
+			valid identifiers whereas "Variable" and "variable" are valid. Variables 
+			can be of a type \emph{number} or \emph{letter}. The possible errors encountered
+			when using variables include:
 			\begin{itemize}
-				\item {\bf InvalidAssignment}: A variable of type 'number' can not be assigned to a variable which
-					has a type 'letter' or vice versa.
-				\item {\bf InvalidInitialisation}: An identifier name which has already been initialised can not
-					be used again. All identifier names have to be unique.
+				\item {\bf InvalidAssignment}: A variable of type \emph{number} cannot be 
+					assigned to a variable of a type \emph{letter} and vice versa.
+				\item {\bf InvalidInitialisation}: An identifier name for a variable which 
+					has already been initialised cannot	be used again. All identifier names 
+					must be unique.
 			\end{itemize}
 	
 	\subsection{Mathematical Operations}
 	\label{sec:mathOper}
-		MAlice supports various different mathematical operations. The functionality of all the mathematical
-		operations supported by MAlice is described below with the precedence in brackets:
+		MAlice supports various mathematical operations, the functionality of which is 
+		described below with the precedence in brackets:
 		\begin{itemize}
-			\item {\bf '+'(4)}: This is mathematical add operator and returns the sum of the given two arguments.
-			\item {\bf '$\%$'(3)}: This is the modulus operator and returns the modulus for the given two arguments.
-			\item {\bf '/'(3)}: This is the division operator. A runtime error would be encountered while trying to
-				divide by 0.
-			\item {\bf '\^{ }'(9)}: This bitwise XOR operator. The return value is bitwise XOR operation on each
-				individual bits of the given two arguments.
-			\item {\bf '$\&$'(8)}: This is bitwise AND operator. This retur1)n value is obtained by carrying out 
-				logical AND operation on individual bits of the given two arguments.
-			\item {\bf '$\mid$'(10)}: This is bitwise OR operation. This returns value is obtained by carrying out 
-				logical OR operation on the individual bits of the given two arguments.
-			\item {\bf '$\ast$'(3)}: This is mathematical multiply operator. The return value is the product of the
-				given two arguments.
 			\item {\bf '$\mathtt{\sim}$'(2)}: This is bitwise NOT operator. The return value is obtained by carrying
 				out logical NOT operation on individual bits of the given argument.
+			\item {\bf '$\ast$'(3)}: Mathematical multiply - returns the product of the
+				given arguments.
+			\item {\bf '/'(3)}: Division operator. A runtime error would be encountered 
+				when trying to	divide by 0.
+			\item {\bf '$\%$'(3)}: Modulus operator - returns the reminder after division of 
+				the given arguments.
+			\item {\bf '+'(4)}: Mathematical add - returns the sum of the given arguments.
+			\item {\bf '$\&$'(8)}: Bitwise AND - the return value is obtained by carrying out 
+				logical AND operation on individual bits of the given arguments.
+			\item {\bf '\^{ }'(9)}: Bitwise XOR - the return value is obtained by carrying out 
+				logical XOR operation on individual bits of the given arguments.
+			\item {\bf '$\mid$'(10)}: Bitwise OR - the return value is obtained by carrying out 
+				logical OR operation on the individual bits of the given arguments.
 		\end{itemize}
  
 	\subsection{Predefined Functions}
 	\label{sec:preFunc}
-		MAlice only has two built-in functions. These functions are \emph{"drank"} and \emph{"ate"}. The function
-		\emph{"drank"} decrements the value of the given argument by 1 and \emph{"ate"} increments the value of the
-		given argument by 1. These functions can only be applied to variables of type number.
+		MAlice has two built-in functions, \emph{"ate"} and \emph{"drank"}. These
+		functions respectively increment and decrement the value of the given argument by 1.
+		\emph{"ate"} and \emph{"drank"} can only be applied to variables of a type number.
 
 	\subsection{Statements}
 	\label{sec:statements}
-		MAlice supports the follwing type of programming statments:
+		A MAlice program consists of a sequence of various statements. This can be of following types:
 		\begin{itemize}
-			\item {\bf Initialisation Statement}: The initialisation in MAlice is done by using the identifier
-		 		for the variable and then defining its data type as follows:
+			\item {\bf Initialisation Statement}: The initialisation in MAlice is done by choosing an identifier
+		 		for the variable and then defining its data type by using the keyword \emph{'was a'}, for example:
 				\begin{verbatim}
-					Identifier was a number. Variable was a letter.
-				\end{verbatim}	
-				The Identifer and Variable are the names which would be used to access these variables throughout
-				the program and 'letter' and 'number' are the data types of each of the variables.
-			\item {\bf Assignment Statement}: The assignment can be done either using other letters, variables, numbers,
-				mathematical operations or by applying functions.
-				\begin{verbatim}
-					Identifier became 2. Variable became 'e'. Identifier became Identifier*4.
-					Identifier drank.
+					Seven was a number. A was a letter.
 				\end{verbatim}
-				The keyword \emph{"became"} initialises the given variable with the specified value, for example,
-				'e' in the second case and 2 for the first case.
-			\item {\bf Print Statement}: The print statement is used to output to the standard output. The print
-				statment is as follows which print 24 to standard output:
+				Here 'Seven' and 'A' are the identifieres for two variables of type 
+				\emph{letter} and \emph{number} respectively. The identifiers will be 
+				used to access these variables throughout the program. 
+			\item {\bf Assignment Statement}: The assignment can be done by stating the 
+				variable identifier and using the keyword \emph{'became'} followed by a letter, variable, number, 
+				mathematical operation or function, for example:  
 				\begin{verbatim}
-					Variable said Alice. 6*4 said Alice.
+					Seven became 2. A became 'e'. Seven became Seven*4.
+					Seven drank.
 				\end{verbatim}
-			\item {\bf Function Statement}: There are only two functions which are in domain of MAlice which are
-				\emph{"drank"} and \emph{"ate"}. These functions are applied on variables and the statement for these 
-				functions can only be where 'drank' and then 'ate' is applied to Variable:
+			\item {\bf Print Statement}: The print statement is used to output to the standard output. 
+				The print statement is invoked by stating the variable identifier, letter, number
+				or a mathematical expresion followed by the key phrase \emph{'said Alice'}. For example, the statement
+				\begin{verbatim}
+					6*4 said Alice.
+				\end{verbatim}
+				would print 24 to the standard output.
+			\item {\bf Function Statement}: The function statement is only used when there is a need to apply 
+				one of the MAlice's built in functions. To do this, we state a number or a variable's identifier 
+				followed by the name of the function, for example:
 				\begin{verbatim}
 					Variable drank. Variable ate.	
 				\end{verbatim}
 		\end{itemize}
-		These statements can be joined using the one of the following keywords or symbols, \{ \emph{'.' , ',' , 'and' , 'then' , 'but'}\}.
-		These symbols seperate the statements and each statement is executed in sequential order. Any statement which does not comply with
+		The statements in a program are separated by the following keywords and symbols: 
+		\{ \emph{'.'}, \emph{','}, \emph{'and'}, \emph{'then'}, \emph{'but'}\}.
+		Each statement is executed in sequential order. Any statement which does not comply with
 		the rules of BNF would cause a \emph{SyntaxError}.
 
-	\subsection{The Program Structure}
-	\label{sec:progStr}
-		The program in MAlice starts with function name with empty bracket \emph {"()"} and next line the keyword \emph{"opened"}
-		and then code body of program in MAlice and then the final keyword \emph{"closed"}.
 \end{document}
