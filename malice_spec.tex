@@ -36,8 +36,7 @@ using the Backus-Naur Form (BNF) grammar.
 		\> Number $\rightarrow$ [0-9]+ \\
 		\> Letter $\rightarrow$ [a-zA-Z] \\
 		\> Identifier $\rightarrow$ [a-zA-Z][a-z]* \\
-
-	 	\> FunctionName $\rightarrow$ Identifier \\
+		\> FunctionName $\rightarrow$ Identifier \\
 		\> Data $\rightarrow$ Number $\mid$ Identifier \\
 		\> Expr	$\rightarrow$ Data $\mid$ MONOOP Expr 
 					$\mid$ Data BINOP Data \{ BINOP Data \}\\
@@ -46,69 +45,63 @@ using the Backus-Naur Form (BNF) grammar.
 		\> MONOOP $\rightarrow$ '$\mathtt{\sim}$'\\
 
 		\> DataType $\rightarrow$ \emph{'number'} $\mid$ \emph{'letter'} \\
-		\> Function $\rightarrow$ '\emph{drank}' $\mid$ '\emph{ate}' \\
+		\> PreDefFunction $\rightarrow$ '\emph{drank}' $\mid$ '\emph{ate}' \\
 
 		
 		\> Statement $\rightarrow$ Identifier \emph{'was a'} DataType \{ \emph{'too'} \}\\
 		\> \> $\mid$ Identifier \emph{'became'} ( Letter $\mid$ Expr ) \\
 		\> \>	$\mid$ Expr \emph{'said' 'Alice'} \\
-		\> \> $\mid$ Identifier Function \\
+		\> \> $\mid$ Identifier PreDefFunction \\
 
 				
 		\> StatementConjunctions $\rightarrow$ \emph{'.'} $\mid$ \emph{'and'} $\mid$ \emph{'but'} $\mid$ \emph{','} $\mid$ \emph{'then'} \\
-		\> StatementList $\rightarrow$ $\epsilon$ $\mid$ Statement StatementConjuctions \{Statement StatementConjunctions\} \\
+		\> StatementList $\rightarrow$ $\epsilon$ $\mid$ Statement \{StatementConjunctions Statement\} '.' \\
 
-		\> Program $\rightarrow$ FunctionName  \emph{'()' 'opened' } StatementList '\emph{closed}'
+		\> Function $\rightarrow$ \emph{'The looking-glass'} FunctionName  \emph{'()' 'opened' } StatementList '\emph{closed}'
+		\> Program $\rightarrow$ *****Function {Function}*****
 	\end{tabbing}
+	
 
 \begin{verbatim}
 \end{verbatim}
 
 \section{Semantics}
 \label{sec:semantics}
-	MAlice programs make use of the following:
+	A MAlice program makes use of variables and functions which are building blocks for most of the widely used programming
+	languages. It consists of the following components which have been described further in respective sub-sections
+	together with their limitations:
 	\begin{itemize}
-		\item Variables and Data Types
+		\item Data Types
+		\item Variables 
 		\item Mathematical Operations 
-		\item Predefined Functions  
+		\item Predefined Functions
+		\item Statements
 	\end{itemize}
-	The following sub-sections describe each of these in more detail and state their limitations.
-	The structure of a MAlice program is also defined.
+	
 
-	\subsection{Program Structure}
-	\label{sec:progStr}
-		Each MAlice program starts with the name of a function followed by a pair of brackets and the function definition. 
-		The function definition begins with the keyword \emph{"opened"} which is followed by a sequence of statements. Each statement 
-		within the function definition is indented. The function definition ends with the keyword \emph{"closed"}, which terminates the program.
-
-	\subsection{Variables and Data Types}
-	\label{sec:vardtypes}
-
-	\subsubsection{Data Types}
+	\subsection{Data Types}
 	\label{sec:dtypes}		
-		Malice supports two basic data types, \emph{number} and \emph{letter}. The letter 
+		MAlice supports two basic data types, \emph{number} and \emph{letter}. The letter 
 		data type is represented by a single ASCII character ranging from 'a' to 'z' and 
-		'A' to 'Z'. The number data type is represented by a 9-bit signed integer. MAlice uses the 
+		'A' to 'Z'. The number data type is represented by a 16-bit signed integer. MAlice uses the 
 		Two's Copmlement representation for the number data type which defines
 		the most significant bit to be the complement. This constraints the data type number 
-		to have a specified range of \emph{-256 to 255} and introduces following errors which 
-		will need to be dealt with during compiling or at run time: 
+		to have a specified range of \emph{-65536 to 65535} and introduces the following errors: 
 
 			\begin{itemize}
-				\item {\bf InvalidAssignment}: This error would be encountered if a 
-							variable of type number was assigned a value that is 
-							out of the range of the data type number. 
-				\item {\bf IntegerOverflow}: This error would be met if the accumulating result or the final result
+				\item {\bf InvalidAssignment}: This error would be encountered if the value assigned to a variable
+							is out of the range of data type number.
+				\item {\bf IntegerOverflow}: This error would be encountered if the accumulating result or the final result
 							of an expression is out of the range of the integer. 
 			\end{itemize}
 	
-	\subsubsection{Variables}
+	\subsection{Variables}
 		\label{sec:var}
 			Variables in MAlice have a String identifier which consists of letters only.
 			The identifier can start with upper or lower case letter and all the 
 			following letters must be lower case. For example, "TExt" and "MyVar" are not 
 			valid identifiers whereas "Variable" and "variable" are valid. Variables 
-			can be of a type \emph{number} or \emph{letter}. The possible errors encountered
+			can ***hold*** a value of a type \emph{number} or \emph{letter}. The possible errors encountered
 			when using variables include:
 			\begin{itemize}
 				\item {\bf InvalidAssignment}: A variable of type \emph{number} cannot be 
