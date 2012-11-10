@@ -1,8 +1,8 @@
 from pyparsing import *
 
-st = Word(alphas)
+string = Word(alphas)
 number = Word(nums)
-greet = Word("hello") + "," + number | Word("hello") + "," + st
+greet = Word("hello") + "," + oneOf(list([number, string]))
 
 hello = "hello, 90"
 s2 = "hello, sre"
