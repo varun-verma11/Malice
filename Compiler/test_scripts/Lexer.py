@@ -6,11 +6,11 @@ This is the script to parse the input string into tokens#
 
 from pyparsing import *
 
-NUMBER = Word(nums)
+NUMBER = Literal(nums)
 LETTER = Word(alphas, max=1)
 Identifier = Word(alphas)
 Function_name = Identifier
-String = Word(nums)
+String = Word(alphas)
 DATA = NUMBER | Identifier | String | Letter
 
 BITWISE_NOT = Literal("~")
@@ -25,40 +25,58 @@ BITWISE_AND = Literal("&")
 BITWISE_OR = Literal("|")
 MULTIPLY_OP = Literal("*")
 
-BINARY_OP = PLUS_OP | MINUS_OP | MODULUS_OP | DIVIDE_OP | BITWISE_XOR	| BITWISE_AND | BITWISE_OR | MULTIPLY_OP
+BINARY_OP = PLUS_OP | MINUS_OP | 
+							MODULUS_OP | DIVIDE_OP | BITWISE_XOR	| 
+							BITWISE_AND | BITWISE_OR | MULTIPLY_OP
+
+Logical_Ops = Literal("&&") | Literal("||")
+Relational_Ops = Literal("!=") | Literal("==") | Literal("<") | Literal("<=")
+								| Literal(">") | Literal(">=")
 
 Lpar = Literal("(")
 Rpar = Literal(")")
 
 Expr = Forward()
-Expr = DATA | (Lpar + Expr + Rpar)
-Expr << Combine(MONO_OP + Expr) | Combine(DATA + BINARY_OP + Expr)
+Expr << DATA | Lpar + Expr + Rpar |
+				MONO_OP + Expr | DATA + BINARY_OP + Expr
 
-Data_type = Word("number") | Word("letter")
+Bool_Expr = Forward()
+Bool_Expr << Expr + Relational_Ops + Expr + Optional(Logical_Ops + Bool_Expr)
 
+Data_type = Literal("number") | Literal("letter") | Literal("sentence")
 
-Statement  = ( Identifier + (Word("was a") + 
-																 	( Data_type + Optional(Word("too"))
-																		| Word("number of") + DATA
-																	)
-
-														| Word("became") + ( Expr | LETTER)
-														| oneOf("ate drank")
-														| Word("spoke")
-														| Word("had") + NUMBER + Data_type
-														|
-														)
-						 | Expr + Word("said") + Word("Alice")
-						 | Word("Alice") + Word("found") + Expr
-						 | Word("what was") + Identifier + Literal("?")
-					   | ( Word("perhaps") + Lpar + Bool_Expr + Rpar + Word("so")
-								 
+#in perhaps statment, the statement could end without a full stop so 
+#need to consider that case.
+Statement = Forward()
+StatementList = Forward()
+Statement  << ( Identifier + Optional(Literal("'s")+ NUMBER + Literal("piece")) +
+								(Literal("was a") + 
+									( Data_type + 
+										( Optional(Literal("too")) 
+												| ("of") + DATA
+										)
+									)
+							 | Literal("became") + ( Expr | LETTER)
+							 | oneOf("ate drank")
+							 | Literal("spoke")
+							 | Literal("had") + NUMBER + Data_type
+							)
+						 | Expr + Literal("said") + Literal("Alice")
+						 | Literal("Alice") + Literal("found") + Expr
+						 | Literal("what was") + Identifier + Literal("?")
+					   | ( Literal("perhaps") + Lpar + Bool_Expr + Rpar + Literal("so")
+								 + StatementList
+								 + OneOrMore(Literal("maybe") + Lpar + Bool_Expr + Rpar +
+															StatementList
+														 )  + 
+								 + Literal("or") + Statement + 
+								 Literal("because Alice was unsure which")
 							 )
-						 	
-						 )
+						 | Literal("either") + Lpar + Bool_Expr + Rpar + Literal("so") +
+						 	 	StatementList +	Literal("or") + StatementList +
+								Literal("because Alice was unsure which")
+						)
 
-LPAREN = Literal("(")
-RPAREN = Literal(")")
 COMMA = Literal(",")
 AND = Literal("and")
 BUT = Literal("but")
