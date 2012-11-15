@@ -23,7 +23,7 @@ LPAR : '(';
 RPAR : ')';
 
 //bracket_expr : expr | LPAR expr RPARtype filter text;
-DATA_TYPES: 'number' | 'letter' | 'sentence' ; // need to check for the spider
+data_types: 'number' | 'letter' | 'sentence' ; // need to check for the spider
 
 atom: NUMBER | IDENT ;
 //expr : MONO_OP expr | atom BIN_OP expr | atom ; 
@@ -55,17 +55,14 @@ control_structure
 
 statement 
 		: IDENT
-		 		('was a' DATA_TYPES 
-		 			( 'too'
-		 				| 'of' atom		 				
-		 			)?
-		 			|	('\'s' NUMBER 'piece')?
+		 		('was a' data_types ( 'too' | 'of' atom )? 
+		 		   |	('\'s' NUMBER 'piece')?
 		 				(	 'became'  (expr | LETTER | STRING)
 		 					 | 'ate' 
 		 					 | 'drank' 
 		 					 | 'spoke'
 		 				)
-		 			| 'had' NUMBER DATA_TYPES
+		 			| 'had' NUMBER data_types
 		 		)
 		| expr 'said' 'Alice'
 		| 'Alice' 'found' expr
@@ -73,10 +70,13 @@ statement
 		
 statementList : statement | ;
 
-
+parameter : ('spider')? data_types IDENT ;
+parameters : parameter (( ',' parameter)*)? | ;
 
 function
-				: 'The' 'looking' '-' 'glass' IDENT '()' 
+				: 'The' (   'looking' '-' 'glass' IDENT LPAR parameters RPAR
+				          | 'room' IDENT LPAR parameters RPAR
+				        )
 					'opened'
 					statementList
 					'closed';
