@@ -51,7 +51,7 @@ control_structure
 			  |	'eventually' LPAR bool_expr RPAR 'because'
 			  	statementList
 			  	'enough times'			
-			) ('.')?
+			) ('.')? ;
 
 statement 
 		: IDENT
@@ -69,9 +69,9 @@ statement
 		 		)
 		| expr 'said' 'Alice'
 		| 'Alice' 'found' expr
-		| 'what was' IDENT '?'
+		| 'what was' IDENT '?' ;
 		
-statementList : 
+statementList : statement | ;
 
 
 
