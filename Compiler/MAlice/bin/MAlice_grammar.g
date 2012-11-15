@@ -19,8 +19,8 @@ BIN_OP: '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
 LOGICAL_OPS: '&&' | '||' ;
 RELATIONAL_OPS: '==' | '!=' | '<' | '>' | '<=' | '>=' ;
 
-LPAR : '(';
-RPAR : ')';
+lpar : '(';
+rpar : ')';
 
 //bracket_expr : expr | LPAR expr RPARtype filter text;
 data_types: 'number' | 'letter' | 'sentence' ; // need to check for the spider
@@ -28,14 +28,37 @@ data_types: 'number' | 'letter' | 'sentence' ; // need to check for the spider
 atom: NUMBER | IDENT ;
 //expr : MONO_OP expr | atom BIN_OP expr | atom ; 
 
-expr : expr1;
-expr1 : term expr2 | MONO_OP expr1;
-expr2 : BIN_OP term expr2 | ;
-term: factor term2;
-term2: BIN_OP factor term2| ;
-factor: LPAR expr1 RPAR | IDENT | NUMBER ;
+//expr : expr1;
+//expr1 : term expr2 | MONO_OP expr1;
+//expr2 : BIN_OP term expr2 | ;
+//term: factor term2;
+//term2: BIN_OP factor term2| ;
+//factor: LPAR expr1 RPAR | IDENT | NUMBER ;
 
-bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
+expr : bexpr;// | MONO_OP expr | bexpr (BIN_OP expr)*;
+
+bexpr : LPAR rparend | NUMBER | IDENT;
+rparend: expr RPAR;
+
+//e : LPAR e RPAR | atom
+//    | MON_OP e
+//    | ;
+
+
+//e : LPAR NUMBER BIN_OP NUMBER RPAR;
+
+//exp : atom;// | term;
+bexp : lpar ex2 rpar | ex2;
+ex2: atom | MON_OP ex2 | ex2 BIN_OP ex2;
+
+//term : MONO_OP bexp | bexp BIN_OP bexp;
+
+
+//e1 : MON_OP e | NUMBER | //e BIN_OP e;
+
+//e : '(' e1 ')' e1? ;
+
+//bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
 
 control_structure
 		: (		'perhaps' LPAR bool_expr RPAR 'so'
