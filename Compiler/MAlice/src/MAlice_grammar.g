@@ -9,44 +9,83 @@ fragment
 Digit : '0'..'9';
 NUMBER : Digit Digit*;
 //NUMBER : '0'..'9'+;
-IDENT: ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
+IDENT : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
 WS : (' ' | '\t' | '\n' )+ {$channel = HIDDEN;};
-LETTER: '\'' ('a'..'z' | 'A'..'Z') '\'';
+LETTER : '\'' ('a'..'z' | 'A'..'Z') '\'';
 STRING : '"' ('a'..'z' | 'A'..'Z' | '0'..'9' | ' ')+ '"'; //**** need to check for string for other characters. 
-MONO_OP: '~';
-BIN_OP: '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
+mono_op : '~';
+bin_op : '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
 
-LOGICAL_OPS: '&&' | '||' ;
-RELATIONAL_OPS: '==' | '!=' | '<' | '>' | '<=' | '>=' ;
+logical_ops : '&&' | '||' ;
+relational_ops : '==' | '!=' | '<' | '>' | '<=' | '>=' ;
 
 lpar : '(';
 rpar : ')';
 
-//bracket_expr : expr | LPAR expr RPARtype filter text; 
-data_types: 'number' | 'letter' | 'sentence' ; // need to check for the spider
+data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 
-atom: NUMBER | IDENT ;
+atom : NUMBER | IDENT ;
 //expr : MONO_OP expr | atom BIN_OP expr | atom ; 
+/*
+expr : expr1;
+expr1 : term expr2 | MONO_OP expr1;
+expr2 : BIN_OP term expr2 | ;
+term: factor term2;
+term2: BIN_OP factor term2| ;
+factor: lpar expr1 rpar | IDENT | NUMBER ;
+*/
 
-//expr : expr1;
-//expr1 : term expr2 | MONO_OP expr1;
-//expr2 : BIN_OP term expr2 | ;
-//term: factor term2;
-//term2: BIN_OP factor term2| ;
-//factor: LPAR expr1 RPAR | IDENT | NUMBER ;
+/* expr : e1;
+e1 : atom | mono_op e2 | e2 bin_op e2 ;
+e2 : atom | br;
+br : lpar right;
+right : expr rpar;
 
 
-bracketexpr : lpar expr rpar;
+exp2 : atom 
+       | mono_op exp2
+       | lpar exp2 rpar;
+*/
+
+
+
+
+
+
+
+e : expr;
+
+bracketexpr : lpar expr rpar  ;
+expr : mono_op expr | (atom | bracketexpr) (bin_op expr)* ;    
+
+
+
+
+
+
+
+
+
+
+
+//e : mono_op atom | atom | e bin_op e | lpar e  rpar | EOF;
+
+
+
+
+
+
+
+
+//expr : atom bin_op atom | bracketexpr '+' NUMBER;
+/* 
 expr : atom
-			 | MONO_OP expr 
-			 | (atom | bracketexpr) BIN_OP expr //or (BIN_OP expr)* ? because otherwise we can only get a bracketed one on lhs and we sometimes want an expr 
-			 | bracketexpr ;
+	   | mono_op expr 
+	   | (atom | bracketexpr) (bin_op expr)+ //or (BIN_OP expr)* ? because otherwise we can only get a bracketed one on lhs and we sometimes want an expr 
+		 | bracketexpr ;
+*/
 
-
-//but then we could have:
-//***************************************************************
-//* expr : MONO_OP expr | (atom | bracketexpr) (BIN_OP expr)* ; *		 
-//***************************************************************
+ 
 
 
 //JUST IN CASE:
