@@ -58,46 +58,47 @@ ex2: atom | MON_OP ex2 | ex2 BIN_OP ex2;
 
 //e : '(' e1 ')' e1? ;
 
-//bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
+bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
 
 control_structure
-		: (		'perhaps' LPAR bool_expr RPAR 'so'
+		: (		'perhaps' lpar bool_expr rpar 'so'
 					statementList 
-						('maybe' LPAR bool_expr RPAR statementList)+
+						('maybe' lpar bool_expr rpar statementList)*
 					'or' statementList
 					'because Alice was unsure which'
-			  | 'either' LPAR bool_expr RPAR 'so'
+			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
 			  	'or' statmentList
-			  	'because Alice was unsure which'
-			  	
-			  |	'eventually' LPAR bool_expr RPAR 'because'
+			  	'because Alice was unsure which'			  	
+			  |	'eventually' lpar bool_expr rpar 'because'
 			  	statementList
 			  	'enough times'			
 			) ('.')? ;
 
 statement 
 		: IDENT
-		 		('was a' data_types ( 'too' | 'of' atom )? 
-		 		   |	('\'s' NUMBER 'piece')?
-		 				(	 'became'  (expr | LETTER | STRING)
+		 		( |	('\'s' NUMBER 'piece')?
+		 				(	   'became'  (expr | LETTER | STRING)
 		 					 | 'ate' 
 		 					 | 'drank' 
 		 					 | 'spoke'
 		 				)
 		 			| 'had' NUMBER data_types
+		 			| 'was a' data_types ( 'too' | 'of' atom )?
 		 		)
 		| expr 'said' 'Alice'
 		| 'Alice' 'found' expr
 		| 'what was' IDENT '?' ;
 		
-statementList : statement | ;
+statement_conjunctions : '.' | ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
+
+statementList : statement '.' | ;
 
 parameter : ('spider')? data_types IDENT ;
-parameters : parameter (( ',' parameter)*)? | ;
+parameters : (parameter (( ',' parameter)*)?)? ;
 
 function
-				: 'The' (   'looking' '-' 'glass' IDENT LPAR parameters RPAR
+				: 'The' (   'looking' '-' 'glass' IDENT lpar parameters rpar
 				          | 'room' IDENT LPAR parameters RPAR
 				        )
 					'opened'
