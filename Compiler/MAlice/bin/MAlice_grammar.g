@@ -58,22 +58,7 @@ e : expr;
 bracketexpr : lpar expr rpar  ;
 expr : mono_op expr | (atom | bracketexpr) (bin_op expr)* ;    
 
-
-
-
-
-
-
-
-
-
-
 //e : mono_op atom | atom | e bin_op e | lpar e  rpar | EOF;
-
-
-
-
-
 
 
 
@@ -120,13 +105,13 @@ control_structure
 statement 
 		: IDENT
 		 		( |	('\'s' NUMBER 'piece')?
-		 				(	   'became'  (expr | LETTER | STRING)
+		 				(	   'became'  (e | LETTER | STRING)
 		 					 | 'ate' 
 		 					 | 'drank' 
 		 					 | 'spoke'
 		 				)
 		 			| 'had' NUMBER data_types
-		 			| 'was a' data_types ( 'too' | 'of' atom )?
+		 			| 'was a' data_types ( 'too' | 'of' expr)?
 		 		)
 		| expr 'said' 'Alice'
 		| 'Alice' 'found' expr
@@ -139,12 +124,13 @@ statementList : statement '.' | ;
 parameter : ('spider')? data_types IDENT ;
 parameters : (parameter (( ',' parameter)*)?)? ;
 
+function_type : func_return | func_no_return ;
+func_return : 'room' ;
+func_no_return : 'looking-glass' ;
 function
-				: 'The' (   'looking' '-' 'glass' IDENT lpar parameters rpar
-				          | 'room' IDENT LPAR parameters RPAR
-				        )
+				: 'The' function_type IDENT lpar parameters rpar
 					'opened'
 					statementList
 					'closed';
 				
-program : IDENT;
+program : IDENT EOF;
