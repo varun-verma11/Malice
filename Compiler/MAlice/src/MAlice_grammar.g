@@ -29,52 +29,7 @@ atom : NUMBER | IDENT ;
 
 expr : ex;
 bracketexpr : lpar ex rpar  ;
-
-<<<<<<< HEAD
 ex : mono_op ex | (atom | bracketexpr) (bin_op ex)* ;    
-=======
-exp2 : atom 
-       | mono_op exp2
-       | lpar exp2 rpar;
-*/
-
-
-
-
-
-
-
-e : expr;
-
-bracketexpr : lpar expr rpar  ;
-expr : mono_op expr | (atom | bracketexpr) (bin_op expr)* ;    
-
-//e : mono_op atom | atom | e bin_op e | lpar e  rpar | EOF;
-
-
-
-//expr : atom bin_op atom | bracketexpr '+' NUMBER;
-/* 
-expr : atom
-	   | mono_op expr 
-	   | (atom | bracketexpr) (bin_op expr)+ //or (BIN_OP expr)* ? because otherwise we can only get a bracketed one on lhs and we sometimes want an expr 
-		 | bracketexpr ;
-*/
-
- 
-
-
-//JUST IN CASE:
-
-//expr : bexpr;// | MONO_OP expr | bexpr (BIN_OP expr)*;
-
-
-//exp : atom;// | term;
-//bexp : lpar ex2 rpar | ex2;
-//ex2: atom | MON_OP ex2 | ex2 BIN_OP ex2;
-
-//term : MONO_OP bexp | bexp BIN_OP bexp;
->>>>>>> c1b2f620ade5c3707b3cdcaf4e0e083106d6f7ef
 
 
 bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
