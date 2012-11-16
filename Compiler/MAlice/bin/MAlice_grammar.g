@@ -26,13 +26,12 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 
 atom : NUMBER | IDENT ;
 
-
 expr : ex;
-bracketexpr : lpar ex rpar  ;
+bracketexpr : lpar ex rpar ;
 ex : mono_op ex | (atom | bracketexpr) (bin_op ex)* ;    
 
 
-bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
+bool_expr : expr relational_ops expr ((logical_ops bool_expr)*)? ;
 
 control_structure
 		: (		'perhaps' lpar bool_expr rpar 'so'
@@ -64,18 +63,17 @@ statement
 		| 'Alice' 'found' expr
 		| 'what was' IDENT '?' ;
 		
-statement_conjunctions : '.' | ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
+statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
 
-statementList : statement '.' | ;
+statementList : (statement (statement_conjunctions statement)* '.'| control_structure )*;
 
 parameter : ('spider')? data_types IDENT ;
 parameters : (parameter (( ',' parameter)*)?)? ;
 
-function_type : func_return | func_no_return ;
-func_return : 'room' ;
-func_no_return : 'looking-glass' ;
 function
-				: 'The' function_type IDENT lpar parameters rpar
+				: 'The' (   'looking-glass' IDENT lpar parameters rpar
+				          | 'room' IDENT lpar parameters rpar 'contained a' data_types
+				        )
 					'opened'
 					statementList
 					'closed';
