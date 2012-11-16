@@ -22,7 +22,7 @@ RELATIONAL_OPS: '==' | '!=' | '<' | '>' | '<=' | '>=' ;
 lpar : '(';
 rpar : ')';
 
-//bracket_expr : expr | LPAR expr RPARtype filter text;
+//bracket_expr : expr | LPAR expr RPARtype filter text; 
 data_types: 'number' | 'letter' | 'sentence' ; // need to check for the spider
 
 atom: NUMBER | IDENT ;
@@ -35,30 +35,33 @@ atom: NUMBER | IDENT ;
 //term2: BIN_OP factor term2| ;
 //factor: LPAR expr1 RPAR | IDENT | NUMBER ;
 
-expr : bexpr;// | MONO_OP expr | bexpr (BIN_OP expr)*;
 
-bexpr : LPAR rparend | NUMBER | IDENT;
-rparend: expr RPAR;
-
-//e : LPAR e RPAR | atom
-//    | MON_OP e
-//    | ;
+bracketexpr : lpar expr rpar;
+expr : atom
+			 | MONO_OP expr 
+			 | (atom | bracketexpr) BIN_OP expr //or (BIN_OP expr)* ? because otherwise we can only get a bracketed one on lhs and we sometimes want an expr 
+			 | bracketexpr ;
 
 
-//e : LPAR NUMBER BIN_OP NUMBER RPAR;
+//but then we could have:
+//***************************************************************
+//* expr : MONO_OP expr | (atom | bracketexpr) (BIN_OP expr)* ; *		 
+//***************************************************************
+
+
+//JUST IN CASE:
+
+//expr : bexpr;// | MONO_OP expr | bexpr (BIN_OP expr)*;
+
 
 //exp : atom;// | term;
-bexp : lpar ex2 rpar | ex2;
-ex2: atom | MON_OP ex2 | ex2 BIN_OP ex2;
+//bexp : lpar ex2 rpar | ex2;
+//ex2: atom | MON_OP ex2 | ex2 BIN_OP ex2;
 
 //term : MONO_OP bexp | bexp BIN_OP bexp;
 
 
-//e1 : MON_OP e | NUMBER | //e BIN_OP e;
-
-//e : '(' e1 ')' e1? ;
-
-//bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
+bool_expr : expr RELATIONAL_OPS expr ((LOGICAL_OPS bool_expr)*)? ;
 
 control_structure
 		: (		'perhaps' LPAR bool_expr RPAR 'so'
