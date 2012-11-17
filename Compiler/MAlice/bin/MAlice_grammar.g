@@ -12,7 +12,8 @@ NUMBER : Digit Digit*;
 IDENT : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
 WS : (' ' | '\t' | '\n' )+ {$channel = HIDDEN;};
 LETTER : '\'' ('a'..'z' | 'A'..'Z') '\'';
-STRING : '"' ('a'..'z' | 'A'..'Z' | '0'..'9' | ' ')+ '"'; //**** need to check for string for other characters. 
+STRING :'"' (~('"'|'\n'|'\r'))* '"';
+//STRING : '\"' ('a'..'z' | 'A'..'Z' | '0'..'9' | ' ' | '\n' )+ '\"'; //**** need to check for string for other characters. 
 mono_op : '~';
 bin_op : '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
 
@@ -51,7 +52,9 @@ control_structure
 declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' expr)? 
                                 | 'had' NUMBER data_types
                                );
- 
+
+argument: IDENT | NUMBER | LETTER | STRING ;
+arguments_to_functions : (argument ((',' argument)*)?)?;
 rest_statements :  
       IDENT
         ( ('\'s' NUMBER 'piece')?
@@ -63,10 +66,11 @@ rest_statements :
           //| 'had' NUMBER data_types
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
-    | expr 'said' 'Alice'
+    | argument 'said' 'Alice'
     | 'Alice' 'found' expr
+    | function_name lpar arguments_to_functions rpar 
     | 'what was' IDENT '?' ;
- 
+
 statement : rest_statements	| declaration_statements ;
 		
 statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
@@ -75,12 +79,14 @@ statementList : (statement (statement_conjunctions statement)* '.'| control_stru
 
 parameter : ('spider')? data_types IDENT ;
 parameters : (parameter (( ',' parameter)*)?)? ;
+function_name : IDENT;
 
-function: 'The' (   'looking-glass' IDENT lpar parameters rpar
-				          | 'room' IDENT lpar parameters rpar 'contained a' data_types
+function: 'The' (   'looking-glass' function_name lpar parameters rpar
+				          | 'room' function_name lpar parameters rpar 'contained a' data_types
 				        )
 					'opened'
 					statementList
 					'closed';
-				
-program : declation_statments* functions+ EOF;
+					
+global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')  ;
+program : global_declaration functions+ EOF;
