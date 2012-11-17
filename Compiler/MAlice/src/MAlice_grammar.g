@@ -89,4 +89,4 @@ function: 'The' (   'looking-glass' function_name lpar parameters rpar
 					'closed';
 					
 global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')  ;
-program : global_declaration functions+ EOF;
+program : global_declaration function+ EOF;
