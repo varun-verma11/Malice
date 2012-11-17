@@ -48,20 +48,26 @@ control_structure
 			  	'enough times'			
 			) ('.')? ;
 
-statement 
-		: IDENT
-		 		( |	('\'s' NUMBER 'piece')?
-		 				(	   'became'  (e | LETTER | STRING)
-		 					 | 'ate' 
-		 					 | 'drank' 
-		 					 | 'spoke'
-		 				)
-		 			| 'had' NUMBER data_types
-		 			| 'was a' data_types ( 'too' | 'of' expr)?
-		 		)
-		| expr 'said' 'Alice'
-		| 'Alice' 'found' expr
-		| 'what was' IDENT '?' ;
+declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' expr)? 
+                                | 'had' NUMBER data_types
+                               );
+ 
+rest_statements :  
+      IDENT
+        ( ('\'s' NUMBER 'piece')?
+            (    'became'  (e | LETTER | STRING)
+               | 'ate' 
+               | 'drank' 
+               | 'spoke'
+            )
+          //| 'had' NUMBER data_types
+          //| 'was a' data_types ( 'too' | 'of' expr)?
+        )
+    | expr 'said' 'Alice'
+    | 'Alice' 'found' expr
+    | 'what was' IDENT '?' ;
+ 
+statement : rest_statements	| declaration_statements ;
 		
 statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
 
@@ -70,12 +76,11 @@ statementList : (statement (statement_conjunctions statement)* '.'| control_stru
 parameter : ('spider')? data_types IDENT ;
 parameters : (parameter (( ',' parameter)*)?)? ;
 
-function
-				: 'The' (   'looking-glass' IDENT lpar parameters rpar
+function: 'The' (   'looking-glass' IDENT lpar parameters rpar
 				          | 'room' IDENT lpar parameters rpar 'contained a' data_types
 				        )
 					'opened'
 					statementList
 					'closed';
 				
-program : IDENT EOF;
+program : declation_statments* functions+ EOF;
