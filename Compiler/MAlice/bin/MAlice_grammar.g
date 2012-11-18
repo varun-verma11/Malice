@@ -29,7 +29,7 @@ atom : NUMBER | IDENT ;
 
 expr : ex;
 bracketexpr : lpar ex rpar ;
-ex : mono_op ex | (atom | bracketexpr) (bin_op ex)* ;    
+ex : mono_op ex | (atom | bracketexpr) (bin_op ex)* | '-' ex ;    
 
 
 bool_expr : expr relational_ops expr ((logical_ops bool_expr)*)? ;
@@ -65,16 +65,17 @@ rest_statements :
           //| 'had' NUMBER data_types
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
-    | argument ( 'said' 'Alice' | 'spoke' ) 
+    | (argument) ( 'said' 'Alice' | 'spoke' ) 
     | 'Alice' 'found' expr
-    | function_name lpar arguments_to_functions rpar 
+    | function_call ( 'said' 'Alice' | 'spoke' )?l
     | 'what was' IDENT '?' ;
 
+function_call :  function_name lpar arguments_to_functions rpar ;
 statement : rest_statements	| declaration_statements ;
 		
-statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
+statement_conjunctions : ',' | 'and' | 'then' | 'but' | '.';//check for all cunjunctions
 
-statementList : (statement (statement_conjunctions statement)* '.'| control_structure | nested_function)*;
+statementList : (control_structure | nested_function | statement (statement_conjunctions statement)* '.')*;
 
 parameter : ('spider')? data_types IDENT ;
 parameters : (parameter (( ',' parameter)*)?)? ;
@@ -88,5 +89,5 @@ function: 'The' (   'looking-glass' function_name lpar parameters rpar
 					statementList
 					'closed';
 					
-global_declaration : (declaration_statements ((statement_conjunctions| '.' ) declaration_statements)* '.')  ;
-program : global_declaration function+ EOF;
+global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')  ;
+program : global_declaration? function+ EOF;
