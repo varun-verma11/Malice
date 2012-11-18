@@ -58,15 +58,14 @@ arguments_to_functions : (argument ((',' argument)*)?)?;
 rest_statements :  
       IDENT
         ( ('\'s' NUMBER 'piece')?
-            (    'became'  (e | LETTER | STRING)
+            (    'became'  (expr | LETTER | STRING)
                | 'ate' 
-               | 'drank' 
-               | 'spoke'
+               | 'drank'
             )
           //| 'had' NUMBER data_types
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
-    | argument 'said' 'Alice'
+    | argument ( 'said' 'Alice' | 'spoke' ) 
     | 'Alice' 'found' expr
     | function_name lpar arguments_to_functions rpar 
     | 'what was' IDENT '?' ;
@@ -75,12 +74,13 @@ statement : rest_statements	| declaration_statements ;
 		
 statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
 
-statementList : (statement (statement_conjunctions statement)* '.'| control_structure )*;
+statementList : (statement (statement_conjunctions statement)* '.'| control_structure | nested_function)*;
 
 parameter : ('spider')? data_types IDENT ;
 parameters : (parameter (( ',' parameter)*)?)? ;
 function_name : IDENT;
 
+nested_function : 'opened' statementList 'closed' ;
 function: 'The' (   'looking-glass' function_name lpar parameters rpar
 				          | 'room' function_name lpar parameters rpar 'contained a' data_types
 				        )
