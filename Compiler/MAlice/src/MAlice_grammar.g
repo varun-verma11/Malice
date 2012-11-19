@@ -61,14 +61,17 @@ rest_statements :
             (    'became'  (expr | LETTER | STRING)
                | 'ate' 
                | 'drank'
+               | 'said Alice' 
+               | 'spoke'
             )
           //| 'had' NUMBER data_types
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
-    | (argument) ( 'said' 'Alice' | 'spoke' ) 
+    | (NUMBER | LETTER| STRING ) ( 'said Alice' | 'spoke' ) 
     | 'Alice' 'found' expr
-    | function_call ( 'said' 'Alice' | 'spoke' )?l
+    | function_call ( 'said' 'Alice' | 'spoke' )?
     | 'what was' IDENT '?' ;
+
 
 function_call :  function_name lpar arguments_to_functions rpar ;
 statement : rest_statements	| declaration_statements ;
