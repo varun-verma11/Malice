@@ -29,7 +29,7 @@ atom : NUMBER | IDENT ;
 
 expr : ex;
 bracketexpr : lpar ex rpar ;
-ex : mono_op ex | (atom | bracketexpr) (bin_op ex)* | '-' ex ;    
+ex : mono_op ex | (atom | array_elem | bracketexpr) (bin_op ex)* | '-' ex ;    
 
 
 bool_expr : expr relational_ops expr ((logical_ops bool_expr)*)? ;
@@ -48,16 +48,18 @@ control_structure
 			  	'enough times'			
 			) ('.')? ;
 
+array_elem : IDENT '\'s' atom 'piece';
+
 declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' (LETTER | STRING | expr))? 
                                 | 'had' atom data_types//its atom here because we can use variable too -> see test12
                                );
  
-argument: IDENT ('\'s' atom 'piece')? | NUMBER | LETTER | STRING;
+argument: IDENT | NUMBER | LETTER | STRING | array_elem;
 arguments_to_functions : (argument ((',' argument)*)?)? | function_call;
 rest_statements :  
       IDENT
         ( ('\'s' atom 'piece')?
-            (    'became'  (expr | LETTER | STRING)
+            (    'became'  (expr | LETTER | STRING | function_call )
                | 'ate' 
                | 'drank'
                | 'said Alice' 
@@ -66,6 +68,7 @@ rest_statements :
           //| 'had' NUMBER data_types
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
+    | expr 'spoke'    
     | (NUMBER | LETTER | STRING ) ( 'said Alice' | 'spoke' ) 
     | 'Alice' 'found' expr
     | function_call ( 'said' 'Alice' | 'spoke' )?
