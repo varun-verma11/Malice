@@ -41,7 +41,7 @@ control_structure
 					'because Alice was unsure which'
 			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
-			  	'or' statmentList
+			  	('or' statementList)*
 			  	'because Alice was unsure which'			  	
 			  |	'eventually' lpar bool_expr rpar 'because'
 			  	statementList
