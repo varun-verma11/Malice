@@ -14,10 +14,10 @@ WS : (' ' | '\t' | '\n' )+ {$channel = HIDDEN;};
 LETTER : '\'' ('a'..'z' | 'A'..'Z') '\'';
 STRING :'"' (~('"'|'\n'|'\r'))* '"';
 //STRING : '\"' ('a'..'z' | 'A'..'Z' | '0'..'9' | ' ' | '\n' )+ '\"'; //**** need to check for string for other characters. 
-mono_op : '~' | '!';
+mono_op : '~';
 bin_op : '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
 
-logical_ops : '&&' | '||' ;
+logical_ops : '&&' | '||' | '!';
 relational_ops : '==' | '!=' | '<' | '>' | '<=' | '>=' ;
 
 lpar : '(';
@@ -28,11 +28,14 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 atom : NUMBER | IDENT ;
 
 expr : ex;
-bracketexpr : lpar ex rpar ;
+bracketexpr : lpar expr rpar ;
 ex : mono_op ex | (atom | array_elem | bracketexpr) (bin_op ex)* | '-' ex ;    
 
+not_expr : '!' lpar bool_expr rpar;
 
-bool_expr : expr relational_ops expr ((logical_ops bool_expr)*)? ;
+bool_expr : expr relational_ops expr (logical_ops (expr | not_expr) | relational_ops expr)*; 
+
+//bool_expr : expr relational_ops expr ((logical_ops bool_expr)*)? ;
 
 control_structure
 		: (		'perhaps' lpar bool_expr rpar 'so'
