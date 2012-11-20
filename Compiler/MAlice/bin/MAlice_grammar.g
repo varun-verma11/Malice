@@ -8,13 +8,13 @@ options {
 fragment
 Digit : '0'..'9';
 NUMBER : Digit Digit*;
-//NUMBER : '0'..'9'+;
+//NUMBER : ('0'..'9')+;
 IDENT : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
 WS : (' ' | '\t' | '\n' )+ {$channel = HIDDEN;};
 LETTER : '\'' ('a'..'z' | 'A'..'Z') '\'';
 STRING :'"' (~('"'|'\n'|'\r'))* '"';
 //STRING : '\"' ('a'..'z' | 'A'..'Z' | '0'..'9' | ' ' | '\n' )+ '\"'; //**** need to check for string for other characters. 
-mono_op : '~';
+mono_op : '~' | '!';
 bin_op : '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
 
 logical_ops : '&&' | '||' ;
@@ -48,15 +48,15 @@ control_structure
 			  	'enough times'			
 			) ('.')? ;
 
-declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' expr)? 
-                                | 'had' NUMBER data_types
+declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' (LETTER | STRING | expr))? 
+                                | 'had' atom data_types//its atom here because we can use variable too -> see test12
                                );
  
 argument: IDENT | NUMBER | LETTER | STRING;
 arguments_to_functions : (argument ((',' argument)*)?)? | function_call;
 rest_statements :  
       IDENT
-        ( ('\'s' NUMBER 'piece')?
+        ( ('\'s' atom 'piece')?
             (    'became'  (expr | LETTER | STRING)
                | 'ate' 
                | 'drank'
