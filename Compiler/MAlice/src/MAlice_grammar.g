@@ -51,9 +51,9 @@ control_structure
 declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' expr)? 
                                 | 'had' NUMBER data_types
                                );
-
-argument: IDENT | NUMBER | LETTER | STRING ;
-arguments_to_functions : (argument ((',' argument)*)?)?;
+ 
+argument: IDENT | NUMBER | LETTER | STRING;
+arguments_to_functions : (argument ((',' argument)*)?)? | function_call;
 rest_statements :  
       IDENT
         ( ('\'s' NUMBER 'piece')?
@@ -73,7 +73,7 @@ rest_statements :
 
 
 function_call :  function_name lpar arguments_to_functions rpar ;
-statement : rest_statements	| declaration_statements | control_structure | nested_function | statement_conjunctions;
+statement : rest_statements	| declaration_statements | control_structure | nested_function | statement_conjunctions | function;
 		
 statement_conjunctions : ',' | 'and' | 'then' | 'but' | '.';//check for all cunjunctions
 
