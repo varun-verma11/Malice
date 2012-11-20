@@ -37,8 +37,7 @@ bool_expr : expr relational_ops expr ((logical_ops bool_expr)*)? ;
 control_structure
 		: (		'perhaps' lpar bool_expr rpar 'so'
 					statementList 
-						('maybe' lpar bool_expr rpar statementList)*
-					'or' statementList
+          ('or' ('maybe' lpar bool_expr rpar 'so')? statementList)*
 					'because Alice was unsure which'
 			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
@@ -74,13 +73,13 @@ rest_statements :
 
 
 function_call :  function_name lpar arguments_to_functions rpar ;
-statement : rest_statements	| declaration_statements | control_structure | nested_function;
+statement : rest_statements	| declaration_statements | control_structure | nested_function | statement_conjunctions;
 		
 statement_conjunctions : ',' | 'and' | 'then' | 'but' | '.';//check for all cunjunctions
 
 //**************************************************
 
-statementList : statement (statement_conjunctions statement)* ('.')? ;
+statementList : (statement)*; //(statement_conjunctions statement)* ('.')? ;
 
 
 //**************************************************
