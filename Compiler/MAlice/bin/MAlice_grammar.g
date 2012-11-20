@@ -67,20 +67,29 @@ rest_statements :
           //| 'had' NUMBER data_types
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
-    | (NUMBER | LETTER| STRING ) ( 'said Alice' | 'spoke' ) 
+    | (NUMBER | LETTER | STRING ) ( 'said Alice' | 'spoke' ) 
     | 'Alice' 'found' expr
     | function_call ( 'said' 'Alice' | 'spoke' )?
     | 'what was' IDENT '?' ;
 
 
 function_call :  function_name lpar arguments_to_functions rpar ;
-statement : rest_statements	| declaration_statements ;
+statement : rest_statements	| declaration_statements | control_structure | nested_function;
 		
 statement_conjunctions : ',' | 'and' | 'then' | 'but' | '.';//check for all cunjunctions
 
-statementList : (control_structure | nested_function | statement (statement_conjunctions statement)* '.')*;
+//**************************************************
+
+statementList : statement (statement_conjunctions statement)* ('.')? ;
+
+
+//**************************************************
+
+//statementList : (control_structure | nested_function | statement (statement_conjunctions statement)* '.')*;
 
 parameter : ('spider')? data_types IDENT ;
+
+//is there any reason why we have ((',' parameter)*)? instead of just (',' parameter)* ???
 parameters : (parameter (( ',' parameter)*)?)? ;
 function_name : IDENT;
 
