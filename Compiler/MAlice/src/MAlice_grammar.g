@@ -52,7 +52,7 @@ declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' (LETTER | STR
                                 | 'had' atom data_types//its atom here because we can use variable too -> see test12
                                );
  
-argument: IDENT | NUMBER | LETTER | STRING;
+argument: IDENT ('\'s' atom 'piece')? | NUMBER | LETTER | STRING;
 arguments_to_functions : (argument ((',' argument)*)?)? | function_call;
 rest_statements :  
       IDENT
@@ -70,6 +70,7 @@ rest_statements :
     | 'Alice' 'found' expr
     | function_call ( 'said' 'Alice' | 'spoke' )?
     | 'what was' IDENT '?' ;
+
 
 
 function_call :  function_name lpar arguments_to_functions rpar ;
