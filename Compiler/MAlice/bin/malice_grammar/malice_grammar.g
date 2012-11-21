@@ -130,7 +130,7 @@ rest_statements :
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
     | (expr | LETTER | STRING ) ('spoke' | 'said Alice')    
-    | 'Alice' 'found' expr
+    | 'Alice' 'found' (expr | LETTER | STRING |function_call)
     | function_call ('spoke' | 'said Alice')?
     | 'what was' IDENT '?' ;
 

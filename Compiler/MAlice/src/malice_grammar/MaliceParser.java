@@ -8,7 +8,8 @@ import org.antlr.runtime.TokenStream;
 
 public class MaliceParser {
 	public static void main(String[] args) throws RecognitionException {
-		CharStream input = new ANTLRStringStream(
+		String[] programs = 
+			{
 				"x was a number of 3. " + '\n' +
 				"The looking-glass hatta() " + '\n' +
 				"opened " + '\n' +
@@ -21,11 +22,33 @@ public class MaliceParser {
 				"The room abs(number b) contained a letter " + '\n' +
 				"opened " + '\n' +
 					"b spoke. " + '\n' +
-				"closed " + '\n'); 
-		malice_grammarLexer lexer = new malice_grammarLexer(input );
-		TokenStream tokens = new CommonTokenStream(lexer);
-		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-		parser.program() ;
-		System.out.println("done");
+				"closed " + '\n'
+			,
+				"x was a letter of 'c'. \n" +
+				"The looking-glass hatta() " + '\n' +
+				"opened " + '\n' +
+					"The room private() contained a letter " + '\n' +
+					"opened " + '\n' +
+						"Alice found abs(x) and " + '\n' +
+						"abs(y) spoke. " + '\n' + 
+					"closed" + '\n' +
+					"x became 'y'. " + '\n' +
+				"closed " + '\n' +
+				"The room abs(number b) contained a letter " + '\n' +
+				"opened " + '\n' +
+					"b spoke. " + '\n' +
+				"closed " + '\n'				
+			};
+		int i = 0 ;
+		for (String p: programs) {
+			i++;
+			CharStream input = new ANTLRStringStream(p); 
+			malice_grammarLexer lexer = new malice_grammarLexer(input );
+			TokenStream tokens = new CommonTokenStream(lexer);
+			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
+			parser.program() ;
+			System.out.println("done program " + i + "...");
+		}
+		
 	}
 }
