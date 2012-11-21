@@ -8,11 +8,24 @@ import org.antlr.runtime.TokenStream;
 
 public class MaliceParser {
 	public static void main(String[] args) throws RecognitionException {
-		CharStream input = new ANTLRStringStream("malice found x");
+		CharStream input = new ANTLRStringStream(
+				"x was a number of 3. " + '\n' +
+				"The looking-glass hatta() " + '\n' +
+				"opened " + '\n' +
+					"The room private() contained a letter " + '\n' +
+					"opened " + '\n' +
+						"Alice found 1. " + '\n' +
+					"closed" + '\n' +
+					"x became 'y'. " + '\n' +
+				"closed " + '\n' +
+				"The room abs(number b) contained a letter " + '\n' +
+				"opened " + '\n' +
+					"b spoke. " + '\n' +
+				"closed " + '\n'); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-		parser.rule() ;
+		parser.program() ;
 		System.out.println("done");
 	}
 }
