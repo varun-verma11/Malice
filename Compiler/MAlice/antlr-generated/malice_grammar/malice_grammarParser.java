@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // $ANTLR 3.4 /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-21 14:04:51
+=======
+// $ANTLR 3.4 /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-21 13:40:42
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
   package malice_grammar ;
 
@@ -11,6 +15,7 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class malice_grammarParser extends Parser {
     public static final String[] tokenNames = new String[] {
+<<<<<<< HEAD
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "IDENT", "LETTER", "NUMBER", "STRING", "WS", "'!'", "'!='", "'%'", "'&&'", "'&'", "'('", "')'", "'*'", "'+'", "'-'", "'/'", "'<'", "'<='", "'=='", "'>'", "'>='", "'^'", "'|'", "'||'", "'~'"
     };
 
@@ -40,6 +45,14 @@ public class malice_grammarParser extends Parser {
     public static final int NUMBER=6;
     public static final int STRING=7;
     public static final int WS=8;
+=======
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "IDENT", "WS"
+    };
+
+    public static final int EOF=-1;
+    public static final int IDENT=4;
+    public static final int WS=5;
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
     // delegates
     public Parser[] getDelegates() {
@@ -61,6 +74,7 @@ public class malice_grammarParser extends Parser {
 
 
 
+<<<<<<< HEAD
     // $ANTLR start "atom"
     // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:23:1: atom : ( NUMBER | IDENT ) ;
     public final void atom() throws RecognitionException {
@@ -978,17 +992,35 @@ public class malice_grammarParser extends Parser {
 
             // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:43:20: ( '||' bool_and )*
             loop13:
+=======
+    // $ANTLR start "rule"
+    // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:15:1: rule : ( IDENT )+ ;
+    public final void rule() throws RecognitionException {
+        try {
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:15:5: ( ( IDENT )+ )
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:15:7: ( IDENT )+
+            {
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:15:7: ( IDENT )+
+            int cnt1=0;
+            loop1:
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
             do {
                 int alt13=2;
                 int LA13_0 = input.LA(1);
 
+<<<<<<< HEAD
                 if ( (LA13_0==27) ) {
                     alt13=1;
+=======
+                if ( (LA1_0==IDENT) ) {
+                    alt1=1;
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
                 }
 
 
                 switch (alt13) {
             	case 1 :
+<<<<<<< HEAD
             	    // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:43:21: '||' bool_and
             	    {
             	    match(input,27,FOLLOW_27_in_bool_or410); 
@@ -998,13 +1030,26 @@ public class malice_grammarParser extends Parser {
 
             	    state._fsp--;
 
+=======
+            	    // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:15:7: IDENT
+            	    {
+            	    match(input,IDENT,FOLLOW_IDENT_in_rule38); 
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
             	    }
             	    break;
 
             	default :
+<<<<<<< HEAD
             	    break loop13;
+=======
+            	    if ( cnt1 >= 1 ) break loop1;
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
                 }
+                cnt1++;
             } while (true);
 
 
@@ -1079,11 +1124,42 @@ public class malice_grammarParser extends Parser {
     }
     // $ANTLR end "program"
 
+
+
+    // $ANTLR start "program"
+    // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:16:1: program : rule ;
+    public final void program() throws RecognitionException {
+        try {
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:16:8: ( rule )
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:16:10: rule
+            {
+            pushFollow(FOLLOW_rule_in_program46);
+            rule();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "program"
+
     // Delegated rules
 
 
  
 
+<<<<<<< HEAD
     public static final BitSet FOLLOW_14_in_lpar167 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_15_in_rpar174 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_atom_in_term182 = new BitSet(new long[]{0x0000000000000002L});
@@ -1127,5 +1203,9 @@ public class malice_grammarParser extends Parser {
     public static final BitSet FOLLOW_bool_and_in_bool_or412 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_bool_or_in_bool_expr423 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STRING_in_program527 = new BitSet(new long[]{0x0000000000000002L});
+=======
+    public static final BitSet FOLLOW_IDENT_in_rule38 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule_in_program46 = new BitSet(new long[]{0x0000000000000002L});
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
 }

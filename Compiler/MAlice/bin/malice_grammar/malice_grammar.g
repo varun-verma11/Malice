@@ -12,6 +12,7 @@ options {
   package malice_grammar ;
 }
 
+<<<<<<< HEAD
 NUMBER : '0'..'9'+;
 IDENT : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
 WS : (' ' | '\t' | '\n' )+ {$channel = HIDDEN;};
@@ -124,3 +125,9 @@ function: 'The' (   'looking-glass' function_name lpar parameters rpar
 					
 global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')  ;
 program : global_declaration? function+ EOF;
+=======
+rule: IDENT+ ;
+program: rule ;
+IDENT: 'a'..'z'+;
+WS: (' ' | '\t' | '\n' )+ {$channel = HIDDEN;} ;
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747

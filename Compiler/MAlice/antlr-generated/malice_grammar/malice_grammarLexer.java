@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // $ANTLR 3.4 /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-21 14:04:52
+=======
+// $ANTLR 3.4 /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-21 13:40:43
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
   package malice_grammar ;
 
@@ -11,6 +15,7 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class malice_grammarLexer extends Lexer {
     public static final int EOF=-1;
+<<<<<<< HEAD
     public static final int T__9=9;
     public static final int T__10=10;
     public static final int T__11=11;
@@ -36,6 +41,10 @@ public class malice_grammarLexer extends Lexer {
     public static final int NUMBER=6;
     public static final int STRING=7;
     public static final int WS=8;
+=======
+    public static final int IDENT=4;
+    public static final int WS=5;
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
     // delegates
     // delegators
@@ -52,6 +61,7 @@ public class malice_grammarLexer extends Lexer {
     }
     public String getGrammarFileName() { return "/homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g"; }
 
+<<<<<<< HEAD
     // $ANTLR start "T__9"
     public final void mT__9() throws RecognitionException {
         try {
@@ -486,20 +496,31 @@ public class malice_grammarLexer extends Lexer {
 
     // $ANTLR start "NUMBER"
     public final void mNUMBER() throws RecognitionException {
+=======
+    // $ANTLR start "IDENT"
+    public final void mIDENT() throws RecognitionException {
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
         try {
-            int _type = NUMBER;
+            int _type = IDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
             // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:8: ( ( '0' .. '9' )+ )
             // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:10: ( '0' .. '9' )+
             {
             // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:10: ( '0' .. '9' )+
+=======
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:6: ( ( 'a' .. 'z' )+ )
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:8: ( 'a' .. 'z' )+
+            {
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:8: ( 'a' .. 'z' )+
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
             int cnt1=0;
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0 >= '0' && LA1_0 <= '9')) ) {
+                if ( ((LA1_0 >= 'a' && LA1_0 <= 'z')) ) {
                     alt1=1;
                 }
 
@@ -508,7 +529,7 @@ public class malice_grammarLexer extends Lexer {
             	case 1 :
             	    // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:
             	    {
-            	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+            	    if ( (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
             	    }
             	    else {
@@ -540,13 +561,14 @@ public class malice_grammarLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "NUMBER"
+    // $ANTLR end "IDENT"
 
-    // $ANTLR start "IDENT"
-    public final void mIDENT() throws RecognitionException {
+    // $ANTLR start "WS"
+    public final void mWS() throws RecognitionException {
         try {
-            int _type = IDENT;
+            int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
             // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:7: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
             // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:9: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             {
@@ -561,12 +583,19 @@ public class malice_grammarLexer extends Lexer {
 
 
             // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:30: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+=======
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:3: ( ( ' ' | '\\t' | '\\n' )+ )
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:5: ( ' ' | '\\t' | '\\n' )+
+            {
+            // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:5: ( ' ' | '\\t' | '\\n' )+
+            int cnt2=0;
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0 >= '0' && LA2_0 <= '9')||(LA2_0 >= 'A' && LA2_0 <= 'Z')||(LA2_0 >= 'a' && LA2_0 <= 'z')) ) {
+                if ( ((LA2_0 >= '\t' && LA2_0 <= '\n')||LA2_0==' ') ) {
                     alt2=1;
                 }
 
@@ -575,6 +604,7 @@ public class malice_grammarLexer extends Lexer {
             	case 1 :
             	    // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:
             	    {
+<<<<<<< HEAD
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
             	    }
@@ -629,6 +659,8 @@ public class malice_grammarLexer extends Lexer {
             	case 1 :
             	    // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:
             	    {
+=======
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
             	    if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)==' ' ) {
             	        input.consume();
             	    }
@@ -643,12 +675,12 @@ public class malice_grammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt3 >= 1 ) break loop3;
+            	    if ( cnt2 >= 1 ) break loop2;
                         EarlyExitException eee =
-                            new EarlyExitException(3, input);
+                            new EarlyExitException(2, input);
                         throw eee;
                 }
-                cnt3++;
+                cnt2++;
             } while (true);
 
 
@@ -665,6 +697,7 @@ public class malice_grammarLexer extends Lexer {
     }
     // $ANTLR end "WS"
 
+<<<<<<< HEAD
     // $ANTLR start "LETTER"
     public final void mLETTER() throws RecognitionException {
         try {
@@ -688,10 +721,17 @@ public class malice_grammarLexer extends Lexer {
             match('\''); 
 
             }
+=======
+    public void mTokens() throws RecognitionException {
+        // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:8: ( IDENT | WS )
+        int alt3=2;
+        int LA3_0 = input.LA(1);
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
-            state.type = _type;
-            state.channel = _channel;
+        if ( ((LA3_0 >= 'a' && LA3_0 <= 'z')) ) {
+            alt3=1;
         }
+<<<<<<< HEAD
         finally {
         	// do for sure before leaving
         }
@@ -957,15 +997,21 @@ public class malice_grammarLexer extends Lexer {
             }
             break;
         default:
+=======
+        else if ( ((LA3_0 >= '\t' && LA3_0 <= '\n')||LA3_0==' ') ) {
+            alt3=2;
+        }
+        else {
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
             NoViableAltException nvae =
-                new NoViableAltException("", 5, 0, input);
+                new NoViableAltException("", 3, 0, input);
 
             throw nvae;
 
         }
-
-        switch (alt5) {
+        switch (alt3) {
             case 1 :
+<<<<<<< HEAD
                 // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:10: T__9
                 {
                 mT__9(); 
@@ -983,20 +1029,29 @@ public class malice_grammarLexer extends Lexer {
                 break;
             case 3 :
                 // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:21: T__11
+=======
+                // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:10: IDENT
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
                 {
                 mT__11(); 
 
 
                 }
                 break;
+<<<<<<< HEAD
             case 4 :
                 // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:27: T__12
+=======
+            case 2 :
+                // /homes/vv311/Malice/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:16: WS
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
                 {
                 mT__12(); 
 
 
                 }
                 break;
+<<<<<<< HEAD
             case 5 :
                 // /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:33: T__13
                 {
@@ -1165,6 +1220,8 @@ public class malice_grammarLexer extends Lexer {
 
                 }
                 break;
+=======
+>>>>>>> 1e6f3e71d600768ed2211ed3b101b3966206f747
 
         }
 
