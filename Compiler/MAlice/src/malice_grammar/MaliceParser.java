@@ -68,7 +68,8 @@ public class MaliceParser {
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
 			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-			parser.program() ;
+			malice_grammarParser.program_return tree = parser.program() ;
+			System.out.println(tree.toString());
 			System.out.println("done program " + i + "...");
 		}
 		
