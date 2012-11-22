@@ -1,5 +1,6 @@
 grammar malice_grammar;
 
+
 options {
   language = Java;
   output = AST ;
@@ -67,33 +68,33 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 //
 //atom : NUMBER | IDENT ;
 ////
-////term : atom ;//| lpar expr rpar ;
-////unary_op : term ;// (('~' | '-')+)? term ;
-////mult :unary_op (('*' | '/' | '%') unary_op)* ;
-////add : mult (('+' | '-') mult)* ;
-////bitw_and : add ('&' add)* ;
-////bitw_xor : bitw_and ('^' bitw_and)* ;
-////bitw_or : bitw_xor ('|' bitw_xor)* ;
-////
-////expr : bitw_or;
-////
-////bool_neg : '!'* term ;
-////bool_comp : bool_neg (('<=' | '<' | '>' | '>=') bool_neg)* ;
-////bool_eq : bool_comp (('&&' | '||') bool_comp)* ;
-////
-////bool_expr : bool_eq ;
+term : atom | lpar expr rpar ;
+unary_op : (('~' | '-')+)? term ;
+mult :unary_op (('*' | '/' | '%') unary_op)* ;
+add : mult (('+' | '-') mult)* ;
+bitw_and : add ('&' add)* ;
+bitw_xor : bitw_and ('^' bitw_and)* ;
+bitw_or : bitw_xor ('|' bitw_xor)* ;
+
+expr : bitw_or;
+
+bool_neg : '!'* term ;
+bool_comp : bool_neg (('<=' | '<' | '>' | '>=') bool_neg)* ;
+bool_eq : bool_comp (('&&' | '||') bool_comp)* ;
+
+bool_expr : bool_eq ;
 //
 //
 //
-expr : ex;
-bracketexpr : lpar expr rpar ;
-ex : mono_op ex | (atom | array_elem | bracketexpr) ;//(bin_op ex)* ;    
+//expr : ex;
+//bracketexpr : lpar expr rpar ;
+//ex : mono_op ex | (atom | array_elem | bracketexpr) (bin_op ex)* ;    
 
 //not_expr : '!' lpar bool_expr rpar;
 
 //bool_expr : expr relational_ops expr ;//(logical_ops (expr | not_expr) | relational_ops expr)*; 
 
-bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
+//bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
 
 control_structure
 		: (	'perhaps' lpar bool_expr rpar 'so'
@@ -108,7 +109,7 @@ control_structure
 			  |	'eventually' lpar bool_expr rpar 'because'
 			  	statementList
 			  	'enough times'	
-			) '.';
+			) '.'?;
 			
 
 //array_elem : IDENT '\'s' atom 'piece';
