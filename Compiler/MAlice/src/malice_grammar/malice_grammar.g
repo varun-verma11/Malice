@@ -15,6 +15,8 @@ options {
   package malice_grammar ;
 }
 
+
+
 rule: STRING* ;
 
 //Digit : '0'..'9';
@@ -76,13 +78,15 @@ bitw_and : add ('&' add)* ;
 bitw_xor : bitw_and ('^' bitw_and)* ;
 bitw_or : bitw_xor ('|' bitw_xor)* ;
 
-expr : bitw_or;
+expr : bitw_or | function_call;
 
 bool_neg : '!'* term ;
 bool_comp : bool_neg (('<=' | '<' | '>' | '>=') bool_neg)* ;
 bool_eq : bool_comp (('&&' | '||') bool_comp)* ;
 
 bool_expr : bool_eq ;
+
+
 //
 //
 //
@@ -100,7 +104,7 @@ control_structure
 		: (	'perhaps' lpar bool_expr rpar 'so'
 					statementList 
 				('maybe' lpar bool_expr rpar 'so' statementList)*
-				'or' statementList
+				('or' statementList)*
 				'because Alice was unsure which'
 			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
@@ -123,7 +127,7 @@ arguments_to_functions : (argument (',' argument)*)? | function_call;
 rest_statements :  
       IDENT
         ( ('\'s' atom 'piece')?
-            (    'became'  (expr | LETTER | STRING | function_call )
+            (    'became'  (expr | LETTER | STRING)//function_call
                | 'ate' 
                | 'drank'
             )
@@ -149,7 +153,7 @@ statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjuncti
 //
 ////**************************************************
 //
-statementList : (control_structure | nested_function | function |statement (statement_conjunctions statement)* '.')*;
+statementList : (control_structure | nested_function | function |statement (statement_conjunctions statement)* '.'?)*;
 //
 parameter : ('spider')? data_types IDENT ;
 //

@@ -1,5 +1,6 @@
 grammar malice_grammar;
 
+
 options {
   language = Java;
   output = AST ;
@@ -13,6 +14,8 @@ options {
 @lexer::header {
   package malice_grammar ;
 }
+
+
 
 rule: STRING* ;
 
@@ -68,20 +71,22 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 //atom : NUMBER | IDENT ;
 ////
 term : atom | lpar expr rpar ;
-unary_op : term ;// (('~' | '-')+)? term ;
+unary_op : (('~' | '-')+)? term ;
 mult :unary_op (('*' | '/' | '%') unary_op)* ;
 add : mult (('+' | '-') mult)* ;
 bitw_and : add ('&' add)* ;
 bitw_xor : bitw_and ('^' bitw_and)* ;
 bitw_or : bitw_xor ('|' bitw_xor)* ;
 
-expr : bitw_or;
+expr : bitw_or | function_call;
 
 bool_neg : '!'* term ;
 bool_comp : bool_neg (('<=' | '<' | '>' | '>=') bool_neg)* ;
 bool_eq : bool_comp (('&&' | '||') bool_comp)* ;
 
 bool_expr : bool_eq ;
+
+
 //
 //
 //
@@ -93,13 +98,13 @@ bool_expr : bool_eq ;
 
 //bool_expr : expr relational_ops expr ;//(logical_ops (expr | not_expr) | relational_ops expr)*; 
 
-bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
+//bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
 
 control_structure
 		: (	'perhaps' lpar bool_expr rpar 'so'
 					statementList 
 				('maybe' lpar bool_expr rpar 'so' statementList)*
-				'or' statementList
+				('or' statementList)*
 				'because Alice was unsure which'
 			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
@@ -108,7 +113,7 @@ control_structure
 			  |	'eventually' lpar bool_expr rpar 'because'
 			  	statementList
 			  	'enough times'	
-			) '.';
+			) '.'?;
 			
 
 //array_elem : IDENT '\'s' atom 'piece';
@@ -122,7 +127,7 @@ arguments_to_functions : (argument (',' argument)*)? | function_call;
 rest_statements :  
       IDENT
         ( ('\'s' atom 'piece')?
-            (    'became'  (expr | LETTER | STRING | function_call )
+            (    'became'  (expr | LETTER | STRING)
                | 'ate' 
                | 'drank'
             )
@@ -148,7 +153,7 @@ statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjuncti
 //
 ////**************************************************
 //
-statementList : (control_structure | nested_function | function |statement (statement_conjunctions statement)* '.')*;
+statementList : (control_structure | nested_function | function |statement (statement_conjunctions statement)* '.'?)*;
 //
 parameter : ('spider')? data_types IDENT ;
 //
