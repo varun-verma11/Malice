@@ -15,8 +15,6 @@ options {
   package malice_grammar ;
 }
 
-
-
 rule: STRING* ;
 
 //Digit : '0'..'9';
@@ -32,8 +30,8 @@ rpar: ')' ;
 mono_op : '~';
 bin_op : '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
 relational_ops : '==' | '!=' | '<' | '>' | '<=' | '>=' ;
-array_elem : IDENT '\'s' atom 'piece';
-atom: NUMBER | variable;
+array_elem : IDENT '\'s' expr 'piece';
+atom: NUMBER | variable | array_elem | function_call;
 variable : IDENT ;
 
 //term :
@@ -78,15 +76,13 @@ bitw_and : add ('&' add)* ;
 bitw_xor : bitw_and ('^' bitw_and)* ;
 bitw_or : bitw_xor ('|' bitw_xor)* ;
 
-expr : bitw_or | function_call;
+expr : bitw_or;
 
 bool_neg : '!'* term ;
 bool_comp : bool_neg (('<=' | '<' | '>' | '>=') bool_neg)* ;
 bool_eq : bool_comp (('&&' | '||') bool_comp)* ;
 
 bool_expr : bool_eq ;
-
-
 //
 //
 //
@@ -101,11 +97,11 @@ bool_expr : bool_eq ;
 //bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
 
 control_structure
-		: (	'perhaps' lpar bool_expr rpar 'so'
-					statementList 
-				('maybe' lpar bool_expr rpar 'so' statementList)*
-				('or' statementList)*
-				'because Alice was unsure which'
+			: (	'perhaps' lpar bool_expr rpar 'so'
+						statementList 
+					('or maybe' lpar bool_expr rpar 'so' statementList)*
+					'or' statementList
+					'because Alice was unsure which'
 			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
 			  	'or' statementList
@@ -120,25 +116,29 @@ control_structure
 //
 declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' (LETTER | STRING | expr))? 
                                 | 'had' atom data_types//its atom here because we can use variable too -> see test12
-                               );
+                               )
+                        ;
  
 argument: IDENT | NUMBER | LETTER | STRING | array_elem;
 arguments_to_functions : (argument (',' argument)*)? | function_call;
-rest_statements :  
-      IDENT
+rest_statements :   ((expr print) =>  (expr print)      
+    |   (LETTER | STRING) print
+    |  IDENT
         ( ('\'s' atom 'piece')?
-            (    'became'  (expr | LETTER | STRING)//function_call
+            (    'became'  (expr | LETTER | STRING )
                | 'ate' 
                | 'drank'
             )
           //| 'had' NUMBER data_types
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
-    | (expr | LETTER | STRING ) ('spoke' | 'said Alice')    
-    | 'Alice' 'found' (expr | LETTER | STRING |function_call)
+    | 'Alice' 'found' (expr | LETTER | STRING )
     | function_call ('spoke' | 'said Alice')?
     | 'what was' IDENT '?' ;
 
+print:
+    'spoke' | 'said Alice'
+    ;
 
 
 function_call :  function_name lpar arguments_to_functions rpar ;
@@ -153,7 +153,7 @@ statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjuncti
 //
 ////**************************************************
 //
-statementList : (control_structure | nested_function | function |statement (statement_conjunctions statement)* '.'?)*;
+statementList : (control_structure | nested_function | function |statement (statement_conjunctions statement)* '.')*;
 //
 parameter : ('spider')? data_types IDENT ;
 //
