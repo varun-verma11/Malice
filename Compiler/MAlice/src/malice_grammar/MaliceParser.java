@@ -1,5 +1,7 @@
 package malice_grammar;
 
+import java.io.IOException;
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -7,7 +9,7 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 
 public class MaliceParser {
-	public static void main(String[] args) throws RecognitionException {
+	public static void main(String[] args) throws IOException, RecognitionException {
 		
 		String control_eventually = 
 				"eventually (c==0) because" +  '\n' +
@@ -70,6 +72,15 @@ public class MaliceParser {
 					"b spoke. " + '\n' +
 				"closed " + '\n'
 			};
+		
+		CharStream input = new ANTLRStringStream("c"); 
+		malice_grammarLexer lexer = new malice_grammarLexer(input );
+		TokenStream tokens = new CommonTokenStream(lexer);
+		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
+		parser.expr();
+		System.out.println("done");
+		
+		/*
 		int i = 0 ;
 		for (String p: programs) {
 			i++;
@@ -80,6 +91,23 @@ public class MaliceParser {
 			malice_grammarParser.program_return tree = parser.program() ;
 			System.out.println(tree.toString());
 			System.out.println("done program " + i + "...");
+		}*/
+		
+		/*
+		String[] ps = ("ackermann.alice binarySearch.alice bubbleSort.alice fibonacciIterative.alice " +
+				"fibonacciRecursive.alice gcdIterative.alice gcdRecursive.alice " +
+				"sieveOfEratosthenes.alice test01.alice test02.alice test03.alice " +
+				"test04.alice test05.alice test06.alice test07.alice test08.alice test09.alice " +
+				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
+		for(String p: ps) {
+			System.out.println(p + " started");
+			CharStream input = new ANTLRFileStream("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p); 
+			malice_grammarLexer lexer = new malice_grammarLexer(input );
+			TokenStream tokens = new CommonTokenStream(lexer);
+			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
+			parser.program() ;
+			System.out.println(p + " done");
 		}
+		*/
 	}
 }

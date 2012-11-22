@@ -21,7 +21,7 @@ rule: STRING* ;
 //NUMBER : Digit Digit*;
 NUMBER : ('0'..'9')+;
 IDENT : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
-WS : (' ' | '\t' | '\n' )+ {$channel = HIDDEN;};
+WS : (' ' | '\t' | '\n' |'\r' )+ {$channel = HIDDEN;};
 LETTER : '\'' ('a'..'z' | 'A'..'Z') '\'';
 STRING :'"' (~('"'|'\n'|'\r'))* '"';
 
@@ -31,8 +31,7 @@ mono_op : '~';
 bin_op : '+' | '-' | '%' | '/' | '*' | '^' | '&' | '|';
 relational_ops : '==' | '!=' | '<' | '>' | '<=' | '>=' ;
 array_elem : IDENT '\'s' expr 'piece';
-atom: NUMBER | variable | array_elem | function_call;
-variable : IDENT ;
+atom: IDENT ('\'s' expr 'piece')? | NUMBER | function_call;
 
 //term :
 //		IDENT
@@ -69,7 +68,7 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 //atom : NUMBER | IDENT ;
 ////
 term : atom | lpar expr rpar ;
-unary_op : (('~' | '-')+)? term ;
+unary_op : ('~' | '-')* term ;
 mult :unary_op (('*' | '/' | '%') unary_op)* ;
 add : mult (('+' | '-') mult)* ;
 bitw_and : add ('&' add)* ;
@@ -121,7 +120,7 @@ declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' (LETTER | STR
  
 argument: IDENT | NUMBER | LETTER | STRING | array_elem;
 arguments_to_functions : (argument (',' argument)*)? | function_call;
-rest_statements :   ((expr print) =>  (expr print)      
+rest_statements :   (expr print) =>  (expr print)      
     |   (LETTER | STRING) print
     |  IDENT
         ( ('\'s' atom 'piece')?
@@ -133,7 +132,7 @@ rest_statements :   ((expr print) =>  (expr print)
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
     | 'Alice' 'found' (expr | LETTER | STRING )
-    | function_call ('spoke' | 'said Alice')?
+    //| function_call ('spoke' | 'said Alice')?
     | 'what was' IDENT '?' ;
 
 print:
