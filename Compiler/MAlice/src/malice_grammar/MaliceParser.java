@@ -37,8 +37,25 @@ public class MaliceParser {
 				"The room abs(number b) contained a letter " + '\n' +
 				"opened " + '\n' +
 					"b spoke. " + '\n' +
-				"closed " + '\n'				
-			};
+				"closed " + '\n'
+			,
+			"x was a letter of 'c'. \n" +
+			"The looking-glass hatta() " + '\n' +
+			"opened " + '\n' +
+				"perhaps (x<2) so \n" +
+					"c spoke. \n" +
+				"maybe (x<1) so \n" +
+					"y spoke. \n" +
+				"or \n" +
+					"c spoke. \n"+
+				"because Alice was unsure which." +
+			"closed " + '\n' +
+			"The room abs(number b) contained a letter " + '\n' +
+			"opened " + '\n' +
+				"b spoke. " + '\n' +
+			"closed " + '\n'
+		};
+		
 		int i = 0 ;
 		for (String p: programs) {
 			i++;

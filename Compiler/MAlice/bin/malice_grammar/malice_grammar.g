@@ -47,8 +47,8 @@ variable : IDENT ;
 //relation: add (relational_op add)* ;
 //expr: relation (('&&' | '||') relation)* ;
 
-expr : e | lpar e rpar ;
-e: mono_op expr | atom | atom bin_op expr ;
+//expr : e | lpar e rpar ;
+//expr: atom | mono_op expr | atom bin_op atom   ;
 
 
 
@@ -85,18 +85,18 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 //
 //
 //
-//expr : ex;
-//bracketexpr : lpar expr rpar ;
-//ex : mono_op ex | (atom | array_elem | bracketexpr) (bin_op ex)* | '-' ex ;    
+expr : ex;
+bracketexpr : lpar expr rpar ;
+ex : mono_op ex | (atom | array_elem | bracketexpr) (bin_op ex)* ;    
 
-not_expr : '!' lpar bool_expr rpar;
+//not_expr : '!' lpar bool_expr rpar;
 
-bool_expr : expr relational_ops expr (logical_ops (expr | not_expr) | relational_ops expr)*; 
-//
-////bool_expr : expr relational_ops expr ((logical_ops bool_expr)*)? ;
-//
+//bool_expr : expr relational_ops expr ;//(logical_ops (expr | not_expr) | relational_ops expr)*; 
+
+bool_expr : expr relational_ops expr (logical_ops expr)* ;
+
 control_structure
-		: (	'perhaps' bool_expr rpar 'so'
+		: (	'perhaps' lpar bool_expr rpar 'so'
 					statementList 
 				('maybe' lpar bool_expr rpar 'so' statementList)*
 				'or' statementList

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-21 23:17:22
+// $ANTLR 3.4 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-22 00:10:07
 
   package malice_grammar ;
 
@@ -727,293 +727,6 @@ public TreeAdaptor getTreeAdaptor() {
     // $ANTLR end "variable"
 
 
-    public static class expr_return extends ParserRuleReturnScope {
-        CommonTree tree;
-        public Object getTree() { return tree; }
-    };
-
-
-    // $ANTLR start "expr"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:50:1: expr : ( e | lpar e rpar );
-    public final malice_grammarParser.expr_return expr() throws RecognitionException {
-        malice_grammarParser.expr_return retval = new malice_grammarParser.expr_return();
-        retval.start = input.LT(1);
-
-
-        CommonTree root_0 = null;
-
-        malice_grammarParser.e_return e14 =null;
-
-        malice_grammarParser.lpar_return lpar15 =null;
-
-        malice_grammarParser.e_return e16 =null;
-
-        malice_grammarParser.rpar_return rpar17 =null;
-
-
-
-        try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:50:6: ( e | lpar e rpar )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
-
-            if ( (LA3_0==IDENT||LA3_0==NUMBER||LA3_0==67) ) {
-                alt3=1;
-            }
-            else if ( (LA3_0==14) ) {
-                alt3=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt3) {
-                case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:50:8: e
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-
-                    pushFollow(FOLLOW_e_in_expr309);
-                    e14=e();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, e14.getTree());
-
-                    }
-                    break;
-                case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:50:12: lpar e rpar
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-
-                    pushFollow(FOLLOW_lpar_in_expr313);
-                    lpar15=lpar();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, lpar15.getTree());
-
-                    pushFollow(FOLLOW_e_in_expr315);
-                    e16=e();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, e16.getTree());
-
-                    pushFollow(FOLLOW_rpar_in_expr317);
-                    rpar17=rpar();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, rpar17.getTree());
-
-                    }
-                    break;
-
-            }
-            retval.stop = input.LT(-1);
-
-
-            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return retval;
-    }
-    // $ANTLR end "expr"
-
-
-    public static class e_return extends ParserRuleReturnScope {
-        CommonTree tree;
-        public Object getTree() { return tree; }
-    };
-
-
-    // $ANTLR start "e"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:1: e : ( mono_op expr | atom | atom bin_op expr );
-    public final malice_grammarParser.e_return e() throws RecognitionException {
-        malice_grammarParser.e_return retval = new malice_grammarParser.e_return();
-        retval.start = input.LT(1);
-
-
-        CommonTree root_0 = null;
-
-        malice_grammarParser.mono_op_return mono_op18 =null;
-
-        malice_grammarParser.expr_return expr19 =null;
-
-        malice_grammarParser.atom_return atom20 =null;
-
-        malice_grammarParser.atom_return atom21 =null;
-
-        malice_grammarParser.bin_op_return bin_op22 =null;
-
-        malice_grammarParser.expr_return expr23 =null;
-
-
-
-        try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:2: ( mono_op expr | atom | atom bin_op expr )
-            int alt4=3;
-            switch ( input.LA(1) ) {
-            case 67:
-                {
-                alt4=1;
-                }
-                break;
-            case NUMBER:
-                {
-                int LA4_2 = input.LA(2);
-
-                if ( ((LA4_2 >= 9 && LA4_2 <= 10)||LA4_2==12||LA4_2==15||LA4_2==18||LA4_2==20||(LA4_2 >= 22 && LA4_2 <= 26)||LA4_2==32||LA4_2==37||LA4_2==56||LA4_2==58||(LA4_2 >= 60 && LA4_2 <= 61)||LA4_2==66) ) {
-                    alt4=2;
-                }
-                else if ( (LA4_2==11||LA4_2==13||(LA4_2 >= 16 && LA4_2 <= 17)||LA4_2==19||LA4_2==21||LA4_2==31||LA4_2==65) ) {
-                    alt4=3;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 4, 2, input);
-
-                    throw nvae;
-
-                }
-                }
-                break;
-            case IDENT:
-                {
-                int LA4_3 = input.LA(2);
-
-                if ( ((LA4_3 >= 9 && LA4_3 <= 10)||LA4_3==12||LA4_3==15||LA4_3==18||LA4_3==20||(LA4_3 >= 22 && LA4_3 <= 26)||LA4_3==32||LA4_3==37||LA4_3==56||LA4_3==58||(LA4_3 >= 60 && LA4_3 <= 61)||LA4_3==66) ) {
-                    alt4=2;
-                }
-                else if ( (LA4_3==11||LA4_3==13||(LA4_3 >= 16 && LA4_3 <= 17)||LA4_3==19||LA4_3==21||LA4_3==31||LA4_3==65) ) {
-                    alt4=3;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 4, 3, input);
-
-                    throw nvae;
-
-                }
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
-
-                throw nvae;
-
-            }
-
-            switch (alt4) {
-                case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:4: mono_op expr
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-
-                    pushFollow(FOLLOW_mono_op_in_e324);
-                    mono_op18=mono_op();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, mono_op18.getTree());
-
-                    pushFollow(FOLLOW_expr_in_e326);
-                    expr19=expr();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, expr19.getTree());
-
-                    }
-                    break;
-                case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:19: atom
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-
-                    pushFollow(FOLLOW_atom_in_e330);
-                    atom20=atom();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, atom20.getTree());
-
-                    }
-                    break;
-                case 3 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:26: atom bin_op expr
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-
-                    pushFollow(FOLLOW_atom_in_e334);
-                    atom21=atom();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, atom21.getTree());
-
-                    pushFollow(FOLLOW_bin_op_in_e336);
-                    bin_op22=bin_op();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, bin_op22.getTree());
-
-                    pushFollow(FOLLOW_expr_in_e338);
-                    expr23=expr();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, expr23.getTree());
-
-                    }
-                    break;
-
-            }
-            retval.stop = input.LT(-1);
-
-
-            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return retval;
-    }
-    // $ANTLR end "e"
-
-
     public static class logical_ops_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
@@ -1029,9 +742,9 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token set24=null;
+        Token set14=null;
 
-        CommonTree set24_tree=null;
+        CommonTree set14_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:60:13: ( '&&' | '||' | '!' )
@@ -1040,12 +753,12 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            set24=(Token)input.LT(1);
+            set14=(Token)input.LT(1);
 
             if ( input.LA(1)==9||input.LA(1)==12||input.LA(1)==66 ) {
                 input.consume();
                 adaptor.addChild(root_0, 
-                (CommonTree)adaptor.create(set24)
+                (CommonTree)adaptor.create(set14)
                 );
                 state.errorRecovery=false;
             }
@@ -1094,9 +807,9 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token set25=null;
+        Token set15=null;
 
-        CommonTree set25_tree=null;
+        CommonTree set15_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:12: ( 'number' | 'letter' | 'sentence' )
@@ -1105,12 +818,12 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            set25=(Token)input.LT(1);
+            set15=(Token)input.LT(1);
 
             if ( input.LA(1)==46||input.LA(1)==49||input.LA(1)==57 ) {
                 input.consume();
                 adaptor.addChild(root_0, 
-                (CommonTree)adaptor.create(set25)
+                (CommonTree)adaptor.create(set15)
                 );
                 state.errorRecovery=false;
             }
@@ -1144,65 +857,38 @@ public TreeAdaptor getTreeAdaptor() {
     // $ANTLR end "data_types"
 
 
-    public static class not_expr_return extends ParserRuleReturnScope {
+    public static class expr_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
 
-    // $ANTLR start "not_expr"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:1: not_expr : '!' lpar bool_expr rpar ;
-    public final malice_grammarParser.not_expr_return not_expr() throws RecognitionException {
-        malice_grammarParser.not_expr_return retval = new malice_grammarParser.not_expr_return();
+    // $ANTLR start "expr"
+    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:1: expr : ex ;
+    public final malice_grammarParser.expr_return expr() throws RecognitionException {
+        malice_grammarParser.expr_return retval = new malice_grammarParser.expr_return();
         retval.start = input.LT(1);
 
 
         CommonTree root_0 = null;
 
-        Token char_literal26=null;
-        malice_grammarParser.lpar_return lpar27 =null;
-
-        malice_grammarParser.bool_expr_return bool_expr28 =null;
-
-        malice_grammarParser.rpar_return rpar29 =null;
+        malice_grammarParser.ex_return ex16 =null;
 
 
-        CommonTree char_literal26_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:10: ( '!' lpar bool_expr rpar )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:12: '!' lpar bool_expr rpar
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:6: ( ex )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:8: ex
             {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            char_literal26=(Token)match(input,9,FOLLOW_9_in_not_expr416); 
-            char_literal26_tree = 
-            (CommonTree)adaptor.create(char_literal26)
-            ;
-            adaptor.addChild(root_0, char_literal26_tree);
-
-
-            pushFollow(FOLLOW_lpar_in_not_expr418);
-            lpar27=lpar();
+            pushFollow(FOLLOW_ex_in_expr377);
+            ex16=ex();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, lpar27.getTree());
-
-            pushFollow(FOLLOW_bool_expr_in_not_expr420);
-            bool_expr28=bool_expr();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, bool_expr28.getTree());
-
-            pushFollow(FOLLOW_rpar_in_not_expr422);
-            rpar29=rpar();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, rpar29.getTree());
+            adaptor.addChild(root_0, ex16.getTree());
 
             }
 
@@ -1225,7 +911,305 @@ public TreeAdaptor getTreeAdaptor() {
         }
         return retval;
     }
-    // $ANTLR end "not_expr"
+    // $ANTLR end "expr"
+
+
+    public static class bracketexpr_return extends ParserRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "bracketexpr"
+    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:1: bracketexpr : lpar expr rpar ;
+    public final malice_grammarParser.bracketexpr_return bracketexpr() throws RecognitionException {
+        malice_grammarParser.bracketexpr_return retval = new malice_grammarParser.bracketexpr_return();
+        retval.start = input.LT(1);
+
+
+        CommonTree root_0 = null;
+
+        malice_grammarParser.lpar_return lpar17 =null;
+
+        malice_grammarParser.expr_return expr18 =null;
+
+        malice_grammarParser.rpar_return rpar19 =null;
+
+
+
+        try {
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:13: ( lpar expr rpar )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:15: lpar expr rpar
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+
+            pushFollow(FOLLOW_lpar_in_bracketexpr384);
+            lpar17=lpar();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, lpar17.getTree());
+
+            pushFollow(FOLLOW_expr_in_bracketexpr386);
+            expr18=expr();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, expr18.getTree());
+
+            pushFollow(FOLLOW_rpar_in_bracketexpr388);
+            rpar19=rpar();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, rpar19.getTree());
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "bracketexpr"
+
+
+    public static class ex_return extends ParserRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "ex"
+    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:1: ex : ( mono_op ex | ( atom | array_elem | bracketexpr ) ( bin_op ex )* );
+    public final malice_grammarParser.ex_return ex() throws RecognitionException {
+        malice_grammarParser.ex_return retval = new malice_grammarParser.ex_return();
+        retval.start = input.LT(1);
+
+
+        CommonTree root_0 = null;
+
+        malice_grammarParser.mono_op_return mono_op20 =null;
+
+        malice_grammarParser.ex_return ex21 =null;
+
+        malice_grammarParser.atom_return atom22 =null;
+
+        malice_grammarParser.array_elem_return array_elem23 =null;
+
+        malice_grammarParser.bracketexpr_return bracketexpr24 =null;
+
+        malice_grammarParser.bin_op_return bin_op25 =null;
+
+        malice_grammarParser.ex_return ex26 =null;
+
+
+
+        try {
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:4: ( mono_op ex | ( atom | array_elem | bracketexpr ) ( bin_op ex )* )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==67) ) {
+                alt5=1;
+            }
+            else if ( (LA5_0==IDENT||LA5_0==NUMBER||LA5_0==14) ) {
+                alt5=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt5) {
+                case 1 :
+                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:6: mono_op ex
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_mono_op_in_ex396);
+                    mono_op20=mono_op();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, mono_op20.getTree());
+
+                    pushFollow(FOLLOW_ex_in_ex398);
+                    ex21=ex();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, ex21.getTree());
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:19: ( atom | array_elem | bracketexpr ) ( bin_op ex )*
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+
+                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:19: ( atom | array_elem | bracketexpr )
+                    int alt3=3;
+                    switch ( input.LA(1) ) {
+                    case NUMBER:
+                        {
+                        alt3=1;
+                        }
+                        break;
+                    case IDENT:
+                        {
+                        int LA3_2 = input.LA(2);
+
+                        if ( (LA3_2==30) ) {
+                            alt3=2;
+                        }
+                        else if ( ((LA3_2 >= 9 && LA3_2 <= 13)||(LA3_2 >= 15 && LA3_2 <= 26)||(LA3_2 >= 31 && LA3_2 <= 32)||LA3_2==37||LA3_2==56||LA3_2==58||(LA3_2 >= 60 && LA3_2 <= 61)||(LA3_2 >= 65 && LA3_2 <= 66)) ) {
+                            alt3=1;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 3, 2, input);
+
+                            throw nvae;
+
+                        }
+                        }
+                        break;
+                    case 14:
+                        {
+                        alt3=3;
+                        }
+                        break;
+                    default:
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 3, 0, input);
+
+                        throw nvae;
+
+                    }
+
+                    switch (alt3) {
+                        case 1 :
+                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:20: atom
+                            {
+                            pushFollow(FOLLOW_atom_in_ex403);
+                            atom22=atom();
+
+                            state._fsp--;
+
+                            adaptor.addChild(root_0, atom22.getTree());
+
+                            }
+                            break;
+                        case 2 :
+                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:27: array_elem
+                            {
+                            pushFollow(FOLLOW_array_elem_in_ex407);
+                            array_elem23=array_elem();
+
+                            state._fsp--;
+
+                            adaptor.addChild(root_0, array_elem23.getTree());
+
+                            }
+                            break;
+                        case 3 :
+                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:40: bracketexpr
+                            {
+                            pushFollow(FOLLOW_bracketexpr_in_ex411);
+                            bracketexpr24=bracketexpr();
+
+                            state._fsp--;
+
+                            adaptor.addChild(root_0, bracketexpr24.getTree());
+
+                            }
+                            break;
+
+                    }
+
+
+                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:53: ( bin_op ex )*
+                    loop4:
+                    do {
+                        int alt4=2;
+                        int LA4_0 = input.LA(1);
+
+                        if ( (LA4_0==11||LA4_0==13||(LA4_0 >= 16 && LA4_0 <= 17)||LA4_0==19||LA4_0==21||LA4_0==31||LA4_0==65) ) {
+                            alt4=1;
+                        }
+
+
+                        switch (alt4) {
+                    	case 1 :
+                    	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:54: bin_op ex
+                    	    {
+                    	    pushFollow(FOLLOW_bin_op_in_ex415);
+                    	    bin_op25=bin_op();
+
+                    	    state._fsp--;
+
+                    	    adaptor.addChild(root_0, bin_op25.getTree());
+
+                    	    pushFollow(FOLLOW_ex_in_ex417);
+                    	    ex26=ex();
+
+                    	    state._fsp--;
+
+                    	    adaptor.addChild(root_0, ex26.getTree());
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop4;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "ex"
 
 
     public static class bool_expr_return extends ParserRuleReturnScope {
@@ -1235,7 +1219,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "bool_expr"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:1: bool_expr : expr relational_ops expr ( logical_ops ( expr | not_expr ) | relational_ops expr )* ;
+    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:96:1: bool_expr : expr relational_ops expr ( logical_ops expr )* ;
     public final malice_grammarParser.bool_expr_return bool_expr() throws RecognitionException {
         malice_grammarParser.bool_expr_return retval = new malice_grammarParser.bool_expr_return();
         retval.start = input.LT(1);
@@ -1243,141 +1227,74 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        malice_grammarParser.expr_return expr30 =null;
+        malice_grammarParser.expr_return expr27 =null;
 
-        malice_grammarParser.relational_ops_return relational_ops31 =null;
+        malice_grammarParser.relational_ops_return relational_ops28 =null;
 
-        malice_grammarParser.expr_return expr32 =null;
+        malice_grammarParser.expr_return expr29 =null;
 
-        malice_grammarParser.logical_ops_return logical_ops33 =null;
+        malice_grammarParser.logical_ops_return logical_ops30 =null;
 
-        malice_grammarParser.expr_return expr34 =null;
-
-        malice_grammarParser.not_expr_return not_expr35 =null;
-
-        malice_grammarParser.relational_ops_return relational_ops36 =null;
-
-        malice_grammarParser.expr_return expr37 =null;
+        malice_grammarParser.expr_return expr31 =null;
 
 
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:11: ( expr relational_ops expr ( logical_ops ( expr | not_expr ) | relational_ops expr )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:13: expr relational_ops expr ( logical_ops ( expr | not_expr ) | relational_ops expr )*
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:96:11: ( expr relational_ops expr ( logical_ops expr )* )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:96:13: expr relational_ops expr ( logical_ops expr )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_expr_in_bool_expr430);
-            expr30=expr();
+            pushFollow(FOLLOW_expr_in_bool_expr436);
+            expr27=expr();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, expr30.getTree());
+            adaptor.addChild(root_0, expr27.getTree());
 
-            pushFollow(FOLLOW_relational_ops_in_bool_expr432);
-            relational_ops31=relational_ops();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, relational_ops31.getTree());
-
-            pushFollow(FOLLOW_expr_in_bool_expr434);
-            expr32=expr();
+            pushFollow(FOLLOW_relational_ops_in_bool_expr438);
+            relational_ops28=relational_ops();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, expr32.getTree());
+            adaptor.addChild(root_0, relational_ops28.getTree());
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:38: ( logical_ops ( expr | not_expr ) | relational_ops expr )*
+            pushFollow(FOLLOW_expr_in_bool_expr440);
+            expr29=expr();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, expr29.getTree());
+
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:96:38: ( logical_ops expr )*
             loop6:
             do {
-                int alt6=3;
+                int alt6=2;
                 int LA6_0 = input.LA(1);
 
                 if ( (LA6_0==9||LA6_0==12||LA6_0==66) ) {
                     alt6=1;
                 }
-                else if ( (LA6_0==10||(LA6_0 >= 22 && LA6_0 <= 26)) ) {
-                    alt6=2;
-                }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:39: logical_ops ( expr | not_expr )
+            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:96:39: logical_ops expr
             	    {
-            	    pushFollow(FOLLOW_logical_ops_in_bool_expr437);
-            	    logical_ops33=logical_ops();
+            	    pushFollow(FOLLOW_logical_ops_in_bool_expr443);
+            	    logical_ops30=logical_ops();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, logical_ops33.getTree());
+            	    adaptor.addChild(root_0, logical_ops30.getTree());
 
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:51: ( expr | not_expr )
-            	    int alt5=2;
-            	    int LA5_0 = input.LA(1);
-
-            	    if ( (LA5_0==IDENT||LA5_0==NUMBER||LA5_0==14||LA5_0==67) ) {
-            	        alt5=1;
-            	    }
-            	    else if ( (LA5_0==9) ) {
-            	        alt5=2;
-            	    }
-            	    else {
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 5, 0, input);
-
-            	        throw nvae;
-
-            	    }
-            	    switch (alt5) {
-            	        case 1 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:52: expr
-            	            {
-            	            pushFollow(FOLLOW_expr_in_bool_expr440);
-            	            expr34=expr();
-
-            	            state._fsp--;
-
-            	            adaptor.addChild(root_0, expr34.getTree());
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:59: not_expr
-            	            {
-            	            pushFollow(FOLLOW_not_expr_in_bool_expr444);
-            	            not_expr35=not_expr();
-
-            	            state._fsp--;
-
-            	            adaptor.addChild(root_0, not_expr35.getTree());
-
-            	            }
-            	            break;
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:71: relational_ops expr
-            	    {
-            	    pushFollow(FOLLOW_relational_ops_in_bool_expr449);
-            	    relational_ops36=relational_ops();
+            	    pushFollow(FOLLOW_expr_in_bool_expr445);
+            	    expr31=expr();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, relational_ops36.getTree());
-
-            	    pushFollow(FOLLOW_expr_in_bool_expr451);
-            	    expr37=expr();
-
-            	    state._fsp--;
-
-            	    adaptor.addChild(root_0, expr37.getTree());
+            	    adaptor.addChild(root_0, expr31.getTree());
 
             	    }
             	    break;
@@ -1419,7 +1336,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "control_structure"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:98:1: control_structure : ( 'perhaps' bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' ) '.' ;
+    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:98:1: control_structure : ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' ) '.' ;
     public final malice_grammarParser.control_structure_return control_structure() throws RecognitionException {
         malice_grammarParser.control_structure_return retval = new malice_grammarParser.control_structure_return();
         retval.start = input.LT(1);
@@ -1427,74 +1344,76 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
+        Token string_literal32=null;
+        Token string_literal36=null;
         Token string_literal38=null;
-        Token string_literal41=null;
-        Token string_literal43=null;
+        Token string_literal42=null;
+        Token string_literal44=null;
+        Token string_literal46=null;
         Token string_literal47=null;
         Token string_literal49=null;
         Token string_literal51=null;
-        Token string_literal52=null;
+        Token string_literal53=null;
         Token string_literal54=null;
-        Token string_literal56=null;
         Token string_literal58=null;
-        Token string_literal59=null;
-        Token string_literal63=null;
-        Token string_literal65=null;
-        Token char_literal66=null;
-        malice_grammarParser.bool_expr_return bool_expr39 =null;
+        Token string_literal60=null;
+        Token char_literal61=null;
+        malice_grammarParser.lpar_return lpar33 =null;
 
-        malice_grammarParser.rpar_return rpar40 =null;
+        malice_grammarParser.bool_expr_return bool_expr34 =null;
 
-        malice_grammarParser.statementList_return statementList42 =null;
+        malice_grammarParser.rpar_return rpar35 =null;
 
-        malice_grammarParser.lpar_return lpar44 =null;
+        malice_grammarParser.statementList_return statementList37 =null;
 
-        malice_grammarParser.bool_expr_return bool_expr45 =null;
+        malice_grammarParser.lpar_return lpar39 =null;
 
-        malice_grammarParser.rpar_return rpar46 =null;
+        malice_grammarParser.bool_expr_return bool_expr40 =null;
 
-        malice_grammarParser.statementList_return statementList48 =null;
+        malice_grammarParser.rpar_return rpar41 =null;
+
+        malice_grammarParser.statementList_return statementList43 =null;
+
+        malice_grammarParser.statementList_return statementList45 =null;
+
+        malice_grammarParser.bool_expr_return bool_expr48 =null;
 
         malice_grammarParser.statementList_return statementList50 =null;
 
-        malice_grammarParser.bool_expr_return bool_expr53 =null;
+        malice_grammarParser.statementList_return statementList52 =null;
 
-        malice_grammarParser.statementList_return statementList55 =null;
+        malice_grammarParser.lpar_return lpar55 =null;
 
-        malice_grammarParser.statementList_return statementList57 =null;
+        malice_grammarParser.bool_expr_return bool_expr56 =null;
 
-        malice_grammarParser.lpar_return lpar60 =null;
+        malice_grammarParser.rpar_return rpar57 =null;
 
-        malice_grammarParser.bool_expr_return bool_expr61 =null;
-
-        malice_grammarParser.rpar_return rpar62 =null;
-
-        malice_grammarParser.statementList_return statementList64 =null;
+        malice_grammarParser.statementList_return statementList59 =null;
 
 
+        CommonTree string_literal32_tree=null;
+        CommonTree string_literal36_tree=null;
         CommonTree string_literal38_tree=null;
-        CommonTree string_literal41_tree=null;
-        CommonTree string_literal43_tree=null;
+        CommonTree string_literal42_tree=null;
+        CommonTree string_literal44_tree=null;
+        CommonTree string_literal46_tree=null;
         CommonTree string_literal47_tree=null;
         CommonTree string_literal49_tree=null;
         CommonTree string_literal51_tree=null;
-        CommonTree string_literal52_tree=null;
+        CommonTree string_literal53_tree=null;
         CommonTree string_literal54_tree=null;
-        CommonTree string_literal56_tree=null;
         CommonTree string_literal58_tree=null;
-        CommonTree string_literal59_tree=null;
-        CommonTree string_literal63_tree=null;
-        CommonTree string_literal65_tree=null;
-        CommonTree char_literal66_tree=null;
+        CommonTree string_literal60_tree=null;
+        CommonTree char_literal61_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:3: ( ( 'perhaps' bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' ) '.' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:5: ( 'perhaps' bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' ) '.'
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:3: ( ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' ) '.' )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:5: ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' ) '.'
             {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:5: ( 'perhaps' bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:5: ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which' | 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough times' )
             int alt8=3;
             switch ( input.LA(1) ) {
             case 53:
@@ -1522,42 +1441,49 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt8) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:7: 'perhaps' bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which'
+                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:7: 'perhaps' lpar bool_expr rpar 'so' statementList ( 'maybe' lpar bool_expr rpar 'so' statementList )* 'or' statementList 'because Alice was unsure which'
                     {
-                    string_literal38=(Token)match(input,53,FOLLOW_53_in_control_structure468); 
-                    string_literal38_tree = 
-                    (CommonTree)adaptor.create(string_literal38)
+                    string_literal32=(Token)match(input,53,FOLLOW_53_in_control_structure460); 
+                    string_literal32_tree = 
+                    (CommonTree)adaptor.create(string_literal32)
                     ;
-                    adaptor.addChild(root_0, string_literal38_tree);
+                    adaptor.addChild(root_0, string_literal32_tree);
 
 
-                    pushFollow(FOLLOW_bool_expr_in_control_structure470);
-                    bool_expr39=bool_expr();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, bool_expr39.getTree());
-
-                    pushFollow(FOLLOW_rpar_in_control_structure472);
-                    rpar40=rpar();
+                    pushFollow(FOLLOW_lpar_in_control_structure462);
+                    lpar33=lpar();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, rpar40.getTree());
+                    adaptor.addChild(root_0, lpar33.getTree());
 
-                    string_literal41=(Token)match(input,58,FOLLOW_58_in_control_structure474); 
-                    string_literal41_tree = 
-                    (CommonTree)adaptor.create(string_literal41)
+                    pushFollow(FOLLOW_bool_expr_in_control_structure464);
+                    bool_expr34=bool_expr();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, bool_expr34.getTree());
+
+                    pushFollow(FOLLOW_rpar_in_control_structure466);
+                    rpar35=rpar();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, rpar35.getTree());
+
+                    string_literal36=(Token)match(input,58,FOLLOW_58_in_control_structure468); 
+                    string_literal36_tree = 
+                    (CommonTree)adaptor.create(string_literal36)
                     ;
-                    adaptor.addChild(root_0, string_literal41_tree);
+                    adaptor.addChild(root_0, string_literal36_tree);
 
 
-                    pushFollow(FOLLOW_statementList_in_control_structure481);
-                    statementList42=statementList();
+                    pushFollow(FOLLOW_statementList_in_control_structure475);
+                    statementList37=statementList();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, statementList42.getTree());
+                    adaptor.addChild(root_0, statementList37.getTree());
 
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:101:5: ( 'maybe' lpar bool_expr rpar 'so' statementList )*
                     loop7:
@@ -1574,47 +1500,47 @@ public TreeAdaptor getTreeAdaptor() {
                     	case 1 :
                     	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:101:6: 'maybe' lpar bool_expr rpar 'so' statementList
                     	    {
-                    	    string_literal43=(Token)match(input,48,FOLLOW_48_in_control_structure489); 
-                    	    string_literal43_tree = 
-                    	    (CommonTree)adaptor.create(string_literal43)
+                    	    string_literal38=(Token)match(input,48,FOLLOW_48_in_control_structure483); 
+                    	    string_literal38_tree = 
+                    	    (CommonTree)adaptor.create(string_literal38)
                     	    ;
-                    	    adaptor.addChild(root_0, string_literal43_tree);
+                    	    adaptor.addChild(root_0, string_literal38_tree);
 
 
-                    	    pushFollow(FOLLOW_lpar_in_control_structure491);
-                    	    lpar44=lpar();
-
-                    	    state._fsp--;
-
-                    	    adaptor.addChild(root_0, lpar44.getTree());
-
-                    	    pushFollow(FOLLOW_bool_expr_in_control_structure493);
-                    	    bool_expr45=bool_expr();
+                    	    pushFollow(FOLLOW_lpar_in_control_structure485);
+                    	    lpar39=lpar();
 
                     	    state._fsp--;
 
-                    	    adaptor.addChild(root_0, bool_expr45.getTree());
+                    	    adaptor.addChild(root_0, lpar39.getTree());
 
-                    	    pushFollow(FOLLOW_rpar_in_control_structure495);
-                    	    rpar46=rpar();
+                    	    pushFollow(FOLLOW_bool_expr_in_control_structure487);
+                    	    bool_expr40=bool_expr();
 
                     	    state._fsp--;
 
-                    	    adaptor.addChild(root_0, rpar46.getTree());
+                    	    adaptor.addChild(root_0, bool_expr40.getTree());
 
-                    	    string_literal47=(Token)match(input,58,FOLLOW_58_in_control_structure497); 
-                    	    string_literal47_tree = 
-                    	    (CommonTree)adaptor.create(string_literal47)
+                    	    pushFollow(FOLLOW_rpar_in_control_structure489);
+                    	    rpar41=rpar();
+
+                    	    state._fsp--;
+
+                    	    adaptor.addChild(root_0, rpar41.getTree());
+
+                    	    string_literal42=(Token)match(input,58,FOLLOW_58_in_control_structure491); 
+                    	    string_literal42_tree = 
+                    	    (CommonTree)adaptor.create(string_literal42)
                     	    ;
-                    	    adaptor.addChild(root_0, string_literal47_tree);
+                    	    adaptor.addChild(root_0, string_literal42_tree);
 
 
-                    	    pushFollow(FOLLOW_statementList_in_control_structure499);
-                    	    statementList48=statementList();
+                    	    pushFollow(FOLLOW_statementList_in_control_structure493);
+                    	    statementList43=statementList();
 
                     	    state._fsp--;
 
-                    	    adaptor.addChild(root_0, statementList48.getTree());
+                    	    adaptor.addChild(root_0, statementList43.getTree());
 
                     	    }
                     	    break;
@@ -1625,25 +1551,25 @@ public TreeAdaptor getTreeAdaptor() {
                     } while (true);
 
 
-                    string_literal49=(Token)match(input,52,FOLLOW_52_in_control_structure507); 
-                    string_literal49_tree = 
-                    (CommonTree)adaptor.create(string_literal49)
+                    string_literal44=(Token)match(input,52,FOLLOW_52_in_control_structure501); 
+                    string_literal44_tree = 
+                    (CommonTree)adaptor.create(string_literal44)
                     ;
-                    adaptor.addChild(root_0, string_literal49_tree);
+                    adaptor.addChild(root_0, string_literal44_tree);
 
 
-                    pushFollow(FOLLOW_statementList_in_control_structure509);
-                    statementList50=statementList();
+                    pushFollow(FOLLOW_statementList_in_control_structure503);
+                    statementList45=statementList();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, statementList50.getTree());
+                    adaptor.addChild(root_0, statementList45.getTree());
 
-                    string_literal51=(Token)match(input,35,FOLLOW_35_in_control_structure515); 
-                    string_literal51_tree = 
-                    (CommonTree)adaptor.create(string_literal51)
+                    string_literal46=(Token)match(input,35,FOLLOW_35_in_control_structure509); 
+                    string_literal46_tree = 
+                    (CommonTree)adaptor.create(string_literal46)
                     ;
-                    adaptor.addChild(root_0, string_literal51_tree);
+                    adaptor.addChild(root_0, string_literal46_tree);
 
 
                     }
@@ -1651,53 +1577,53 @@ public TreeAdaptor getTreeAdaptor() {
                 case 2 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:8: 'either' bool_expr 'so' statementList 'or' statementList 'because Alice was unsure which'
                     {
-                    string_literal52=(Token)match(input,41,FOLLOW_41_in_control_structure524); 
-                    string_literal52_tree = 
-                    (CommonTree)adaptor.create(string_literal52)
+                    string_literal47=(Token)match(input,41,FOLLOW_41_in_control_structure518); 
+                    string_literal47_tree = 
+                    (CommonTree)adaptor.create(string_literal47)
                     ;
-                    adaptor.addChild(root_0, string_literal52_tree);
+                    adaptor.addChild(root_0, string_literal47_tree);
 
 
-                    pushFollow(FOLLOW_bool_expr_in_control_structure526);
-                    bool_expr53=bool_expr();
+                    pushFollow(FOLLOW_bool_expr_in_control_structure520);
+                    bool_expr48=bool_expr();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, bool_expr53.getTree());
+                    adaptor.addChild(root_0, bool_expr48.getTree());
 
-                    string_literal54=(Token)match(input,58,FOLLOW_58_in_control_structure528); 
-                    string_literal54_tree = 
-                    (CommonTree)adaptor.create(string_literal54)
+                    string_literal49=(Token)match(input,58,FOLLOW_58_in_control_structure522); 
+                    string_literal49_tree = 
+                    (CommonTree)adaptor.create(string_literal49)
                     ;
-                    adaptor.addChild(root_0, string_literal54_tree);
+                    adaptor.addChild(root_0, string_literal49_tree);
 
 
-                    pushFollow(FOLLOW_statementList_in_control_structure536);
-                    statementList55=statementList();
+                    pushFollow(FOLLOW_statementList_in_control_structure530);
+                    statementList50=statementList();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, statementList55.getTree());
+                    adaptor.addChild(root_0, statementList50.getTree());
 
-                    string_literal56=(Token)match(input,52,FOLLOW_52_in_control_structure545); 
-                    string_literal56_tree = 
-                    (CommonTree)adaptor.create(string_literal56)
+                    string_literal51=(Token)match(input,52,FOLLOW_52_in_control_structure539); 
+                    string_literal51_tree = 
+                    (CommonTree)adaptor.create(string_literal51)
                     ;
-                    adaptor.addChild(root_0, string_literal56_tree);
+                    adaptor.addChild(root_0, string_literal51_tree);
 
 
-                    pushFollow(FOLLOW_statementList_in_control_structure547);
-                    statementList57=statementList();
+                    pushFollow(FOLLOW_statementList_in_control_structure541);
+                    statementList52=statementList();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, statementList57.getTree());
+                    adaptor.addChild(root_0, statementList52.getTree());
 
-                    string_literal58=(Token)match(input,35,FOLLOW_35_in_control_structure555); 
-                    string_literal58_tree = 
-                    (CommonTree)adaptor.create(string_literal58)
+                    string_literal53=(Token)match(input,35,FOLLOW_35_in_control_structure549); 
+                    string_literal53_tree = 
+                    (CommonTree)adaptor.create(string_literal53)
                     ;
-                    adaptor.addChild(root_0, string_literal58_tree);
+                    adaptor.addChild(root_0, string_literal53_tree);
 
 
                     }
@@ -1705,53 +1631,53 @@ public TreeAdaptor getTreeAdaptor() {
                 case 3 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:108:8: 'eventually' lpar bool_expr rpar 'because' statementList 'enough times'
                     {
-                    string_literal59=(Token)match(input,43,FOLLOW_43_in_control_structure570); 
-                    string_literal59_tree = 
-                    (CommonTree)adaptor.create(string_literal59)
+                    string_literal54=(Token)match(input,43,FOLLOW_43_in_control_structure564); 
+                    string_literal54_tree = 
+                    (CommonTree)adaptor.create(string_literal54)
                     ;
-                    adaptor.addChild(root_0, string_literal59_tree);
+                    adaptor.addChild(root_0, string_literal54_tree);
 
 
-                    pushFollow(FOLLOW_lpar_in_control_structure572);
-                    lpar60=lpar();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, lpar60.getTree());
-
-                    pushFollow(FOLLOW_bool_expr_in_control_structure574);
-                    bool_expr61=bool_expr();
+                    pushFollow(FOLLOW_lpar_in_control_structure566);
+                    lpar55=lpar();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, bool_expr61.getTree());
+                    adaptor.addChild(root_0, lpar55.getTree());
 
-                    pushFollow(FOLLOW_rpar_in_control_structure576);
-                    rpar62=rpar();
+                    pushFollow(FOLLOW_bool_expr_in_control_structure568);
+                    bool_expr56=bool_expr();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, rpar62.getTree());
+                    adaptor.addChild(root_0, bool_expr56.getTree());
 
-                    string_literal63=(Token)match(input,36,FOLLOW_36_in_control_structure578); 
-                    string_literal63_tree = 
-                    (CommonTree)adaptor.create(string_literal63)
+                    pushFollow(FOLLOW_rpar_in_control_structure570);
+                    rpar57=rpar();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, rpar57.getTree());
+
+                    string_literal58=(Token)match(input,36,FOLLOW_36_in_control_structure572); 
+                    string_literal58_tree = 
+                    (CommonTree)adaptor.create(string_literal58)
                     ;
-                    adaptor.addChild(root_0, string_literal63_tree);
+                    adaptor.addChild(root_0, string_literal58_tree);
 
 
-                    pushFollow(FOLLOW_statementList_in_control_structure586);
-                    statementList64=statementList();
+                    pushFollow(FOLLOW_statementList_in_control_structure580);
+                    statementList59=statementList();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, statementList64.getTree());
+                    adaptor.addChild(root_0, statementList59.getTree());
 
-                    string_literal65=(Token)match(input,42,FOLLOW_42_in_control_structure594); 
-                    string_literal65_tree = 
-                    (CommonTree)adaptor.create(string_literal65)
+                    string_literal60=(Token)match(input,42,FOLLOW_42_in_control_structure588); 
+                    string_literal60_tree = 
+                    (CommonTree)adaptor.create(string_literal60)
                     ;
-                    adaptor.addChild(root_0, string_literal65_tree);
+                    adaptor.addChild(root_0, string_literal60_tree);
 
 
                     }
@@ -1760,11 +1686,11 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal66=(Token)match(input,20,FOLLOW_20_in_control_structure604); 
-            char_literal66_tree = 
-            (CommonTree)adaptor.create(char_literal66)
+            char_literal61=(Token)match(input,20,FOLLOW_20_in_control_structure598); 
+            char_literal61_tree = 
+            (CommonTree)adaptor.create(char_literal61)
             ;
-            adaptor.addChild(root_0, char_literal66_tree);
+            adaptor.addChild(root_0, char_literal61_tree);
 
 
             }
@@ -1806,29 +1732,29 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token IDENT67=null;
-        Token string_literal68=null;
+        Token IDENT62=null;
+        Token string_literal63=null;
+        Token string_literal65=null;
+        Token string_literal66=null;
+        Token LETTER67=null;
+        Token STRING68=null;
         Token string_literal70=null;
-        Token string_literal71=null;
-        Token LETTER72=null;
-        Token STRING73=null;
-        Token string_literal75=null;
-        malice_grammarParser.data_types_return data_types69 =null;
+        malice_grammarParser.data_types_return data_types64 =null;
 
-        malice_grammarParser.expr_return expr74 =null;
+        malice_grammarParser.expr_return expr69 =null;
 
-        malice_grammarParser.atom_return atom76 =null;
+        malice_grammarParser.atom_return atom71 =null;
 
-        malice_grammarParser.data_types_return data_types77 =null;
+        malice_grammarParser.data_types_return data_types72 =null;
 
 
-        CommonTree IDENT67_tree=null;
-        CommonTree string_literal68_tree=null;
+        CommonTree IDENT62_tree=null;
+        CommonTree string_literal63_tree=null;
+        CommonTree string_literal65_tree=null;
+        CommonTree string_literal66_tree=null;
+        CommonTree LETTER67_tree=null;
+        CommonTree STRING68_tree=null;
         CommonTree string_literal70_tree=null;
-        CommonTree string_literal71_tree=null;
-        CommonTree LETTER72_tree=null;
-        CommonTree STRING73_tree=null;
-        CommonTree string_literal75_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:24: ( IDENT ( 'was a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types ) )
@@ -1837,11 +1763,11 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            IDENT67=(Token)match(input,IDENT,FOLLOW_IDENT_in_declaration_statements618); 
-            IDENT67_tree = 
-            (CommonTree)adaptor.create(IDENT67)
+            IDENT62=(Token)match(input,IDENT,FOLLOW_IDENT_in_declaration_statements612); 
+            IDENT62_tree = 
+            (CommonTree)adaptor.create(IDENT62)
             ;
-            adaptor.addChild(root_0, IDENT67_tree);
+            adaptor.addChild(root_0, IDENT62_tree);
 
 
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:32: ( 'was a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types )
@@ -1865,19 +1791,19 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:34: 'was a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )?
                     {
-                    string_literal68=(Token)match(input,63,FOLLOW_63_in_declaration_statements622); 
-                    string_literal68_tree = 
-                    (CommonTree)adaptor.create(string_literal68)
+                    string_literal63=(Token)match(input,63,FOLLOW_63_in_declaration_statements616); 
+                    string_literal63_tree = 
+                    (CommonTree)adaptor.create(string_literal63)
                     ;
-                    adaptor.addChild(root_0, string_literal68_tree);
+                    adaptor.addChild(root_0, string_literal63_tree);
 
 
-                    pushFollow(FOLLOW_data_types_in_declaration_statements624);
-                    data_types69=data_types();
+                    pushFollow(FOLLOW_data_types_in_declaration_statements618);
+                    data_types64=data_types();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, data_types69.getTree());
+                    adaptor.addChild(root_0, data_types64.getTree());
 
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:53: ( 'too' | 'of' ( LETTER | STRING | expr ) )?
                     int alt10=3;
@@ -1893,11 +1819,11 @@ public TreeAdaptor getTreeAdaptor() {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:55: 'too'
                             {
-                            string_literal70=(Token)match(input,62,FOLLOW_62_in_declaration_statements628); 
-                            string_literal70_tree = 
-                            (CommonTree)adaptor.create(string_literal70)
+                            string_literal65=(Token)match(input,62,FOLLOW_62_in_declaration_statements622); 
+                            string_literal65_tree = 
+                            (CommonTree)adaptor.create(string_literal65)
                             ;
-                            adaptor.addChild(root_0, string_literal70_tree);
+                            adaptor.addChild(root_0, string_literal65_tree);
 
 
                             }
@@ -1905,11 +1831,11 @@ public TreeAdaptor getTreeAdaptor() {
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:63: 'of' ( LETTER | STRING | expr )
                             {
-                            string_literal71=(Token)match(input,50,FOLLOW_50_in_declaration_statements632); 
-                            string_literal71_tree = 
-                            (CommonTree)adaptor.create(string_literal71)
+                            string_literal66=(Token)match(input,50,FOLLOW_50_in_declaration_statements626); 
+                            string_literal66_tree = 
+                            (CommonTree)adaptor.create(string_literal66)
                             ;
-                            adaptor.addChild(root_0, string_literal71_tree);
+                            adaptor.addChild(root_0, string_literal66_tree);
 
 
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:68: ( LETTER | STRING | expr )
@@ -1945,11 +1871,11 @@ public TreeAdaptor getTreeAdaptor() {
                                 case 1 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:69: LETTER
                                     {
-                                    LETTER72=(Token)match(input,LETTER,FOLLOW_LETTER_in_declaration_statements635); 
-                                    LETTER72_tree = 
-                                    (CommonTree)adaptor.create(LETTER72)
+                                    LETTER67=(Token)match(input,LETTER,FOLLOW_LETTER_in_declaration_statements629); 
+                                    LETTER67_tree = 
+                                    (CommonTree)adaptor.create(LETTER67)
                                     ;
-                                    adaptor.addChild(root_0, LETTER72_tree);
+                                    adaptor.addChild(root_0, LETTER67_tree);
 
 
                                     }
@@ -1957,11 +1883,11 @@ public TreeAdaptor getTreeAdaptor() {
                                 case 2 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:78: STRING
                                     {
-                                    STRING73=(Token)match(input,STRING,FOLLOW_STRING_in_declaration_statements639); 
-                                    STRING73_tree = 
-                                    (CommonTree)adaptor.create(STRING73)
+                                    STRING68=(Token)match(input,STRING,FOLLOW_STRING_in_declaration_statements633); 
+                                    STRING68_tree = 
+                                    (CommonTree)adaptor.create(STRING68)
                                     ;
-                                    adaptor.addChild(root_0, STRING73_tree);
+                                    adaptor.addChild(root_0, STRING68_tree);
 
 
                                     }
@@ -1969,12 +1895,12 @@ public TreeAdaptor getTreeAdaptor() {
                                 case 3 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:87: expr
                                     {
-                                    pushFollow(FOLLOW_expr_in_declaration_statements643);
-                                    expr74=expr();
+                                    pushFollow(FOLLOW_expr_in_declaration_statements637);
+                                    expr69=expr();
 
                                     state._fsp--;
 
-                                    adaptor.addChild(root_0, expr74.getTree());
+                                    adaptor.addChild(root_0, expr69.getTree());
 
                                     }
                                     break;
@@ -1993,26 +1919,26 @@ public TreeAdaptor getTreeAdaptor() {
                 case 2 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:117:35: 'had' atom data_types
                     {
-                    string_literal75=(Token)match(input,45,FOLLOW_45_in_declaration_statements683); 
-                    string_literal75_tree = 
-                    (CommonTree)adaptor.create(string_literal75)
+                    string_literal70=(Token)match(input,45,FOLLOW_45_in_declaration_statements677); 
+                    string_literal70_tree = 
+                    (CommonTree)adaptor.create(string_literal70)
                     ;
-                    adaptor.addChild(root_0, string_literal75_tree);
+                    adaptor.addChild(root_0, string_literal70_tree);
 
 
-                    pushFollow(FOLLOW_atom_in_declaration_statements685);
-                    atom76=atom();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, atom76.getTree());
-
-                    pushFollow(FOLLOW_data_types_in_declaration_statements687);
-                    data_types77=data_types();
+                    pushFollow(FOLLOW_atom_in_declaration_statements679);
+                    atom71=atom();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, data_types77.getTree());
+                    adaptor.addChild(root_0, atom71.getTree());
+
+                    pushFollow(FOLLOW_data_types_in_declaration_statements681);
+                    data_types72=data_types();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, data_types72.getTree());
 
                     }
                     break;
@@ -2059,17 +1985,17 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token IDENT78=null;
-        Token NUMBER79=null;
-        Token LETTER80=null;
-        Token STRING81=null;
-        malice_grammarParser.array_elem_return array_elem82 =null;
+        Token IDENT73=null;
+        Token NUMBER74=null;
+        Token LETTER75=null;
+        Token STRING76=null;
+        malice_grammarParser.array_elem_return array_elem77 =null;
 
 
-        CommonTree IDENT78_tree=null;
-        CommonTree NUMBER79_tree=null;
-        CommonTree LETTER80_tree=null;
-        CommonTree STRING81_tree=null;
+        CommonTree IDENT73_tree=null;
+        CommonTree NUMBER74_tree=null;
+        CommonTree LETTER75_tree=null;
+        CommonTree STRING76_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:120:9: ( IDENT | NUMBER | LETTER | STRING | array_elem )
@@ -2124,11 +2050,11 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    IDENT78=(Token)match(input,IDENT,FOLLOW_IDENT_in_argument728); 
-                    IDENT78_tree = 
-                    (CommonTree)adaptor.create(IDENT78)
+                    IDENT73=(Token)match(input,IDENT,FOLLOW_IDENT_in_argument722); 
+                    IDENT73_tree = 
+                    (CommonTree)adaptor.create(IDENT73)
                     ;
-                    adaptor.addChild(root_0, IDENT78_tree);
+                    adaptor.addChild(root_0, IDENT73_tree);
 
 
                     }
@@ -2139,11 +2065,11 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    NUMBER79=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_argument732); 
-                    NUMBER79_tree = 
-                    (CommonTree)adaptor.create(NUMBER79)
+                    NUMBER74=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_argument726); 
+                    NUMBER74_tree = 
+                    (CommonTree)adaptor.create(NUMBER74)
                     ;
-                    adaptor.addChild(root_0, NUMBER79_tree);
+                    adaptor.addChild(root_0, NUMBER74_tree);
 
 
                     }
@@ -2154,11 +2080,11 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    LETTER80=(Token)match(input,LETTER,FOLLOW_LETTER_in_argument736); 
-                    LETTER80_tree = 
-                    (CommonTree)adaptor.create(LETTER80)
+                    LETTER75=(Token)match(input,LETTER,FOLLOW_LETTER_in_argument730); 
+                    LETTER75_tree = 
+                    (CommonTree)adaptor.create(LETTER75)
                     ;
-                    adaptor.addChild(root_0, LETTER80_tree);
+                    adaptor.addChild(root_0, LETTER75_tree);
 
 
                     }
@@ -2169,11 +2095,11 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    STRING81=(Token)match(input,STRING,FOLLOW_STRING_in_argument740); 
-                    STRING81_tree = 
-                    (CommonTree)adaptor.create(STRING81)
+                    STRING76=(Token)match(input,STRING,FOLLOW_STRING_in_argument734); 
+                    STRING76_tree = 
+                    (CommonTree)adaptor.create(STRING76)
                     ;
-                    adaptor.addChild(root_0, STRING81_tree);
+                    adaptor.addChild(root_0, STRING76_tree);
 
 
                     }
@@ -2184,12 +2110,12 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_array_elem_in_argument744);
-                    array_elem82=array_elem();
+                    pushFollow(FOLLOW_array_elem_in_argument738);
+                    array_elem77=array_elem();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, array_elem82.getTree());
+                    adaptor.addChild(root_0, array_elem77.getTree());
 
                     }
                     break;
@@ -2232,15 +2158,15 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token char_literal84=null;
-        malice_grammarParser.argument_return argument83 =null;
+        Token char_literal79=null;
+        malice_grammarParser.argument_return argument78 =null;
 
-        malice_grammarParser.argument_return argument85 =null;
+        malice_grammarParser.argument_return argument80 =null;
 
-        malice_grammarParser.function_call_return function_call86 =null;
+        malice_grammarParser.function_call_return function_call81 =null;
 
 
-        CommonTree char_literal84_tree=null;
+        CommonTree char_literal79_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:24: ( ( argument ( ',' argument )* )? | function_call )
@@ -2292,12 +2218,12 @@ public TreeAdaptor getTreeAdaptor() {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:27: argument ( ',' argument )*
                             {
-                            pushFollow(FOLLOW_argument_in_arguments_to_functions752);
-                            argument83=argument();
+                            pushFollow(FOLLOW_argument_in_arguments_to_functions746);
+                            argument78=argument();
 
                             state._fsp--;
 
-                            adaptor.addChild(root_0, argument83.getTree());
+                            adaptor.addChild(root_0, argument78.getTree());
 
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:36: ( ',' argument )*
                             loop13:
@@ -2314,19 +2240,19 @@ public TreeAdaptor getTreeAdaptor() {
                             	case 1 :
                             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:37: ',' argument
                             	    {
-                            	    char_literal84=(Token)match(input,18,FOLLOW_18_in_arguments_to_functions755); 
-                            	    char_literal84_tree = 
-                            	    (CommonTree)adaptor.create(char_literal84)
+                            	    char_literal79=(Token)match(input,18,FOLLOW_18_in_arguments_to_functions749); 
+                            	    char_literal79_tree = 
+                            	    (CommonTree)adaptor.create(char_literal79)
                             	    ;
-                            	    adaptor.addChild(root_0, char_literal84_tree);
+                            	    adaptor.addChild(root_0, char_literal79_tree);
 
 
-                            	    pushFollow(FOLLOW_argument_in_arguments_to_functions757);
-                            	    argument85=argument();
+                            	    pushFollow(FOLLOW_argument_in_arguments_to_functions751);
+                            	    argument80=argument();
 
                             	    state._fsp--;
 
-                            	    adaptor.addChild(root_0, argument85.getTree());
+                            	    adaptor.addChild(root_0, argument80.getTree());
 
                             	    }
                             	    break;
@@ -2351,12 +2277,12 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_function_call_in_arguments_to_functions765);
-                    function_call86=function_call();
+                    pushFollow(FOLLOW_function_call_in_arguments_to_functions759);
+                    function_call81=function_call();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, function_call86.getTree());
+                    adaptor.addChild(root_0, function_call81.getTree());
 
                     }
                     break;
@@ -2399,59 +2325,59 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token IDENT87=null;
-        Token string_literal88=null;
-        Token string_literal90=null;
+        Token IDENT82=null;
+        Token string_literal83=null;
+        Token string_literal85=null;
+        Token string_literal86=null;
+        Token LETTER88=null;
+        Token STRING89=null;
         Token string_literal91=null;
-        Token LETTER93=null;
-        Token STRING94=null;
-        Token string_literal96=null;
+        Token string_literal92=null;
+        Token LETTER94=null;
+        Token STRING95=null;
+        Token set96=null;
         Token string_literal97=null;
-        Token LETTER99=null;
-        Token STRING100=null;
-        Token set101=null;
-        Token string_literal102=null;
-        Token string_literal103=null;
-        Token LETTER105=null;
-        Token STRING106=null;
-        Token set109=null;
-        Token string_literal110=null;
-        Token IDENT111=null;
-        Token char_literal112=null;
-        malice_grammarParser.atom_return atom89 =null;
+        Token string_literal98=null;
+        Token LETTER100=null;
+        Token STRING101=null;
+        Token set104=null;
+        Token string_literal105=null;
+        Token IDENT106=null;
+        Token char_literal107=null;
+        malice_grammarParser.atom_return atom84 =null;
 
-        malice_grammarParser.expr_return expr92 =null;
+        malice_grammarParser.expr_return expr87 =null;
 
-        malice_grammarParser.function_call_return function_call95 =null;
+        malice_grammarParser.function_call_return function_call90 =null;
 
-        malice_grammarParser.expr_return expr98 =null;
+        malice_grammarParser.expr_return expr93 =null;
 
-        malice_grammarParser.expr_return expr104 =null;
+        malice_grammarParser.expr_return expr99 =null;
 
-        malice_grammarParser.function_call_return function_call107 =null;
+        malice_grammarParser.function_call_return function_call102 =null;
 
-        malice_grammarParser.function_call_return function_call108 =null;
+        malice_grammarParser.function_call_return function_call103 =null;
 
 
-        CommonTree IDENT87_tree=null;
-        CommonTree string_literal88_tree=null;
-        CommonTree string_literal90_tree=null;
+        CommonTree IDENT82_tree=null;
+        CommonTree string_literal83_tree=null;
+        CommonTree string_literal85_tree=null;
+        CommonTree string_literal86_tree=null;
+        CommonTree LETTER88_tree=null;
+        CommonTree STRING89_tree=null;
         CommonTree string_literal91_tree=null;
-        CommonTree LETTER93_tree=null;
-        CommonTree STRING94_tree=null;
-        CommonTree string_literal96_tree=null;
+        CommonTree string_literal92_tree=null;
+        CommonTree LETTER94_tree=null;
+        CommonTree STRING95_tree=null;
+        CommonTree set96_tree=null;
         CommonTree string_literal97_tree=null;
-        CommonTree LETTER99_tree=null;
-        CommonTree STRING100_tree=null;
-        CommonTree set101_tree=null;
-        CommonTree string_literal102_tree=null;
-        CommonTree string_literal103_tree=null;
-        CommonTree LETTER105_tree=null;
-        CommonTree STRING106_tree=null;
-        CommonTree set109_tree=null;
-        CommonTree string_literal110_tree=null;
-        CommonTree IDENT111_tree=null;
-        CommonTree char_literal112_tree=null;
+        CommonTree string_literal98_tree=null;
+        CommonTree LETTER100_tree=null;
+        CommonTree STRING101_tree=null;
+        CommonTree set104_tree=null;
+        CommonTree string_literal105_tree=null;
+        CommonTree IDENT106_tree=null;
+        CommonTree char_literal107_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:17: ( IDENT ( ( '\\'s' atom 'piece' )? ( 'became' ( expr | LETTER | STRING | function_call ) | 'ate' | 'drank' ) ) | ( expr | LETTER | STRING ) ( 'spoke' | 'said Alice' ) | 'Alice' 'found' ( expr | LETTER | STRING | function_call ) | function_call ( 'spoke' | 'said Alice' )? | 'what was' IDENT '?' )
@@ -2461,6 +2387,74 @@ public TreeAdaptor getTreeAdaptor() {
                 {
                 switch ( input.LA(2) ) {
                 case 30:
+                    {
+                    int LA22_5 = input.LA(3);
+
+                    if ( (LA22_5==NUMBER) ) {
+                        int LA22_8 = input.LA(4);
+
+                        if ( (LA22_8==54) ) {
+                            int LA22_10 = input.LA(5);
+
+                            if ( (LA22_10==11||LA22_10==13||(LA22_10 >= 16 && LA22_10 <= 17)||LA22_10==19||LA22_10==21||LA22_10==31||LA22_10==56||LA22_10==60||LA22_10==65) ) {
+                                alt22=2;
+                            }
+                            else if ( ((LA22_10 >= 33 && LA22_10 <= 34)||LA22_10==40) ) {
+                                alt22=1;
+                            }
+                            else {
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 22, 10, input);
+
+                                throw nvae;
+
+                            }
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 22, 8, input);
+
+                            throw nvae;
+
+                        }
+                    }
+                    else if ( (LA22_5==IDENT) ) {
+                        int LA22_9 = input.LA(4);
+
+                        if ( (LA22_9==54) ) {
+                            int LA22_10 = input.LA(5);
+
+                            if ( (LA22_10==11||LA22_10==13||(LA22_10 >= 16 && LA22_10 <= 17)||LA22_10==19||LA22_10==21||LA22_10==31||LA22_10==56||LA22_10==60||LA22_10==65) ) {
+                                alt22=2;
+                            }
+                            else if ( ((LA22_10 >= 33 && LA22_10 <= 34)||LA22_10==40) ) {
+                                alt22=1;
+                            }
+                            else {
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 22, 10, input);
+
+                                throw nvae;
+
+                            }
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 22, 9, input);
+
+                            throw nvae;
+
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 22, 5, input);
+
+                        throw nvae;
+
+                    }
+                    }
+                    break;
                 case 33:
                 case 34:
                 case 40:
@@ -2531,11 +2525,11 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    IDENT87=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements780); 
-                    IDENT87_tree = 
-                    (CommonTree)adaptor.create(IDENT87)
+                    IDENT82=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements774); 
+                    IDENT82_tree = 
+                    (CommonTree)adaptor.create(IDENT82)
                     ;
-                    adaptor.addChild(root_0, IDENT87_tree);
+                    adaptor.addChild(root_0, IDENT82_tree);
 
 
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:124:9: ( ( '\\'s' atom 'piece' )? ( 'became' ( expr | LETTER | STRING | function_call ) | 'ate' | 'drank' ) )
@@ -2552,25 +2546,25 @@ public TreeAdaptor getTreeAdaptor() {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:124:12: '\\'s' atom 'piece'
                             {
-                            string_literal88=(Token)match(input,30,FOLLOW_30_in_rest_statements793); 
-                            string_literal88_tree = 
-                            (CommonTree)adaptor.create(string_literal88)
+                            string_literal83=(Token)match(input,30,FOLLOW_30_in_rest_statements787); 
+                            string_literal83_tree = 
+                            (CommonTree)adaptor.create(string_literal83)
                             ;
-                            adaptor.addChild(root_0, string_literal88_tree);
+                            adaptor.addChild(root_0, string_literal83_tree);
 
 
-                            pushFollow(FOLLOW_atom_in_rest_statements795);
-                            atom89=atom();
+                            pushFollow(FOLLOW_atom_in_rest_statements789);
+                            atom84=atom();
 
                             state._fsp--;
 
-                            adaptor.addChild(root_0, atom89.getTree());
+                            adaptor.addChild(root_0, atom84.getTree());
 
-                            string_literal90=(Token)match(input,54,FOLLOW_54_in_rest_statements797); 
-                            string_literal90_tree = 
-                            (CommonTree)adaptor.create(string_literal90)
+                            string_literal85=(Token)match(input,54,FOLLOW_54_in_rest_statements791); 
+                            string_literal85_tree = 
+                            (CommonTree)adaptor.create(string_literal85)
                             ;
-                            adaptor.addChild(root_0, string_literal90_tree);
+                            adaptor.addChild(root_0, string_literal85_tree);
 
 
                             }
@@ -2609,11 +2603,11 @@ public TreeAdaptor getTreeAdaptor() {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:18: 'became' ( expr | LETTER | STRING | function_call )
                             {
-                            string_literal91=(Token)match(input,34,FOLLOW_34_in_rest_statements818); 
-                            string_literal91_tree = 
-                            (CommonTree)adaptor.create(string_literal91)
+                            string_literal86=(Token)match(input,34,FOLLOW_34_in_rest_statements812); 
+                            string_literal86_tree = 
+                            (CommonTree)adaptor.create(string_literal86)
                             ;
-                            adaptor.addChild(root_0, string_literal91_tree);
+                            adaptor.addChild(root_0, string_literal86_tree);
 
 
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:28: ( expr | LETTER | STRING | function_call )
@@ -2630,7 +2624,7 @@ public TreeAdaptor getTreeAdaptor() {
                                 {
                                 int LA17_2 = input.LA(2);
 
-                                if ( (LA17_2==11||LA17_2==13||(LA17_2 >= 16 && LA17_2 <= 21)||(LA17_2 >= 31 && LA17_2 <= 32)||LA17_2==37||LA17_2==61||LA17_2==65) ) {
+                                if ( (LA17_2==11||LA17_2==13||(LA17_2 >= 16 && LA17_2 <= 21)||(LA17_2 >= 30 && LA17_2 <= 32)||LA17_2==37||LA17_2==61||LA17_2==65) ) {
                                     alt17=1;
                                 }
                                 else if ( (LA17_2==14) ) {
@@ -2667,23 +2661,23 @@ public TreeAdaptor getTreeAdaptor() {
                                 case 1 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:29: expr
                                     {
-                                    pushFollow(FOLLOW_expr_in_rest_statements822);
-                                    expr92=expr();
+                                    pushFollow(FOLLOW_expr_in_rest_statements816);
+                                    expr87=expr();
 
                                     state._fsp--;
 
-                                    adaptor.addChild(root_0, expr92.getTree());
+                                    adaptor.addChild(root_0, expr87.getTree());
 
                                     }
                                     break;
                                 case 2 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:36: LETTER
                                     {
-                                    LETTER93=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements826); 
-                                    LETTER93_tree = 
-                                    (CommonTree)adaptor.create(LETTER93)
+                                    LETTER88=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements820); 
+                                    LETTER88_tree = 
+                                    (CommonTree)adaptor.create(LETTER88)
                                     ;
-                                    adaptor.addChild(root_0, LETTER93_tree);
+                                    adaptor.addChild(root_0, LETTER88_tree);
 
 
                                     }
@@ -2691,11 +2685,11 @@ public TreeAdaptor getTreeAdaptor() {
                                 case 3 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:45: STRING
                                     {
-                                    STRING94=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements830); 
-                                    STRING94_tree = 
-                                    (CommonTree)adaptor.create(STRING94)
+                                    STRING89=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements824); 
+                                    STRING89_tree = 
+                                    (CommonTree)adaptor.create(STRING89)
                                     ;
-                                    adaptor.addChild(root_0, STRING94_tree);
+                                    adaptor.addChild(root_0, STRING89_tree);
 
 
                                     }
@@ -2703,12 +2697,12 @@ public TreeAdaptor getTreeAdaptor() {
                                 case 4 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:54: function_call
                                     {
-                                    pushFollow(FOLLOW_function_call_in_rest_statements834);
-                                    function_call95=function_call();
+                                    pushFollow(FOLLOW_function_call_in_rest_statements828);
+                                    function_call90=function_call();
 
                                     state._fsp--;
 
-                                    adaptor.addChild(root_0, function_call95.getTree());
+                                    adaptor.addChild(root_0, function_call90.getTree());
 
                                     }
                                     break;
@@ -2721,11 +2715,11 @@ public TreeAdaptor getTreeAdaptor() {
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:126:18: 'ate'
                             {
-                            string_literal96=(Token)match(input,33,FOLLOW_33_in_rest_statements855); 
-                            string_literal96_tree = 
-                            (CommonTree)adaptor.create(string_literal96)
+                            string_literal91=(Token)match(input,33,FOLLOW_33_in_rest_statements849); 
+                            string_literal91_tree = 
+                            (CommonTree)adaptor.create(string_literal91)
                             ;
-                            adaptor.addChild(root_0, string_literal96_tree);
+                            adaptor.addChild(root_0, string_literal91_tree);
 
 
                             }
@@ -2733,11 +2727,11 @@ public TreeAdaptor getTreeAdaptor() {
                         case 3 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:18: 'drank'
                             {
-                            string_literal97=(Token)match(input,40,FOLLOW_40_in_rest_statements875); 
-                            string_literal97_tree = 
-                            (CommonTree)adaptor.create(string_literal97)
+                            string_literal92=(Token)match(input,40,FOLLOW_40_in_rest_statements869); 
+                            string_literal92_tree = 
+                            (CommonTree)adaptor.create(string_literal92)
                             ;
-                            adaptor.addChild(root_0, string_literal97_tree);
+                            adaptor.addChild(root_0, string_literal92_tree);
 
 
                             }
@@ -2790,23 +2784,23 @@ public TreeAdaptor getTreeAdaptor() {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:8: expr
                             {
-                            pushFollow(FOLLOW_expr_in_rest_statements930);
-                            expr98=expr();
+                            pushFollow(FOLLOW_expr_in_rest_statements924);
+                            expr93=expr();
 
                             state._fsp--;
 
-                            adaptor.addChild(root_0, expr98.getTree());
+                            adaptor.addChild(root_0, expr93.getTree());
 
                             }
                             break;
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:15: LETTER
                             {
-                            LETTER99=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements934); 
-                            LETTER99_tree = 
-                            (CommonTree)adaptor.create(LETTER99)
+                            LETTER94=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements928); 
+                            LETTER94_tree = 
+                            (CommonTree)adaptor.create(LETTER94)
                             ;
-                            adaptor.addChild(root_0, LETTER99_tree);
+                            adaptor.addChild(root_0, LETTER94_tree);
 
 
                             }
@@ -2814,11 +2808,11 @@ public TreeAdaptor getTreeAdaptor() {
                         case 3 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:24: STRING
                             {
-                            STRING100=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements938); 
-                            STRING100_tree = 
-                            (CommonTree)adaptor.create(STRING100)
+                            STRING95=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements932); 
+                            STRING95_tree = 
+                            (CommonTree)adaptor.create(STRING95)
                             ;
-                            adaptor.addChild(root_0, STRING100_tree);
+                            adaptor.addChild(root_0, STRING95_tree);
 
 
                             }
@@ -2827,12 +2821,12 @@ public TreeAdaptor getTreeAdaptor() {
                     }
 
 
-                    set101=(Token)input.LT(1);
+                    set96=(Token)input.LT(1);
 
                     if ( input.LA(1)==56||input.LA(1)==60 ) {
                         input.consume();
                         adaptor.addChild(root_0, 
-                        (CommonTree)adaptor.create(set101)
+                        (CommonTree)adaptor.create(set96)
                         );
                         state.errorRecovery=false;
                     }
@@ -2850,18 +2844,18 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    string_literal102=(Token)match(input,28,FOLLOW_28_in_rest_statements960); 
-                    string_literal102_tree = 
-                    (CommonTree)adaptor.create(string_literal102)
+                    string_literal97=(Token)match(input,28,FOLLOW_28_in_rest_statements954); 
+                    string_literal97_tree = 
+                    (CommonTree)adaptor.create(string_literal97)
                     ;
-                    adaptor.addChild(root_0, string_literal102_tree);
+                    adaptor.addChild(root_0, string_literal97_tree);
 
 
-                    string_literal103=(Token)match(input,44,FOLLOW_44_in_rest_statements962); 
-                    string_literal103_tree = 
-                    (CommonTree)adaptor.create(string_literal103)
+                    string_literal98=(Token)match(input,44,FOLLOW_44_in_rest_statements956); 
+                    string_literal98_tree = 
+                    (CommonTree)adaptor.create(string_literal98)
                     ;
-                    adaptor.addChild(root_0, string_literal103_tree);
+                    adaptor.addChild(root_0, string_literal98_tree);
 
 
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:133:23: ( expr | LETTER | STRING | function_call )
@@ -2878,7 +2872,7 @@ public TreeAdaptor getTreeAdaptor() {
                         {
                         int LA20_2 = input.LA(2);
 
-                        if ( (LA20_2==11||LA20_2==13||(LA20_2 >= 16 && LA20_2 <= 21)||(LA20_2 >= 31 && LA20_2 <= 32)||LA20_2==37||LA20_2==61||LA20_2==65) ) {
+                        if ( (LA20_2==11||LA20_2==13||(LA20_2 >= 16 && LA20_2 <= 21)||(LA20_2 >= 30 && LA20_2 <= 32)||LA20_2==37||LA20_2==61||LA20_2==65) ) {
                             alt20=1;
                         }
                         else if ( (LA20_2==14) ) {
@@ -2915,23 +2909,23 @@ public TreeAdaptor getTreeAdaptor() {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:133:24: expr
                             {
-                            pushFollow(FOLLOW_expr_in_rest_statements965);
-                            expr104=expr();
+                            pushFollow(FOLLOW_expr_in_rest_statements959);
+                            expr99=expr();
 
                             state._fsp--;
 
-                            adaptor.addChild(root_0, expr104.getTree());
+                            adaptor.addChild(root_0, expr99.getTree());
 
                             }
                             break;
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:133:31: LETTER
                             {
-                            LETTER105=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements969); 
-                            LETTER105_tree = 
-                            (CommonTree)adaptor.create(LETTER105)
+                            LETTER100=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements963); 
+                            LETTER100_tree = 
+                            (CommonTree)adaptor.create(LETTER100)
                             ;
-                            adaptor.addChild(root_0, LETTER105_tree);
+                            adaptor.addChild(root_0, LETTER100_tree);
 
 
                             }
@@ -2939,11 +2933,11 @@ public TreeAdaptor getTreeAdaptor() {
                         case 3 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:133:40: STRING
                             {
-                            STRING106=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements973); 
-                            STRING106_tree = 
-                            (CommonTree)adaptor.create(STRING106)
+                            STRING101=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements967); 
+                            STRING101_tree = 
+                            (CommonTree)adaptor.create(STRING101)
                             ;
-                            adaptor.addChild(root_0, STRING106_tree);
+                            adaptor.addChild(root_0, STRING101_tree);
 
 
                             }
@@ -2951,12 +2945,12 @@ public TreeAdaptor getTreeAdaptor() {
                         case 4 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:133:48: function_call
                             {
-                            pushFollow(FOLLOW_function_call_in_rest_statements976);
-                            function_call107=function_call();
+                            pushFollow(FOLLOW_function_call_in_rest_statements970);
+                            function_call102=function_call();
 
                             state._fsp--;
 
-                            adaptor.addChild(root_0, function_call107.getTree());
+                            adaptor.addChild(root_0, function_call102.getTree());
 
                             }
                             break;
@@ -2972,12 +2966,12 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_function_call_in_rest_statements985);
-                    function_call108=function_call();
+                    pushFollow(FOLLOW_function_call_in_rest_statements979);
+                    function_call103=function_call();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, function_call108.getTree());
+                    adaptor.addChild(root_0, function_call103.getTree());
 
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:134:21: ( 'spoke' | 'said Alice' )?
                     int alt21=2;
@@ -2990,12 +2984,12 @@ public TreeAdaptor getTreeAdaptor() {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:
                             {
-                            set109=(Token)input.LT(1);
+                            set104=(Token)input.LT(1);
 
                             if ( input.LA(1)==56||input.LA(1)==60 ) {
                                 input.consume();
                                 adaptor.addChild(root_0, 
-                                (CommonTree)adaptor.create(set109)
+                                (CommonTree)adaptor.create(set104)
                                 );
                                 state.errorRecovery=false;
                             }
@@ -3019,25 +3013,25 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    string_literal110=(Token)match(input,64,FOLLOW_64_in_rest_statements1002); 
-                    string_literal110_tree = 
-                    (CommonTree)adaptor.create(string_literal110)
+                    string_literal105=(Token)match(input,64,FOLLOW_64_in_rest_statements996); 
+                    string_literal105_tree = 
+                    (CommonTree)adaptor.create(string_literal105)
                     ;
-                    adaptor.addChild(root_0, string_literal110_tree);
+                    adaptor.addChild(root_0, string_literal105_tree);
 
 
-                    IDENT111=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements1004); 
-                    IDENT111_tree = 
-                    (CommonTree)adaptor.create(IDENT111)
+                    IDENT106=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements998); 
+                    IDENT106_tree = 
+                    (CommonTree)adaptor.create(IDENT106)
                     ;
-                    adaptor.addChild(root_0, IDENT111_tree);
+                    adaptor.addChild(root_0, IDENT106_tree);
 
 
-                    char_literal112=(Token)match(input,27,FOLLOW_27_in_rest_statements1006); 
-                    char_literal112_tree = 
-                    (CommonTree)adaptor.create(char_literal112)
+                    char_literal107=(Token)match(input,27,FOLLOW_27_in_rest_statements1000); 
+                    char_literal107_tree = 
+                    (CommonTree)adaptor.create(char_literal107)
                     ;
-                    adaptor.addChild(root_0, char_literal112_tree);
+                    adaptor.addChild(root_0, char_literal107_tree);
 
 
                     }
@@ -3081,13 +3075,13 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        malice_grammarParser.function_name_return function_name113 =null;
+        malice_grammarParser.function_name_return function_name108 =null;
 
-        malice_grammarParser.lpar_return lpar114 =null;
+        malice_grammarParser.lpar_return lpar109 =null;
 
-        malice_grammarParser.arguments_to_functions_return arguments_to_functions115 =null;
+        malice_grammarParser.arguments_to_functions_return arguments_to_functions110 =null;
 
-        malice_grammarParser.rpar_return rpar116 =null;
+        malice_grammarParser.rpar_return rpar111 =null;
 
 
 
@@ -3098,33 +3092,33 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_function_name_in_function_call1018);
-            function_name113=function_name();
+            pushFollow(FOLLOW_function_name_in_function_call1012);
+            function_name108=function_name();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, function_name113.getTree());
+            adaptor.addChild(root_0, function_name108.getTree());
 
-            pushFollow(FOLLOW_lpar_in_function_call1020);
-            lpar114=lpar();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, lpar114.getTree());
-
-            pushFollow(FOLLOW_arguments_to_functions_in_function_call1022);
-            arguments_to_functions115=arguments_to_functions();
+            pushFollow(FOLLOW_lpar_in_function_call1014);
+            lpar109=lpar();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, arguments_to_functions115.getTree());
+            adaptor.addChild(root_0, lpar109.getTree());
 
-            pushFollow(FOLLOW_rpar_in_function_call1024);
-            rpar116=rpar();
+            pushFollow(FOLLOW_arguments_to_functions_in_function_call1016);
+            arguments_to_functions110=arguments_to_functions();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, rpar116.getTree());
+            adaptor.addChild(root_0, arguments_to_functions110.getTree());
+
+            pushFollow(FOLLOW_rpar_in_function_call1018);
+            rpar111=rpar();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, rpar111.getTree());
 
             }
 
@@ -3165,9 +3159,9 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        malice_grammarParser.rest_statements_return rest_statements117 =null;
+        malice_grammarParser.rest_statements_return rest_statements112 =null;
 
-        malice_grammarParser.declaration_statements_return declaration_statements118 =null;
+        malice_grammarParser.declaration_statements_return declaration_statements113 =null;
 
 
 
@@ -3210,12 +3204,12 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_rest_statements_in_statement1032);
-                    rest_statements117=rest_statements();
+                    pushFollow(FOLLOW_rest_statements_in_statement1026);
+                    rest_statements112=rest_statements();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, rest_statements117.getTree());
+                    adaptor.addChild(root_0, rest_statements112.getTree());
 
                     }
                     break;
@@ -3225,12 +3219,12 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (CommonTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_declaration_statements_in_statement1036);
-                    declaration_statements118=declaration_statements();
+                    pushFollow(FOLLOW_declaration_statements_in_statement1030);
+                    declaration_statements113=declaration_statements();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, declaration_statements118.getTree());
+                    adaptor.addChild(root_0, declaration_statements113.getTree());
 
                     }
                     break;
@@ -3273,9 +3267,9 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token set119=null;
+        Token set114=null;
 
-        CommonTree set119_tree=null;
+        CommonTree set114_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:142:24: ( ',' | 'and' | 'then' | 'but' )
@@ -3284,12 +3278,12 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            set119=(Token)input.LT(1);
+            set114=(Token)input.LT(1);
 
             if ( input.LA(1)==18||input.LA(1)==32||input.LA(1)==37||input.LA(1)==61 ) {
                 input.consume();
                 adaptor.addChild(root_0, 
-                (CommonTree)adaptor.create(set119)
+                (CommonTree)adaptor.create(set114)
                 );
                 state.errorRecovery=false;
             }
@@ -3338,21 +3332,21 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token char_literal126=null;
-        malice_grammarParser.control_structure_return control_structure120 =null;
+        Token char_literal121=null;
+        malice_grammarParser.control_structure_return control_structure115 =null;
 
-        malice_grammarParser.nested_function_return nested_function121 =null;
+        malice_grammarParser.nested_function_return nested_function116 =null;
 
-        malice_grammarParser.function_return function122 =null;
+        malice_grammarParser.function_return function117 =null;
 
-        malice_grammarParser.statement_return statement123 =null;
+        malice_grammarParser.statement_return statement118 =null;
 
-        malice_grammarParser.statement_conjunctions_return statement_conjunctions124 =null;
+        malice_grammarParser.statement_conjunctions_return statement_conjunctions119 =null;
 
-        malice_grammarParser.statement_return statement125 =null;
+        malice_grammarParser.statement_return statement120 =null;
 
 
-        CommonTree char_literal126_tree=null;
+        CommonTree char_literal121_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:15: ( ( control_structure | nested_function | function | statement ( statement_conjunctions statement )* '.' )* )
@@ -3402,48 +3396,48 @@ public TreeAdaptor getTreeAdaptor() {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:18: control_structure
             	    {
-            	    pushFollow(FOLLOW_control_structure_in_statementList1076);
-            	    control_structure120=control_structure();
+            	    pushFollow(FOLLOW_control_structure_in_statementList1070);
+            	    control_structure115=control_structure();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, control_structure120.getTree());
+            	    adaptor.addChild(root_0, control_structure115.getTree());
 
             	    }
             	    break;
             	case 2 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:38: nested_function
             	    {
-            	    pushFollow(FOLLOW_nested_function_in_statementList1080);
-            	    nested_function121=nested_function();
+            	    pushFollow(FOLLOW_nested_function_in_statementList1074);
+            	    nested_function116=nested_function();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, nested_function121.getTree());
+            	    adaptor.addChild(root_0, nested_function116.getTree());
 
             	    }
             	    break;
             	case 3 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:56: function
             	    {
-            	    pushFollow(FOLLOW_function_in_statementList1084);
-            	    function122=function();
+            	    pushFollow(FOLLOW_function_in_statementList1078);
+            	    function117=function();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, function122.getTree());
+            	    adaptor.addChild(root_0, function117.getTree());
 
             	    }
             	    break;
             	case 4 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:66: statement ( statement_conjunctions statement )* '.'
             	    {
-            	    pushFollow(FOLLOW_statement_in_statementList1087);
-            	    statement123=statement();
+            	    pushFollow(FOLLOW_statement_in_statementList1081);
+            	    statement118=statement();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, statement123.getTree());
+            	    adaptor.addChild(root_0, statement118.getTree());
 
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:76: ( statement_conjunctions statement )*
             	    loop24:
@@ -3460,19 +3454,19 @@ public TreeAdaptor getTreeAdaptor() {
             	    	case 1 :
             	    	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:77: statement_conjunctions statement
             	    	    {
-            	    	    pushFollow(FOLLOW_statement_conjunctions_in_statementList1090);
-            	    	    statement_conjunctions124=statement_conjunctions();
+            	    	    pushFollow(FOLLOW_statement_conjunctions_in_statementList1084);
+            	    	    statement_conjunctions119=statement_conjunctions();
 
             	    	    state._fsp--;
 
-            	    	    adaptor.addChild(root_0, statement_conjunctions124.getTree());
+            	    	    adaptor.addChild(root_0, statement_conjunctions119.getTree());
 
-            	    	    pushFollow(FOLLOW_statement_in_statementList1092);
-            	    	    statement125=statement();
+            	    	    pushFollow(FOLLOW_statement_in_statementList1086);
+            	    	    statement120=statement();
 
             	    	    state._fsp--;
 
-            	    	    adaptor.addChild(root_0, statement125.getTree());
+            	    	    adaptor.addChild(root_0, statement120.getTree());
 
             	    	    }
             	    	    break;
@@ -3483,11 +3477,11 @@ public TreeAdaptor getTreeAdaptor() {
             	    } while (true);
 
 
-            	    char_literal126=(Token)match(input,20,FOLLOW_20_in_statementList1096); 
-            	    char_literal126_tree = 
-            	    (CommonTree)adaptor.create(char_literal126)
+            	    char_literal121=(Token)match(input,20,FOLLOW_20_in_statementList1090); 
+            	    char_literal121_tree = 
+            	    (CommonTree)adaptor.create(char_literal121)
             	    ;
-            	    adaptor.addChild(root_0, char_literal126_tree);
+            	    adaptor.addChild(root_0, char_literal121_tree);
 
 
             	    }
@@ -3538,13 +3532,13 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token string_literal127=null;
-        Token IDENT129=null;
-        malice_grammarParser.data_types_return data_types128 =null;
+        Token string_literal122=null;
+        Token IDENT124=null;
+        malice_grammarParser.data_types_return data_types123 =null;
 
 
-        CommonTree string_literal127_tree=null;
-        CommonTree IDENT129_tree=null;
+        CommonTree string_literal122_tree=null;
+        CommonTree IDENT124_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:153:11: ( ( 'spider' )? data_types IDENT )
@@ -3564,11 +3558,11 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:153:14: 'spider'
                     {
-                    string_literal127=(Token)match(input,59,FOLLOW_59_in_parameter1107); 
-                    string_literal127_tree = 
-                    (CommonTree)adaptor.create(string_literal127)
+                    string_literal122=(Token)match(input,59,FOLLOW_59_in_parameter1101); 
+                    string_literal122_tree = 
+                    (CommonTree)adaptor.create(string_literal122)
                     ;
-                    adaptor.addChild(root_0, string_literal127_tree);
+                    adaptor.addChild(root_0, string_literal122_tree);
 
 
                     }
@@ -3577,18 +3571,18 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            pushFollow(FOLLOW_data_types_in_parameter1111);
-            data_types128=data_types();
+            pushFollow(FOLLOW_data_types_in_parameter1105);
+            data_types123=data_types();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, data_types128.getTree());
+            adaptor.addChild(root_0, data_types123.getTree());
 
-            IDENT129=(Token)match(input,IDENT,FOLLOW_IDENT_in_parameter1113); 
-            IDENT129_tree = 
-            (CommonTree)adaptor.create(IDENT129)
+            IDENT124=(Token)match(input,IDENT,FOLLOW_IDENT_in_parameter1107); 
+            IDENT124_tree = 
+            (CommonTree)adaptor.create(IDENT124)
             ;
-            adaptor.addChild(root_0, IDENT129_tree);
+            adaptor.addChild(root_0, IDENT124_tree);
 
 
             }
@@ -3630,13 +3624,13 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token char_literal131=null;
-        malice_grammarParser.parameter_return parameter130 =null;
+        Token char_literal126=null;
+        malice_grammarParser.parameter_return parameter125 =null;
 
-        malice_grammarParser.parameter_return parameter132 =null;
+        malice_grammarParser.parameter_return parameter127 =null;
 
 
-        CommonTree char_literal131_tree=null;
+        CommonTree char_literal126_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:156:12: ( ( parameter ( ',' parameter )* )? )
@@ -3656,12 +3650,12 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:156:15: parameter ( ',' parameter )*
                     {
-                    pushFollow(FOLLOW_parameter_in_parameters1124);
-                    parameter130=parameter();
+                    pushFollow(FOLLOW_parameter_in_parameters1118);
+                    parameter125=parameter();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, parameter130.getTree());
+                    adaptor.addChild(root_0, parameter125.getTree());
 
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:156:25: ( ',' parameter )*
                     loop27:
@@ -3678,19 +3672,19 @@ public TreeAdaptor getTreeAdaptor() {
                     	case 1 :
                     	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:156:27: ',' parameter
                     	    {
-                    	    char_literal131=(Token)match(input,18,FOLLOW_18_in_parameters1128); 
-                    	    char_literal131_tree = 
-                    	    (CommonTree)adaptor.create(char_literal131)
+                    	    char_literal126=(Token)match(input,18,FOLLOW_18_in_parameters1122); 
+                    	    char_literal126_tree = 
+                    	    (CommonTree)adaptor.create(char_literal126)
                     	    ;
-                    	    adaptor.addChild(root_0, char_literal131_tree);
+                    	    adaptor.addChild(root_0, char_literal126_tree);
 
 
-                    	    pushFollow(FOLLOW_parameter_in_parameters1130);
-                    	    parameter132=parameter();
+                    	    pushFollow(FOLLOW_parameter_in_parameters1124);
+                    	    parameter127=parameter();
 
                     	    state._fsp--;
 
-                    	    adaptor.addChild(root_0, parameter132.getTree());
+                    	    adaptor.addChild(root_0, parameter127.getTree());
 
                     	    }
                     	    break;
@@ -3746,9 +3740,9 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token IDENT133=null;
+        Token IDENT128=null;
 
-        CommonTree IDENT133_tree=null;
+        CommonTree IDENT128_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:157:15: ( IDENT )
@@ -3757,11 +3751,11 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            IDENT133=(Token)match(input,IDENT,FOLLOW_IDENT_in_function_name1142); 
-            IDENT133_tree = 
-            (CommonTree)adaptor.create(IDENT133)
+            IDENT128=(Token)match(input,IDENT,FOLLOW_IDENT_in_function_name1136); 
+            IDENT128_tree = 
+            (CommonTree)adaptor.create(IDENT128)
             ;
-            adaptor.addChild(root_0, IDENT133_tree);
+            adaptor.addChild(root_0, IDENT128_tree);
 
 
             }
@@ -3803,13 +3797,13 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token string_literal134=null;
-        Token string_literal136=null;
-        malice_grammarParser.statementList_return statementList135 =null;
+        Token string_literal129=null;
+        Token string_literal131=null;
+        malice_grammarParser.statementList_return statementList130 =null;
 
 
-        CommonTree string_literal134_tree=null;
-        CommonTree string_literal136_tree=null;
+        CommonTree string_literal129_tree=null;
+        CommonTree string_literal131_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:159:17: ( 'opened' statementList 'closed' )
@@ -3818,25 +3812,25 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            string_literal134=(Token)match(input,51,FOLLOW_51_in_nested_function1150); 
-            string_literal134_tree = 
-            (CommonTree)adaptor.create(string_literal134)
+            string_literal129=(Token)match(input,51,FOLLOW_51_in_nested_function1144); 
+            string_literal129_tree = 
+            (CommonTree)adaptor.create(string_literal129)
             ;
-            adaptor.addChild(root_0, string_literal134_tree);
+            adaptor.addChild(root_0, string_literal129_tree);
 
 
-            pushFollow(FOLLOW_statementList_in_nested_function1152);
-            statementList135=statementList();
+            pushFollow(FOLLOW_statementList_in_nested_function1146);
+            statementList130=statementList();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, statementList135.getTree());
+            adaptor.addChild(root_0, statementList130.getTree());
 
-            string_literal136=(Token)match(input,38,FOLLOW_38_in_nested_function1154); 
-            string_literal136_tree = 
-            (CommonTree)adaptor.create(string_literal136)
+            string_literal131=(Token)match(input,38,FOLLOW_38_in_nested_function1148); 
+            string_literal131_tree = 
+            (CommonTree)adaptor.create(string_literal131)
             ;
-            adaptor.addChild(root_0, string_literal136_tree);
+            adaptor.addChild(root_0, string_literal131_tree);
 
 
             }
@@ -3878,12 +3872,20 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token string_literal137=null;
+        Token string_literal132=null;
+        Token string_literal133=null;
         Token string_literal138=null;
         Token string_literal143=null;
-        Token string_literal148=null;
-        Token string_literal150=null;
-        Token string_literal152=null;
+        Token string_literal145=null;
+        Token string_literal147=null;
+        malice_grammarParser.function_name_return function_name134 =null;
+
+        malice_grammarParser.lpar_return lpar135 =null;
+
+        malice_grammarParser.parameters_return parameters136 =null;
+
+        malice_grammarParser.rpar_return rpar137 =null;
+
         malice_grammarParser.function_name_return function_name139 =null;
 
         malice_grammarParser.lpar_return lpar140 =null;
@@ -3892,25 +3894,17 @@ public TreeAdaptor getTreeAdaptor() {
 
         malice_grammarParser.rpar_return rpar142 =null;
 
-        malice_grammarParser.function_name_return function_name144 =null;
+        malice_grammarParser.data_types_return data_types144 =null;
 
-        malice_grammarParser.lpar_return lpar145 =null;
-
-        malice_grammarParser.parameters_return parameters146 =null;
-
-        malice_grammarParser.rpar_return rpar147 =null;
-
-        malice_grammarParser.data_types_return data_types149 =null;
-
-        malice_grammarParser.statementList_return statementList151 =null;
+        malice_grammarParser.statementList_return statementList146 =null;
 
 
-        CommonTree string_literal137_tree=null;
+        CommonTree string_literal132_tree=null;
+        CommonTree string_literal133_tree=null;
         CommonTree string_literal138_tree=null;
         CommonTree string_literal143_tree=null;
-        CommonTree string_literal148_tree=null;
-        CommonTree string_literal150_tree=null;
-        CommonTree string_literal152_tree=null;
+        CommonTree string_literal145_tree=null;
+        CommonTree string_literal147_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:160:9: ( 'The' ( 'looking-glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained a' data_types ) 'opened' statementList 'closed' )
@@ -3919,11 +3913,11 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            string_literal137=(Token)match(input,29,FOLLOW_29_in_function1161); 
-            string_literal137_tree = 
-            (CommonTree)adaptor.create(string_literal137)
+            string_literal132=(Token)match(input,29,FOLLOW_29_in_function1155); 
+            string_literal132_tree = 
+            (CommonTree)adaptor.create(string_literal132)
             ;
-            adaptor.addChild(root_0, string_literal137_tree);
+            adaptor.addChild(root_0, string_literal132_tree);
 
 
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:160:17: ( 'looking-glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained a' data_types )
@@ -3947,94 +3941,94 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:160:21: 'looking-glass' function_name lpar parameters rpar
                     {
-                    string_literal138=(Token)match(input,47,FOLLOW_47_in_function1167); 
-                    string_literal138_tree = 
-                    (CommonTree)adaptor.create(string_literal138)
+                    string_literal133=(Token)match(input,47,FOLLOW_47_in_function1161); 
+                    string_literal133_tree = 
+                    (CommonTree)adaptor.create(string_literal133)
                     ;
-                    adaptor.addChild(root_0, string_literal138_tree);
+                    adaptor.addChild(root_0, string_literal133_tree);
 
 
-                    pushFollow(FOLLOW_function_name_in_function1169);
-                    function_name139=function_name();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, function_name139.getTree());
-
-                    pushFollow(FOLLOW_lpar_in_function1171);
-                    lpar140=lpar();
+                    pushFollow(FOLLOW_function_name_in_function1163);
+                    function_name134=function_name();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, lpar140.getTree());
+                    adaptor.addChild(root_0, function_name134.getTree());
 
-                    pushFollow(FOLLOW_parameters_in_function1173);
-                    parameters141=parameters();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, parameters141.getTree());
-
-                    pushFollow(FOLLOW_rpar_in_function1175);
-                    rpar142=rpar();
+                    pushFollow(FOLLOW_lpar_in_function1165);
+                    lpar135=lpar();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, rpar142.getTree());
+                    adaptor.addChild(root_0, lpar135.getTree());
+
+                    pushFollow(FOLLOW_parameters_in_function1167);
+                    parameters136=parameters();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, parameters136.getTree());
+
+                    pushFollow(FOLLOW_rpar_in_function1169);
+                    rpar137=rpar();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, rpar137.getTree());
 
                     }
                     break;
                 case 2 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:17: 'room' function_name lpar parameters rpar 'contained a' data_types
                     {
-                    string_literal143=(Token)match(input,55,FOLLOW_55_in_function1193); 
+                    string_literal138=(Token)match(input,55,FOLLOW_55_in_function1187); 
+                    string_literal138_tree = 
+                    (CommonTree)adaptor.create(string_literal138)
+                    ;
+                    adaptor.addChild(root_0, string_literal138_tree);
+
+
+                    pushFollow(FOLLOW_function_name_in_function1189);
+                    function_name139=function_name();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, function_name139.getTree());
+
+                    pushFollow(FOLLOW_lpar_in_function1191);
+                    lpar140=lpar();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, lpar140.getTree());
+
+                    pushFollow(FOLLOW_parameters_in_function1193);
+                    parameters141=parameters();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, parameters141.getTree());
+
+                    pushFollow(FOLLOW_rpar_in_function1195);
+                    rpar142=rpar();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, rpar142.getTree());
+
+                    string_literal143=(Token)match(input,39,FOLLOW_39_in_function1197); 
                     string_literal143_tree = 
                     (CommonTree)adaptor.create(string_literal143)
                     ;
                     adaptor.addChild(root_0, string_literal143_tree);
 
 
-                    pushFollow(FOLLOW_function_name_in_function1195);
-                    function_name144=function_name();
+                    pushFollow(FOLLOW_data_types_in_function1199);
+                    data_types144=data_types();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, function_name144.getTree());
-
-                    pushFollow(FOLLOW_lpar_in_function1197);
-                    lpar145=lpar();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, lpar145.getTree());
-
-                    pushFollow(FOLLOW_parameters_in_function1199);
-                    parameters146=parameters();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, parameters146.getTree());
-
-                    pushFollow(FOLLOW_rpar_in_function1201);
-                    rpar147=rpar();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, rpar147.getTree());
-
-                    string_literal148=(Token)match(input,39,FOLLOW_39_in_function1203); 
-                    string_literal148_tree = 
-                    (CommonTree)adaptor.create(string_literal148)
-                    ;
-                    adaptor.addChild(root_0, string_literal148_tree);
-
-
-                    pushFollow(FOLLOW_data_types_in_function1205);
-                    data_types149=data_types();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, data_types149.getTree());
+                    adaptor.addChild(root_0, data_types144.getTree());
 
                     }
                     break;
@@ -4042,25 +4036,25 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            string_literal150=(Token)match(input,51,FOLLOW_51_in_function1226); 
-            string_literal150_tree = 
-            (CommonTree)adaptor.create(string_literal150)
+            string_literal145=(Token)match(input,51,FOLLOW_51_in_function1220); 
+            string_literal145_tree = 
+            (CommonTree)adaptor.create(string_literal145)
             ;
-            adaptor.addChild(root_0, string_literal150_tree);
+            adaptor.addChild(root_0, string_literal145_tree);
 
 
-            pushFollow(FOLLOW_statementList_in_function1233);
-            statementList151=statementList();
+            pushFollow(FOLLOW_statementList_in_function1227);
+            statementList146=statementList();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, statementList151.getTree());
+            adaptor.addChild(root_0, statementList146.getTree());
 
-            string_literal152=(Token)match(input,38,FOLLOW_38_in_function1240); 
-            string_literal152_tree = 
-            (CommonTree)adaptor.create(string_literal152)
+            string_literal147=(Token)match(input,38,FOLLOW_38_in_function1234); 
+            string_literal147_tree = 
+            (CommonTree)adaptor.create(string_literal147)
             ;
-            adaptor.addChild(root_0, string_literal152_tree);
+            adaptor.addChild(root_0, string_literal147_tree);
 
 
             }
@@ -4102,15 +4096,15 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token char_literal156=null;
-        malice_grammarParser.declaration_statements_return declaration_statements153 =null;
+        Token char_literal151=null;
+        malice_grammarParser.declaration_statements_return declaration_statements148 =null;
 
-        malice_grammarParser.statement_conjunctions_return statement_conjunctions154 =null;
+        malice_grammarParser.statement_conjunctions_return statement_conjunctions149 =null;
 
-        malice_grammarParser.declaration_statements_return declaration_statements155 =null;
+        malice_grammarParser.declaration_statements_return declaration_statements150 =null;
 
 
-        CommonTree char_literal156_tree=null;
+        CommonTree char_literal151_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:20: ( ( declaration_statements ( statement_conjunctions declaration_statements )* '.' ) )
@@ -4122,12 +4116,12 @@ public TreeAdaptor getTreeAdaptor() {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
             {
-            pushFollow(FOLLOW_declaration_statements_in_global_declaration1254);
-            declaration_statements153=declaration_statements();
+            pushFollow(FOLLOW_declaration_statements_in_global_declaration1248);
+            declaration_statements148=declaration_statements();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, declaration_statements153.getTree());
+            adaptor.addChild(root_0, declaration_statements148.getTree());
 
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:46: ( statement_conjunctions declaration_statements )*
             loop30:
@@ -4144,19 +4138,19 @@ public TreeAdaptor getTreeAdaptor() {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:47: statement_conjunctions declaration_statements
             	    {
-            	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1257);
-            	    statement_conjunctions154=statement_conjunctions();
+            	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1251);
+            	    statement_conjunctions149=statement_conjunctions();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, statement_conjunctions154.getTree());
+            	    adaptor.addChild(root_0, statement_conjunctions149.getTree());
 
-            	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1259);
-            	    declaration_statements155=declaration_statements();
+            	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1253);
+            	    declaration_statements150=declaration_statements();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, declaration_statements155.getTree());
+            	    adaptor.addChild(root_0, declaration_statements150.getTree());
 
             	    }
             	    break;
@@ -4167,11 +4161,11 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            char_literal156=(Token)match(input,20,FOLLOW_20_in_global_declaration1263); 
-            char_literal156_tree = 
-            (CommonTree)adaptor.create(char_literal156)
+            char_literal151=(Token)match(input,20,FOLLOW_20_in_global_declaration1257); 
+            char_literal151_tree = 
+            (CommonTree)adaptor.create(char_literal151)
             ;
-            adaptor.addChild(root_0, char_literal156_tree);
+            adaptor.addChild(root_0, char_literal151_tree);
 
 
             }
@@ -4216,13 +4210,13 @@ public TreeAdaptor getTreeAdaptor() {
 
         CommonTree root_0 = null;
 
-        Token EOF159=null;
-        malice_grammarParser.global_declaration_return global_declaration157 =null;
+        Token EOF154=null;
+        malice_grammarParser.global_declaration_return global_declaration152 =null;
 
-        malice_grammarParser.function_return function158 =null;
+        malice_grammarParser.function_return function153 =null;
 
 
-        CommonTree EOF159_tree=null;
+        CommonTree EOF154_tree=null;
 
         try {
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:9: ( ( global_declaration )? ( function )+ EOF )
@@ -4242,12 +4236,12 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:11: global_declaration
                     {
-                    pushFollow(FOLLOW_global_declaration_in_program1273);
-                    global_declaration157=global_declaration();
+                    pushFollow(FOLLOW_global_declaration_in_program1267);
+                    global_declaration152=global_declaration();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, global_declaration157.getTree());
+                    adaptor.addChild(root_0, global_declaration152.getTree());
 
                     }
                     break;
@@ -4271,12 +4265,12 @@ public TreeAdaptor getTreeAdaptor() {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:31: function
             	    {
-            	    pushFollow(FOLLOW_function_in_program1276);
-            	    function158=function();
+            	    pushFollow(FOLLOW_function_in_program1270);
+            	    function153=function();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, function158.getTree());
+            	    adaptor.addChild(root_0, function153.getTree());
 
             	    }
             	    break;
@@ -4291,11 +4285,11 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            EOF159=(Token)match(input,EOF,FOLLOW_EOF_in_program1279); 
-            EOF159_tree = 
-            (CommonTree)adaptor.create(EOF159)
+            EOF154=(Token)match(input,EOF,FOLLOW_EOF_in_program1273); 
+            EOF154_tree = 
+            (CommonTree)adaptor.create(EOF154)
             ;
-            adaptor.addChild(root_0, EOF159_tree);
+            adaptor.addChild(root_0, EOF154_tree);
 
 
             }
@@ -4337,147 +4331,142 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_NUMBER_in_atom275 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_variable_in_atom279 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_IDENT_in_variable286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_e_in_expr309 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_lpar_in_expr313 = new BitSet(new long[]{0x0000000000000050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_e_in_expr315 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_expr317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_mono_op_in_e324 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_expr_in_e326 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_atom_in_e330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_atom_in_e334 = new BitSet(new long[]{0x00000000802B2800L,0x0000000000000002L});
-    public static final BitSet FOLLOW_bin_op_in_e336 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_expr_in_e338 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_9_in_not_expr416 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_lpar_in_not_expr418 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_bool_expr_in_not_expr420 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_not_expr422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_bool_expr430 = new BitSet(new long[]{0x0000000007C00400L});
-    public static final BitSet FOLLOW_relational_ops_in_bool_expr432 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_expr_in_bool_expr434 = new BitSet(new long[]{0x0000000007C01602L,0x0000000000000004L});
-    public static final BitSet FOLLOW_logical_ops_in_bool_expr437 = new BitSet(new long[]{0x0000000000004250L,0x0000000000000008L});
-    public static final BitSet FOLLOW_expr_in_bool_expr440 = new BitSet(new long[]{0x0000000007C01602L,0x0000000000000004L});
-    public static final BitSet FOLLOW_not_expr_in_bool_expr444 = new BitSet(new long[]{0x0000000007C01602L,0x0000000000000004L});
-    public static final BitSet FOLLOW_relational_ops_in_bool_expr449 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_expr_in_bool_expr451 = new BitSet(new long[]{0x0000000007C01602L,0x0000000000000004L});
-    public static final BitSet FOLLOW_53_in_control_structure468 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure470 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_control_structure472 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_58_in_control_structure474 = new BitSet(new long[]{0x00390A00300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_control_structure481 = new BitSet(new long[]{0x0011000000000000L});
-    public static final BitSet FOLLOW_48_in_control_structure489 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_lpar_in_control_structure491 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure493 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_control_structure495 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_58_in_control_structure497 = new BitSet(new long[]{0x00390A00300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_control_structure499 = new BitSet(new long[]{0x0011000000000000L});
-    public static final BitSet FOLLOW_52_in_control_structure507 = new BitSet(new long[]{0x00280A08300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_control_structure509 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_control_structure515 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_41_in_control_structure524 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure526 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_58_in_control_structure528 = new BitSet(new long[]{0x00380A00300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_control_structure536 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_52_in_control_structure545 = new BitSet(new long[]{0x00280A08300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_control_structure547 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_control_structure555 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_43_in_control_structure570 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_lpar_in_control_structure572 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure574 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_control_structure576 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_control_structure578 = new BitSet(new long[]{0x00280E00300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_control_structure586 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_control_structure594 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_control_structure604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_declaration_statements618 = new BitSet(new long[]{0x8000200000000000L});
-    public static final BitSet FOLLOW_63_in_declaration_statements622 = new BitSet(new long[]{0x0202400000000000L});
-    public static final BitSet FOLLOW_data_types_in_declaration_statements624 = new BitSet(new long[]{0x4004000000000002L});
-    public static final BitSet FOLLOW_62_in_declaration_statements628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_declaration_statements632 = new BitSet(new long[]{0x00000000000040F0L,0x0000000000000008L});
-    public static final BitSet FOLLOW_LETTER_in_declaration_statements635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_declaration_statements639 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_declaration_statements643 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_declaration_statements683 = new BitSet(new long[]{0x0000000000000050L});
-    public static final BitSet FOLLOW_atom_in_declaration_statements685 = new BitSet(new long[]{0x0202400000000000L});
-    public static final BitSet FOLLOW_data_types_in_declaration_statements687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_argument728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NUMBER_in_argument732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LETTER_in_argument736 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_argument740 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_array_elem_in_argument744 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_argument_in_arguments_to_functions752 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_18_in_arguments_to_functions755 = new BitSet(new long[]{0x00000000000000F0L});
-    public static final BitSet FOLLOW_argument_in_arguments_to_functions757 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_function_call_in_arguments_to_functions765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_rest_statements780 = new BitSet(new long[]{0x0000010640000000L});
-    public static final BitSet FOLLOW_30_in_rest_statements793 = new BitSet(new long[]{0x0000000000000050L});
-    public static final BitSet FOLLOW_atom_in_rest_statements795 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_54_in_rest_statements797 = new BitSet(new long[]{0x0000010600000000L});
-    public static final BitSet FOLLOW_34_in_rest_statements818 = new BitSet(new long[]{0x00000000000040F0L,0x0000000000000008L});
-    public static final BitSet FOLLOW_expr_in_rest_statements822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LETTER_in_rest_statements826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_rest_statements830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_call_in_rest_statements834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_rest_statements855 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rest_statements875 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_rest_statements930 = new BitSet(new long[]{0x1100000000000000L});
-    public static final BitSet FOLLOW_LETTER_in_rest_statements934 = new BitSet(new long[]{0x1100000000000000L});
-    public static final BitSet FOLLOW_STRING_in_rest_statements938 = new BitSet(new long[]{0x1100000000000000L});
-    public static final BitSet FOLLOW_set_in_rest_statements942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rest_statements960 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_44_in_rest_statements962 = new BitSet(new long[]{0x00000000000040F0L,0x0000000000000008L});
-    public static final BitSet FOLLOW_expr_in_rest_statements965 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LETTER_in_rest_statements969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_rest_statements973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_call_in_rest_statements976 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_call_in_rest_statements985 = new BitSet(new long[]{0x1100000000000002L});
-    public static final BitSet FOLLOW_64_in_rest_statements1002 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_IDENT_in_rest_statements1004 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_rest_statements1006 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_name_in_function_call1018 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_lpar_in_function_call1020 = new BitSet(new long[]{0x00000000000080F0L});
-    public static final BitSet FOLLOW_arguments_to_functions_in_function_call1022 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_function_call1024 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rest_statements_in_statement1032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_statements_in_statement1036 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_control_structure_in_statementList1076 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
-    public static final BitSet FOLLOW_nested_function_in_statementList1080 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
-    public static final BitSet FOLLOW_function_in_statementList1084 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statement_in_statementList1087 = new BitSet(new long[]{0x2000002100140000L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1090 = new BitSet(new long[]{0x00000000100040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statement_in_statementList1092 = new BitSet(new long[]{0x2000002100140000L});
-    public static final BitSet FOLLOW_20_in_statementList1096 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
-    public static final BitSet FOLLOW_59_in_parameter1107 = new BitSet(new long[]{0x0202400000000000L});
-    public static final BitSet FOLLOW_data_types_in_parameter1111 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_IDENT_in_parameter1113 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ex_in_expr377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_lpar_in_bracketexpr384 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_expr_in_bracketexpr386 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rpar_in_bracketexpr388 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_mono_op_in_ex396 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_ex_in_ex398 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_atom_in_ex403 = new BitSet(new long[]{0x00000000802B2802L,0x0000000000000002L});
+    public static final BitSet FOLLOW_array_elem_in_ex407 = new BitSet(new long[]{0x00000000802B2802L,0x0000000000000002L});
+    public static final BitSet FOLLOW_bracketexpr_in_ex411 = new BitSet(new long[]{0x00000000802B2802L,0x0000000000000002L});
+    public static final BitSet FOLLOW_bin_op_in_ex415 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_ex_in_ex417 = new BitSet(new long[]{0x00000000802B2802L,0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_bool_expr436 = new BitSet(new long[]{0x0000000007C00400L});
+    public static final BitSet FOLLOW_relational_ops_in_bool_expr438 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_expr_in_bool_expr440 = new BitSet(new long[]{0x0000000000001202L,0x0000000000000004L});
+    public static final BitSet FOLLOW_logical_ops_in_bool_expr443 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_expr_in_bool_expr445 = new BitSet(new long[]{0x0000000000001202L,0x0000000000000004L});
+    public static final BitSet FOLLOW_53_in_control_structure460 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_lpar_in_control_structure462 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure464 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rpar_in_control_structure466 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_control_structure468 = new BitSet(new long[]{0x00390A00300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_control_structure475 = new BitSet(new long[]{0x0011000000000000L});
+    public static final BitSet FOLLOW_48_in_control_structure483 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_lpar_in_control_structure485 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure487 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rpar_in_control_structure489 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_control_structure491 = new BitSet(new long[]{0x00390A00300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_control_structure493 = new BitSet(new long[]{0x0011000000000000L});
+    public static final BitSet FOLLOW_52_in_control_structure501 = new BitSet(new long[]{0x00280A08300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_control_structure503 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_control_structure509 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_41_in_control_structure518 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure520 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_control_structure522 = new BitSet(new long[]{0x00380A00300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_control_structure530 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_52_in_control_structure539 = new BitSet(new long[]{0x00280A08300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_control_structure541 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_control_structure549 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_43_in_control_structure564 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_lpar_in_control_structure566 = new BitSet(new long[]{0x0000000000004050L,0x0000000000000008L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure568 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rpar_in_control_structure570 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_control_structure572 = new BitSet(new long[]{0x00280E00300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_control_structure580 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_control_structure588 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_control_structure598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_declaration_statements612 = new BitSet(new long[]{0x8000200000000000L});
+    public static final BitSet FOLLOW_63_in_declaration_statements616 = new BitSet(new long[]{0x0202400000000000L});
+    public static final BitSet FOLLOW_data_types_in_declaration_statements618 = new BitSet(new long[]{0x4004000000000002L});
+    public static final BitSet FOLLOW_62_in_declaration_statements622 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_declaration_statements626 = new BitSet(new long[]{0x00000000000040F0L,0x0000000000000008L});
+    public static final BitSet FOLLOW_LETTER_in_declaration_statements629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_declaration_statements633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_declaration_statements637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_declaration_statements677 = new BitSet(new long[]{0x0000000000000050L});
+    public static final BitSet FOLLOW_atom_in_declaration_statements679 = new BitSet(new long[]{0x0202400000000000L});
+    public static final BitSet FOLLOW_data_types_in_declaration_statements681 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_argument722 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NUMBER_in_argument726 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_argument730 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_argument734 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_array_elem_in_argument738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_argument_in_arguments_to_functions746 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_18_in_arguments_to_functions749 = new BitSet(new long[]{0x00000000000000F0L});
+    public static final BitSet FOLLOW_argument_in_arguments_to_functions751 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_function_call_in_arguments_to_functions759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_rest_statements774 = new BitSet(new long[]{0x0000010640000000L});
+    public static final BitSet FOLLOW_30_in_rest_statements787 = new BitSet(new long[]{0x0000000000000050L});
+    public static final BitSet FOLLOW_atom_in_rest_statements789 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_54_in_rest_statements791 = new BitSet(new long[]{0x0000010600000000L});
+    public static final BitSet FOLLOW_34_in_rest_statements812 = new BitSet(new long[]{0x00000000000040F0L,0x0000000000000008L});
+    public static final BitSet FOLLOW_expr_in_rest_statements816 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_rest_statements820 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_rest_statements824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_rest_statements828 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_rest_statements849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rest_statements869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_rest_statements924 = new BitSet(new long[]{0x1100000000000000L});
+    public static final BitSet FOLLOW_LETTER_in_rest_statements928 = new BitSet(new long[]{0x1100000000000000L});
+    public static final BitSet FOLLOW_STRING_in_rest_statements932 = new BitSet(new long[]{0x1100000000000000L});
+    public static final BitSet FOLLOW_set_in_rest_statements936 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rest_statements954 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_44_in_rest_statements956 = new BitSet(new long[]{0x00000000000040F0L,0x0000000000000008L});
+    public static final BitSet FOLLOW_expr_in_rest_statements959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_rest_statements963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_rest_statements967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_rest_statements970 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_rest_statements979 = new BitSet(new long[]{0x1100000000000002L});
+    public static final BitSet FOLLOW_64_in_rest_statements996 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_IDENT_in_rest_statements998 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_rest_statements1000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_name_in_function_call1012 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_lpar_in_function_call1014 = new BitSet(new long[]{0x00000000000080F0L});
+    public static final BitSet FOLLOW_arguments_to_functions_in_function_call1016 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rpar_in_function_call1018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rest_statements_in_statement1026 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_statements_in_statement1030 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_control_structure_in_statementList1070 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
+    public static final BitSet FOLLOW_nested_function_in_statementList1074 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
+    public static final BitSet FOLLOW_function_in_statementList1078 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statement_in_statementList1081 = new BitSet(new long[]{0x2000002100140000L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1084 = new BitSet(new long[]{0x00000000100040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statement_in_statementList1086 = new BitSet(new long[]{0x2000002100140000L});
+    public static final BitSet FOLLOW_20_in_statementList1090 = new BitSet(new long[]{0x00280A00300040F2L,0x0000000000000009L});
+    public static final BitSet FOLLOW_59_in_parameter1101 = new BitSet(new long[]{0x0202400000000000L});
+    public static final BitSet FOLLOW_data_types_in_parameter1105 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_IDENT_in_parameter1107 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parameter_in_parameters1118 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_18_in_parameters1122 = new BitSet(new long[]{0x0A02400000000000L});
     public static final BitSet FOLLOW_parameter_in_parameters1124 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_18_in_parameters1128 = new BitSet(new long[]{0x0A02400000000000L});
-    public static final BitSet FOLLOW_parameter_in_parameters1130 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_IDENT_in_function_name1142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_nested_function1150 = new BitSet(new long[]{0x00280A40300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_nested_function1152 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_nested_function1154 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_function1161 = new BitSet(new long[]{0x0080800000000000L});
-    public static final BitSet FOLLOW_47_in_function1167 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_function_name_in_function1169 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_lpar_in_function1171 = new BitSet(new long[]{0x0A02400000008000L});
-    public static final BitSet FOLLOW_parameters_in_function1173 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_function1175 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_55_in_function1193 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_function_name_in_function1195 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_lpar_in_function1197 = new BitSet(new long[]{0x0A02400000008000L});
-    public static final BitSet FOLLOW_parameters_in_function1199 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rpar_in_function1201 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_function1203 = new BitSet(new long[]{0x0202400000000000L});
-    public static final BitSet FOLLOW_data_types_in_function1205 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51_in_function1226 = new BitSet(new long[]{0x00280A40300040F0L,0x0000000000000009L});
-    public static final BitSet FOLLOW_statementList_in_function1233 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_function1240 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1254 = new BitSet(new long[]{0x2000002100140000L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_global_declaration1257 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1259 = new BitSet(new long[]{0x2000002100140000L});
-    public static final BitSet FOLLOW_20_in_global_declaration1263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_global_declaration_in_program1273 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_function_in_program1276 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_EOF_in_program1279 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_function_name1136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_nested_function1144 = new BitSet(new long[]{0x00280A40300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_nested_function1146 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_nested_function1148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_function1155 = new BitSet(new long[]{0x0080800000000000L});
+    public static final BitSet FOLLOW_47_in_function1161 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_function_name_in_function1163 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_lpar_in_function1165 = new BitSet(new long[]{0x0A02400000008000L});
+    public static final BitSet FOLLOW_parameters_in_function1167 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rpar_in_function1169 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_55_in_function1187 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_function_name_in_function1189 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_lpar_in_function1191 = new BitSet(new long[]{0x0A02400000008000L});
+    public static final BitSet FOLLOW_parameters_in_function1193 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rpar_in_function1195 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_function1197 = new BitSet(new long[]{0x0202400000000000L});
+    public static final BitSet FOLLOW_data_types_in_function1199 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_51_in_function1220 = new BitSet(new long[]{0x00280A40300040F0L,0x0000000000000009L});
+    public static final BitSet FOLLOW_statementList_in_function1227 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_function1234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1248 = new BitSet(new long[]{0x2000002100140000L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_global_declaration1251 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1253 = new BitSet(new long[]{0x2000002100140000L});
+    public static final BitSet FOLLOW_20_in_global_declaration1257 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_global_declaration_in_program1267 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_function_in_program1270 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_EOF_in_program1273 = new BitSet(new long[]{0x0000000000000002L});
 
 }
