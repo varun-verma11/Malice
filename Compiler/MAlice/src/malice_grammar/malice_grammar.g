@@ -87,13 +87,13 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 //
 expr : ex;
 bracketexpr : lpar expr rpar ;
-ex : mono_op ex | (atom | array_elem | bracketexpr) (bin_op ex)* ;    
+ex : mono_op ex | (atom | array_elem | bracketexpr) ;//(bin_op ex)* ;    
 
 //not_expr : '!' lpar bool_expr rpar;
 
 //bool_expr : expr relational_ops expr ;//(logical_ops (expr | not_expr) | relational_ops expr)*; 
 
-bool_expr : expr relational_ops expr (logical_ops expr)* ;
+bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
 
 control_structure
 		: (	'perhaps' lpar bool_expr rpar 'so'
@@ -101,13 +101,13 @@ control_structure
 				('maybe' lpar bool_expr rpar 'so' statementList)*
 				'or' statementList
 				'because Alice was unsure which'
-			  | 'either' bool_expr 'so'
+			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
 			  	'or' statementList
 			  	'because Alice was unsure which'			  	
 			  |	'eventually' lpar bool_expr rpar 'because'
 			  	statementList
-			  	'enough times'			
+			  	'enough times'	
 			) '.';
 			
 

@@ -48,14 +48,19 @@ public class MaliceParser {
 					"y spoke. \n" +
 				"or \n" +
 					"c spoke. \n"+
-				"because Alice was unsure which." +
+				"because Alice was unsure which. \n" +
+				"eventually(i==0) because \n" +
+					"opened \n" +
+						"c said Alice. \n" +
+					"closed \n" +
+				"enough times. \n" +
 			"closed " + '\n' +
 			"The room abs(number b) contained a letter " + '\n' +
 			"opened " + '\n' +
 				"b spoke. " + '\n' +
 			"closed " + '\n'
 		};
-		
+		//System.out.println(programs[2].toString());
 		int i = 0 ;
 		for (String p: programs) {
 			i++;
