@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-22 00:41:23
+// $ANTLR 3.4 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-22 09:30:10
 
   package malice_grammar ;
 
@@ -4014,7 +4014,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "global_declaration"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:1: global_declaration : ( declaration_statements ( statement_conjunctions declaration_statements )* '.' ) ;
+    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:1: global_declaration : ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* ;
     public final malice_grammarParser.global_declaration_return global_declaration() throws RecognitionException {
         malice_grammarParser.global_declaration_return retval = new malice_grammarParser.global_declaration_return();
         retval.start = input.LT(1);
@@ -4033,68 +4033,86 @@ public TreeAdaptor getTreeAdaptor() {
         CommonTree char_literal149_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:20: ( ( declaration_statements ( statement_conjunctions declaration_statements )* '.' ) )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:20: ( ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
-            {
-            pushFollow(FOLLOW_declaration_statements_in_global_declaration1232);
-            declaration_statements146=declaration_statements();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, declaration_statements146.getTree());
-
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:46: ( statement_conjunctions declaration_statements )*
-            loop28:
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
+            loop29:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA28_0==18||LA28_0==32||LA28_0==37||LA28_0==61) ) {
-                    alt28=1;
+                if ( (LA29_0==IDENT) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt29) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:47: statement_conjunctions declaration_statements
+            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
             	    {
-            	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1235);
-            	    statement_conjunctions147=statement_conjunctions();
+            	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1232);
+            	    declaration_statements146=declaration_statements();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, statement_conjunctions147.getTree());
+            	    adaptor.addChild(root_0, declaration_statements146.getTree());
 
-            	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1237);
-            	    declaration_statements148=declaration_statements();
+            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:46: ( statement_conjunctions declaration_statements )*
+            	    loop28:
+            	    do {
+            	        int alt28=2;
+            	        int LA28_0 = input.LA(1);
 
-            	    state._fsp--;
+            	        if ( (LA28_0==18||LA28_0==32||LA28_0==37||LA28_0==61) ) {
+            	            alt28=1;
+            	        }
 
-            	    adaptor.addChild(root_0, declaration_statements148.getTree());
+
+            	        switch (alt28) {
+            	    	case 1 :
+            	    	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:167:47: statement_conjunctions declaration_statements
+            	    	    {
+            	    	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1235);
+            	    	    statement_conjunctions147=statement_conjunctions();
+
+            	    	    state._fsp--;
+
+            	    	    adaptor.addChild(root_0, statement_conjunctions147.getTree());
+
+            	    	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1237);
+            	    	    declaration_statements148=declaration_statements();
+
+            	    	    state._fsp--;
+
+            	    	    adaptor.addChild(root_0, declaration_statements148.getTree());
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop28;
+            	        }
+            	    } while (true);
+
+
+            	    char_literal149=(Token)match(input,20,FOLLOW_20_in_global_declaration1241); 
+            	    char_literal149_tree = 
+            	    (CommonTree)adaptor.create(char_literal149)
+            	    ;
+            	    adaptor.addChild(root_0, char_literal149_tree);
+
 
             	    }
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop29;
                 }
             } while (true);
-
-
-            char_literal149=(Token)match(input,20,FOLLOW_20_in_global_declaration1241); 
-            char_literal149_tree = 
-            (CommonTree)adaptor.create(char_literal149)
-            ;
-            adaptor.addChild(root_0, char_literal149_tree);
-
-
-            }
 
 
             }
@@ -4128,7 +4146,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "program"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:1: program : ( global_declaration )? ( function )+ EOF ;
+    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:1: program : global_declaration ( function )+ EOF ;
     public final malice_grammarParser.program_return program() throws RecognitionException {
         malice_grammarParser.program_return retval = new malice_grammarParser.program_return();
         retval.start = input.LT(1);
@@ -4145,37 +4163,20 @@ public TreeAdaptor getTreeAdaptor() {
         CommonTree EOF152_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:9: ( ( global_declaration )? ( function )+ EOF )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:11: ( global_declaration )? ( function )+ EOF
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:9: ( global_declaration ( function )+ EOF )
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:11: global_declaration ( function )+ EOF
             {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:11: ( global_declaration )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            pushFollow(FOLLOW_global_declaration_in_program1252);
+            global_declaration150=global_declaration();
 
-            if ( (LA29_0==IDENT) ) {
-                alt29=1;
-            }
-            switch (alt29) {
-                case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:11: global_declaration
-                    {
-                    pushFollow(FOLLOW_global_declaration_in_program1251);
-                    global_declaration150=global_declaration();
+            state._fsp--;
 
-                    state._fsp--;
+            adaptor.addChild(root_0, global_declaration150.getTree());
 
-                    adaptor.addChild(root_0, global_declaration150.getTree());
-
-                    }
-                    break;
-
-            }
-
-
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:31: ( function )+
+            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:30: ( function )+
             int cnt30=0;
             loop30:
             do {
@@ -4189,7 +4190,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt30) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:31: function
+            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:168:30: function
             	    {
             	    pushFollow(FOLLOW_function_in_program1254);
             	    function151=function();
@@ -4388,8 +4389,8 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_declaration_statements_in_global_declaration1232 = new BitSet(new long[]{0x2000002100140000L});
     public static final BitSet FOLLOW_statement_conjunctions_in_global_declaration1235 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_declaration_statements_in_global_declaration1237 = new BitSet(new long[]{0x2000002100140000L});
-    public static final BitSet FOLLOW_20_in_global_declaration1241 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_global_declaration_in_program1251 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_20_in_global_declaration1241 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_global_declaration_in_program1252 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_function_in_program1254 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_EOF_in_program1257 = new BitSet(new long[]{0x0000000000000002L});
 

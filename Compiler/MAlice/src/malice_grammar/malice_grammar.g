@@ -164,5 +164,5 @@ function: 'The' (   'looking-glass' function_name lpar parameters rpar
 					statementList
 					'closed';
 					
-global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')  ;
-program : global_declaration? function+ EOF;
+global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')*  ;
+program : global_declaration function+ EOF;
