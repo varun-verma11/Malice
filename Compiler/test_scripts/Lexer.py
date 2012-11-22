@@ -6,13 +6,33 @@ This is the script to parse the input string into tokens#
 
 from pyparsing import *
 
-NUMBER = Literal(nums)
-LETTER = Word(alphas, max=1)
-Identifier = Word(alphas)
-Function_name = Identifier
-String = Word(alphas)
-DATA = NUMBER | Identifier | String | Letter
+number = Literal(nums)
+letter = Literal(alphas, max=1)
+ident = Literal(alphas)
+function_name = Identifier
+string = Word(alphas)
+atom = number | ident | string | letter
+lpar = Literal("(")
+rpar = Literal(")")
 
+array_elem = Group(ident + Literal("'s") + atom + Literal("piece"))
+data_type = Literal("number") | Literal("letter") | Literal("sentence")
+
+term = atom | Group(lpar + expr + rpar)
+unary_op = ZeroOrMore(Group(OneOf("~ -") + term))
+mult = Group(unary_op + ZeroOrMore(OneOf("* / %") + unary_op))
+add = Group(mult + ZeroOrMore(OneOf("+ -") + mult))
+bitw_and = Group(add + ZeroOrMore('&' + add))
+bitw_xor = Group(bitw_and+ ZeroOrMore('^' + bitw_and))
+bitw_or = Group(bitw_xor+ ZeroOrMore('^' + bitw_xor))
+
+function_call = Forward()#define this here
+expr = bitw_or | function_call
+bool_neg = Group(ZeroOrMore(Literal("!")) + term )
+
+
+
+"""
 BITWISE_NOT = Literal("~")
 MONO_OP = BITWISE_NOT #using this to be able to add more mono operations later
 
@@ -37,7 +57,7 @@ Lpar = Literal("(")
 Rpar = Literal(")")
 
 Expr = Forward()
-Expr << DATA | Lpar + Expr + Rpar |
+Expr << DATA | group(Lpar + Expr + Rpar) |
 				MONO_OP + Expr | DATA + BINARY_OP + Expr
 
 Bool_Expr = Forward()
@@ -85,3 +105,4 @@ FULLSTOP = Literal(".")
 STATEMENT_CONJUNCTIONS = COMMA | BUT | THEN | FULLSTOP
 
 
+"""

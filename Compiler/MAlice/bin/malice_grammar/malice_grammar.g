@@ -127,7 +127,7 @@ arguments_to_functions : (argument (',' argument)*)? | function_call;
 rest_statements :  
       IDENT
         ( ('\'s' atom 'piece')?
-            (    'became'  (expr | LETTER | STRING)
+            (    'became'  (expr | LETTER | STRING)//function_call
                | 'ate' 
                | 'drank'
             )
