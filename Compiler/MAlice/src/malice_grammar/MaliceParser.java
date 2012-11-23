@@ -2,7 +2,7 @@ package malice_grammar;
 
 import java.io.IOException;
 
-import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
@@ -72,14 +72,14 @@ public class MaliceParser {
 					"b spoke. " + '\n' +
 				"closed " + '\n'
 			};
-		
-		CharStream input = new ANTLRStringStream("c"); 
+		/*
+		CharStream input = new ANTLRStringStream("result==3"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 		parser.expr();
 		System.out.println("done");
-		
+		*/
 		/*
 		int i = 0 ;
 		for (String p: programs) {
@@ -93,7 +93,7 @@ public class MaliceParser {
 			System.out.println("done program " + i + "...");
 		}*/
 		
-		/*
+		
 		String[] ps = ("ackermann.alice binarySearch.alice bubbleSort.alice fibonacciIterative.alice " +
 				"fibonacciRecursive.alice gcdIterative.alice gcdRecursive.alice " +
 				"sieveOfEratosthenes.alice test01.alice test02.alice test03.alice " +
@@ -101,13 +101,13 @@ public class MaliceParser {
 				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
 		for(String p: ps) {
 			System.out.println(p + " started");
-			CharStream input = new ANTLRFileStream("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p); 
+			CharStream input = new ANTLRFileStream("/homes/vv311/Malice/malice_examples/valid/" + p); 
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
 			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 			parser.program() ;
 			System.out.println(p + " done");
 		}
-		*/
+		
 	}
 }

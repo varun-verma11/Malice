@@ -5,6 +5,7 @@ options {
   language = Java;
   output = AST ;
   ASTLabelType = CommonTree;
+  backtrack = true ;
 }
 
 @header {
@@ -22,6 +23,9 @@ rule: STRING* ;
 NUMBER : ('0'..'9')+;
 IDENT : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
 WS : (' ' | '\t' | '\n' |'\r' )+ {$channel = HIDDEN;};
+LINE_COMMENT
+    : '###' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
+    ;
 LETTER : '\'' ('a'..'z' | 'A'..'Z') '\'';
 STRING :'"' (~('"'|'\n'|'\r'))* '"';
 
@@ -75,10 +79,10 @@ bitw_and : add ('&' add)* ;
 bitw_xor : bitw_and ('^' bitw_and)* ;
 bitw_or : bitw_xor ('|' bitw_xor)* ;
 
-expr : bitw_or;
+expr : bitw_or ;
 
-bool_neg : '!'* term ;
-bool_comp : bool_neg (('<=' | '<' | '>' | '>=') bool_neg)* ;
+bool_neg : '!'* (expr) ;
+bool_comp : bool_neg (('<=' | '<' | '>' | '>=' | '==' | '!=') bool_neg)* ;
 bool_eq : bool_comp (('&&' | '||') bool_comp)* ;
 
 bool_expr : bool_eq ;
@@ -98,32 +102,32 @@ bool_expr : bool_eq ;
 control_structure
 			: (	'perhaps' lpar bool_expr rpar 'so'
 						statementList 
-					('or maybe' lpar bool_expr rpar 'so' statementList)*
-					'or' statementList
-					'because Alice was unsure which'
+					('or' 'maybe' lpar bool_expr rpar 'so' statementList)*
+					('or' statementList)?
+					'because' 'Alice' 'was' 'unsure' 'which'
 			  | 'either' lpar bool_expr rpar 'so'
 			  	statementList //check here
 			  	'or' statementList
-			  	'because Alice was unsure which'			  	
+			  	'because' 'Alice' 'was' 'unsure' 'which'			  	
 			  |	'eventually' lpar bool_expr rpar 'because'
 			  	statementList
-			  	'enough times'	
+			  	'enough' 'times'	
 			) '.'?;
 			
 
 //array_elem : IDENT '\'s' atom 'piece';
 //
-declaration_statements : IDENT ( 'was a' data_types ( 'too' | 'of' (LETTER | STRING | expr))? 
+declaration_statements : IDENT ( 'was' 'a' data_types ( 'too' | 'of' (LETTER | STRING | expr))? 
                                 | 'had' atom data_types//its atom here because we can use variable too -> see test12
                                )
                         ;
  
-argument: IDENT | NUMBER | LETTER | STRING | array_elem;
+argument: expr | LETTER | STRING | array_elem;
 arguments_to_functions : (argument (',' argument)*)? | function_call;
 rest_statements :   (expr print) =>  (expr print)      
     |   (LETTER | STRING) print
     |  IDENT
-        ( ('\'s' atom 'piece')?
+        ( ('\'s' expr 'piece')?
             (    'became'  (expr | LETTER | STRING )
                | 'ate' 
                | 'drank'
@@ -132,16 +136,18 @@ rest_statements :   (expr print) =>  (expr print)
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
     | 'Alice' 'found' (expr | LETTER | STRING )
+    | read_statement
     //| function_call ('spoke' | 'said Alice')?
-    | 'what was' IDENT '?' ;
+ 		;
 
+read_statement : 'what' 'was' (IDENT | array_elem) '?'  ; 
 print:
-    'spoke' | 'said Alice'
+    'spoke' | 'said' 'Alice'
     ;
 
 
 function_call :  function_name lpar arguments_to_functions rpar ;
-statement : rest_statements	| declaration_statements ;
+statement : rest_statements	| function_call |declaration_statements ;
 		
 statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
 //
@@ -152,8 +158,11 @@ statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjuncti
 //
 ////**************************************************
 //
-statementList : (control_structure | nested_function | function |statement (statement_conjunctions statement)* '.')*;
-//
+
+statementList : ((statement? (statement_conjunctions statement)* '.') | control_structure | nested_function | read_statement | 
+									function)*;
+
+
 parameter : ('spider')? data_types IDENT ;
 //
 ////is there any reason why we have ((',' parameter)*)? instead of just (',' parameter)* ???
@@ -162,7 +171,7 @@ function_name : IDENT;
 //
 nested_function : 'opened' statementList 'closed' ;
 function: 'The' (   'looking-glass' function_name lpar parameters rpar
-				          | 'room' function_name lpar parameters rpar 'contained a' data_types
+				          | 'room' function_name lpar parameters rpar 'contained' 'a' data_types
 				        )
 					'opened'
 					statementList
