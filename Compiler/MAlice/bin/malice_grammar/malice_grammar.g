@@ -23,6 +23,7 @@ rule: STRING* ;
 NUMBER : ('0'..'9')+;
 IDENT : ('a'..'z' | 'A'..'Z')('a'..'z' | 'A'..'Z' | '0'..'9')*;
 WS : (' ' | '\t' | '\n' |'\r' )+ {$channel = HIDDEN;};
+
 LINE_COMMENT
     : '###' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
     ;
@@ -72,20 +73,21 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 //atom : NUMBER | IDENT ;
 ////
 term : atom | lpar expr rpar ;
-unary_op : ('~' | '-')* term ;
-mult :unary_op (('*' | '/' | '%') unary_op)* ;
-add : mult (('+' | '-') mult)* ;
-bitw_and : add ('&' add)* ;
-bitw_xor : bitw_and ('^' bitw_and)* ;
-bitw_or : bitw_xor ('|' bitw_xor)* ;
+bool_neg : ('!')*^ term;
+unary_op : ('~'^ | '-'^ | '+'^)* bool_neg ;
+mult :unary_op (('*'^ | '/'^ | '%'^) unary_op)* ;
+add : mult (('+'^ | '-'^) mult)* ;
+bool_comp : add (('<='^ | '<'^ | '>'^ | '>='^) add)* ;
+bool_eq : bool_comp (('=='^ | '!='^) bool_comp)* ;
+bitw_and : bool_eq ('&'^ bool_eq)* ;
+bitw_xor : bitw_and ('^'^ bitw_and)* ;
+bitw_or : bitw_xor ('|'^ bitw_xor)* ;
+bool_and : bitw_or ('&&'^ bitw_or)* ;
+bool_or : bool_and ('||'^ bool_and)* ;
 
-expr : bitw_or ;
+expr : bool_or ;
 
-bool_neg : '!'* (expr) ;
-bool_comp : bool_neg (('<=' | '<' | '>' | '>=' | '==' | '!=') bool_neg)* ;
-bool_eq : bool_comp (('&&' | '||') bool_comp)* ;
-
-bool_expr : bool_eq ;
+bool_expr : expr ;
 //
 //
 //
@@ -100,18 +102,18 @@ bool_expr : bool_eq ;
 //bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
 
 control_structure
-			: (	'perhaps' lpar bool_expr rpar 'so'
+			: (	'perhaps'^ lpar bool_expr^ rpar 'so'
 						statementList 
-					('or' 'maybe' lpar bool_expr rpar 'so' statementList)*
-					('or' statementList)?
+					('or' 'maybe'^ lpar bool_expr^ rpar 'so' statementList)*
+					('or'^ statementList)?
 					'because' 'Alice' 'was' 'unsure' 'which'
-			  | 'either' lpar bool_expr rpar 'so'
+			  | 'either'^ lpar bool_expr^ rpar 'so'
 			  	statementList //check here
-			  	'or' statementList
+			  	'or'^ statementList
 			  	'because' 'Alice' 'was' 'unsure' 'which'			  	
-			  |	'eventually' lpar bool_expr rpar 'because'
+			  |	'eventually'^ lpar bool_expr^ rpar 'because'
 			  	statementList
-			  	'enough' 'times'	
+			  	'enough' 'times'
 			) '.'?;
 			
 
@@ -170,12 +172,15 @@ parameters : (parameter ( ',' parameter)*)? ;
 function_name : IDENT;
 //
 nested_function : 'opened' statementList 'closed' ;
-function: 'The' (   'looking-glass' function_name lpar parameters rpar
-				          | 'room' function_name lpar parameters rpar 'contained' 'a' data_types
+function: 'The' (   'looking-glass' function_name lpar parameters rpar 
+												-> ^('looking' $function_name $parameters)
+				          | 'room' function_name lpar parameters rpar 'contained' 'a' data_types 
+				          			-> ^('room' $function_name $parameters $data_types)
 				        )
 					'opened'
-					statementList
+					^statementList
 					'closed';
 					
-global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')*  ;
-program : global_declaration function+ EOF;
+global_declaration : (^declaration_statements (statement_conjunctions ^declaration_statements)* '.')* ;
+program : global_declaration function+ EOF
+						-> ^('malice' $global_declaration $function) ;
