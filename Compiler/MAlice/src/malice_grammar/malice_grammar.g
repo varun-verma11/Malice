@@ -175,7 +175,7 @@ function: 'The' (   'looking-glass' function_name lpar parameters rpar
                   | 'room' function_name lpar parameters rpar 'contained' 'a' data_types 
                 )
           'opened'
-          ^statementList
+          statementList
           'closed';
           
 global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')* ;

@@ -2,11 +2,14 @@ package malice_grammar;
 
 import java.io.IOException;
 
-import org.antlr.runtime.ANTLRFileStream;
+import malice_grammar.malice_grammarParser.expr_return;
+
+import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.tree.CommonTree;
 
 public class MaliceParser {
 	public static void main(String[] args) throws IOException, RecognitionException {
@@ -72,14 +75,16 @@ public class MaliceParser {
 					"b spoke. " + '\n' +
 				"closed " + '\n'
 			};
-		/*
-		CharStream input = new ANTLRStringStream("result==3"); 
+		
+		CharStream input = new ANTLRStringStream("x<=3 && !(c>2-2*(2|1)-~3)"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-		parser.expr();
+		expr_return prog =  parser.expr() ;
+		CommonTree t = prog.tree;
+		System.out.println(t.toStringTree());
 		System.out.println("done");
-		*/
+		
 		/*
 		int i = 0 ;
 		for (String p: programs) {
@@ -92,8 +97,19 @@ public class MaliceParser {
 			System.out.println(tree.toString());
 			System.out.println("done program " + i + "...");
 		}*/
-		
-		
+		/*
+		String p = "test03.alice";
+		System.out.println(p + " started");
+		CharStream input = new ANTLRFileStream("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p); 
+		malice_grammarLexer lexer = new malice_grammarLexer(input );
+		TokenStream tokens = new CommonTokenStream(lexer);
+		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
+		malice_grammarParser.program_return prog =  parser.program() ;
+		CommonTree t = prog.tree;
+		System.out.println(t.toStringTree());
+		System.out.println(p + " done");
+		*/
+		/*
 		String[] ps = ("ackermann.alice binarySearch.alice bubbleSort.alice fibonacciIterative.alice " +
 				"fibonacciRecursive.alice gcdIterative.alice gcdRecursive.alice " +
 				"sieveOfEratosthenes.alice test01.alice test02.alice test03.alice " +
@@ -105,10 +121,11 @@ public class MaliceParser {
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
 			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-			malice_grammarParser.program_return tree =  parser.program() ;
-			System.out.println(tree.toString());
+			malice_grammarParser.program_return prog =  parser.program() ;
+			System.out.println(prog.tree.toStringTree());
 			System.out.println(p + " done");
 		}
+		*/
 		
 	}
 }
