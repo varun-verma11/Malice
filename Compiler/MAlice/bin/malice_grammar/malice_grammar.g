@@ -138,11 +138,10 @@ rest_statements :   (expr print) =>  (expr print)
           //| 'was a' data_types ( 'too' | 'of' expr)?
         )
     | 'Alice' 'found' (expr | LETTER | STRING )
-    | read_statement
     //| function_call ('spoke' | 'said Alice')?
  		;
 
-read_statement : 'what' 'was' (IDENT | array_elem) '?'  ; 
+read_statement : 'what' 'was' (IDENT | array_elem) '?' ('.')? ; 
 print:
     'spoke' | 'said' 'Alice'
     ;
@@ -151,7 +150,7 @@ print:
 function_call :  function_name lpar arguments_to_functions rpar ;
 statement : rest_statements	| function_call |declaration_statements ;
 		
-statement_conjunctions : ',' | 'and' | 'then' | 'but' ;//check for all cunjunctions
+statement_conjunctions : 'and' | 'then' | 'but' ;//check for all cunjunctions
 //
 ////**************************************************
 //
