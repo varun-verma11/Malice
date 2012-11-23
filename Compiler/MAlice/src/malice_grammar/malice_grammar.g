@@ -39,12 +39,12 @@ array_elem : IDENT '\'s' expr 'piece';
 atom: IDENT ('\'s' expr 'piece')? | NUMBER | function_call;
 
 //term :
-//		IDENT
-//	|	NUMBER
-//	|	array_elem
-//	|	lpar expr rpar
-//	;
-//	
+//    IDENT
+//  | NUMBER
+//  | array_elem
+//  | lpar expr rpar
+//  ;
+//  
 //negation : not* term ;
 //unary : ('-' | '+')* negation ;
 //mult : unary (('*' | '/' | '%') unary)* ;
@@ -73,7 +73,7 @@ data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 //atom : NUMBER | IDENT ;
 ////
 term : atom | lpar expr rpar ;
-bool_neg : ('!')*^ term;
+bool_neg : ('!'^)* term;
 unary_op : ('~'^ | '-'^ | '+'^)* bool_neg ;
 mult :unary_op (('*'^ | '/'^ | '%'^) unary_op)* ;
 add : mult (('+'^ | '-'^) mult)* ;
@@ -102,20 +102,20 @@ bool_expr : expr ;
 //bool_expr : expr relational_ops expr ;//(logical_ops expr)* ;
 
 control_structure
-			: (	'perhaps'^ lpar bool_expr^ rpar 'so'
-						statementList 
-					('or' 'maybe'^ lpar bool_expr^ rpar 'so' statementList)*
-					('or'^ statementList)?
-					'because' 'Alice' 'was' 'unsure' 'which'
-			  | 'either'^ lpar bool_expr^ rpar 'so'
-			  	statementList //check here
-			  	'or'^ statementList
-			  	'because' 'Alice' 'was' 'unsure' 'which'			  	
-			  |	'eventually'^ lpar bool_expr^ rpar 'because'
-			  	statementList
-			  	'enough' 'times'
-			) '.'?;
-			
+      : ( 'perhaps'^ lpar bool_expr^ rpar 'so'
+            statementList 
+          ('or' 'maybe'^ lpar bool_expr^ rpar 'so' statementList)*
+          ('or'^ statementList)?
+          'because' 'Alice' 'was' 'unsure' 'which'
+        | 'either'^ lpar bool_expr^ rpar 'so'
+          statementList //check here
+          'or'^ statementList
+          'because' 'Alice' 'was' 'unsure' 'which'          
+        | 'eventually'^ lpar bool_expr^ rpar 'because'
+          statementList
+          'enough' 'times'
+      ) '.'?;
+      
 
 //array_elem : IDENT '\'s' atom 'piece';
 //
@@ -139,7 +139,7 @@ rest_statements :   (expr print) =>  (expr print)
         )
     | 'Alice' 'found' (expr | LETTER | STRING )
     //| function_call ('spoke' | 'said Alice')?
- 		;
+    ;
 
 read_statement : 'what' 'was' (IDENT | array_elem) '?' ('.')? ; 
 print:
@@ -148,9 +148,9 @@ print:
 
 
 function_call :  function_name lpar arguments_to_functions rpar ;
-statement : rest_statements	| function_call |declaration_statements ;
-		
-statement_conjunctions : 'and' | 'then' | 'but' ;//check for all cunjunctions
+statement : rest_statements | function_call |declaration_statements ;
+    
+statement_conjunctions : 'and' | 'then' | 'but' | ',' |'.';//check for all cunjunctions
 //
 ////**************************************************
 //
@@ -160,8 +160,8 @@ statement_conjunctions : 'and' | 'then' | 'but' ;//check for all cunjunctions
 ////**************************************************
 //
 
-statementList : ((statement? (statement_conjunctions statement)* '.') | control_structure | nested_function | read_statement | 
-									function)*;
+statementList : ((statement? statement_conjunctions) | control_structure | read_statement statement_conjunctions? | nested_function  | 
+                  function)*;
 
 
 parameter : ('spider')? data_types IDENT ;
@@ -172,14 +172,11 @@ function_name : IDENT;
 //
 nested_function : 'opened' statementList 'closed' ;
 function: 'The' (   'looking-glass' function_name lpar parameters rpar 
-												-> ^('looking' $function_name $parameters)
-				          | 'room' function_name lpar parameters rpar 'contained' 'a' data_types 
-				          			-> ^('room' $function_name $parameters $data_types)
-				        )
-					'opened'
-					^statementList
-					'closed';
-					
-global_declaration : (^declaration_statements (statement_conjunctions ^declaration_statements)* '.')* ;
-program : global_declaration function+ EOF
-						-> ^('malice' $global_declaration $function) ;
+                  | 'room' function_name lpar parameters rpar 'contained' 'a' data_types 
+                )
+          'opened'
+          ^statementList
+          'closed';
+          
+global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.')* ;
+program : global_declaration function+ EOF ;
