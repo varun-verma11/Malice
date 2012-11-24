@@ -2,14 +2,14 @@ package malice_grammar;
 
 import java.io.IOException;
 
-import malice_grammar.malice_grammarParser.expr_return;
-
-import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.DOTTreeGenerator;
+import org.antlr.stringtemplate.StringTemplate;
 
 public class MaliceParser {
 	public static void main(String[] args) throws IOException, RecognitionException {
@@ -75,7 +75,7 @@ public class MaliceParser {
 					"b spoke. " + '\n' +
 				"closed " + '\n'
 			};
-		
+		/*
 		CharStream input = new ANTLRStringStream("x<=3 && !(c>2-2*(2|1)-~3)"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
@@ -84,7 +84,7 @@ public class MaliceParser {
 		CommonTree t = prog.tree;
 		System.out.println(t.toStringTree());
 		System.out.println("done");
-		
+		*/
 		/*
 		int i = 0 ;
 		for (String p: programs) {
@@ -97,8 +97,8 @@ public class MaliceParser {
 			System.out.println(tree.toString());
 			System.out.println("done program " + i + "...");
 		}*/
-		/*
-		String p = "test03.alice";
+		
+		String p = "test01.alice";
 		System.out.println(p + " started");
 		CharStream input = new ANTLRFileStream("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
@@ -106,9 +106,10 @@ public class MaliceParser {
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 		malice_grammarParser.program_return prog =  parser.program() ;
 		CommonTree t = prog.tree;
-		System.out.println(t.toStringTree());
-		System.out.println(p + " done");
-		*/
+		DOTTreeGenerator gen = new DOTTreeGenerator();
+		StringTemplate st = gen.toDOT(t);
+		System.out.println(st);
+		
 		/*
 		String[] ps = ("ackermann.alice binarySearch.alice bubbleSort.alice fibonacciIterative.alice " +
 				"fibonacciRecursive.alice gcdIterative.alice gcdRecursive.alice " +
