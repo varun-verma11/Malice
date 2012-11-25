@@ -31,6 +31,7 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	{
 		return symbolTable;
 	}
+	
 	public boolean isVariableInitialised(String var)
 	{
 		return ((VariableSTValue)symbolTable.get(var)).isInitialised();
