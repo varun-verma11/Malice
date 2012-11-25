@@ -2,18 +2,31 @@ package symbol_table;
 
 import java.util.HashMap;
 import java.util.Map;
-
+										//do we need extends comparable here???
 public class SymbolTable implements SymbolTableInterface<String, SymbolTableValue>
 {
 	private Map<String,SymbolTableValue> symbolTable = new HashMap<String, SymbolTableValue>();
-	private SymbolTable enclosingSymbolTable;// = new SymbolTable();
-	private SymbolTable currentLevelTable; //is this just the symbolTable field above?? i.e. = symbolTable
+//	private SymbolTable enclosingSymbolTable;// = new SymbolTable();
+//	private SymbolTable currentLevelTable; //is this just the symbolTable field above?? i.e. = symbolTable
 	
+//	public SymbolTable() 
+//	{
+//		this.symbolTable = new HashMap<S
+//SymbolTableValue();
+//		//this.enclosingSymbolTable = null;
+//		//this.currentLevelTable = this;//how to make it refer to this symTable??
+//	}
 	
 	public boolean checkVariableScopeInFunctionInCurrLevel(String var, String f_name)
 	{
 		return ((FunctionSTValue) symbolTable.get(f_name))
 					.getTable().checkIfVariableExists(var);
+	}
+	
+	public boolean checkVariableScopeInFunctionInEnclosingLevel(String var, String f_name)
+	{
+		;
+		return true;
 	}
 	
 	public boolean checkIfVariableExists(String var) 
@@ -42,17 +55,17 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		return symbolTable.get(name);
 	}
 
-	public void initializeScope() 
-	{
-		SymbolTable newTable = new SymbolTable();
-		newTable.enclosingSymbolTable = currentLevelTable;
-		this.currentLevelTable = newTable;
-		
-	}
-	
-	public void finalizeScope()
-	{
-		this.currentLevelTable = enclosingSymbolTable;
-	}
+//	public void initializeScope() 
+//	{
+//		SymbolTable newTable = new SymbolTable();
+//		newTable.symbolTable = currentLevelTable;
+//		this.currentLevelTable = newTable;
+//		
+//	}
+//	
+//	public void finalizeScope()
+//	{
+//		this.currentLevelTable = enclosingSymbolTable;
+//	}
 
 }
