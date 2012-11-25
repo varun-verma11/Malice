@@ -6,37 +6,27 @@ import java.util.Map;
 public class SymbolTable implements SymbolTableInterface<String, SymbolTableValue>
 {
 	private Map<String,SymbolTableValue> symbolTable = new HashMap<String, SymbolTableValue>();
-//	private SymbolTable enclosingSymbolTable;// = new SymbolTable();
-//	private SymbolTable currentLevelTable; //is this just the symbolTable field above?? i.e. = symbolTable
+	private int currentScopeLevel = 0;
 	
-//	public SymbolTable() 
-//	{
-//		this.symbolTable = new HashMap<S
-//SymbolTableValue();
-//		//this.enclosingSymbolTable = null;
-//		//this.currentLevelTable = this;//how to make it refer to this symTable??
-//	}
-	
-	public boolean checkVariableScopeInFunctionInCurrLevel(String var)
-	{
-		return false; //implement this method
-	}
-	
-	public boolean checkVariableScopeInAllReleventLevels(String var)
-	{
-		return false; // implement this method
-		
-	}
-	
-	public boolean checkVariableScopeInFunctionInEnclosingLevel(String var, String f_name)
-	{
-		;
-		return true;
-	}
-	
-	public boolean checkIfVariableExists(String var) 
+	public boolean checkVariableIsInCurrentScopeLevel(String var) 
 	{
 		return symbolTable.containsKey(var);
+	}
+
+	public boolean checkVariableIsInOtherScopeLevels(String var)
+	{
+		for(int i = 0; i < currentScopeLevel; i++) {
+			if (checkVariableIsInCurrentScopeLevel(var)) {return true;} 
+		}
+		return false;
+	}
+
+	public int getCurrentScopeLevel() {
+		return currentScopeLevel;
+	}
+	
+	public void updateCurrentScopeLevel(int level){
+		this.currentScopeLevel = level;
 	}
 	
 	public Map<String,SymbolTableValue> getSymbolTable()
@@ -61,19 +51,4 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		return symbolTable.get(name);
 	}
 	
-	
-
-//	public void initializeScope() 
-//	{
-//		SymbolTable newTable = new SymbolTable();
-//		newTable.symbolTable = currentLevelTable;
-//		this.currentLevelTable = newTable;
-//		
-//	}
-//	
-//	public void finalizeScope()
-//	{
-//		this.currentLevelTable = enclosingSymbolTable;
-//	}
-
 }
