@@ -80,13 +80,12 @@ public class MaliceParser {
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-		expr_return prog =  parser.expr() ;
-		CommonTree t = prog.tree;
-		ExpressionChecker eChecker = new ExpressionChecker();
-		eChecker.getExpressionType(t);
-		System.out.println(t.toStringTree());
-		System.out.println("done");
-		
+		//expr_return prog = parser.expr();
+		//System.out.println(prog.tree.toString());
+		//System.out.println("done");
+		malice_grammarParser.expr_return prog =  parser.expr() ;
+		new ExpressionChecker().getExpressionType(prog.tree);
+		System.out.println(prog.tree.toStringTree());
 		/*
 		int i = 0 ;
 		for (String p: programs) {

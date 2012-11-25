@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.Tree;
 
 public class ExpressionChecker 
 {
@@ -11,7 +12,8 @@ public class ExpressionChecker
 	{
 		private DATA_TYPES return_data_type=null;
 		private int arity=0;
-		public FunctionProperties(DATA_TYPES returnDataType, int arity) {
+		public FunctionProperties(DATA_TYPES returnDataType, int arity)
+		{
 			return_data_type = returnDataType;
 			this.arity = arity;
 		}
@@ -44,16 +46,22 @@ public class ExpressionChecker
 	
 	public DATA_TYPES getExpressionType(CommonTree node) 
 	{
-		//check if requried because bnf should be dealing with this potentially
+		//check if required because bnf should be dealing with this potentially
 		if(operators_map.get(node.getText()).arity != node.getChildCount())
 		{
-			System.out.println("Incorret Number of Arguments");
+			System.err.println("Line "+ node.getLine()+ ": " 
+					+ node.getCharPositionInLine() + " (" 
+					+ node.getText() + ") Incorrect Number of Arguments");
 		}
-		
 		for(int i=0; i<node.getChildCount(); i++) {
-			if (getExpressionType((CommonTree) node.getChild(i))
+			if (getExpressionType(node.getChild(i))
 				!= operators_map.get(node.getText()).return_data_type );
 		}
+		
 		return operators_map.get(node.getText()).return_data_type;
+	}
+
+	private DATA_TYPES getExpressionType(Tree child) {
+		return operators_map.get(child.getText()).return_data_type;
 	}
 }
