@@ -76,7 +76,7 @@ public class MaliceParser {
 				"closed " + '\n'
 			};
 		
-		CharStream input = new ANTLRStringStream("x<=3 && !(c>2-2*(2|1)-~3)"); 
+		CharStream input = new ANTLRStringStream("2<=3 && !(4>2-2*(2|1)-~3)"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;

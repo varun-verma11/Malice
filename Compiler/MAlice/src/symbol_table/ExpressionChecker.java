@@ -11,43 +11,73 @@ public class ExpressionChecker
 	{
 		private DATA_TYPES return_data_type=null;
 		private int arity=0;
-		public FunctionProperties(DATA_TYPES returnDataType, int arity)
+		private DATA_TYPES arg_data_type ;
+		public FunctionProperties(DATA_TYPES returnDataType, int arity, DATA_TYPES arg_data_type)
 		{
 			return_data_type = returnDataType;
 			this.arity = arity;
+			this.arg_data_type = arg_data_type ;
 		}
 		
 	}
-	private Map<String,FunctionProperties> operators_map = new HashMap<String, FunctionProperties>();
+	
+	private Map<String,FunctionProperties> operators_map 
+			= new HashMap<String, FunctionProperties>();
 	
 	public ExpressionChecker() 
 	{
-		operators_map.put("==", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		operators_map.put("<=", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		operators_map.put(">=", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		operators_map.put("!=", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		operators_map.put(">", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		operators_map.put("<", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		operators_map.put("!", new FunctionProperties(DATA_TYPES.BOOLEAN, 1));
-		operators_map.put("||", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		operators_map.put("&&", new FunctionProperties(DATA_TYPES.BOOLEAN, 2));
-		
-		operators_map.put("+", new FunctionProperties(DATA_TYPES.NUMBER, 2));
-		operators_map.put("-", new FunctionProperties(DATA_TYPES.NUMBER, 2));
-		operators_map.put("/", new FunctionProperties(DATA_TYPES.NUMBER, 2));
-		operators_map.put("*", new FunctionProperties(DATA_TYPES.NUMBER, 2));
-		operators_map.put("|", new FunctionProperties(DATA_TYPES.NUMBER, 2));
-		operators_map.put("^", new FunctionProperties(DATA_TYPES.NUMBER, 2));
-		operators_map.put("~", new FunctionProperties(DATA_TYPES.NUMBER, 1));
-		operators_map.put("%", new FunctionProperties(DATA_TYPES.NUMBER, 2));
-		operators_map.put("&", new FunctionProperties(DATA_TYPES.NUMBER, 2));
+		operators_map.put("==", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.NUMBER));
+		operators_map.put("<=", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.NUMBER));
+		operators_map.put(">=", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.NUMBER));
+		operators_map.put("!=", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.NUMBER));
+		operators_map.put(">", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.NUMBER));
+		operators_map.put("<", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.NUMBER));
+		operators_map.put("!", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 1, DATA_TYPES.BOOLEAN));
+		operators_map.put("||", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.BOOLEAN));
+		operators_map.put("&&", new 
+				FunctionProperties(DATA_TYPES.BOOLEAN, 2, DATA_TYPES.BOOLEAN));
+		operators_map.put("+", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
+		operators_map.put("-", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
+		operators_map.put("/", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
+		operators_map.put("*", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
+		operators_map.put("|", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
+		operators_map.put("^", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
+		operators_map.put("~", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 1, DATA_TYPES.NUMBER));
+		operators_map.put("%", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
+		operators_map.put("&", new 
+				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
 	}
 	
 	public DATA_TYPES getExpressionType(Tree node) 
 	{
 		if (node.getChildCount()==0)
 		{
-			return DATA_TYPES.NUMBER;
+			try
+			{
+				Integer.parseInt(node.getText());
+				return DATA_TYPES.NUMBER;
+			} 
+			catch (NumberFormatException e)
+			{
+				return DATA_TYPES.BOOLEAN;
+			}
+			
 		}
 		//check if required because bnf should be dealing with this potentially
 		if (operators_map.containsKey(node.getText()))
@@ -61,22 +91,17 @@ public class ExpressionChecker
 			for(int i=0; i<node.getChildCount(); i++) 
 			{
 				if (getExpressionType(node.getChild(i))
-						!= operators_map.get(node.getText()).return_data_type )
+						!= operators_map.get(node.getText()).arg_data_type )
 				{
 					System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " (" 
 						+ node.getText() + ") The arguments for operator " +
 								"are of invalid type(s).");
 				}
-				
-				
 			}
 		}
 		
 		return operators_map.get(node.getText()).return_data_type;
 	}
 
-//	private DATA_TYPES getExpressionType(Tree child) {
-//		return operators_map.get(child.getText()).return_data_type;
-//	}
 }
