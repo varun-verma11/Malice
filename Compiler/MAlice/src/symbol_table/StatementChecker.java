@@ -60,7 +60,7 @@ public class StatementChecker {
 	private static void checkIfTypesMatch(Tree node, SymbolTable symbolTable) {
 		
 		((VariableSTValue)symbolTable.lookup(node.getChild(0).getText())).getType();//type x == number
-		node.getChild(1)//symTable lookup this node?
+		node.getChild(1);//symTable lookup this node?
 		
 	}
 
