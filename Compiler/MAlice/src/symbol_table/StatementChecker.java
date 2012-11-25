@@ -56,10 +56,7 @@ public class StatementChecker {
 		}
 		
 	}
-<<<<<<< HEAD
 	
-=======
-
 	private static void checkIfTypesMatch(Tree node, SymbolTable symbolTable) {
 		
 		((VariableSTValue)symbolTable.lookup(node.getChild(0).getText())).getType();//type x == number
@@ -70,5 +67,4 @@ public class StatementChecker {
 	private static void checkIfDataTypeIsInTheRange(Tree node) {
 		//check and print errors
 	}
->>>>>>> c4eef7e06385d388effa9c52177d19d0633a2b1b
 }
