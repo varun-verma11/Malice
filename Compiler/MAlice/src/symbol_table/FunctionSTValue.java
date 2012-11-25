@@ -4,21 +4,28 @@ public class FunctionSTValue extends SymbolTableValue
 {
 	SymbolTable symbolTable;
 	SymbolTable parent ;
-	//SymbolTable enclosingLevelTable = null;
-	DATA_TYPES return_type = null;		
+	DATA_TYPES return_type = null;	
+	DATA_TYPES[] args;
 	
-	public FunctionSTValue(String identifier) 
+	
+	public FunctionSTValue(String identifier, SymbolTable symTable, DATA_TYPES[] args) 
 	{
 		this.identifier = identifier;
+<<<<<<< HEAD
+=======
+		this.parent = symTable;
+>>>>>>> 75e067096c5e90e763dca73d8ed969d858a3d0d9
 		symbolTable = new SymbolTable();
+		this.args = args;
 	}
 	
-	public FunctionSTValue(String identifier, DATA_TYPES return_value, SymbolTable parent)
+	public FunctionSTValue(String identifier, DATA_TYPES return_value, SymbolTable parent, DATA_TYPES[] args)
 	{
 		this.identifier = identifier;
 		this.return_type = return_value ;
 		this.parent = parent;
 		symbolTable = new SymbolTable();
+		this.args = args;
 	}
 	
 	public DATA_TYPES getReturnType() 
@@ -31,5 +38,14 @@ public class FunctionSTValue extends SymbolTableValue
 		return symbolTable ;
 	}	
 	
+	public SymbolTable getParent() 
+	{
+		return parent;
+	}
+	
+	public DATA_TYPES[] getArgs() 
+	{
+		return args;
+	}
 }
 
