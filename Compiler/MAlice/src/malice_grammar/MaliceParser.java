@@ -84,7 +84,8 @@ public class MaliceParser {
 		DATA_TYPES[] arg_types = {DATA_TYPES.NUMBER, DATA_TYPES.NUMBER};
 		symbolTable.insert("abs", new FunctionSTValue("abs", DATA_TYPES.LETTER, symbolTable, arg_types ));
 		
-		CharStream input = new ANTLRStringStream("abs(c,d)<=3 && !(4>2-2*(2|1)-~3)"); 
+		//CharStream input = new ANTLRStringStream("abs(c,d)<=3 && !(4>2-2*(2|1)-~3)"); 
+		CharStream input = new ANTLRStringStream("~3"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
@@ -92,7 +93,7 @@ public class MaliceParser {
 		//System.out.println(prog.tree.toString());
 		//System.out.println("done");
 		malice_grammarParser.expr_return prog =  parser.expr() ;
-		new ExpressionChecker().getExpressionType(prog.tree, symbolTable);
+		ExpressionChecker.getExpressionType(prog.tree, symbolTable);
 		System.out.println(prog.tree.toStringTree());
 		/*
 		int i = 0 ;
