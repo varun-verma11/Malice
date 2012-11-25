@@ -58,9 +58,17 @@ public class ExpressionChecker
 						+ node.getCharPositionInLine() + " (" 
 						+ node.getText() + ") Incorrect Number of Arguments");
 			}
-			for(int i=0; i<node.getChildCount(); i++) {
+			for(int i=0; i<node.getChildCount(); i++) 
+			{
 				if (getExpressionType(node.getChild(i))
-						!= operators_map.get(node.getText()).return_data_type );
+						!= operators_map.get(node.getText()).return_data_type )
+				{
+					System.err.println("Line "+ node.getLine()+ ": " 
+						+ node.getCharPositionInLine() + " (" 
+						+ node.getText() + ") The arguments for operator " +
+								"are of invalid type(s).");
+				}
+				
 				
 			}
 		}
