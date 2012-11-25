@@ -11,10 +11,9 @@ public class VariableSTValue extends SymbolTableValue
 {
 	private boolean initialised;
 	
-	public VariableSTValue(String identifier, DATA_TYPES type, boolean initialised)
+	public VariableSTValue(DATA_TYPES type, boolean initialised)
 	{
 		this.type = type;
-		this.identifier = identifier ;
 		this.initialised = initialised ;
 	}
 	
@@ -27,5 +26,4 @@ public class VariableSTValue extends SymbolTableValue
 	{
 		return initialised ;
 	}
-
 }
