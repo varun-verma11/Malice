@@ -9,7 +9,7 @@ public class ExpressionChecker
 {
 	private class FunctionProperties
 	{
-		private DATA_TYPES return_data_type = null;
+		private DATA_TYPES return_data_type ;
 		private int arity = 0;
 		private DATA_TYPES arg_data_type;
 
@@ -22,7 +22,7 @@ public class ExpressionChecker
 		}
 
 	}
-	
+
 	private static Map<String, FunctionProperties> operators_map = new HashMap<String, FunctionProperties>();
 
 	public ExpressionChecker()
@@ -67,6 +67,7 @@ public class ExpressionChecker
 
 	public DATA_TYPES getExpressionType(Tree node, SymbolTable symbol_table) 
 	{
+		//check for atom and returns its type if current node is atom
 		if (node.getChildCount()==0)
 		{
 			try
@@ -89,6 +90,8 @@ public class ExpressionChecker
 
 		}
 		//check if required because bnf should be dealing with this potentially
+		//checks for number of arguments for each operator and checks the type
+		//of its arguments given
 		if (operators_map.containsKey(node.getText()))
 		{
 			if(operators_map.get(node.getText()).arity != node.getChildCount())
@@ -96,28 +99,35 @@ public class ExpressionChecker
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " (" 
 						+ node.getText() + ") Incorrect Number of Arguments");
+				return DATA_TYPES.ERROR ;
 			}
 			for(int i=0; i<node.getChildCount(); i++) 
 			{
 				checkVariableType(node, symbol_table, i);
 			}
+
 		} 
-		FunctionSTValue symbol_table_val = (FunctionSTValue) symbol_table.lookup(node.getText());
-		if (symbol_table_val != null) 	{
-			if ( node.getChild(0).getText().contentEquals("(") 
-					&& node.getChild(node.getChildCount()-1).getText().contentEquals(")"))
+
+		//does the checking for function calls in the expressions
+		SymbolTableValue symbol_table_val = symbol_table.lookup(node.getText());
+
+		if ( node.getChild(0).getText().contentEquals("(") 
+				&& node.getChild(node.getChildCount()-1).getText().contentEquals(")"))
+		{
+			if (symbol_table_val != null) 	
 			{
-				DATA_TYPES[] args_types = symbol_table_val.getArgs();
+				DATA_TYPES[] args_types = 
+					((FunctionSTValue)symbol_table_val).getArgs();
 				for (int i=1 ; i< node.getChildCount()-1 ; i++)
 				{
-					if (getExpressionType(node.getChild(i),symbol_table) != args_types[i-1] )
+					if (getExpressionType(node.getChild(i),symbol_table) 
+							!= args_types[i-1] )
 					{
 						printInvalidVariable(node);
 					}
 				}
 				return symbol_table.lookup(node.getText()).getType();
-			} 
-			else
+			} else
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " (" 
@@ -125,8 +135,8 @@ public class ExpressionChecker
 				return DATA_TYPES.ERROR ;
 			}
 		} 
-		return operators_map.get(node.getText()).return_data_type;
 
+		return operators_map.get(node.getText()).return_data_type;
 	}
 
 	private  void checkVariableType(Tree node, SymbolTable symbol_table, int i)

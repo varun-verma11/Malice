@@ -9,9 +9,8 @@ public class FunctionSTValue extends SymbolTableValue
 	int currentScopeLevel = symbolTable.getCurrentScopeLevel();
 	
 	
-	public FunctionSTValue(String identifier, SymbolTable symTable, DATA_TYPES[] args) 
+	public FunctionSTValue(SymbolTable symTable, DATA_TYPES[] args) 
 	{
-		this.identifier = identifier;
 		this.parent = symTable;
 		symbolTable = new SymbolTable();
 		this.currentScopeLevel++;
@@ -19,9 +18,8 @@ public class FunctionSTValue extends SymbolTableValue
 		this.args = args;
 	}
 	
-	public FunctionSTValue(String identifier, DATA_TYPES return_value, SymbolTable parent, DATA_TYPES[] args)
+	public FunctionSTValue(DATA_TYPES return_value, SymbolTable parent, DATA_TYPES[] args)
 	{
-		this.identifier = identifier;
 		this.return_type = return_value ;
 		this.parent = parent;
 		symbolTable = new SymbolTable();
