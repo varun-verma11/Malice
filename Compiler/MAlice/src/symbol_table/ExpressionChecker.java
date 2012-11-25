@@ -64,7 +64,7 @@ public class ExpressionChecker
 				FunctionProperties(DATA_TYPES.NUMBER, 2, DATA_TYPES.NUMBER));
 	}
 	
-	public DATA_TYPES getExpressionType(Tree node) 
+	public DATA_TYPES getExpressionType(Tree node, SymbolTable symbol_table) 
 	{
 		if (node.getChildCount()==0)
 		{
@@ -75,7 +75,15 @@ public class ExpressionChecker
 			} 
 			catch (NumberFormatException e)
 			{
-				return DATA_TYPES.BOOLEAN;
+				SymbolTableValue val =  symbol_table.lookup(node.getText()) ;
+				if (val==null)
+				{
+					System.err.println("Line "+ node.getLine()+ ": " 
+						+ node.getCharPositionInLine() + " Identifier "
+						+ node.getText() + " is not defined.");
+					return DATA_TYPES.ERROR ;
+				}
+				return val.getType();
 			}
 			
 		}
@@ -90,7 +98,7 @@ public class ExpressionChecker
 			}
 			for(int i=0; i<node.getChildCount(); i++) 
 			{
-				if (getExpressionType(node.getChild(i))
+				if (getExpressionType(node.getChild(i), symbol_table)
 						!= operators_map.get(node.getText()).arg_data_type )
 				{
 					System.err.println("Line "+ node.getLine()+ ": " 

@@ -9,7 +9,10 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
 
+import symbol_table.DATA_TYPES;
 import symbol_table.ExpressionChecker;
+import symbol_table.SymbolTable;
+import symbol_table.VariableSTValue;
 
 public class MaliceParser {
 	public static void main(String[] args) throws IOException, RecognitionException {
@@ -75,8 +78,9 @@ public class MaliceParser {
 					"b spoke. " + '\n' +
 				"closed " + '\n'
 			};
-		
-		CharStream input = new ANTLRStringStream("2<=3 && !(4>2-2*(2|1)-~3)"); 
+		SymbolTable symbolTable = new SymbolTable();
+		symbolTable.insert("v", new VariableSTValue("v", DATA_TYPES.NUMBER, true));
+		CharStream input = new ANTLRStringStream("c<=3 && !(4>2-2*(2|1)-~3)"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
@@ -84,7 +88,7 @@ public class MaliceParser {
 		//System.out.println(prog.tree.toString());
 		//System.out.println("done");
 		malice_grammarParser.expr_return prog =  parser.expr() ;
-		new ExpressionChecker().getExpressionType(prog.tree);
+		new ExpressionChecker().getExpressionType(prog.tree, symbolTable);
 		System.out.println(prog.tree.toStringTree());
 		/*
 		int i = 0 ;
