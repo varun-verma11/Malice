@@ -1,13 +1,12 @@
 package malice_grammar;
 
 import java.io.IOException;
-import malice_grammar.malice_grammarParser.expr_return;
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
-import org.antlr.runtime.tree.CommonTree;
 
 import symbol_table.ExpressionChecker;
 

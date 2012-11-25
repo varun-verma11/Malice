@@ -7,10 +7,15 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 {
 	Map<String,SymbolTableValue> symbolTable = new HashMap<String, SymbolTableValue>();
 	
-	public boolean checkVariableScopeInFunctionInCurrLevel(String var, String f_name)
+	public boolean checkVariableScopeInFunctionInCurrLevel(String var)
 	{
-		return ((FunctionSTValue) symbolTable.get(f_name))
-					.getTable().checkIfVariableExists(var);
+		return false; //implement this method
+	}
+	
+	public boolean checkVariableScopeInAllReleventLevels(String var)
+	{
+		return false; // implement this method
+		
 	}
 	
 	public boolean checkIfVariableExists(String var) 
@@ -36,6 +41,8 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	public SymbolTableValue lookup(String name) {
 		return symbolTable.get(name);
 	}
+	
+	
 
 
 }
