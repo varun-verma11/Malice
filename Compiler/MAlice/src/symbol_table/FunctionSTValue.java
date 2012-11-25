@@ -10,7 +10,6 @@ public class FunctionSTValue extends SymbolTableValue
 	public FunctionSTValue(String identifier) 
 	{
 		this.identifier = identifier;
-		
 		symbolTable = new SymbolTable();
 	}
 	
@@ -22,7 +21,8 @@ public class FunctionSTValue extends SymbolTableValue
 		symbolTable = new SymbolTable();
 	}
 	
-	public DATA_TYPES getReturnType() {
+	public DATA_TYPES getReturnType() 
+	{
 		return return_type;
 	}
 	
