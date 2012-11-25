@@ -10,6 +10,7 @@ import org.antlr.runtime.TokenStream;
 
 import symbol_table.DATA_TYPES;
 import symbol_table.ExpressionChecker;
+import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
 
@@ -79,6 +80,10 @@ public class MaliceParser {
 			};
 		SymbolTable symbolTable = new SymbolTable();
 		symbolTable.insert("v", new VariableSTValue("v", DATA_TYPES.NUMBER, true));
+		
+		DATA_TYPES[] arg_types = {DATA_TYPES.NUMBER, DATA_TYPES.NUMBER};
+		symbolTable.insert("abs", new FunctionSTValue("abs", DATA_TYPES.LETTER, symbolTable, arg_types ));
+		
 		CharStream input = new ANTLRStringStream("abs(c,d)<=3 && !(4>2-2*(2|1)-~3)"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);

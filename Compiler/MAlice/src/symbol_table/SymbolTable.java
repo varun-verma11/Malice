@@ -13,10 +13,6 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		return symbolTable.containsKey(var);
 	}
 	
-//	public boolean checkVariableScopeInAllReleventLevels(String var)
-	//{
-		
-	}
 	private void updateCurrentScopeLevel(int level){
 		this.currentScopeLevel = level;
 	}
