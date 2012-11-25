@@ -6,7 +6,7 @@ public class StatementChecker {
 	
 	public static void checkStatement(Tree node, SymbolTable symbolTable)
 	{
-		if ( node.getText().contentEquals("was"))
+		if (node.getText().contentEquals("was"))
 		{
 			String var = node.getChild(0).getText();
 			
@@ -46,9 +46,29 @@ public class StatementChecker {
 						+ var +" out of scope" + node.getText());
 			}
 			
+		}
+		
+		if (node.getText().contentEquals("became"))
+		{
+			checkIfDataTypeIsInTheRange(node);
+			checkIfTypesMatch(node, symbolTable);
 			
 		}
 		
 	}
+<<<<<<< HEAD
 	
+=======
+
+	private static void checkIfTypesMatch(Tree node, SymbolTable symbolTable) {
+		
+		((VariableSTValue)symbolTable.lookup(node.getChild(0).getText())).getType();//type x == number
+		node.getChild(1)//symTable lookup this node?
+		
+	}
+
+	private static void checkIfDataTypeIsInTheRange(Tree node) {
+		//check and print errors
+	}
+>>>>>>> c4eef7e06385d388effa9c52177d19d0633a2b1b
 }

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-24 20:27:01
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-25 04:34:33
 
   package malice_grammar ;
 
@@ -566,19 +566,17 @@ public class malice_grammarParser extends Parser {
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar15.getTree());
-                    pushFollow(FOLLOW_expr_in_term291);
+                    pushFollow(FOLLOW_expr_in_term292);
                     expr16=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr16.getTree());
-                    pushFollow(FOLLOW_rpar_in_term293);
+                    pushFollow(FOLLOW_rpar_in_term294);
                     rpar17=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, rpar17.getTree());
 
                     }
                     break;
@@ -644,7 +642,7 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:13: '!'
             	    {
-            	    char_literal18=(Token)match(input,17,FOLLOW_17_in_bool_neg302); if (state.failed) return retval;
+            	    char_literal18=(Token)match(input,17,FOLLOW_17_in_bool_neg304); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal18_tree = (CommonTree)adaptor.create(char_literal18);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal18_tree, root_0);
@@ -658,7 +656,7 @@ public class malice_grammarParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_term_in_bool_neg307);
+            pushFollow(FOLLOW_term_in_bool_neg309);
             term19=term();
 
             state._fsp--;
@@ -743,7 +741,7 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:13: '~'
             	    {
-            	    char_literal20=(Token)match(input,18,FOLLOW_18_in_unary_op315); if (state.failed) return retval;
+            	    char_literal20=(Token)match(input,18,FOLLOW_18_in_unary_op317); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal20_tree = (CommonTree)adaptor.create(char_literal20);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal20_tree, root_0);
@@ -754,7 +752,7 @@ public class malice_grammarParser extends Parser {
             	case 2 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:20: '-'
             	    {
-            	    char_literal21=(Token)match(input,19,FOLLOW_19_in_unary_op320); if (state.failed) return retval;
+            	    char_literal21=(Token)match(input,19,FOLLOW_19_in_unary_op322); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal21_tree = (CommonTree)adaptor.create(char_literal21);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal21_tree, root_0);
@@ -765,7 +763,7 @@ public class malice_grammarParser extends Parser {
             	case 3 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:27: '+'
             	    {
-            	    char_literal22=(Token)match(input,20,FOLLOW_20_in_unary_op325); if (state.failed) return retval;
+            	    char_literal22=(Token)match(input,20,FOLLOW_20_in_unary_op327); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal22_tree = (CommonTree)adaptor.create(char_literal22);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal22_tree, root_0);
@@ -779,7 +777,7 @@ public class malice_grammarParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_bool_neg_in_unary_op330);
+            pushFollow(FOLLOW_bool_neg_in_unary_op332);
             bool_neg23=bool_neg();
 
             state._fsp--;
@@ -839,7 +837,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_unary_op_in_mult337);
+            pushFollow(FOLLOW_unary_op_in_mult339);
             unary_op24=unary_op();
 
             state._fsp--;
@@ -890,7 +888,7 @@ public class malice_grammarParser extends Parser {
             	        case 1 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:18: '*'
             	            {
-            	            char_literal25=(Token)match(input,21,FOLLOW_21_in_mult341); if (state.failed) return retval;
+            	            char_literal25=(Token)match(input,21,FOLLOW_21_in_mult343); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal25_tree = (CommonTree)adaptor.create(char_literal25);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal25_tree, root_0);
@@ -901,7 +899,7 @@ public class malice_grammarParser extends Parser {
             	        case 2 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:25: '/'
             	            {
-            	            char_literal26=(Token)match(input,22,FOLLOW_22_in_mult346); if (state.failed) return retval;
+            	            char_literal26=(Token)match(input,22,FOLLOW_22_in_mult348); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal26_tree = (CommonTree)adaptor.create(char_literal26);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal26_tree, root_0);
@@ -912,7 +910,7 @@ public class malice_grammarParser extends Parser {
             	        case 3 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:32: '%'
             	            {
-            	            char_literal27=(Token)match(input,23,FOLLOW_23_in_mult351); if (state.failed) return retval;
+            	            char_literal27=(Token)match(input,23,FOLLOW_23_in_mult353); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal27_tree = (CommonTree)adaptor.create(char_literal27);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal27_tree, root_0);
@@ -923,7 +921,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_unary_op_in_mult355);
+            	    pushFollow(FOLLOW_unary_op_in_mult357);
             	    unary_op28=unary_op();
 
             	    state._fsp--;
@@ -990,7 +988,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_mult_in_add365);
+            pushFollow(FOLLOW_mult_in_add367);
             mult29=mult();
 
             state._fsp--;
@@ -1032,7 +1030,7 @@ public class malice_grammarParser extends Parser {
             	        case 1 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:14: '+'
             	            {
-            	            char_literal30=(Token)match(input,20,FOLLOW_20_in_add369); if (state.failed) return retval;
+            	            char_literal30=(Token)match(input,20,FOLLOW_20_in_add371); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal30_tree = (CommonTree)adaptor.create(char_literal30);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal30_tree, root_0);
@@ -1043,7 +1041,7 @@ public class malice_grammarParser extends Parser {
             	        case 2 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:21: '-'
             	            {
-            	            char_literal31=(Token)match(input,19,FOLLOW_19_in_add374); if (state.failed) return retval;
+            	            char_literal31=(Token)match(input,19,FOLLOW_19_in_add376); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal31_tree = (CommonTree)adaptor.create(char_literal31);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal31_tree, root_0);
@@ -1054,7 +1052,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_mult_in_add378);
+            	    pushFollow(FOLLOW_mult_in_add380);
             	    mult32=mult();
 
             	    state._fsp--;
@@ -1125,7 +1123,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_add_in_bool_comp388);
+            pushFollow(FOLLOW_add_in_bool_comp390);
             add33=add();
 
             state._fsp--;
@@ -1181,7 +1179,7 @@ public class malice_grammarParser extends Parser {
             	        case 1 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:19: '<='
             	            {
-            	            string_literal34=(Token)match(input,24,FOLLOW_24_in_bool_comp392); if (state.failed) return retval;
+            	            string_literal34=(Token)match(input,24,FOLLOW_24_in_bool_comp394); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal34_tree = (CommonTree)adaptor.create(string_literal34);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal34_tree, root_0);
@@ -1192,7 +1190,7 @@ public class malice_grammarParser extends Parser {
             	        case 2 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:27: '<'
             	            {
-            	            char_literal35=(Token)match(input,25,FOLLOW_25_in_bool_comp397); if (state.failed) return retval;
+            	            char_literal35=(Token)match(input,25,FOLLOW_25_in_bool_comp399); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal35_tree = (CommonTree)adaptor.create(char_literal35);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal35_tree, root_0);
@@ -1203,7 +1201,7 @@ public class malice_grammarParser extends Parser {
             	        case 3 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:34: '>'
             	            {
-            	            char_literal36=(Token)match(input,26,FOLLOW_26_in_bool_comp402); if (state.failed) return retval;
+            	            char_literal36=(Token)match(input,26,FOLLOW_26_in_bool_comp404); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal36_tree = (CommonTree)adaptor.create(char_literal36);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal36_tree, root_0);
@@ -1214,7 +1212,7 @@ public class malice_grammarParser extends Parser {
             	        case 4 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:41: '>='
             	            {
-            	            string_literal37=(Token)match(input,27,FOLLOW_27_in_bool_comp407); if (state.failed) return retval;
+            	            string_literal37=(Token)match(input,27,FOLLOW_27_in_bool_comp409); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal37_tree = (CommonTree)adaptor.create(string_literal37);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal37_tree, root_0);
@@ -1225,7 +1223,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_add_in_bool_comp411);
+            	    pushFollow(FOLLOW_add_in_bool_comp413);
             	    add38=add();
 
             	    state._fsp--;
@@ -1292,7 +1290,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_comp_in_bool_eq421);
+            pushFollow(FOLLOW_bool_comp_in_bool_eq423);
             bool_comp39=bool_comp();
 
             state._fsp--;
@@ -1334,7 +1332,7 @@ public class malice_grammarParser extends Parser {
             	        case 1 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:23: '=='
             	            {
-            	            string_literal40=(Token)match(input,28,FOLLOW_28_in_bool_eq425); if (state.failed) return retval;
+            	            string_literal40=(Token)match(input,28,FOLLOW_28_in_bool_eq427); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal40_tree = (CommonTree)adaptor.create(string_literal40);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal40_tree, root_0);
@@ -1345,7 +1343,7 @@ public class malice_grammarParser extends Parser {
             	        case 2 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:31: '!='
             	            {
-            	            string_literal41=(Token)match(input,29,FOLLOW_29_in_bool_eq430); if (state.failed) return retval;
+            	            string_literal41=(Token)match(input,29,FOLLOW_29_in_bool_eq432); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal41_tree = (CommonTree)adaptor.create(string_literal41);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal41_tree, root_0);
@@ -1356,7 +1354,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_bool_comp_in_bool_eq434);
+            	    pushFollow(FOLLOW_bool_comp_in_bool_eq436);
             	    bool_comp42=bool_comp();
 
             	    state._fsp--;
@@ -1421,7 +1419,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_eq_in_bitw_and444);
+            pushFollow(FOLLOW_bool_eq_in_bitw_and446);
             bool_eq43=bool_eq();
 
             state._fsp--;
@@ -1442,12 +1440,12 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:21: '&' bool_eq
             	    {
-            	    char_literal44=(Token)match(input,30,FOLLOW_30_in_bitw_and447); if (state.failed) return retval;
+            	    char_literal44=(Token)match(input,30,FOLLOW_30_in_bitw_and449); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal44_tree = (CommonTree)adaptor.create(char_literal44);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal44_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bool_eq_in_bitw_and450);
+            	    pushFollow(FOLLOW_bool_eq_in_bitw_and452);
             	    bool_eq45=bool_eq();
 
             	    state._fsp--;
@@ -1512,7 +1510,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bitw_and_in_bitw_xor460);
+            pushFollow(FOLLOW_bitw_and_in_bitw_xor462);
             bitw_and46=bitw_and();
 
             state._fsp--;
@@ -1533,12 +1531,12 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:22: '^' bitw_and
             	    {
-            	    char_literal47=(Token)match(input,31,FOLLOW_31_in_bitw_xor463); if (state.failed) return retval;
+            	    char_literal47=(Token)match(input,31,FOLLOW_31_in_bitw_xor465); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal47_tree = (CommonTree)adaptor.create(char_literal47);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal47_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bitw_and_in_bitw_xor466);
+            	    pushFollow(FOLLOW_bitw_and_in_bitw_xor468);
             	    bitw_and48=bitw_and();
 
             	    state._fsp--;
@@ -1603,7 +1601,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bitw_xor_in_bitw_or476);
+            pushFollow(FOLLOW_bitw_xor_in_bitw_or478);
             bitw_xor49=bitw_xor();
 
             state._fsp--;
@@ -1624,12 +1622,12 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:21: '|' bitw_xor
             	    {
-            	    char_literal50=(Token)match(input,32,FOLLOW_32_in_bitw_or479); if (state.failed) return retval;
+            	    char_literal50=(Token)match(input,32,FOLLOW_32_in_bitw_or481); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal50_tree = (CommonTree)adaptor.create(char_literal50);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal50_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bitw_xor_in_bitw_or482);
+            	    pushFollow(FOLLOW_bitw_xor_in_bitw_or484);
             	    bitw_xor51=bitw_xor();
 
             	    state._fsp--;
@@ -1694,7 +1692,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bitw_or_in_bool_and492);
+            pushFollow(FOLLOW_bitw_or_in_bool_and494);
             bitw_or52=bitw_or();
 
             state._fsp--;
@@ -1715,12 +1713,12 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:21: '&&' bitw_or
             	    {
-            	    string_literal53=(Token)match(input,33,FOLLOW_33_in_bool_and495); if (state.failed) return retval;
+            	    string_literal53=(Token)match(input,33,FOLLOW_33_in_bool_and497); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal53_tree = (CommonTree)adaptor.create(string_literal53);
             	    root_0 = (CommonTree)adaptor.becomeRoot(string_literal53_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bitw_or_in_bool_and498);
+            	    pushFollow(FOLLOW_bitw_or_in_bool_and500);
             	    bitw_or54=bitw_or();
 
             	    state._fsp--;
@@ -1785,7 +1783,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_and_in_bool_or508);
+            pushFollow(FOLLOW_bool_and_in_bool_or510);
             bool_and55=bool_and();
 
             state._fsp--;
@@ -1806,12 +1804,12 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:21: '||' bool_and
             	    {
-            	    string_literal56=(Token)match(input,34,FOLLOW_34_in_bool_or511); if (state.failed) return retval;
+            	    string_literal56=(Token)match(input,34,FOLLOW_34_in_bool_or513); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal56_tree = (CommonTree)adaptor.create(string_literal56);
             	    root_0 = (CommonTree)adaptor.becomeRoot(string_literal56_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bool_and_in_bool_or514);
+            	    pushFollow(FOLLOW_bool_and_in_bool_or516);
             	    bool_and57=bool_and();
 
             	    state._fsp--;
@@ -1872,7 +1870,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_or_in_expr525);
+            pushFollow(FOLLOW_bool_or_in_expr527);
             bool_or58=bool_or();
 
             state._fsp--;
@@ -1924,7 +1922,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_in_bool_expr534);
+            pushFollow(FOLLOW_expr_in_bool_expr536);
             expr59=expr();
 
             state._fsp--;
@@ -2088,31 +2086,31 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:11: 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which'
                     {
-                    string_literal60=(Token)match(input,35,FOLLOW_35_in_control_structure551); if (state.failed) return retval;
+                    string_literal60=(Token)match(input,35,FOLLOW_35_in_control_structure553); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal60_tree = (CommonTree)adaptor.create(string_literal60);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal60_tree, root_0);
                     }
-                    pushFollow(FOLLOW_lpar_in_control_structure554);
+                    pushFollow(FOLLOW_lpar_in_control_structure556);
                     lpar61=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar61.getTree());
-                    pushFollow(FOLLOW_bool_expr_in_control_structure556);
+                    pushFollow(FOLLOW_bool_expr_in_control_structure558);
                     bool_expr62=bool_expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr62.getTree());
-                    pushFollow(FOLLOW_rpar_in_control_structure558);
+                    pushFollow(FOLLOW_rpar_in_control_structure560);
                     rpar63=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, rpar63.getTree());
-                    string_literal64=(Token)match(input,36,FOLLOW_36_in_control_structure560); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statementList_in_control_structure575);
+                    string_literal64=(Token)match(input,36,FOLLOW_36_in_control_structure562); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statementList_in_control_structure577);
                     statementList65=statementList();
 
                     state._fsp--;
@@ -2139,32 +2137,32 @@ public class malice_grammarParser extends Parser {
                     	case 1 :
                     	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:56:12: 'or' 'maybe' lpar bool_expr rpar 'so' statementList
                     	    {
-                    	    string_literal66=(Token)match(input,37,FOLLOW_37_in_control_structure589); if (state.failed) return retval;
-                    	    string_literal67=(Token)match(input,38,FOLLOW_38_in_control_structure592); if (state.failed) return retval;
+                    	    string_literal66=(Token)match(input,37,FOLLOW_37_in_control_structure591); if (state.failed) return retval;
+                    	    string_literal67=(Token)match(input,38,FOLLOW_38_in_control_structure594); if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) {
                     	    string_literal67_tree = (CommonTree)adaptor.create(string_literal67);
                     	    root_0 = (CommonTree)adaptor.becomeRoot(string_literal67_tree, root_0);
                     	    }
-                    	    pushFollow(FOLLOW_lpar_in_control_structure595);
+                    	    pushFollow(FOLLOW_lpar_in_control_structure597);
                     	    lpar68=lpar();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar68.getTree());
-                    	    pushFollow(FOLLOW_bool_expr_in_control_structure597);
+                    	    pushFollow(FOLLOW_bool_expr_in_control_structure599);
                     	    bool_expr69=bool_expr();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr69.getTree());
-                    	    pushFollow(FOLLOW_rpar_in_control_structure599);
+                    	    pushFollow(FOLLOW_rpar_in_control_structure601);
                     	    rpar70=rpar();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) adaptor.addChild(root_0, rpar70.getTree());
-                    	    string_literal71=(Token)match(input,36,FOLLOW_36_in_control_structure601); if (state.failed) return retval;
-                    	    pushFollow(FOLLOW_statementList_in_control_structure604);
+                    	    string_literal71=(Token)match(input,36,FOLLOW_36_in_control_structure603); if (state.failed) return retval;
+                    	    pushFollow(FOLLOW_statementList_in_control_structure606);
                     	    statementList72=statementList();
 
                     	    state._fsp--;
@@ -2190,12 +2188,12 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:57:12: 'or' statementList
                             {
-                            string_literal73=(Token)match(input,37,FOLLOW_37_in_control_structure619); if (state.failed) return retval;
+                            string_literal73=(Token)match(input,37,FOLLOW_37_in_control_structure621); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal73_tree = (CommonTree)adaptor.create(string_literal73);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal73_tree, root_0);
                             }
-                            pushFollow(FOLLOW_statementList_in_control_structure622);
+                            pushFollow(FOLLOW_statementList_in_control_structure624);
                             statementList74=statementList();
 
                             state._fsp--;
@@ -2207,105 +2205,105 @@ public class malice_grammarParser extends Parser {
 
                     }
 
-                    string_literal75=(Token)match(input,39,FOLLOW_39_in_control_structure636); if (state.failed) return retval;
-                    string_literal76=(Token)match(input,40,FOLLOW_40_in_control_structure639); if (state.failed) return retval;
-                    string_literal77=(Token)match(input,41,FOLLOW_41_in_control_structure642); if (state.failed) return retval;
-                    string_literal78=(Token)match(input,42,FOLLOW_42_in_control_structure645); if (state.failed) return retval;
-                    string_literal79=(Token)match(input,43,FOLLOW_43_in_control_structure648); if (state.failed) return retval;
+                    string_literal75=(Token)match(input,39,FOLLOW_39_in_control_structure638); if (state.failed) return retval;
+                    string_literal76=(Token)match(input,40,FOLLOW_40_in_control_structure641); if (state.failed) return retval;
+                    string_literal77=(Token)match(input,41,FOLLOW_41_in_control_structure644); if (state.failed) return retval;
+                    string_literal78=(Token)match(input,42,FOLLOW_42_in_control_structure647); if (state.failed) return retval;
+                    string_literal79=(Token)match(input,43,FOLLOW_43_in_control_structure650); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:59:11: 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which'
                     {
-                    string_literal80=(Token)match(input,44,FOLLOW_44_in_control_structure661); if (state.failed) return retval;
+                    string_literal80=(Token)match(input,44,FOLLOW_44_in_control_structure663); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal80_tree = (CommonTree)adaptor.create(string_literal80);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal80_tree, root_0);
                     }
-                    pushFollow(FOLLOW_lpar_in_control_structure664);
+                    pushFollow(FOLLOW_lpar_in_control_structure666);
                     lpar81=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar81.getTree());
-                    pushFollow(FOLLOW_bool_expr_in_control_structure666);
+                    pushFollow(FOLLOW_bool_expr_in_control_structure668);
                     bool_expr82=bool_expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr82.getTree());
-                    pushFollow(FOLLOW_rpar_in_control_structure668);
+                    pushFollow(FOLLOW_rpar_in_control_structure670);
                     rpar83=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, rpar83.getTree());
-                    string_literal84=(Token)match(input,36,FOLLOW_36_in_control_structure670); if (state.failed) return retval;
+                    string_literal84=(Token)match(input,36,FOLLOW_36_in_control_structure672); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal84_tree = (CommonTree)adaptor.create(string_literal84);
                     adaptor.addChild(root_0, string_literal84_tree);
                     }
-                    pushFollow(FOLLOW_statementList_in_control_structure682);
+                    pushFollow(FOLLOW_statementList_in_control_structure684);
                     statementList85=statementList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList85.getTree());
-                    string_literal86=(Token)match(input,37,FOLLOW_37_in_control_structure695); if (state.failed) return retval;
+                    string_literal86=(Token)match(input,37,FOLLOW_37_in_control_structure697); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal86_tree = (CommonTree)adaptor.create(string_literal86);
                     adaptor.addChild(root_0, string_literal86_tree);
                     }
-                    pushFollow(FOLLOW_statementList_in_control_structure697);
+                    pushFollow(FOLLOW_statementList_in_control_structure699);
                     statementList87=statementList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList87.getTree());
-                    string_literal88=(Token)match(input,39,FOLLOW_39_in_control_structure709); if (state.failed) return retval;
-                    string_literal89=(Token)match(input,40,FOLLOW_40_in_control_structure712); if (state.failed) return retval;
-                    string_literal90=(Token)match(input,41,FOLLOW_41_in_control_structure715); if (state.failed) return retval;
-                    string_literal91=(Token)match(input,42,FOLLOW_42_in_control_structure718); if (state.failed) return retval;
-                    string_literal92=(Token)match(input,43,FOLLOW_43_in_control_structure721); if (state.failed) return retval;
+                    string_literal88=(Token)match(input,39,FOLLOW_39_in_control_structure711); if (state.failed) return retval;
+                    string_literal89=(Token)match(input,40,FOLLOW_40_in_control_structure714); if (state.failed) return retval;
+                    string_literal90=(Token)match(input,41,FOLLOW_41_in_control_structure717); if (state.failed) return retval;
+                    string_literal91=(Token)match(input,42,FOLLOW_42_in_control_structure720); if (state.failed) return retval;
+                    string_literal92=(Token)match(input,43,FOLLOW_43_in_control_structure723); if (state.failed) return retval;
 
                     }
                     break;
                 case 3 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:63:11: 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times'
                     {
-                    string_literal93=(Token)match(input,45,FOLLOW_45_in_control_structure734); if (state.failed) return retval;
+                    string_literal93=(Token)match(input,45,FOLLOW_45_in_control_structure736); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal93_tree = (CommonTree)adaptor.create(string_literal93);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal93_tree, root_0);
                     }
-                    pushFollow(FOLLOW_lpar_in_control_structure737);
+                    pushFollow(FOLLOW_lpar_in_control_structure739);
                     lpar94=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar94.getTree());
-                    pushFollow(FOLLOW_bool_expr_in_control_structure739);
+                    pushFollow(FOLLOW_bool_expr_in_control_structure741);
                     bool_expr95=bool_expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr95.getTree());
-                    pushFollow(FOLLOW_rpar_in_control_structure741);
+                    pushFollow(FOLLOW_rpar_in_control_structure743);
                     rpar96=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, rpar96.getTree());
-                    string_literal97=(Token)match(input,39,FOLLOW_39_in_control_structure743); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statementList_in_control_structure756);
+                    string_literal97=(Token)match(input,39,FOLLOW_39_in_control_structure745); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statementList_in_control_structure758);
                     statementList98=statementList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList98.getTree());
-                    string_literal99=(Token)match(input,46,FOLLOW_46_in_control_structure768); if (state.failed) return retval;
-                    string_literal100=(Token)match(input,47,FOLLOW_47_in_control_structure771); if (state.failed) return retval;
+                    string_literal99=(Token)match(input,46,FOLLOW_46_in_control_structure770); if (state.failed) return retval;
+                    string_literal100=(Token)match(input,47,FOLLOW_47_in_control_structure773); if (state.failed) return retval;
 
                     }
                     break;
@@ -2327,7 +2325,7 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: '.'
                     {
-                    char_literal101=(Token)match(input,48,FOLLOW_48_in_control_structure782); if (state.failed) return retval;
+                    char_literal101=(Token)match(input,48,FOLLOW_48_in_control_structure784); if (state.failed) return retval;
 
                     }
                     break;
@@ -2402,7 +2400,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT102=(Token)match(input,IDENT,FOLLOW_IDENT_in_declaration_statements792); if (state.failed) return retval;
+            IDENT102=(Token)match(input,IDENT,FOLLOW_IDENT_in_declaration_statements794); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT102_tree = (CommonTree)adaptor.create(IDENT102);
             adaptor.addChild(root_0, IDENT102_tree);
@@ -2428,13 +2426,13 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:34: 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )?
                     {
-                    string_literal103=(Token)match(input,41,FOLLOW_41_in_declaration_statements796); if (state.failed) return retval;
+                    string_literal103=(Token)match(input,41,FOLLOW_41_in_declaration_statements798); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal103_tree = (CommonTree)adaptor.create(string_literal103);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal103_tree, root_0);
                     }
-                    char_literal104=(Token)match(input,49,FOLLOW_49_in_declaration_statements799); if (state.failed) return retval;
-                    pushFollow(FOLLOW_data_types_in_declaration_statements802);
+                    char_literal104=(Token)match(input,49,FOLLOW_49_in_declaration_statements801); if (state.failed) return retval;
+                    pushFollow(FOLLOW_data_types_in_declaration_statements804);
                     data_types105=data_types();
 
                     state._fsp--;
@@ -2454,7 +2452,7 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:59: 'too'
                             {
-                            string_literal106=(Token)match(input,50,FOLLOW_50_in_declaration_statements806); if (state.failed) return retval;
+                            string_literal106=(Token)match(input,50,FOLLOW_50_in_declaration_statements808); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal106_tree = (CommonTree)adaptor.create(string_literal106);
                             adaptor.addChild(root_0, string_literal106_tree);
@@ -2465,7 +2463,7 @@ public class malice_grammarParser extends Parser {
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:67: 'of' ( LETTER | STRING | expr )
                             {
-                            string_literal107=(Token)match(input,51,FOLLOW_51_in_declaration_statements810); if (state.failed) return retval;
+                            string_literal107=(Token)match(input,51,FOLLOW_51_in_declaration_statements812); if (state.failed) return retval;
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:73: ( LETTER | STRING | expr )
                             int alt23=3;
                             switch ( input.LA(1) ) {
@@ -2502,7 +2500,7 @@ public class malice_grammarParser extends Parser {
                                 case 1 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:74: LETTER
                                     {
-                                    LETTER108=(Token)match(input,LETTER,FOLLOW_LETTER_in_declaration_statements814); if (state.failed) return retval;
+                                    LETTER108=(Token)match(input,LETTER,FOLLOW_LETTER_in_declaration_statements816); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
                                     LETTER108_tree = (CommonTree)adaptor.create(LETTER108);
                                     adaptor.addChild(root_0, LETTER108_tree);
@@ -2513,7 +2511,7 @@ public class malice_grammarParser extends Parser {
                                 case 2 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:83: STRING
                                     {
-                                    STRING109=(Token)match(input,STRING,FOLLOW_STRING_in_declaration_statements818); if (state.failed) return retval;
+                                    STRING109=(Token)match(input,STRING,FOLLOW_STRING_in_declaration_statements820); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
                                     STRING109_tree = (CommonTree)adaptor.create(STRING109);
                                     adaptor.addChild(root_0, STRING109_tree);
@@ -2524,7 +2522,7 @@ public class malice_grammarParser extends Parser {
                                 case 3 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:92: expr
                                     {
-                                    pushFollow(FOLLOW_expr_in_declaration_statements822);
+                                    pushFollow(FOLLOW_expr_in_declaration_statements824);
                                     expr110=expr();
 
                                     state._fsp--;
@@ -2548,18 +2546,18 @@ public class malice_grammarParser extends Parser {
                 case 2 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:35: 'had' atom data_types
                     {
-                    string_literal111=(Token)match(input,52,FOLLOW_52_in_declaration_statements862); if (state.failed) return retval;
+                    string_literal111=(Token)match(input,52,FOLLOW_52_in_declaration_statements864); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal111_tree = (CommonTree)adaptor.create(string_literal111);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal111_tree, root_0);
                     }
-                    pushFollow(FOLLOW_atom_in_declaration_statements865);
+                    pushFollow(FOLLOW_atom_in_declaration_statements867);
                     atom112=atom();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, atom112.getTree());
-                    pushFollow(FOLLOW_data_types_in_declaration_statements867);
+                    pushFollow(FOLLOW_data_types_in_declaration_statements869);
                     data_types113=data_types();
 
                     state._fsp--;
@@ -2627,7 +2625,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expr_in_argument933);
+                    pushFollow(FOLLOW_expr_in_argument935);
                     expr114=expr();
 
                     state._fsp--;
@@ -2641,7 +2639,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    LETTER115=(Token)match(input,LETTER,FOLLOW_LETTER_in_argument937); if (state.failed) return retval;
+                    LETTER115=(Token)match(input,LETTER,FOLLOW_LETTER_in_argument939); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     LETTER115_tree = (CommonTree)adaptor.create(LETTER115);
                     adaptor.addChild(root_0, LETTER115_tree);
@@ -2654,7 +2652,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    STRING116=(Token)match(input,STRING,FOLLOW_STRING_in_argument941); if (state.failed) return retval;
+                    STRING116=(Token)match(input,STRING,FOLLOW_STRING_in_argument943); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STRING116_tree = (CommonTree)adaptor.create(STRING116);
                     adaptor.addChild(root_0, STRING116_tree);
@@ -2667,7 +2665,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_array_elem_in_argument945);
+                    pushFollow(FOLLOW_array_elem_in_argument947);
                     array_elem117=array_elem();
 
                     state._fsp--;
@@ -2742,7 +2740,7 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:27: argument ( ',' argument )*
                             {
-                            pushFollow(FOLLOW_argument_in_arguments_to_functions953);
+                            pushFollow(FOLLOW_argument_in_arguments_to_functions955);
                             argument118=argument();
 
                             state._fsp--;
@@ -2763,8 +2761,8 @@ public class malice_grammarParser extends Parser {
                             	case 1 :
                             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:37: ',' argument
                             	    {
-                            	    char_literal119=(Token)match(input,53,FOLLOW_53_in_arguments_to_functions956); if (state.failed) return retval;
-                            	    pushFollow(FOLLOW_argument_in_arguments_to_functions959);
+                            	    char_literal119=(Token)match(input,53,FOLLOW_53_in_arguments_to_functions958); if (state.failed) return retval;
+                            	    pushFollow(FOLLOW_argument_in_arguments_to_functions961);
                             	    argument120=argument();
 
                             	    state._fsp--;
@@ -2793,7 +2791,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_function_call_in_arguments_to_functions967);
+                    pushFollow(FOLLOW_function_call_in_arguments_to_functions969);
                     function_call121=function_call();
 
                     state._fsp--;
@@ -2898,7 +2896,7 @@ public class malice_grammarParser extends Parser {
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:61: ( expr ( 'spoke' | 'said' 'Alice' ) )
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:62: expr ( 'spoke' | 'said' 'Alice' )
                     {
-                    pushFollow(FOLLOW_expr_in_rest_statements996);
+                    pushFollow(FOLLOW_expr_in_rest_statements998);
                     expr122=expr();
 
                     state._fsp--;
@@ -2925,7 +2923,7 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:68: 'spoke'
                             {
-                            string_literal123=(Token)match(input,54,FOLLOW_54_in_rest_statements999); if (state.failed) return retval;
+                            string_literal123=(Token)match(input,54,FOLLOW_54_in_rest_statements1001); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal123_tree = (CommonTree)adaptor.create(string_literal123);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal123_tree, root_0);
@@ -2936,12 +2934,12 @@ public class malice_grammarParser extends Parser {
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:79: 'said' 'Alice'
                             {
-                            string_literal124=(Token)match(input,55,FOLLOW_55_in_rest_statements1004); if (state.failed) return retval;
+                            string_literal124=(Token)match(input,55,FOLLOW_55_in_rest_statements1006); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal124_tree = (CommonTree)adaptor.create(string_literal124);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal124_tree, root_0);
                             }
-                            string_literal125=(Token)match(input,40,FOLLOW_40_in_rest_statements1007); if (state.failed) return retval;
+                            string_literal125=(Token)match(input,40,FOLLOW_40_in_rest_statements1009); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal125_tree = (CommonTree)adaptor.create(string_literal125);
                             adaptor.addChild(root_0, string_literal125_tree);
@@ -2996,7 +2994,7 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:28: 'spoke'
                             {
-                            string_literal127=(Token)match(input,54,FOLLOW_54_in_rest_statements1034); if (state.failed) return retval;
+                            string_literal127=(Token)match(input,54,FOLLOW_54_in_rest_statements1036); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal127_tree = (CommonTree)adaptor.create(string_literal127);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal127_tree, root_0);
@@ -3007,12 +3005,12 @@ public class malice_grammarParser extends Parser {
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:39: 'said' 'Alice'
                             {
-                            string_literal128=(Token)match(input,55,FOLLOW_55_in_rest_statements1039); if (state.failed) return retval;
+                            string_literal128=(Token)match(input,55,FOLLOW_55_in_rest_statements1041); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal128_tree = (CommonTree)adaptor.create(string_literal128);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal128_tree, root_0);
                             }
-                            string_literal129=(Token)match(input,40,FOLLOW_40_in_rest_statements1042); if (state.failed) return retval;
+                            string_literal129=(Token)match(input,40,FOLLOW_40_in_rest_statements1044); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal129_tree = (CommonTree)adaptor.create(string_literal129);
                             adaptor.addChild(root_0, string_literal129_tree);
@@ -3031,7 +3029,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    IDENT130=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements1052); if (state.failed) return retval;
+                    IDENT130=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements1054); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     IDENT130_tree = (CommonTree)adaptor.create(IDENT130);
                     adaptor.addChild(root_0, IDENT130_tree);
@@ -3050,14 +3048,14 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:12: '\\'s' expr 'piece'
                             {
-                            string_literal131=(Token)match(input,12,FOLLOW_12_in_rest_statements1065); if (state.failed) return retval;
-                            pushFollow(FOLLOW_expr_in_rest_statements1068);
+                            string_literal131=(Token)match(input,12,FOLLOW_12_in_rest_statements1067); if (state.failed) return retval;
+                            pushFollow(FOLLOW_expr_in_rest_statements1070);
                             expr132=expr();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr132.getTree());
-                            string_literal133=(Token)match(input,13,FOLLOW_13_in_rest_statements1070); if (state.failed) return retval;
+                            string_literal133=(Token)match(input,13,FOLLOW_13_in_rest_statements1072); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal133_tree = (CommonTree)adaptor.create(string_literal133);
                             adaptor.addChild(root_0, string_literal133_tree);
@@ -3098,7 +3096,7 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:18: 'became' ( expr | LETTER | STRING )
                             {
-                            string_literal134=(Token)match(input,56,FOLLOW_56_in_rest_statements1091); if (state.failed) return retval;
+                            string_literal134=(Token)match(input,56,FOLLOW_56_in_rest_statements1093); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal134_tree = (CommonTree)adaptor.create(string_literal134);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal134_tree, root_0);
@@ -3139,7 +3137,7 @@ public class malice_grammarParser extends Parser {
                                 case 1 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:30: expr
                                     {
-                                    pushFollow(FOLLOW_expr_in_rest_statements1096);
+                                    pushFollow(FOLLOW_expr_in_rest_statements1098);
                                     expr135=expr();
 
                                     state._fsp--;
@@ -3151,7 +3149,7 @@ public class malice_grammarParser extends Parser {
                                 case 2 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:37: LETTER
                                     {
-                                    LETTER136=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1100); if (state.failed) return retval;
+                                    LETTER136=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1102); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
                                     LETTER136_tree = (CommonTree)adaptor.create(LETTER136);
                                     adaptor.addChild(root_0, LETTER136_tree);
@@ -3162,7 +3160,7 @@ public class malice_grammarParser extends Parser {
                                 case 3 :
                                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:46: STRING
                                     {
-                                    STRING137=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1104); if (state.failed) return retval;
+                                    STRING137=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1106); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
                                     STRING137_tree = (CommonTree)adaptor.create(STRING137);
                                     adaptor.addChild(root_0, STRING137_tree);
@@ -3179,7 +3177,7 @@ public class malice_grammarParser extends Parser {
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:18: 'ate'
                             {
-                            string_literal138=(Token)match(input,57,FOLLOW_57_in_rest_statements1125); if (state.failed) return retval;
+                            string_literal138=(Token)match(input,57,FOLLOW_57_in_rest_statements1127); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal138_tree = (CommonTree)adaptor.create(string_literal138);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal138_tree, root_0);
@@ -3190,7 +3188,7 @@ public class malice_grammarParser extends Parser {
                         case 3 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:81:18: 'drank'
                             {
-                            string_literal139=(Token)match(input,58,FOLLOW_58_in_rest_statements1146); if (state.failed) return retval;
+                            string_literal139=(Token)match(input,58,FOLLOW_58_in_rest_statements1148); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal139_tree = (CommonTree)adaptor.create(string_literal139);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal139_tree, root_0);
@@ -3212,8 +3210,8 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    string_literal140=(Token)match(input,40,FOLLOW_40_in_rest_statements1179); if (state.failed) return retval;
-                    string_literal141=(Token)match(input,59,FOLLOW_59_in_rest_statements1182); if (state.failed) return retval;
+                    string_literal140=(Token)match(input,40,FOLLOW_40_in_rest_statements1181); if (state.failed) return retval;
+                    string_literal141=(Token)match(input,59,FOLLOW_59_in_rest_statements1184); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal141_tree = (CommonTree)adaptor.create(string_literal141);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal141_tree, root_0);
@@ -3254,7 +3252,7 @@ public class malice_grammarParser extends Parser {
                         case 1 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:26: expr
                             {
-                            pushFollow(FOLLOW_expr_in_rest_statements1186);
+                            pushFollow(FOLLOW_expr_in_rest_statements1188);
                             expr142=expr();
 
                             state._fsp--;
@@ -3266,7 +3264,7 @@ public class malice_grammarParser extends Parser {
                         case 2 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:33: LETTER
                             {
-                            LETTER143=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1190); if (state.failed) return retval;
+                            LETTER143=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1192); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             LETTER143_tree = (CommonTree)adaptor.create(LETTER143);
                             adaptor.addChild(root_0, LETTER143_tree);
@@ -3277,7 +3275,7 @@ public class malice_grammarParser extends Parser {
                         case 3 :
                             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:42: STRING
                             {
-                            STRING144=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1194); if (state.failed) return retval;
+                            STRING144=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1196); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             STRING144_tree = (CommonTree)adaptor.create(STRING144);
                             adaptor.addChild(root_0, STRING144_tree);
@@ -3346,12 +3344,12 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            string_literal145=(Token)match(input,60,FOLLOW_60_in_read_statement1209); if (state.failed) return retval;
+            string_literal145=(Token)match(input,60,FOLLOW_60_in_read_statement1211); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             string_literal145_tree = (CommonTree)adaptor.create(string_literal145);
             root_0 = (CommonTree)adaptor.becomeRoot(string_literal145_tree, root_0);
             }
-            string_literal146=(Token)match(input,41,FOLLOW_41_in_read_statement1212); if (state.failed) return retval;
+            string_literal146=(Token)match(input,41,FOLLOW_41_in_read_statement1214); if (state.failed) return retval;
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:33: ( IDENT | array_elem )
             int alt37=2;
             int LA37_0 = input.LA(1);
@@ -3384,7 +3382,7 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:34: IDENT
                     {
-                    IDENT147=(Token)match(input,IDENT,FOLLOW_IDENT_in_read_statement1216); if (state.failed) return retval;
+                    IDENT147=(Token)match(input,IDENT,FOLLOW_IDENT_in_read_statement1218); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     IDENT147_tree = (CommonTree)adaptor.create(IDENT147);
                     adaptor.addChild(root_0, IDENT147_tree);
@@ -3395,7 +3393,7 @@ public class malice_grammarParser extends Parser {
                 case 2 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:42: array_elem
                     {
-                    pushFollow(FOLLOW_array_elem_in_read_statement1220);
+                    pushFollow(FOLLOW_array_elem_in_read_statement1222);
                     array_elem148=array_elem();
 
                     state._fsp--;
@@ -3407,7 +3405,7 @@ public class malice_grammarParser extends Parser {
 
             }
 
-            char_literal149=(Token)match(input,61,FOLLOW_61_in_read_statement1223); if (state.failed) return retval;
+            char_literal149=(Token)match(input,61,FOLLOW_61_in_read_statement1225); if (state.failed) return retval;
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:59: ( '.' )?
             int alt38=2;
             int LA38_0 = input.LA(1);
@@ -3423,7 +3421,7 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: '.'
                     {
-                    char_literal150=(Token)match(input,48,FOLLOW_48_in_read_statement1227); if (state.failed) return retval;
+                    char_literal150=(Token)match(input,48,FOLLOW_48_in_read_statement1229); if (state.failed) return retval;
 
                     }
                     break;
@@ -3498,7 +3496,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    string_literal151=(Token)match(input,54,FOLLOW_54_in_print1242); if (state.failed) return retval;
+                    string_literal151=(Token)match(input,54,FOLLOW_54_in_print1244); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal151_tree = (CommonTree)adaptor.create(string_literal151);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal151_tree, root_0);
@@ -3511,12 +3509,12 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    string_literal152=(Token)match(input,55,FOLLOW_55_in_print1247); if (state.failed) return retval;
+                    string_literal152=(Token)match(input,55,FOLLOW_55_in_print1249); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal152_tree = (CommonTree)adaptor.create(string_literal152);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal152_tree, root_0);
                     }
-                    string_literal153=(Token)match(input,40,FOLLOW_40_in_print1250); if (state.failed) return retval;
+                    string_literal153=(Token)match(input,40,FOLLOW_40_in_print1252); if (state.failed) return retval;
 
                     }
                     break;
@@ -3571,25 +3569,25 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_function_name_in_function_call1264);
+            pushFollow(FOLLOW_function_name_in_function_call1266);
             function_name154=function_name();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot(function_name154.getTree(), root_0);
-            pushFollow(FOLLOW_lpar_in_function_call1267);
+            pushFollow(FOLLOW_lpar_in_function_call1269);
             lpar155=lpar();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar155.getTree());
-            pushFollow(FOLLOW_arguments_to_functions_in_function_call1269);
+            pushFollow(FOLLOW_arguments_to_functions_in_function_call1271);
             arguments_to_functions156=arguments_to_functions();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, arguments_to_functions156.getTree());
-            pushFollow(FOLLOW_rpar_in_function_call1271);
+            pushFollow(FOLLOW_rpar_in_function_call1273);
             rpar157=rpar();
 
             state._fsp--;
@@ -3649,7 +3647,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_rest_statements_in_statement1279);
+                    pushFollow(FOLLOW_rest_statements_in_statement1281);
                     rest_statements158=rest_statements();
 
                     state._fsp--;
@@ -3663,7 +3661,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_function_call_in_statement1283);
+                    pushFollow(FOLLOW_function_call_in_statement1285);
                     function_call159=function_call();
 
                     state._fsp--;
@@ -3677,7 +3675,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_declaration_statements_in_statement1287);
+                    pushFollow(FOLLOW_declaration_statements_in_statement1289);
                     declaration_statements160=declaration_statements();
 
                     state._fsp--;
@@ -3776,7 +3774,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    string_literal161=(Token)match(input,62,FOLLOW_62_in_statement_conjunctions1300); if (state.failed) return retval;
+                    string_literal161=(Token)match(input,62,FOLLOW_62_in_statement_conjunctions1302); if (state.failed) return retval;
 
                     }
                     break;
@@ -3785,7 +3783,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    string_literal162=(Token)match(input,63,FOLLOW_63_in_statement_conjunctions1305); if (state.failed) return retval;
+                    string_literal162=(Token)match(input,63,FOLLOW_63_in_statement_conjunctions1307); if (state.failed) return retval;
 
                     }
                     break;
@@ -3794,7 +3792,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    string_literal163=(Token)match(input,64,FOLLOW_64_in_statement_conjunctions1310); if (state.failed) return retval;
+                    string_literal163=(Token)match(input,64,FOLLOW_64_in_statement_conjunctions1312); if (state.failed) return retval;
 
                     }
                     break;
@@ -3803,7 +3801,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    char_literal164=(Token)match(input,53,FOLLOW_53_in_statement_conjunctions1315); if (state.failed) return retval;
+                    char_literal164=(Token)match(input,53,FOLLOW_53_in_statement_conjunctions1317); if (state.failed) return retval;
 
                     }
                     break;
@@ -3812,7 +3810,7 @@ public class malice_grammarParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    char_literal165=(Token)match(input,48,FOLLOW_48_in_statement_conjunctions1319); if (state.failed) return retval;
+                    char_literal165=(Token)match(input,48,FOLLOW_48_in_statement_conjunctions1321); if (state.failed) return retval;
 
                     }
                     break;
@@ -3940,7 +3938,7 @@ public class malice_grammarParser extends Parser {
             	        case 1 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement
             	            {
-            	            pushFollow(FOLLOW_statement_in_statementList1330);
+            	            pushFollow(FOLLOW_statement_in_statementList1332);
             	            statement166=statement();
 
             	            state._fsp--;
@@ -3952,7 +3950,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_statement_conjunctions_in_statementList1333);
+            	    pushFollow(FOLLOW_statement_conjunctions_in_statementList1335);
             	    statement_conjunctions167=statement_conjunctions();
 
             	    state._fsp--;
@@ -3967,7 +3965,7 @@ public class malice_grammarParser extends Parser {
             	case 2 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:56: control_structure
             	    {
-            	    pushFollow(FOLLOW_control_structure_in_statementList1338);
+            	    pushFollow(FOLLOW_control_structure_in_statementList1340);
             	    control_structure168=control_structure();
 
             	    state._fsp--;
@@ -3979,7 +3977,7 @@ public class malice_grammarParser extends Parser {
             	case 3 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:76: read_statement ( statement_conjunctions )?
             	    {
-            	    pushFollow(FOLLOW_read_statement_in_statementList1342);
+            	    pushFollow(FOLLOW_read_statement_in_statementList1344);
             	    read_statement169=read_statement();
 
             	    state._fsp--;
@@ -4039,7 +4037,7 @@ public class malice_grammarParser extends Parser {
             	        case 1 :
             	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement_conjunctions
             	            {
-            	            pushFollow(FOLLOW_statement_conjunctions_in_statementList1344);
+            	            pushFollow(FOLLOW_statement_conjunctions_in_statementList1346);
             	            statement_conjunctions170=statement_conjunctions();
 
             	            state._fsp--;
@@ -4057,7 +4055,7 @@ public class malice_grammarParser extends Parser {
             	case 4 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:117: nested_function
             	    {
-            	    pushFollow(FOLLOW_nested_function_in_statementList1349);
+            	    pushFollow(FOLLOW_nested_function_in_statementList1351);
             	    nested_function171=nested_function();
 
             	    state._fsp--;
@@ -4069,7 +4067,7 @@ public class malice_grammarParser extends Parser {
             	case 5 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:98:19: function
             	    {
-            	    pushFollow(FOLLOW_function_in_statementList1373);
+            	    pushFollow(FOLLOW_function_in_statementList1375);
             	    function172=function();
 
             	    state._fsp--;
@@ -4145,7 +4143,7 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:14: 'spider'
                     {
-                    string_literal173=(Token)match(input,65,FOLLOW_65_in_parameter1384); if (state.failed) return retval;
+                    string_literal173=(Token)match(input,65,FOLLOW_65_in_parameter1386); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal173_tree = (CommonTree)adaptor.create(string_literal173);
                     adaptor.addChild(root_0, string_literal173_tree);
@@ -4156,13 +4154,13 @@ public class malice_grammarParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_data_types_in_parameter1388);
+            pushFollow(FOLLOW_data_types_in_parameter1390);
             data_types174=data_types();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot(data_types174.getTree(), root_0);
-            IDENT175=(Token)match(input,IDENT,FOLLOW_IDENT_in_parameter1391); if (state.failed) return retval;
+            IDENT175=(Token)match(input,IDENT,FOLLOW_IDENT_in_parameter1393); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT175_tree = (CommonTree)adaptor.create(IDENT175);
             adaptor.addChild(root_0, IDENT175_tree);
@@ -4228,7 +4226,7 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:15: parameter ( ',' parameter )*
                     {
-                    pushFollow(FOLLOW_parameter_in_parameters1401);
+                    pushFollow(FOLLOW_parameter_in_parameters1403);
                     parameter176=parameter();
 
                     state._fsp--;
@@ -4249,12 +4247,12 @@ public class malice_grammarParser extends Parser {
                     	case 1 :
                     	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:27: ',' parameter
                     	    {
-                    	    char_literal177=(Token)match(input,53,FOLLOW_53_in_parameters1405); if (state.failed) return retval;
+                    	    char_literal177=(Token)match(input,53,FOLLOW_53_in_parameters1407); if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) {
                     	    char_literal177_tree = (CommonTree)adaptor.create(char_literal177);
                     	    adaptor.addChild(root_0, char_literal177_tree);
                     	    }
-                    	    pushFollow(FOLLOW_parameter_in_parameters1407);
+                    	    pushFollow(FOLLOW_parameter_in_parameters1409);
                     	    parameter178=parameter();
 
                     	    state._fsp--;
@@ -4321,7 +4319,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT179=(Token)match(input,IDENT,FOLLOW_IDENT_in_function_name1419); if (state.failed) return retval;
+            IDENT179=(Token)match(input,IDENT,FOLLOW_IDENT_in_function_name1421); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT179_tree = (CommonTree)adaptor.create(IDENT179);
             adaptor.addChild(root_0, IDENT179_tree);
@@ -4376,18 +4374,18 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            string_literal180=(Token)match(input,66,FOLLOW_66_in_nested_function1426); if (state.failed) return retval;
+            string_literal180=(Token)match(input,66,FOLLOW_66_in_nested_function1428); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             string_literal180_tree = (CommonTree)adaptor.create(string_literal180);
             root_0 = (CommonTree)adaptor.becomeRoot(string_literal180_tree, root_0);
             }
-            pushFollow(FOLLOW_statementList_in_nested_function1429);
+            pushFollow(FOLLOW_statementList_in_nested_function1431);
             statementList181=statementList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList181.getTree());
-            string_literal182=(Token)match(input,67,FOLLOW_67_in_nested_function1431); if (state.failed) return retval;
+            string_literal182=(Token)match(input,67,FOLLOW_67_in_nested_function1433); if (state.failed) return retval;
 
             }
 
@@ -4470,7 +4468,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            string_literal183=(Token)match(input,68,FOLLOW_68_in_function1439); if (state.failed) return retval;
+            string_literal183=(Token)match(input,68,FOLLOW_68_in_function1441); if (state.failed) return retval;
             // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:18: ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types )
             int alt48=2;
             int LA48_0 = input.LA(1);
@@ -4492,32 +4490,32 @@ public class malice_grammarParser extends Parser {
                 case 1 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:20: 'looking' '-' 'glass' function_name lpar parameters rpar
                     {
-                    string_literal184=(Token)match(input,69,FOLLOW_69_in_function1444); if (state.failed) return retval;
+                    string_literal184=(Token)match(input,69,FOLLOW_69_in_function1446); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal184_tree = (CommonTree)adaptor.create(string_literal184);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal184_tree, root_0);
                     }
-                    char_literal185=(Token)match(input,19,FOLLOW_19_in_function1447); if (state.failed) return retval;
-                    string_literal186=(Token)match(input,70,FOLLOW_70_in_function1450); if (state.failed) return retval;
-                    pushFollow(FOLLOW_function_name_in_function1453);
+                    char_literal185=(Token)match(input,19,FOLLOW_19_in_function1449); if (state.failed) return retval;
+                    string_literal186=(Token)match(input,70,FOLLOW_70_in_function1452); if (state.failed) return retval;
+                    pushFollow(FOLLOW_function_name_in_function1455);
                     function_name187=function_name();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, function_name187.getTree());
-                    pushFollow(FOLLOW_lpar_in_function1455);
+                    pushFollow(FOLLOW_lpar_in_function1457);
                     lpar188=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar188.getTree());
-                    pushFollow(FOLLOW_parameters_in_function1457);
+                    pushFollow(FOLLOW_parameters_in_function1459);
                     parameters189=parameters();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, parameters189.getTree());
-                    pushFollow(FOLLOW_rpar_in_function1459);
+                    pushFollow(FOLLOW_rpar_in_function1461);
                     rpar190=rpar();
 
                     state._fsp--;
@@ -4529,42 +4527,42 @@ public class malice_grammarParser extends Parser {
                 case 2 :
                     // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:106:21: 'room' function_name lpar parameters rpar 'contained' 'a' data_types
                     {
-                    string_literal191=(Token)match(input,71,FOLLOW_71_in_function1482); if (state.failed) return retval;
+                    string_literal191=(Token)match(input,71,FOLLOW_71_in_function1484); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal191_tree = (CommonTree)adaptor.create(string_literal191);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal191_tree, root_0);
                     }
-                    pushFollow(FOLLOW_function_name_in_function1485);
+                    pushFollow(FOLLOW_function_name_in_function1487);
                     function_name192=function_name();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, function_name192.getTree());
-                    pushFollow(FOLLOW_lpar_in_function1487);
+                    pushFollow(FOLLOW_lpar_in_function1489);
                     lpar193=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar193.getTree());
-                    pushFollow(FOLLOW_parameters_in_function1489);
+                    pushFollow(FOLLOW_parameters_in_function1491);
                     parameters194=parameters();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, parameters194.getTree());
-                    pushFollow(FOLLOW_rpar_in_function1491);
+                    pushFollow(FOLLOW_rpar_in_function1493);
                     rpar195=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, rpar195.getTree());
-                    string_literal196=(Token)match(input,72,FOLLOW_72_in_function1493); if (state.failed) return retval;
+                    string_literal196=(Token)match(input,72,FOLLOW_72_in_function1495); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal196_tree = (CommonTree)adaptor.create(string_literal196);
                     adaptor.addChild(root_0, string_literal196_tree);
                     }
-                    char_literal197=(Token)match(input,49,FOLLOW_49_in_function1495); if (state.failed) return retval;
-                    pushFollow(FOLLOW_data_types_in_function1498);
+                    char_literal197=(Token)match(input,49,FOLLOW_49_in_function1497); if (state.failed) return retval;
+                    pushFollow(FOLLOW_data_types_in_function1500);
                     data_types198=data_types();
 
                     state._fsp--;
@@ -4576,14 +4574,14 @@ public class malice_grammarParser extends Parser {
 
             }
 
-            string_literal199=(Token)match(input,66,FOLLOW_66_in_function1529); if (state.failed) return retval;
-            pushFollow(FOLLOW_statementList_in_function1542);
+            string_literal199=(Token)match(input,66,FOLLOW_66_in_function1531); if (state.failed) return retval;
+            pushFollow(FOLLOW_statementList_in_function1544);
             statementList200=statementList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList200.getTree());
-            string_literal201=(Token)match(input,67,FOLLOW_67_in_function1554); if (state.failed) return retval;
+            string_literal201=(Token)match(input,67,FOLLOW_67_in_function1556); if (state.failed) return retval;
 
             }
 
@@ -4651,7 +4649,7 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
             	    {
-            	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1585);
+            	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1587);
             	    declaration_statements202=declaration_statements();
 
             	    state._fsp--;
@@ -4681,13 +4679,13 @@ public class malice_grammarParser extends Parser {
             	    	case 1 :
             	    	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: statement_conjunctions declaration_statements
             	    	    {
-            	    	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1588);
+            	    	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1590);
             	    	    statement_conjunctions203=statement_conjunctions();
 
             	    	    state._fsp--;
             	    	    if (state.failed) return retval;
             	    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, statement_conjunctions203.getTree());
-            	    	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1590);
+            	    	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1592);
             	    	    declaration_statements204=declaration_statements();
 
             	    	    state._fsp--;
@@ -4702,7 +4700,7 @@ public class malice_grammarParser extends Parser {
             	        }
             	    } while (true);
 
-            	    char_literal205=(Token)match(input,48,FOLLOW_48_in_global_declaration1594); if (state.failed) return retval;
+            	    char_literal205=(Token)match(input,48,FOLLOW_48_in_global_declaration1596); if (state.failed) return retval;
 
             	    }
             	    break;
@@ -4762,7 +4760,7 @@ public class malice_grammarParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_global_declaration_in_program1605);
+            pushFollow(FOLLOW_global_declaration_in_program1607);
             global_declaration206=global_declaration();
 
             state._fsp--;
@@ -4784,7 +4782,7 @@ public class malice_grammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: function
             	    {
-            	    pushFollow(FOLLOW_function_in_program1607);
+            	    pushFollow(FOLLOW_function_in_program1609);
             	    function207=function();
 
             	    state._fsp--;
@@ -4804,7 +4802,7 @@ public class malice_grammarParser extends Parser {
                 cnt51++;
             } while (true);
 
-            EOF208=(Token)match(input,EOF,FOLLOW_EOF_in_program1610); if (state.failed) return retval;
+            EOF208=(Token)match(input,EOF,FOLLOW_EOF_in_program1612); if (state.failed) return retval;
 
             }
 
@@ -4833,7 +4831,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: ( '.' )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: '.'
         {
-        match(input,48,FOLLOW_48_in_synpred31_malice_grammar782); if (state.failed) return ;
+        match(input,48,FOLLOW_48_in_synpred31_malice_grammar784); if (state.failed) return ;
 
         }
     }
@@ -4844,7 +4842,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: ( expr )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: expr
         {
-        pushFollow(FOLLOW_expr_in_synpred37_malice_grammar933);
+        pushFollow(FOLLOW_expr_in_synpred37_malice_grammar935);
         expr();
 
         state._fsp--;
@@ -4870,7 +4868,7 @@ public class malice_grammarParser extends Parser {
             case 1 :
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:27: argument ( ',' argument )*
                 {
-                pushFollow(FOLLOW_argument_in_synpred42_malice_grammar953);
+                pushFollow(FOLLOW_argument_in_synpred42_malice_grammar955);
                 argument();
 
                 state._fsp--;
@@ -4890,8 +4888,8 @@ public class malice_grammarParser extends Parser {
                 	case 1 :
                 	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:37: ',' argument
                 	    {
-                	    match(input,53,FOLLOW_53_in_synpred42_malice_grammar956); if (state.failed) return ;
-                	    pushFollow(FOLLOW_argument_in_synpred42_malice_grammar959);
+                	    match(input,53,FOLLOW_53_in_synpred42_malice_grammar958); if (state.failed) return ;
+                	    pushFollow(FOLLOW_argument_in_synpred42_malice_grammar961);
                 	    argument();
 
                 	    state._fsp--;
@@ -4921,7 +4919,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:21: ( expr ( 'spoke' | 'said' 'Alice' ) )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:22: expr ( 'spoke' | 'said' 'Alice' )
         {
-        pushFollow(FOLLOW_expr_in_synpred44_malice_grammar977);
+        pushFollow(FOLLOW_expr_in_synpred44_malice_grammar979);
         expr();
 
         state._fsp--;
@@ -4947,15 +4945,15 @@ public class malice_grammarParser extends Parser {
             case 1 :
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:28: 'spoke'
                 {
-                match(input,54,FOLLOW_54_in_synpred44_malice_grammar980); if (state.failed) return ;
+                match(input,54,FOLLOW_54_in_synpred44_malice_grammar982); if (state.failed) return ;
 
                 }
                 break;
             case 2 :
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:39: 'said' 'Alice'
                 {
-                match(input,55,FOLLOW_55_in_synpred44_malice_grammar985); if (state.failed) return ;
-                match(input,40,FOLLOW_40_in_synpred44_malice_grammar988); if (state.failed) return ;
+                match(input,55,FOLLOW_55_in_synpred44_malice_grammar987); if (state.failed) return ;
+                match(input,40,FOLLOW_40_in_synpred44_malice_grammar990); if (state.failed) return ;
 
                 }
                 break;
@@ -4972,7 +4970,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: ( IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) ) )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
         {
-        match(input,IDENT,FOLLOW_IDENT_in_synpred54_malice_grammar1052); if (state.failed) return ;
+        match(input,IDENT,FOLLOW_IDENT_in_synpred54_malice_grammar1054); if (state.failed) return ;
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:9: ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
         {
@@ -4987,13 +4985,13 @@ public class malice_grammarParser extends Parser {
             case 1 :
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:12: '\\'s' expr 'piece'
                 {
-                match(input,12,FOLLOW_12_in_synpred54_malice_grammar1065); if (state.failed) return ;
-                pushFollow(FOLLOW_expr_in_synpred54_malice_grammar1068);
+                match(input,12,FOLLOW_12_in_synpred54_malice_grammar1067); if (state.failed) return ;
+                pushFollow(FOLLOW_expr_in_synpred54_malice_grammar1070);
                 expr();
 
                 state._fsp--;
                 if (state.failed) return ;
-                match(input,13,FOLLOW_13_in_synpred54_malice_grammar1070); if (state.failed) return ;
+                match(input,13,FOLLOW_13_in_synpred54_malice_grammar1072); if (state.failed) return ;
 
                 }
                 break;
@@ -5030,7 +5028,7 @@ public class malice_grammarParser extends Parser {
             case 1 :
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:18: 'became' ( expr | LETTER | STRING )
                 {
-                match(input,56,FOLLOW_56_in_synpred54_malice_grammar1091); if (state.failed) return ;
+                match(input,56,FOLLOW_56_in_synpred54_malice_grammar1093); if (state.failed) return ;
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:29: ( expr | LETTER | STRING )
                 int alt65=3;
                 switch ( input.LA(1) ) {
@@ -5067,7 +5065,7 @@ public class malice_grammarParser extends Parser {
                     case 1 :
                         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:30: expr
                         {
-                        pushFollow(FOLLOW_expr_in_synpred54_malice_grammar1096);
+                        pushFollow(FOLLOW_expr_in_synpred54_malice_grammar1098);
                         expr();
 
                         state._fsp--;
@@ -5078,14 +5076,14 @@ public class malice_grammarParser extends Parser {
                     case 2 :
                         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:37: LETTER
                         {
-                        match(input,LETTER,FOLLOW_LETTER_in_synpred54_malice_grammar1100); if (state.failed) return ;
+                        match(input,LETTER,FOLLOW_LETTER_in_synpred54_malice_grammar1102); if (state.failed) return ;
 
                         }
                         break;
                     case 3 :
                         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:46: STRING
                         {
-                        match(input,STRING,FOLLOW_STRING_in_synpred54_malice_grammar1104); if (state.failed) return ;
+                        match(input,STRING,FOLLOW_STRING_in_synpred54_malice_grammar1106); if (state.failed) return ;
 
                         }
                         break;
@@ -5098,14 +5096,14 @@ public class malice_grammarParser extends Parser {
             case 2 :
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:18: 'ate'
                 {
-                match(input,57,FOLLOW_57_in_synpred54_malice_grammar1125); if (state.failed) return ;
+                match(input,57,FOLLOW_57_in_synpred54_malice_grammar1127); if (state.failed) return ;
 
                 }
                 break;
             case 3 :
                 // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:81:18: 'drank'
                 {
-                match(input,58,FOLLOW_58_in_synpred54_malice_grammar1146); if (state.failed) return ;
+                match(input,58,FOLLOW_58_in_synpred54_malice_grammar1148); if (state.failed) return ;
 
                 }
                 break;
@@ -5125,7 +5123,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: ( '.' )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: '.'
         {
-        match(input,48,FOLLOW_48_in_synpred58_malice_grammar1227); if (state.failed) return ;
+        match(input,48,FOLLOW_48_in_synpred58_malice_grammar1229); if (state.failed) return ;
 
         }
     }
@@ -5136,7 +5134,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: ( rest_statements )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: rest_statements
         {
-        pushFollow(FOLLOW_rest_statements_in_synpred60_malice_grammar1279);
+        pushFollow(FOLLOW_rest_statements_in_synpred60_malice_grammar1281);
         rest_statements();
 
         state._fsp--;
@@ -5151,7 +5149,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: ( function_call )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: function_call
         {
-        pushFollow(FOLLOW_function_call_in_synpred61_malice_grammar1283);
+        pushFollow(FOLLOW_function_call_in_synpred61_malice_grammar1285);
         function_call();
 
         state._fsp--;
@@ -5166,7 +5164,7 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: ( statement_conjunctions )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: statement_conjunctions
         {
-        pushFollow(FOLLOW_statement_conjunctions_in_synpred69_malice_grammar1344);
+        pushFollow(FOLLOW_statement_conjunctions_in_synpred69_malice_grammar1346);
         statement_conjunctions();
 
         state._fsp--;
@@ -5181,12 +5179,12 @@ public class malice_grammarParser extends Parser {
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: ( statement_conjunctions declaration_statements )
         // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: statement_conjunctions declaration_statements
         {
-        pushFollow(FOLLOW_statement_conjunctions_in_synpred77_malice_grammar1588);
+        pushFollow(FOLLOW_statement_conjunctions_in_synpred77_malice_grammar1590);
         statement_conjunctions();
 
         state._fsp--;
         if (state.failed) return ;
-        pushFollow(FOLLOW_declaration_statements_in_synpred77_malice_grammar1590);
+        pushFollow(FOLLOW_declaration_statements_in_synpred77_malice_grammar1592);
         declaration_statements();
 
         state._fsp--;
@@ -5735,223 +5733,223 @@ public class malice_grammarParser extends Parser {
     public static final BitSet FOLLOW_set_in_data_types0 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_atom_in_term285 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_lpar_in_term289 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_expr_in_term291 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_term293 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_bool_neg302 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_term_in_bool_neg307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_unary_op315 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_19_in_unary_op320 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_20_in_unary_op325 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_neg_in_unary_op330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_unary_op_in_mult337 = new BitSet(new long[]{0x0000000000E00002L});
-    public static final BitSet FOLLOW_21_in_mult341 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_22_in_mult346 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_23_in_mult351 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_unary_op_in_mult355 = new BitSet(new long[]{0x0000000000E00002L});
-    public static final BitSet FOLLOW_mult_in_add365 = new BitSet(new long[]{0x0000000000180002L});
-    public static final BitSet FOLLOW_20_in_add369 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_19_in_add374 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_mult_in_add378 = new BitSet(new long[]{0x0000000000180002L});
-    public static final BitSet FOLLOW_add_in_bool_comp388 = new BitSet(new long[]{0x000000000F000002L});
-    public static final BitSet FOLLOW_24_in_bool_comp392 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_25_in_bool_comp397 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_26_in_bool_comp402 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_27_in_bool_comp407 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_add_in_bool_comp411 = new BitSet(new long[]{0x000000000F000002L});
-    public static final BitSet FOLLOW_bool_comp_in_bool_eq421 = new BitSet(new long[]{0x0000000030000002L});
-    public static final BitSet FOLLOW_28_in_bool_eq425 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_29_in_bool_eq430 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_comp_in_bool_eq434 = new BitSet(new long[]{0x0000000030000002L});
-    public static final BitSet FOLLOW_bool_eq_in_bitw_and444 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_30_in_bitw_and447 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_eq_in_bitw_and450 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_bitw_and_in_bitw_xor460 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_31_in_bitw_xor463 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bitw_and_in_bitw_xor466 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_bitw_xor_in_bitw_or476 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_32_in_bitw_or479 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bitw_xor_in_bitw_or482 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_bitw_or_in_bool_and492 = new BitSet(new long[]{0x0000000200000002L});
-    public static final BitSet FOLLOW_33_in_bool_and495 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bitw_or_in_bool_and498 = new BitSet(new long[]{0x0000000200000002L});
-    public static final BitSet FOLLOW_bool_and_in_bool_or508 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_34_in_bool_or511 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_and_in_bool_or514 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_bool_or_in_expr525 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_bool_expr534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_control_structure551 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_lpar_in_control_structure554 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure556 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_control_structure558 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_control_structure560 = new BitSet(new long[]{0xD02131A8001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_statementList_in_control_structure575 = new BitSet(new long[]{0x000000A000000000L});
-    public static final BitSet FOLLOW_37_in_control_structure589 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_control_structure592 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_lpar_in_control_structure595 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure597 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_control_structure599 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_control_structure601 = new BitSet(new long[]{0xD02131A8001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_statementList_in_control_structure604 = new BitSet(new long[]{0x000000A000000000L});
-    public static final BitSet FOLLOW_37_in_control_structure619 = new BitSet(new long[]{0xD0213188001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_statementList_in_control_structure622 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_control_structure636 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_control_structure639 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_control_structure642 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_control_structure645 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_control_structure648 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_44_in_control_structure661 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_lpar_in_control_structure664 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure666 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_control_structure668 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_control_structure670 = new BitSet(new long[]{0xD0213128001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_statementList_in_control_structure682 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_control_structure695 = new BitSet(new long[]{0xD0213188001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_statementList_in_control_structure697 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_control_structure709 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_control_structure712 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_control_structure715 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_control_structure718 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_control_structure721 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_45_in_control_structure734 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_lpar_in_control_structure737 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_bool_expr_in_control_structure739 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_control_structure741 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_control_structure743 = new BitSet(new long[]{0xD0217108001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_statementList_in_control_structure756 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_46_in_control_structure768 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_control_structure771 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_48_in_control_structure782 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_declaration_statements792 = new BitSet(new long[]{0x0010020000000000L});
-    public static final BitSet FOLLOW_41_in_declaration_statements796 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_49_in_declaration_statements799 = new BitSet(new long[]{0x000000000001C000L});
-    public static final BitSet FOLLOW_data_types_in_declaration_statements802 = new BitSet(new long[]{0x000C000000000002L});
-    public static final BitSet FOLLOW_50_in_declaration_statements806 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_declaration_statements810 = new BitSet(new long[]{0x00000000001E0730L});
-    public static final BitSet FOLLOW_LETTER_in_declaration_statements814 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_declaration_statements818 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_declaration_statements822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_declaration_statements862 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_atom_in_declaration_statements865 = new BitSet(new long[]{0x000000000001C000L});
-    public static final BitSet FOLLOW_data_types_in_declaration_statements867 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_argument933 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LETTER_in_argument937 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_argument941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_array_elem_in_argument945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_argument_in_arguments_to_functions953 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_53_in_arguments_to_functions956 = new BitSet(new long[]{0x00000000001E0730L});
-    public static final BitSet FOLLOW_argument_in_arguments_to_functions959 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_function_call_in_arguments_to_functions967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_rest_statements996 = new BitSet(new long[]{0x00C0000000000000L});
-    public static final BitSet FOLLOW_54_in_rest_statements999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_rest_statements1004 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_rest_statements1007 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_rest_statements1025 = new BitSet(new long[]{0x00C0000000000000L});
-    public static final BitSet FOLLOW_54_in_rest_statements1034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_rest_statements1039 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_rest_statements1042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_rest_statements1052 = new BitSet(new long[]{0x0700000000001000L});
-    public static final BitSet FOLLOW_12_in_rest_statements1065 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_expr_in_rest_statements1068 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_rest_statements1070 = new BitSet(new long[]{0x0700000000000000L});
-    public static final BitSet FOLLOW_56_in_rest_statements1091 = new BitSet(new long[]{0x00000000001E0730L});
-    public static final BitSet FOLLOW_expr_in_rest_statements1096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LETTER_in_rest_statements1100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_rest_statements1104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_rest_statements1125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_rest_statements1146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rest_statements1179 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_rest_statements1182 = new BitSet(new long[]{0x00000000001E0730L});
-    public static final BitSet FOLLOW_expr_in_rest_statements1186 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LETTER_in_rest_statements1190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_rest_statements1194 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_read_statement1209 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_read_statement1212 = new BitSet(new long[]{0x00000000001E0730L});
-    public static final BitSet FOLLOW_IDENT_in_read_statement1216 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_array_elem_in_read_statement1220 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_61_in_read_statement1223 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_48_in_read_statement1227 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_print1242 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_print1247 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_print1250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_name_in_function_call1264 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_lpar_in_function_call1267 = new BitSet(new long[]{0x00000000001E0F30L});
-    public static final BitSet FOLLOW_arguments_to_functions_in_function_call1269 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_function_call1271 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rest_statements_in_statement1279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_call_in_statement1283 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_statements_in_statement1287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_statement_conjunctions1300 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_statement_conjunctions1305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_statement_conjunctions1310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_statement_conjunctions1315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_statement_conjunctions1319 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_statementList1330 = new BitSet(new long[]{0xC0210100001E0730L,0x0000000000000001L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1333 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
-    public static final BitSet FOLLOW_control_structure_in_statementList1338 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
-    public static final BitSet FOLLOW_read_statement_in_statementList1342 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1344 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
-    public static final BitSet FOLLOW_nested_function_in_statementList1349 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
-    public static final BitSet FOLLOW_function_in_statementList1373 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
-    public static final BitSet FOLLOW_65_in_parameter1384 = new BitSet(new long[]{0x000000000001C000L});
-    public static final BitSet FOLLOW_data_types_in_parameter1388 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_parameter1391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parameter_in_parameters1401 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_53_in_parameters1405 = new BitSet(new long[]{0x000000000001C000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_parameter_in_parameters1407 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_function_name1419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_nested_function1426 = new BitSet(new long[]{0xD0213108001E0730L,0x000000000000001DL});
-    public static final BitSet FOLLOW_statementList_in_nested_function1429 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_67_in_nested_function1431 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_function1439 = new BitSet(new long[]{0x0000000000000000L,0x00000000000000A0L});
-    public static final BitSet FOLLOW_69_in_function1444 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_function1447 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_70_in_function1450 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_function_name_in_function1453 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_lpar_in_function1455 = new BitSet(new long[]{0x000000000001C800L,0x0000000000000002L});
-    public static final BitSet FOLLOW_parameters_in_function1457 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_function1459 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_71_in_function1482 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_function_name_in_function1485 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_lpar_in_function1487 = new BitSet(new long[]{0x000000000001C800L,0x0000000000000002L});
-    public static final BitSet FOLLOW_parameters_in_function1489 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_rpar_in_function1491 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_72_in_function1493 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_49_in_function1495 = new BitSet(new long[]{0x000000000001C000L});
-    public static final BitSet FOLLOW_data_types_in_function1498 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_66_in_function1529 = new BitSet(new long[]{0xD0213108001E0730L,0x000000000000001DL});
-    public static final BitSet FOLLOW_statementList_in_function1542 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_67_in_function1554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1585 = new BitSet(new long[]{0xC0210100001E0730L,0x0000000000000001L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_global_declaration1588 = new BitSet(new long[]{0x00000100001E0730L});
-    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1590 = new BitSet(new long[]{0xC0210100001E0730L,0x0000000000000001L});
-    public static final BitSet FOLLOW_48_in_global_declaration1594 = new BitSet(new long[]{0x00000100001E0732L});
-    public static final BitSet FOLLOW_global_declaration_in_program1605 = new BitSet(new long[]{0xD0213108001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_function_in_program1607 = new BitSet(new long[]{0xD0213108001E0730L,0x0000000000000015L});
-    public static final BitSet FOLLOW_EOF_in_program1610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_synpred31_malice_grammar782 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_synpred37_malice_grammar933 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_argument_in_synpred42_malice_grammar953 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_53_in_synpred42_malice_grammar956 = new BitSet(new long[]{0x00000000001E0730L});
-    public static final BitSet FOLLOW_argument_in_synpred42_malice_grammar959 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_expr_in_synpred44_malice_grammar977 = new BitSet(new long[]{0x00C0000000000000L});
-    public static final BitSet FOLLOW_54_in_synpred44_malice_grammar980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_synpred44_malice_grammar985 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_synpred44_malice_grammar988 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred54_malice_grammar1052 = new BitSet(new long[]{0x0700000000001000L});
-    public static final BitSet FOLLOW_12_in_synpred54_malice_grammar1065 = new BitSet(new long[]{0x00000000001E0430L});
-    public static final BitSet FOLLOW_expr_in_synpred54_malice_grammar1068 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_synpred54_malice_grammar1070 = new BitSet(new long[]{0x0700000000000000L});
-    public static final BitSet FOLLOW_56_in_synpred54_malice_grammar1091 = new BitSet(new long[]{0x00000000001E0730L});
-    public static final BitSet FOLLOW_expr_in_synpred54_malice_grammar1096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LETTER_in_synpred54_malice_grammar1100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_synpred54_malice_grammar1104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_synpred54_malice_grammar1125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_synpred54_malice_grammar1146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_synpred58_malice_grammar1227 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rest_statements_in_synpred60_malice_grammar1279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_call_in_synpred61_malice_grammar1283 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_synpred69_malice_grammar1344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_synpred77_malice_grammar1588 = new BitSet(new long[]{0x00000100001E0730L});
-    public static final BitSet FOLLOW_declaration_statements_in_synpred77_malice_grammar1590 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_term292 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_term294 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_bool_neg304 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_term_in_bool_neg309 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_unary_op317 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_19_in_unary_op322 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_20_in_unary_op327 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_neg_in_unary_op332 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_unary_op_in_mult339 = new BitSet(new long[]{0x0000000000E00002L});
+    public static final BitSet FOLLOW_21_in_mult343 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_22_in_mult348 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_23_in_mult353 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_unary_op_in_mult357 = new BitSet(new long[]{0x0000000000E00002L});
+    public static final BitSet FOLLOW_mult_in_add367 = new BitSet(new long[]{0x0000000000180002L});
+    public static final BitSet FOLLOW_20_in_add371 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_19_in_add376 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_mult_in_add380 = new BitSet(new long[]{0x0000000000180002L});
+    public static final BitSet FOLLOW_add_in_bool_comp390 = new BitSet(new long[]{0x000000000F000002L});
+    public static final BitSet FOLLOW_24_in_bool_comp394 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_25_in_bool_comp399 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_26_in_bool_comp404 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_27_in_bool_comp409 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_add_in_bool_comp413 = new BitSet(new long[]{0x000000000F000002L});
+    public static final BitSet FOLLOW_bool_comp_in_bool_eq423 = new BitSet(new long[]{0x0000000030000002L});
+    public static final BitSet FOLLOW_28_in_bool_eq427 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_29_in_bool_eq432 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_comp_in_bool_eq436 = new BitSet(new long[]{0x0000000030000002L});
+    public static final BitSet FOLLOW_bool_eq_in_bitw_and446 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_30_in_bitw_and449 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_eq_in_bitw_and452 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_bitw_and_in_bitw_xor462 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_31_in_bitw_xor465 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bitw_and_in_bitw_xor468 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_bitw_xor_in_bitw_or478 = new BitSet(new long[]{0x0000000100000002L});
+    public static final BitSet FOLLOW_32_in_bitw_or481 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bitw_xor_in_bitw_or484 = new BitSet(new long[]{0x0000000100000002L});
+    public static final BitSet FOLLOW_bitw_or_in_bool_and494 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_33_in_bool_and497 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bitw_or_in_bool_and500 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_bool_and_in_bool_or510 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_34_in_bool_or513 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_and_in_bool_or516 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_bool_or_in_expr527 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_bool_expr536 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_control_structure553 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_lpar_in_control_structure556 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure558 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_control_structure560 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_control_structure562 = new BitSet(new long[]{0xD02131A8001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_statementList_in_control_structure577 = new BitSet(new long[]{0x000000A000000000L});
+    public static final BitSet FOLLOW_37_in_control_structure591 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_control_structure594 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_lpar_in_control_structure597 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure599 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_control_structure601 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_control_structure603 = new BitSet(new long[]{0xD02131A8001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_statementList_in_control_structure606 = new BitSet(new long[]{0x000000A000000000L});
+    public static final BitSet FOLLOW_37_in_control_structure621 = new BitSet(new long[]{0xD0213188001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_statementList_in_control_structure624 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_control_structure638 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_control_structure641 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_control_structure644 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_control_structure647 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_control_structure650 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_44_in_control_structure663 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_lpar_in_control_structure666 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure668 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_control_structure670 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_control_structure672 = new BitSet(new long[]{0xD0213128001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_statementList_in_control_structure684 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_control_structure697 = new BitSet(new long[]{0xD0213188001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_statementList_in_control_structure699 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_control_structure711 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_control_structure714 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_control_structure717 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_control_structure720 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_control_structure723 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_45_in_control_structure736 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_lpar_in_control_structure739 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure741 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_control_structure743 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_control_structure745 = new BitSet(new long[]{0xD0217108001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_statementList_in_control_structure758 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_46_in_control_structure770 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_47_in_control_structure773 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_48_in_control_structure784 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_declaration_statements794 = new BitSet(new long[]{0x0010020000000000L});
+    public static final BitSet FOLLOW_41_in_declaration_statements798 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_49_in_declaration_statements801 = new BitSet(new long[]{0x000000000001C000L});
+    public static final BitSet FOLLOW_data_types_in_declaration_statements804 = new BitSet(new long[]{0x000C000000000002L});
+    public static final BitSet FOLLOW_50_in_declaration_statements808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_declaration_statements812 = new BitSet(new long[]{0x00000000001E0730L});
+    public static final BitSet FOLLOW_LETTER_in_declaration_statements816 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_declaration_statements820 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_declaration_statements824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_declaration_statements864 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_atom_in_declaration_statements867 = new BitSet(new long[]{0x000000000001C000L});
+    public static final BitSet FOLLOW_data_types_in_declaration_statements869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_argument935 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_argument939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_argument943 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_array_elem_in_argument947 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_argument_in_arguments_to_functions955 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_53_in_arguments_to_functions958 = new BitSet(new long[]{0x00000000001E0730L});
+    public static final BitSet FOLLOW_argument_in_arguments_to_functions961 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_function_call_in_arguments_to_functions969 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_rest_statements998 = new BitSet(new long[]{0x00C0000000000000L});
+    public static final BitSet FOLLOW_54_in_rest_statements1001 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_rest_statements1006 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_rest_statements1009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_rest_statements1027 = new BitSet(new long[]{0x00C0000000000000L});
+    public static final BitSet FOLLOW_54_in_rest_statements1036 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_rest_statements1041 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_rest_statements1044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_rest_statements1054 = new BitSet(new long[]{0x0700000000001000L});
+    public static final BitSet FOLLOW_12_in_rest_statements1067 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_expr_in_rest_statements1070 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_rest_statements1072 = new BitSet(new long[]{0x0700000000000000L});
+    public static final BitSet FOLLOW_56_in_rest_statements1093 = new BitSet(new long[]{0x00000000001E0730L});
+    public static final BitSet FOLLOW_expr_in_rest_statements1098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_rest_statements1102 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_rest_statements1106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_rest_statements1127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_rest_statements1148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rest_statements1181 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_rest_statements1184 = new BitSet(new long[]{0x00000000001E0730L});
+    public static final BitSet FOLLOW_expr_in_rest_statements1188 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_rest_statements1192 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_rest_statements1196 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_read_statement1211 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_read_statement1214 = new BitSet(new long[]{0x00000000001E0730L});
+    public static final BitSet FOLLOW_IDENT_in_read_statement1218 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_array_elem_in_read_statement1222 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_61_in_read_statement1225 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_48_in_read_statement1229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_print1244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_print1249 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_print1252 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_name_in_function_call1266 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_lpar_in_function_call1269 = new BitSet(new long[]{0x00000000001E0F30L});
+    public static final BitSet FOLLOW_arguments_to_functions_in_function_call1271 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_function_call1273 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rest_statements_in_statement1281 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_statement1285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_statements_in_statement1289 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_statement_conjunctions1302 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_statement_conjunctions1307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_statement_conjunctions1312 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_statement_conjunctions1317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_statement_conjunctions1321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_statementList1332 = new BitSet(new long[]{0xC0210100001E0730L,0x0000000000000001L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1335 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
+    public static final BitSet FOLLOW_control_structure_in_statementList1340 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
+    public static final BitSet FOLLOW_read_statement_in_statementList1344 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1346 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
+    public static final BitSet FOLLOW_nested_function_in_statementList1351 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
+    public static final BitSet FOLLOW_function_in_statementList1375 = new BitSet(new long[]{0xD0213108001E0732L,0x0000000000000015L});
+    public static final BitSet FOLLOW_65_in_parameter1386 = new BitSet(new long[]{0x000000000001C000L});
+    public static final BitSet FOLLOW_data_types_in_parameter1390 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_IDENT_in_parameter1393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parameter_in_parameters1403 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_53_in_parameters1407 = new BitSet(new long[]{0x000000000001C000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_parameter_in_parameters1409 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_function_name1421 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_nested_function1428 = new BitSet(new long[]{0xD0213108001E0730L,0x000000000000001DL});
+    public static final BitSet FOLLOW_statementList_in_nested_function1431 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_67_in_nested_function1433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_function1441 = new BitSet(new long[]{0x0000000000000000L,0x00000000000000A0L});
+    public static final BitSet FOLLOW_69_in_function1446 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_function1449 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_70_in_function1452 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_function_name_in_function1455 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_lpar_in_function1457 = new BitSet(new long[]{0x000000000001C800L,0x0000000000000002L});
+    public static final BitSet FOLLOW_parameters_in_function1459 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_function1461 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_71_in_function1484 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_function_name_in_function1487 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_lpar_in_function1489 = new BitSet(new long[]{0x000000000001C800L,0x0000000000000002L});
+    public static final BitSet FOLLOW_parameters_in_function1491 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_rpar_in_function1493 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_72_in_function1495 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_49_in_function1497 = new BitSet(new long[]{0x000000000001C000L});
+    public static final BitSet FOLLOW_data_types_in_function1500 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_66_in_function1531 = new BitSet(new long[]{0xD0213108001E0730L,0x000000000000001DL});
+    public static final BitSet FOLLOW_statementList_in_function1544 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_67_in_function1556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1587 = new BitSet(new long[]{0xC0210100001E0730L,0x0000000000000001L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_global_declaration1590 = new BitSet(new long[]{0x00000100001E0730L});
+    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1592 = new BitSet(new long[]{0xC0210100001E0730L,0x0000000000000001L});
+    public static final BitSet FOLLOW_48_in_global_declaration1596 = new BitSet(new long[]{0x00000100001E0732L});
+    public static final BitSet FOLLOW_global_declaration_in_program1607 = new BitSet(new long[]{0xD0213108001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_function_in_program1609 = new BitSet(new long[]{0xD0213108001E0730L,0x0000000000000015L});
+    public static final BitSet FOLLOW_EOF_in_program1612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_synpred31_malice_grammar784 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_synpred37_malice_grammar935 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_argument_in_synpred42_malice_grammar955 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_53_in_synpred42_malice_grammar958 = new BitSet(new long[]{0x00000000001E0730L});
+    public static final BitSet FOLLOW_argument_in_synpred42_malice_grammar961 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_expr_in_synpred44_malice_grammar979 = new BitSet(new long[]{0x00C0000000000000L});
+    public static final BitSet FOLLOW_54_in_synpred44_malice_grammar982 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_synpred44_malice_grammar987 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_synpred44_malice_grammar990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred54_malice_grammar1054 = new BitSet(new long[]{0x0700000000001000L});
+    public static final BitSet FOLLOW_12_in_synpred54_malice_grammar1067 = new BitSet(new long[]{0x00000000001E0430L});
+    public static final BitSet FOLLOW_expr_in_synpred54_malice_grammar1070 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_synpred54_malice_grammar1072 = new BitSet(new long[]{0x0700000000000000L});
+    public static final BitSet FOLLOW_56_in_synpred54_malice_grammar1093 = new BitSet(new long[]{0x00000000001E0730L});
+    public static final BitSet FOLLOW_expr_in_synpred54_malice_grammar1098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_synpred54_malice_grammar1102 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_synpred54_malice_grammar1106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_synpred54_malice_grammar1127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_synpred54_malice_grammar1148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_synpred58_malice_grammar1229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rest_statements_in_synpred60_malice_grammar1281 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_synpred61_malice_grammar1285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_synpred69_malice_grammar1346 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_synpred77_malice_grammar1590 = new BitSet(new long[]{0x00000100001E0730L});
+    public static final BitSet FOLLOW_declaration_statements_in_synpred77_malice_grammar1592 = new BitSet(new long[]{0x0000000000000002L});
 
 }
