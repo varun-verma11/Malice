@@ -1,16 +1,24 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-25 04:34:33
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-25 13:53:34
 
   package malice_grammar ;
 
 
-import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-
-import org.antlr.runtime.tree.*;
+import org.antlr.runtime.BaseRecognizer;
+import org.antlr.runtime.BitSet;
+import org.antlr.runtime.DFA;
+import org.antlr.runtime.EarlyExitException;
+import org.antlr.runtime.IntStream;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.Parser;
+import org.antlr.runtime.ParserRuleReturnScope;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeAdaptor;
+import org.antlr.runtime.tree.TreeAdaptor;
 
 public class malice_grammarParser extends Parser {
     public static final String[] tokenNames = new String[] {
@@ -109,7 +117,7 @@ public class malice_grammarParser extends Parser {
     }
 
     public String[] getTokenNames() { return malice_grammarParser.tokenNames; }
-    public String getGrammarFileName() { return "C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g"; }
+    public String getGrammarFileName() { return "C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g"; }
 
 
     public static class lpar_return extends ParserRuleReturnScope {
@@ -118,7 +126,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "lpar"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:1: lpar : '(' ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:1: lpar : '(' ;
     public final malice_grammarParser.lpar_return lpar() throws RecognitionException {
         malice_grammarParser.lpar_return retval = new malice_grammarParser.lpar_return();
         retval.start = input.LT(1);
@@ -130,8 +138,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal1_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:5: ( '(' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:7: '('
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:5: ( '(' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:7: '('
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -169,7 +177,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "rpar"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:1: rpar : ')' ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:1: rpar : ')' ;
     public final malice_grammarParser.rpar_return rpar() throws RecognitionException {
         malice_grammarParser.rpar_return retval = new malice_grammarParser.rpar_return();
         retval.start = input.LT(1);
@@ -181,8 +189,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal2_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:5: ( ')' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:7: ')'
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:5: ( ')' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:7: ')'
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -220,7 +228,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "array_elem"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:1: array_elem : IDENT '\\'s' expr 'piece' ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:1: array_elem : IDENT '\\'s' expr 'piece' ;
     public final malice_grammarParser.array_elem_return array_elem() throws RecognitionException {
         malice_grammarParser.array_elem_return retval = new malice_grammarParser.array_elem_return();
         retval.start = input.LT(1);
@@ -238,8 +246,8 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal6_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:12: ( IDENT '\\'s' expr 'piece' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:14: IDENT '\\'s' expr 'piece'
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:12: ( IDENT '\\'s' expr 'piece' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:14: IDENT '\\'s' expr 'piece'
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -289,7 +297,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "atom"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:1: atom : ( IDENT ( '\\'s' expr 'piece' )? | NUMBER | function_call );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:1: atom : ( IDENT ( '\\'s' expr 'piece' )? | NUMBER | function_call );
     public final malice_grammarParser.atom_return atom() throws RecognitionException {
         malice_grammarParser.atom_return retval = new malice_grammarParser.atom_return();
         retval.start = input.LT(1);
@@ -311,7 +319,7 @@ public class malice_grammarParser extends Parser {
         CommonTree NUMBER11_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:5: ( IDENT ( '\\'s' expr 'piece' )? | NUMBER | function_call )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:5: ( IDENT ( '\\'s' expr 'piece' )? | NUMBER | function_call )
             int alt2=3;
             int LA2_0 = input.LA(1);
 
@@ -344,7 +352,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:7: IDENT ( '\\'s' expr 'piece' )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:7: IDENT ( '\\'s' expr 'piece' )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -353,7 +361,7 @@ public class malice_grammarParser extends Parser {
                     IDENT7_tree = (CommonTree)adaptor.create(IDENT7);
                     adaptor.addChild(root_0, IDENT7_tree);
                     }
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:13: ( '\\'s' expr 'piece' )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:13: ( '\\'s' expr 'piece' )?
                     int alt1=2;
                     int LA1_0 = input.LA(1);
 
@@ -362,7 +370,7 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt1) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:14: '\\'s' expr 'piece'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:14: '\\'s' expr 'piece'
                             {
                             string_literal8=(Token)match(input,12,FOLLOW_12_in_atom244); if (state.failed) return retval;
                             pushFollow(FOLLOW_expr_in_atom247);
@@ -386,7 +394,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:38: NUMBER
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:38: NUMBER
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -399,7 +407,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:47: function_call
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:47: function_call
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -440,7 +448,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "data_types"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:34:1: data_types : ( 'number' | 'letter' | 'sentence' );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:34:1: data_types : ( 'number' | 'letter' | 'sentence' );
     public final malice_grammarParser.data_types_return data_types() throws RecognitionException {
         malice_grammarParser.data_types_return retval = new malice_grammarParser.data_types_return();
         retval.start = input.LT(1);
@@ -452,8 +460,8 @@ public class malice_grammarParser extends Parser {
         CommonTree set13_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:34:12: ( 'number' | 'letter' | 'sentence' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:34:12: ( 'number' | 'letter' | 'sentence' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -498,7 +506,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "term"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:1: term : ( atom | lpar expr rpar );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:1: term : ( atom | lpar expr rpar );
     public final malice_grammarParser.term_return term() throws RecognitionException {
         malice_grammarParser.term_return retval = new malice_grammarParser.term_return();
         retval.start = input.LT(1);
@@ -516,7 +524,7 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:6: ( atom | lpar expr rpar )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:6: ( atom | lpar expr rpar )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -535,7 +543,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:8: atom
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:8: atom
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -549,7 +557,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:15: lpar expr rpar
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:15: lpar expr rpar
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -600,7 +608,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_neg"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:1: bool_neg : ( '!' )* term ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:1: bool_neg : ( '!' )* term ;
     public final malice_grammarParser.bool_neg_return bool_neg() throws RecognitionException {
         malice_grammarParser.bool_neg_return retval = new malice_grammarParser.bool_neg_return();
         retval.start = input.LT(1);
@@ -614,12 +622,12 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal18_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:10: ( ( '!' )* term )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:12: ( '!' )* term
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:10: ( ( '!' )* term )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:12: ( '!' )* term
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:12: ( '!' )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:12: ( '!' )*
             loop4:
             do {
                 int alt4=2;
@@ -632,7 +640,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:13: '!'
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:13: '!'
             	    {
             	    char_literal18=(Token)match(input,17,FOLLOW_17_in_bool_neg304); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -683,7 +691,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "unary_op"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:1: unary_op : ( '~' | '-' | '+' )* bool_neg ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:1: unary_op : ( '~' | '-' | '+' )* bool_neg ;
     public final malice_grammarParser.unary_op_return unary_op() throws RecognitionException {
         malice_grammarParser.unary_op_return retval = new malice_grammarParser.unary_op_return();
         retval.start = input.LT(1);
@@ -701,12 +709,12 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal22_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:10: ( ( '~' | '-' | '+' )* bool_neg )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:12: ( '~' | '-' | '+' )* bool_neg
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:10: ( ( '~' | '-' | '+' )* bool_neg )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:12: ( '~' | '-' | '+' )* bool_neg
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:12: ( '~' | '-' | '+' )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:12: ( '~' | '-' | '+' )*
             loop5:
             do {
                 int alt5=4;
@@ -731,7 +739,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt5) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:13: '~'
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:13: '~'
             	    {
             	    char_literal20=(Token)match(input,18,FOLLOW_18_in_unary_op317); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -742,7 +750,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:20: '-'
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:20: '-'
             	    {
             	    char_literal21=(Token)match(input,19,FOLLOW_19_in_unary_op322); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -753,7 +761,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:27: '+'
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:27: '+'
             	    {
             	    char_literal22=(Token)match(input,20,FOLLOW_20_in_unary_op327); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -804,7 +812,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "mult"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:1: mult : unary_op ( ( '*' | '/' | '%' ) unary_op )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:1: mult : unary_op ( ( '*' | '/' | '%' ) unary_op )* ;
     public final malice_grammarParser.mult_return mult() throws RecognitionException {
         malice_grammarParser.mult_return retval = new malice_grammarParser.mult_return();
         retval.start = input.LT(1);
@@ -824,8 +832,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal27_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:6: ( unary_op ( ( '*' | '/' | '%' ) unary_op )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:7: unary_op ( ( '*' | '/' | '%' ) unary_op )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:6: ( unary_op ( ( '*' | '/' | '%' ) unary_op )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:7: unary_op ( ( '*' | '/' | '%' ) unary_op )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -835,7 +843,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, unary_op24.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:16: ( ( '*' | '/' | '%' ) unary_op )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:16: ( ( '*' | '/' | '%' ) unary_op )*
             loop7:
             do {
                 int alt7=2;
@@ -848,9 +856,9 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt7) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:17: ( '*' | '/' | '%' ) unary_op
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:17: ( '*' | '/' | '%' ) unary_op
             	    {
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:17: ( '*' | '/' | '%' )
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:17: ( '*' | '/' | '%' )
             	    int alt6=3;
             	    switch ( input.LA(1) ) {
             	    case 21:
@@ -878,7 +886,7 @@ public class malice_grammarParser extends Parser {
 
             	    switch (alt6) {
             	        case 1 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:18: '*'
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:18: '*'
             	            {
             	            char_literal25=(Token)match(input,21,FOLLOW_21_in_mult343); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -889,7 +897,7 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:25: '/'
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:25: '/'
             	            {
             	            char_literal26=(Token)match(input,22,FOLLOW_22_in_mult348); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -900,7 +908,7 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:32: '%'
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:32: '%'
             	            {
             	            char_literal27=(Token)match(input,23,FOLLOW_23_in_mult353); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -957,7 +965,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "add"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:1: add : mult ( ( '+' | '-' ) mult )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:1: add : mult ( ( '+' | '-' ) mult )* ;
     public final malice_grammarParser.add_return add() throws RecognitionException {
         malice_grammarParser.add_return retval = new malice_grammarParser.add_return();
         retval.start = input.LT(1);
@@ -975,8 +983,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal31_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:5: ( mult ( ( '+' | '-' ) mult )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:7: mult ( ( '+' | '-' ) mult )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:5: ( mult ( ( '+' | '-' ) mult )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:7: mult ( ( '+' | '-' ) mult )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -986,7 +994,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, mult29.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:12: ( ( '+' | '-' ) mult )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:12: ( ( '+' | '-' ) mult )*
             loop9:
             do {
                 int alt9=2;
@@ -999,9 +1007,9 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt9) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:13: ( '+' | '-' ) mult
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:13: ( '+' | '-' ) mult
             	    {
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:13: ( '+' | '-' )
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:13: ( '+' | '-' )
             	    int alt8=2;
             	    int LA8_0 = input.LA(1);
 
@@ -1020,7 +1028,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    switch (alt8) {
             	        case 1 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:14: '+'
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:14: '+'
             	            {
             	            char_literal30=(Token)match(input,20,FOLLOW_20_in_add371); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1031,7 +1039,7 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:21: '-'
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:21: '-'
             	            {
             	            char_literal31=(Token)match(input,19,FOLLOW_19_in_add376); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1088,7 +1096,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_comp"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:1: bool_comp : add ( ( '<=' | '<' | '>' | '>=' ) add )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:1: bool_comp : add ( ( '<=' | '<' | '>' | '>=' ) add )* ;
     public final malice_grammarParser.bool_comp_return bool_comp() throws RecognitionException {
         malice_grammarParser.bool_comp_return retval = new malice_grammarParser.bool_comp_return();
         retval.start = input.LT(1);
@@ -1110,8 +1118,8 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal37_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:11: ( add ( ( '<=' | '<' | '>' | '>=' ) add )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:13: add ( ( '<=' | '<' | '>' | '>=' ) add )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:11: ( add ( ( '<=' | '<' | '>' | '>=' ) add )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:13: add ( ( '<=' | '<' | '>' | '>=' ) add )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1121,7 +1129,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, add33.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:17: ( ( '<=' | '<' | '>' | '>=' ) add )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:17: ( ( '<=' | '<' | '>' | '>=' ) add )*
             loop11:
             do {
                 int alt11=2;
@@ -1134,9 +1142,9 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt11) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:18: ( '<=' | '<' | '>' | '>=' ) add
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:18: ( '<=' | '<' | '>' | '>=' ) add
             	    {
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:18: ( '<=' | '<' | '>' | '>=' )
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:18: ( '<=' | '<' | '>' | '>=' )
             	    int alt10=4;
             	    switch ( input.LA(1) ) {
             	    case 24:
@@ -1169,7 +1177,7 @@ public class malice_grammarParser extends Parser {
 
             	    switch (alt10) {
             	        case 1 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:19: '<='
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:19: '<='
             	            {
             	            string_literal34=(Token)match(input,24,FOLLOW_24_in_bool_comp394); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1180,7 +1188,7 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:27: '<'
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:27: '<'
             	            {
             	            char_literal35=(Token)match(input,25,FOLLOW_25_in_bool_comp399); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1191,7 +1199,7 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:34: '>'
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:34: '>'
             	            {
             	            char_literal36=(Token)match(input,26,FOLLOW_26_in_bool_comp404); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1202,7 +1210,7 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 4 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:41: '>='
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:41: '>='
             	            {
             	            string_literal37=(Token)match(input,27,FOLLOW_27_in_bool_comp409); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1259,7 +1267,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_eq"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:1: bool_eq : bool_comp ( ( '==' | '!=' ) bool_comp )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:1: bool_eq : bool_comp ( ( '==' | '!=' ) bool_comp )* ;
     public final malice_grammarParser.bool_eq_return bool_eq() throws RecognitionException {
         malice_grammarParser.bool_eq_return retval = new malice_grammarParser.bool_eq_return();
         retval.start = input.LT(1);
@@ -1277,8 +1285,8 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal41_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:9: ( bool_comp ( ( '==' | '!=' ) bool_comp )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:11: bool_comp ( ( '==' | '!=' ) bool_comp )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:9: ( bool_comp ( ( '==' | '!=' ) bool_comp )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:11: bool_comp ( ( '==' | '!=' ) bool_comp )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1288,7 +1296,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_comp39.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:21: ( ( '==' | '!=' ) bool_comp )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:21: ( ( '==' | '!=' ) bool_comp )*
             loop13:
             do {
                 int alt13=2;
@@ -1301,9 +1309,9 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt13) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:22: ( '==' | '!=' ) bool_comp
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:22: ( '==' | '!=' ) bool_comp
             	    {
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:22: ( '==' | '!=' )
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:22: ( '==' | '!=' )
             	    int alt12=2;
             	    int LA12_0 = input.LA(1);
 
@@ -1322,7 +1330,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    switch (alt12) {
             	        case 1 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:23: '=='
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:23: '=='
             	            {
             	            string_literal40=(Token)match(input,28,FOLLOW_28_in_bool_eq427); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1333,7 +1341,7 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:31: '!='
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:31: '!='
             	            {
             	            string_literal41=(Token)match(input,29,FOLLOW_29_in_bool_eq432); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -1390,7 +1398,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bitw_and"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:1: bitw_and : bool_eq ( '&' bool_eq )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:1: bitw_and : bool_eq ( '&' bool_eq )* ;
     public final malice_grammarParser.bitw_and_return bitw_and() throws RecognitionException {
         malice_grammarParser.bitw_and_return retval = new malice_grammarParser.bitw_and_return();
         retval.start = input.LT(1);
@@ -1406,8 +1414,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal44_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:10: ( bool_eq ( '&' bool_eq )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:12: bool_eq ( '&' bool_eq )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:10: ( bool_eq ( '&' bool_eq )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:12: bool_eq ( '&' bool_eq )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1417,7 +1425,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_eq43.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:20: ( '&' bool_eq )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:20: ( '&' bool_eq )*
             loop14:
             do {
                 int alt14=2;
@@ -1430,7 +1438,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt14) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:21: '&' bool_eq
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:21: '&' bool_eq
             	    {
             	    char_literal44=(Token)match(input,30,FOLLOW_30_in_bitw_and449); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -1481,7 +1489,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bitw_xor"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:1: bitw_xor : bitw_and ( '^' bitw_and )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:1: bitw_xor : bitw_and ( '^' bitw_and )* ;
     public final malice_grammarParser.bitw_xor_return bitw_xor() throws RecognitionException {
         malice_grammarParser.bitw_xor_return retval = new malice_grammarParser.bitw_xor_return();
         retval.start = input.LT(1);
@@ -1497,8 +1505,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal47_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:10: ( bitw_and ( '^' bitw_and )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:12: bitw_and ( '^' bitw_and )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:10: ( bitw_and ( '^' bitw_and )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:12: bitw_and ( '^' bitw_and )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1508,7 +1516,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bitw_and46.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:21: ( '^' bitw_and )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:21: ( '^' bitw_and )*
             loop15:
             do {
                 int alt15=2;
@@ -1521,7 +1529,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt15) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:22: '^' bitw_and
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:22: '^' bitw_and
             	    {
             	    char_literal47=(Token)match(input,31,FOLLOW_31_in_bitw_xor465); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -1572,7 +1580,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bitw_or"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:1: bitw_or : bitw_xor ( '|' bitw_xor )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:1: bitw_or : bitw_xor ( '|' bitw_xor )* ;
     public final malice_grammarParser.bitw_or_return bitw_or() throws RecognitionException {
         malice_grammarParser.bitw_or_return retval = new malice_grammarParser.bitw_or_return();
         retval.start = input.LT(1);
@@ -1588,8 +1596,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal50_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:9: ( bitw_xor ( '|' bitw_xor )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:11: bitw_xor ( '|' bitw_xor )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:9: ( bitw_xor ( '|' bitw_xor )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:11: bitw_xor ( '|' bitw_xor )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1599,7 +1607,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bitw_xor49.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:20: ( '|' bitw_xor )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:20: ( '|' bitw_xor )*
             loop16:
             do {
                 int alt16=2;
@@ -1612,7 +1620,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt16) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:21: '|' bitw_xor
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:21: '|' bitw_xor
             	    {
             	    char_literal50=(Token)match(input,32,FOLLOW_32_in_bitw_or481); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -1663,7 +1671,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_and"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:1: bool_and : bitw_or ( '&&' bitw_or )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:1: bool_and : bitw_or ( '&&' bitw_or )* ;
     public final malice_grammarParser.bool_and_return bool_and() throws RecognitionException {
         malice_grammarParser.bool_and_return retval = new malice_grammarParser.bool_and_return();
         retval.start = input.LT(1);
@@ -1679,8 +1687,8 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal53_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:10: ( bitw_or ( '&&' bitw_or )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:12: bitw_or ( '&&' bitw_or )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:10: ( bitw_or ( '&&' bitw_or )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:12: bitw_or ( '&&' bitw_or )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1690,7 +1698,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bitw_or52.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:20: ( '&&' bitw_or )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:20: ( '&&' bitw_or )*
             loop17:
             do {
                 int alt17=2;
@@ -1703,7 +1711,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt17) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:21: '&&' bitw_or
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:21: '&&' bitw_or
             	    {
             	    string_literal53=(Token)match(input,33,FOLLOW_33_in_bool_and497); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -1754,7 +1762,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_or"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:1: bool_or : bool_and ( '||' bool_and )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:1: bool_or : bool_and ( '||' bool_and )* ;
     public final malice_grammarParser.bool_or_return bool_or() throws RecognitionException {
         malice_grammarParser.bool_or_return retval = new malice_grammarParser.bool_or_return();
         retval.start = input.LT(1);
@@ -1770,8 +1778,8 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal56_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:9: ( bool_and ( '||' bool_and )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:11: bool_and ( '||' bool_and )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:9: ( bool_and ( '||' bool_and )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:11: bool_and ( '||' bool_and )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1781,7 +1789,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_and55.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:20: ( '||' bool_and )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:20: ( '||' bool_and )*
             loop18:
             do {
                 int alt18=2;
@@ -1794,7 +1802,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt18) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:21: '||' bool_and
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:21: '||' bool_and
             	    {
             	    string_literal56=(Token)match(input,34,FOLLOW_34_in_bool_or513); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -1845,7 +1853,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "expr"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:1: expr : bool_or ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:1: expr : bool_or ;
     public final malice_grammarParser.expr_return expr() throws RecognitionException {
         malice_grammarParser.expr_return retval = new malice_grammarParser.expr_return();
         retval.start = input.LT(1);
@@ -1857,8 +1865,8 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:6: ( bool_or )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:8: bool_or
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:6: ( bool_or )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:8: bool_or
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1897,7 +1905,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_expr"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:1: bool_expr : expr ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:1: bool_expr : expr ;
     public final malice_grammarParser.bool_expr_return bool_expr() throws RecognitionException {
         malice_grammarParser.bool_expr_return retval = new malice_grammarParser.bool_expr_return();
         retval.start = input.LT(1);
@@ -1909,8 +1917,8 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:11: ( expr )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:13: expr
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:11: ( expr )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:13: expr
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1949,7 +1957,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "control_structure"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:53:1: control_structure : ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' ) ( '.' )? ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:53:1: control_structure : ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' ) ( '.' )? ;
     public final malice_grammarParser.control_structure_return control_structure() throws RecognitionException {
         malice_grammarParser.control_structure_return retval = new malice_grammarParser.control_structure_return();
         retval.start = input.LT(1);
@@ -2043,12 +2051,12 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal101_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:7: ( ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' ) ( '.' )? )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:9: ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' ) ( '.' )?
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:7: ( ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' ) ( '.' )? )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:9: ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' ) ( '.' )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:9: ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:9: ( 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which' | 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which' | 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times' )
             int alt21=3;
             switch ( input.LA(1) ) {
             case 35:
@@ -2076,7 +2084,7 @@ public class malice_grammarParser extends Parser {
 
             switch (alt21) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:11: 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:11: 'perhaps' lpar bool_expr rpar 'so' statementList ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )* ( 'or' statementList )? 'because' 'Alice' 'was' 'unsure' 'which'
                     {
                     string_literal60=(Token)match(input,35,FOLLOW_35_in_control_structure553); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2108,7 +2116,7 @@ public class malice_grammarParser extends Parser {
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList65.getTree());
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:56:11: ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )*
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:56:11: ( 'or' 'maybe' lpar bool_expr rpar 'so' statementList )*
                     loop19:
                     do {
                         int alt19=2;
@@ -2127,7 +2135,7 @@ public class malice_grammarParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:56:12: 'or' 'maybe' lpar bool_expr rpar 'so' statementList
+                    	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:56:12: 'or' 'maybe' lpar bool_expr rpar 'so' statementList
                     	    {
                     	    string_literal66=(Token)match(input,37,FOLLOW_37_in_control_structure591); if (state.failed) return retval;
                     	    string_literal67=(Token)match(input,38,FOLLOW_38_in_control_structure594); if (state.failed) return retval;
@@ -2169,7 +2177,7 @@ public class malice_grammarParser extends Parser {
                         }
                     } while (true);
 
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:57:11: ( 'or' statementList )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:57:11: ( 'or' statementList )?
                     int alt20=2;
                     int LA20_0 = input.LA(1);
 
@@ -2178,7 +2186,7 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt20) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:57:12: 'or' statementList
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:57:12: 'or' statementList
                             {
                             string_literal73=(Token)match(input,37,FOLLOW_37_in_control_structure621); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -2206,7 +2214,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:59:11: 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:59:11: 'either' lpar bool_expr rpar 'so' statementList 'or' statementList 'because' 'Alice' 'was' 'unsure' 'which'
                     {
                     string_literal80=(Token)match(input,44,FOLLOW_44_in_control_structure663); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2262,7 +2270,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:63:11: 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:63:11: 'eventually' lpar bool_expr rpar 'because' statementList 'enough' 'times'
                     {
                     string_literal93=(Token)match(input,45,FOLLOW_45_in_control_structure736); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2302,7 +2310,7 @@ public class malice_grammarParser extends Parser {
 
             }
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:12: ( '.' )?
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:12: ( '.' )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -2315,7 +2323,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt22) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: '.'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: '.'
                     {
                     char_literal101=(Token)match(input,48,FOLLOW_48_in_control_structure784); if (state.failed) return retval;
 
@@ -2353,7 +2361,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "declaration_statements"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:1: declaration_statements : IDENT ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types ) ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:1: declaration_statements : IDENT ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types ) ;
     public final malice_grammarParser.declaration_statements_return declaration_statements() throws RecognitionException {
         malice_grammarParser.declaration_statements_return retval = new malice_grammarParser.declaration_statements_return();
         retval.start = input.LT(1);
@@ -2387,8 +2395,8 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal111_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:24: ( IDENT ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types ) )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:26: IDENT ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:24: ( IDENT ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types ) )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:26: IDENT ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types )
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -2397,7 +2405,7 @@ public class malice_grammarParser extends Parser {
             IDENT102_tree = (CommonTree)adaptor.create(IDENT102);
             adaptor.addChild(root_0, IDENT102_tree);
             }
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:32: ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:32: ( 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )? | 'had' atom data_types )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -2416,7 +2424,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt25) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:34: 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:34: 'was' 'a' data_types ( 'too' | 'of' ( LETTER | STRING | expr ) )?
                     {
                     string_literal103=(Token)match(input,41,FOLLOW_41_in_declaration_statements798); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2430,7 +2438,7 @@ public class malice_grammarParser extends Parser {
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, data_types105.getTree());
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:57: ( 'too' | 'of' ( LETTER | STRING | expr ) )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:57: ( 'too' | 'of' ( LETTER | STRING | expr ) )?
                     int alt24=3;
                     int LA24_0 = input.LA(1);
 
@@ -2442,7 +2450,7 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt24) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:59: 'too'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:59: 'too'
                             {
                             string_literal106=(Token)match(input,50,FOLLOW_50_in_declaration_statements808); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -2453,10 +2461,10 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:67: 'of' ( LETTER | STRING | expr )
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:67: 'of' ( LETTER | STRING | expr )
                             {
                             string_literal107=(Token)match(input,51,FOLLOW_51_in_declaration_statements812); if (state.failed) return retval;
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:73: ( LETTER | STRING | expr )
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:73: ( LETTER | STRING | expr )
                             int alt23=3;
                             switch ( input.LA(1) ) {
                             case LETTER:
@@ -2490,7 +2498,7 @@ public class malice_grammarParser extends Parser {
 
                             switch (alt23) {
                                 case 1 :
-                                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:74: LETTER
+                                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:74: LETTER
                                     {
                                     LETTER108=(Token)match(input,LETTER,FOLLOW_LETTER_in_declaration_statements816); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
@@ -2501,7 +2509,7 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 2 :
-                                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:83: STRING
+                                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:83: STRING
                                     {
                                     STRING109=(Token)match(input,STRING,FOLLOW_STRING_in_declaration_statements820); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
@@ -2512,7 +2520,7 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 3 :
-                                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:92: expr
+                                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:92: expr
                                     {
                                     pushFollow(FOLLOW_expr_in_declaration_statements824);
                                     expr110=expr();
@@ -2536,7 +2544,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:35: 'had' atom data_types
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:35: 'had' atom data_types
                     {
                     string_literal111=(Token)match(input,52,FOLLOW_52_in_declaration_statements864); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2590,7 +2598,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "argument"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:1: argument : ( expr | LETTER | STRING | array_elem );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:1: argument : ( expr | LETTER | STRING | array_elem );
     public final malice_grammarParser.argument_return argument() throws RecognitionException {
         malice_grammarParser.argument_return retval = new malice_grammarParser.argument_return();
         retval.start = input.LT(1);
@@ -2608,12 +2616,12 @@ public class malice_grammarParser extends Parser {
         CommonTree STRING116_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:9: ( expr | LETTER | STRING | array_elem )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:9: ( expr | LETTER | STRING | array_elem )
             int alt26=4;
             alt26 = dfa26.predict(input);
             switch (alt26) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: expr
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: expr
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2627,7 +2635,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:18: LETTER
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:18: LETTER
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2640,7 +2648,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:27: STRING
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:27: STRING
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2653,7 +2661,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:36: array_elem
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:36: array_elem
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2694,7 +2702,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "arguments_to_functions"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:1: arguments_to_functions : ( ( argument ( ',' argument )* )? | function_call );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:1: arguments_to_functions : ( ( argument ( ',' argument )* )? | function_call );
     public final malice_grammarParser.arguments_to_functions_return arguments_to_functions() throws RecognitionException {
         malice_grammarParser.arguments_to_functions_return retval = new malice_grammarParser.arguments_to_functions_return();
         retval.start = input.LT(1);
@@ -2712,16 +2720,16 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal119_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:24: ( ( argument ( ',' argument )* )? | function_call )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:24: ( ( argument ( ',' argument )* )? | function_call )
             int alt29=2;
             alt29 = dfa29.predict(input);
             switch (alt29) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
                     int alt28=2;
                     int LA28_0 = input.LA(1);
 
@@ -2730,7 +2738,7 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt28) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:27: argument ( ',' argument )*
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:27: argument ( ',' argument )*
                             {
                             pushFollow(FOLLOW_argument_in_arguments_to_functions955);
                             argument118=argument();
@@ -2738,7 +2746,7 @@ public class malice_grammarParser extends Parser {
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) adaptor.addChild(root_0, argument118.getTree());
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:36: ( ',' argument )*
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:36: ( ',' argument )*
                             loop27:
                             do {
                                 int alt27=2;
@@ -2751,7 +2759,7 @@ public class malice_grammarParser extends Parser {
 
                                 switch (alt27) {
                             	case 1 :
-                            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:37: ',' argument
+                            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:37: ',' argument
                             	    {
                             	    char_literal119=(Token)match(input,53,FOLLOW_53_in_arguments_to_functions958); if (state.failed) return retval;
                             	    pushFollow(FOLLOW_argument_in_arguments_to_functions961);
@@ -2779,7 +2787,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:57: function_call
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:57: function_call
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2820,7 +2828,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "rest_statements"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:1: rest_statements : ( ( expr ( 'spoke' | 'said' 'Alice' ) )=> ( expr ( 'spoke' | 'said' 'Alice' ) ) | ( LETTER | STRING ) ( 'spoke' | 'said' 'Alice' ) | IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) ) | 'Alice' 'found' ( expr | LETTER | STRING ) );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:1: rest_statements : ( ( expr ( 'spoke' | 'said' 'Alice' ) )=> ( expr ( 'spoke' | 'said' 'Alice' ) ) | ( LETTER | STRING ) ( 'spoke' | 'said' 'Alice' ) | IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) ) | 'Alice' 'found' ( expr | LETTER | STRING ) );
     public final malice_grammarParser.rest_statements_return rest_statements() throws RecognitionException {
         malice_grammarParser.rest_statements_return retval = new malice_grammarParser.rest_statements_return();
         retval.start = input.LT(1);
@@ -2876,17 +2884,17 @@ public class malice_grammarParser extends Parser {
         CommonTree STRING144_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:17: ( ( expr ( 'spoke' | 'said' 'Alice' ) )=> ( expr ( 'spoke' | 'said' 'Alice' ) ) | ( LETTER | STRING ) ( 'spoke' | 'said' 'Alice' ) | IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) ) | 'Alice' 'found' ( expr | LETTER | STRING ) )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:17: ( ( expr ( 'spoke' | 'said' 'Alice' ) )=> ( expr ( 'spoke' | 'said' 'Alice' ) ) | ( LETTER | STRING ) ( 'spoke' | 'said' 'Alice' ) | IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) ) | 'Alice' 'found' ( expr | LETTER | STRING ) )
             int alt36=4;
             alt36 = dfa36.predict(input);
             switch (alt36) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:21: ( expr ( 'spoke' | 'said' 'Alice' ) )=> ( expr ( 'spoke' | 'said' 'Alice' ) )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:21: ( expr ( 'spoke' | 'said' 'Alice' ) )=> ( expr ( 'spoke' | 'said' 'Alice' ) )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:61: ( expr ( 'spoke' | 'said' 'Alice' ) )
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:62: expr ( 'spoke' | 'said' 'Alice' )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:61: ( expr ( 'spoke' | 'said' 'Alice' ) )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:62: expr ( 'spoke' | 'said' 'Alice' )
                     {
                     pushFollow(FOLLOW_expr_in_rest_statements998);
                     expr122=expr();
@@ -2894,7 +2902,7 @@ public class malice_grammarParser extends Parser {
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr122.getTree());
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:67: ( 'spoke' | 'said' 'Alice' )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:67: ( 'spoke' | 'said' 'Alice' )
                     int alt30=2;
                     int LA30_0 = input.LA(1);
 
@@ -2913,7 +2921,7 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt30) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:68: 'spoke'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:68: 'spoke'
                             {
                             string_literal123=(Token)match(input,54,FOLLOW_54_in_rest_statements1001); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -2924,7 +2932,7 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:79: 'said' 'Alice'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:79: 'said' 'Alice'
                             {
                             string_literal124=(Token)match(input,55,FOLLOW_55_in_rest_statements1006); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -2949,7 +2957,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:9: ( LETTER | STRING ) ( 'spoke' | 'said' 'Alice' )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:9: ( LETTER | STRING ) ( 'spoke' | 'said' 'Alice' )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2965,7 +2973,7 @@ public class malice_grammarParser extends Parser {
                         throw mse;
                     }
 
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:27: ( 'spoke' | 'said' 'Alice' )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:27: ( 'spoke' | 'said' 'Alice' )
                     int alt31=2;
                     int LA31_0 = input.LA(1);
 
@@ -2984,7 +2992,7 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt31) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:28: 'spoke'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:28: 'spoke'
                             {
                             string_literal127=(Token)match(input,54,FOLLOW_54_in_rest_statements1036); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -2995,7 +3003,7 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:39: 'said' 'Alice'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:76:39: 'said' 'Alice'
                             {
                             string_literal128=(Token)match(input,55,FOLLOW_55_in_rest_statements1041); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -3017,7 +3025,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3026,10 +3034,10 @@ public class malice_grammarParser extends Parser {
                     IDENT130_tree = (CommonTree)adaptor.create(IDENT130);
                     adaptor.addChild(root_0, IDENT130_tree);
                     }
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:9: ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:9: ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
                     {
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )?
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )?
                     int alt32=2;
                     int LA32_0 = input.LA(1);
 
@@ -3038,7 +3046,7 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt32) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:12: '\\'s' expr 'piece'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:12: '\\'s' expr 'piece'
                             {
                             string_literal131=(Token)match(input,12,FOLLOW_12_in_rest_statements1067); if (state.failed) return retval;
                             pushFollow(FOLLOW_expr_in_rest_statements1070);
@@ -3058,7 +3066,7 @@ public class malice_grammarParser extends Parser {
 
                     }
 
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:13: ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:13: ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
                     int alt34=3;
                     switch ( input.LA(1) ) {
                     case 56:
@@ -3086,14 +3094,14 @@ public class malice_grammarParser extends Parser {
 
                     switch (alt34) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:18: 'became' ( expr | LETTER | STRING )
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:18: 'became' ( expr | LETTER | STRING )
                             {
                             string_literal134=(Token)match(input,56,FOLLOW_56_in_rest_statements1093); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             string_literal134_tree = (CommonTree)adaptor.create(string_literal134);
                             root_0 = (CommonTree)adaptor.becomeRoot(string_literal134_tree, root_0);
                             }
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:29: ( expr | LETTER | STRING )
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:29: ( expr | LETTER | STRING )
                             int alt33=3;
                             switch ( input.LA(1) ) {
                             case NUMBER:
@@ -3127,7 +3135,7 @@ public class malice_grammarParser extends Parser {
 
                             switch (alt33) {
                                 case 1 :
-                                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:30: expr
+                                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:30: expr
                                     {
                                     pushFollow(FOLLOW_expr_in_rest_statements1098);
                                     expr135=expr();
@@ -3139,7 +3147,7 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 2 :
-                                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:37: LETTER
+                                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:37: LETTER
                                     {
                                     LETTER136=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1102); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
@@ -3150,7 +3158,7 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 3 :
-                                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:46: STRING
+                                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:46: STRING
                                     {
                                     STRING137=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1106); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
@@ -3167,7 +3175,7 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:18: 'ate'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:18: 'ate'
                             {
                             string_literal138=(Token)match(input,57,FOLLOW_57_in_rest_statements1127); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -3178,7 +3186,7 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:81:18: 'drank'
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:81:18: 'drank'
                             {
                             string_literal139=(Token)match(input,58,FOLLOW_58_in_rest_statements1148); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -3198,7 +3206,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:7: 'Alice' 'found' ( expr | LETTER | STRING )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:7: 'Alice' 'found' ( expr | LETTER | STRING )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3208,7 +3216,7 @@ public class malice_grammarParser extends Parser {
                     string_literal141_tree = (CommonTree)adaptor.create(string_literal141);
                     root_0 = (CommonTree)adaptor.becomeRoot(string_literal141_tree, root_0);
                     }
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:25: ( expr | LETTER | STRING )
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:25: ( expr | LETTER | STRING )
                     int alt35=3;
                     switch ( input.LA(1) ) {
                     case NUMBER:
@@ -3242,7 +3250,7 @@ public class malice_grammarParser extends Parser {
 
                     switch (alt35) {
                         case 1 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:26: expr
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:26: expr
                             {
                             pushFollow(FOLLOW_expr_in_rest_statements1188);
                             expr142=expr();
@@ -3254,7 +3262,7 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:33: LETTER
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:33: LETTER
                             {
                             LETTER143=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1192); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -3265,7 +3273,7 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:42: STRING
+                            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:42: STRING
                             {
                             STRING144=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1196); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -3309,7 +3317,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "read_statement"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:1: read_statement : 'what' 'was' ( IDENT | array_elem ) '?' ( '.' )? ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:1: read_statement : 'what' 'was' ( IDENT | array_elem ) '?' ( '.' )? ;
     public final malice_grammarParser.read_statement_return read_statement() throws RecognitionException {
         malice_grammarParser.read_statement_return retval = new malice_grammarParser.read_statement_return();
         retval.start = input.LT(1);
@@ -3331,8 +3339,8 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal150_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:16: ( 'what' 'was' ( IDENT | array_elem ) '?' ( '.' )? )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:18: 'what' 'was' ( IDENT | array_elem ) '?' ( '.' )?
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:16: ( 'what' 'was' ( IDENT | array_elem ) '?' ( '.' )? )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:18: 'what' 'was' ( IDENT | array_elem ) '?' ( '.' )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -3342,7 +3350,7 @@ public class malice_grammarParser extends Parser {
             root_0 = (CommonTree)adaptor.becomeRoot(string_literal145_tree, root_0);
             }
             string_literal146=(Token)match(input,41,FOLLOW_41_in_read_statement1214); if (state.failed) return retval;
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:33: ( IDENT | array_elem )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:33: ( IDENT | array_elem )
             int alt37=2;
             int LA37_0 = input.LA(1);
 
@@ -3372,7 +3380,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt37) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:34: IDENT
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:34: IDENT
                     {
                     IDENT147=(Token)match(input,IDENT,FOLLOW_IDENT_in_read_statement1218); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -3383,7 +3391,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:42: array_elem
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:42: array_elem
                     {
                     pushFollow(FOLLOW_array_elem_in_read_statement1222);
                     array_elem148=array_elem();
@@ -3398,7 +3406,7 @@ public class malice_grammarParser extends Parser {
             }
 
             char_literal149=(Token)match(input,61,FOLLOW_61_in_read_statement1225); if (state.failed) return retval;
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:59: ( '.' )?
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:59: ( '.' )?
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -3411,7 +3419,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt38) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: '.'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: '.'
                     {
                     char_literal150=(Token)match(input,48,FOLLOW_48_in_read_statement1229); if (state.failed) return retval;
 
@@ -3449,7 +3457,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "print"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:1: print : ( 'spoke' | 'said' 'Alice' );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:1: print : ( 'spoke' | 'said' 'Alice' );
     public final malice_grammarParser.print_return print() throws RecognitionException {
         malice_grammarParser.print_return retval = new malice_grammarParser.print_return();
         retval.start = input.LT(1);
@@ -3465,7 +3473,7 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal153_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:6: ( 'spoke' | 'said' 'Alice' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:6: ( 'spoke' | 'said' 'Alice' )
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -3484,7 +3492,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt39) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:5: 'spoke'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:5: 'spoke'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3497,7 +3505,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:16: 'said' 'Alice'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:16: 'said' 'Alice'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3538,7 +3546,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "function_call"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:1: function_call : function_name lpar arguments_to_functions rpar ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:1: function_call : function_name lpar arguments_to_functions rpar ;
     public final malice_grammarParser.function_call_return function_call() throws RecognitionException {
         malice_grammarParser.function_call_return retval = new malice_grammarParser.function_call_return();
         retval.start = input.LT(1);
@@ -3556,8 +3564,8 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:15: ( function_name lpar arguments_to_functions rpar )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:17: function_name lpar arguments_to_functions rpar
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:15: ( function_name lpar arguments_to_functions rpar )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:17: function_name lpar arguments_to_functions rpar
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -3614,7 +3622,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "statement"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:1: statement : ( rest_statements | function_call | declaration_statements );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:1: statement : ( rest_statements | function_call | declaration_statements );
     public final malice_grammarParser.statement_return statement() throws RecognitionException {
         malice_grammarParser.statement_return retval = new malice_grammarParser.statement_return();
         retval.start = input.LT(1);
@@ -3630,12 +3638,12 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:11: ( rest_statements | function_call | declaration_statements )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:11: ( rest_statements | function_call | declaration_statements )
             int alt40=3;
             alt40 = dfa40.predict(input);
             switch (alt40) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: rest_statements
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: rest_statements
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3649,7 +3657,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: function_call
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: function_call
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3663,7 +3671,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:47: declaration_statements
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:47: declaration_statements
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3704,7 +3712,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "statement_conjunctions"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:1: statement_conjunctions : ( 'and' | 'then' | 'but' | ',' | '.' );
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:1: statement_conjunctions : ( 'and' | 'then' | 'but' | ',' | '.' );
     public final malice_grammarParser.statement_conjunctions_return statement_conjunctions() throws RecognitionException {
         malice_grammarParser.statement_conjunctions_return retval = new malice_grammarParser.statement_conjunctions_return();
         retval.start = input.LT(1);
@@ -3724,7 +3732,7 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal165_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:24: ( 'and' | 'then' | 'but' | ',' | '.' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:24: ( 'and' | 'then' | 'but' | ',' | '.' )
             int alt41=5;
             switch ( input.LA(1) ) {
             case 62:
@@ -3762,7 +3770,7 @@ public class malice_grammarParser extends Parser {
 
             switch (alt41) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:26: 'and'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:26: 'and'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3771,7 +3779,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:35: 'then'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:35: 'then'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3780,7 +3788,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:45: 'but'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:45: 'but'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3789,7 +3797,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:54: ','
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:54: ','
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3798,7 +3806,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:60: '.'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:60: '.'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -3834,7 +3842,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "statementList"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:1: statementList : ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:1: statementList : ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* ;
     public final malice_grammarParser.statementList_return statementList() throws RecognitionException {
         malice_grammarParser.statementList_return retval = new malice_grammarParser.statementList_return();
         retval.start = input.LT(1);
@@ -3858,12 +3866,12 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:15: ( ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:15: ( ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
             loop44:
             do {
                 int alt44=6;
@@ -3914,12 +3922,12 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt44) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:18: ( ( statement )? statement_conjunctions )
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:18: ( ( statement )? statement_conjunctions )
             	    {
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:18: ( ( statement )? statement_conjunctions )
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:19: ( statement )? statement_conjunctions
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:18: ( ( statement )? statement_conjunctions )
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:19: ( statement )? statement_conjunctions
             	    {
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:19: ( statement )?
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:19: ( statement )?
             	    int alt42=2;
             	    int LA42_0 = input.LA(1);
 
@@ -3928,7 +3936,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    switch (alt42) {
             	        case 1 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement
             	            {
             	            pushFollow(FOLLOW_statement_in_statementList1332);
             	            statement166=statement();
@@ -3955,7 +3963,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:56: control_structure
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:56: control_structure
             	    {
             	    pushFollow(FOLLOW_control_structure_in_statementList1340);
             	    control_structure168=control_structure();
@@ -3967,7 +3975,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:76: read_statement ( statement_conjunctions )?
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:76: read_statement ( statement_conjunctions )?
             	    {
             	    pushFollow(FOLLOW_read_statement_in_statementList1344);
             	    read_statement169=read_statement();
@@ -3975,7 +3983,7 @@ public class malice_grammarParser extends Parser {
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) adaptor.addChild(root_0, read_statement169.getTree());
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: ( statement_conjunctions )?
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: ( statement_conjunctions )?
             	    int alt43=2;
             	    switch ( input.LA(1) ) {
             	        case 62:
@@ -4027,7 +4035,7 @@ public class malice_grammarParser extends Parser {
 
             	    switch (alt43) {
             	        case 1 :
-            	            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement_conjunctions
+            	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement_conjunctions
             	            {
             	            pushFollow(FOLLOW_statement_conjunctions_in_statementList1346);
             	            statement_conjunctions170=statement_conjunctions();
@@ -4045,7 +4053,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 4 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:117: nested_function
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:117: nested_function
             	    {
             	    pushFollow(FOLLOW_nested_function_in_statementList1351);
             	    nested_function171=nested_function();
@@ -4057,7 +4065,7 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 5 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:98:19: function
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:98:19: function
             	    {
             	    pushFollow(FOLLOW_function_in_statementList1375);
             	    function172=function();
@@ -4103,7 +4111,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "parameter"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:1: parameter : ( 'spider' )? data_types IDENT ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:1: parameter : ( 'spider' )? data_types IDENT ;
     public final malice_grammarParser.parameter_return parameter() throws RecognitionException {
         malice_grammarParser.parameter_return retval = new malice_grammarParser.parameter_return();
         retval.start = input.LT(1);
@@ -4119,12 +4127,12 @@ public class malice_grammarParser extends Parser {
         CommonTree IDENT175_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:11: ( ( 'spider' )? data_types IDENT )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:13: ( 'spider' )? data_types IDENT
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:11: ( ( 'spider' )? data_types IDENT )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:13: ( 'spider' )? data_types IDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:13: ( 'spider' )?
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:13: ( 'spider' )?
             int alt45=2;
             int LA45_0 = input.LA(1);
 
@@ -4133,7 +4141,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt45) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:14: 'spider'
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:100:14: 'spider'
                     {
                     string_literal173=(Token)match(input,65,FOLLOW_65_in_parameter1386); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -4186,7 +4194,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "parameters"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:1: parameters : ( parameter ( ',' parameter )* )? ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:1: parameters : ( parameter ( ',' parameter )* )? ;
     public final malice_grammarParser.parameters_return parameters() throws RecognitionException {
         malice_grammarParser.parameters_return retval = new malice_grammarParser.parameters_return();
         retval.start = input.LT(1);
@@ -4202,12 +4210,12 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal177_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:12: ( ( parameter ( ',' parameter )* )? )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:14: ( parameter ( ',' parameter )* )?
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:12: ( ( parameter ( ',' parameter )* )? )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:14: ( parameter ( ',' parameter )* )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:14: ( parameter ( ',' parameter )* )?
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:14: ( parameter ( ',' parameter )* )?
             int alt47=2;
             int LA47_0 = input.LA(1);
 
@@ -4216,7 +4224,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt47) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:15: parameter ( ',' parameter )*
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:15: parameter ( ',' parameter )*
                     {
                     pushFollow(FOLLOW_parameter_in_parameters1403);
                     parameter176=parameter();
@@ -4224,7 +4232,7 @@ public class malice_grammarParser extends Parser {
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, parameter176.getTree());
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:25: ( ',' parameter )*
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:25: ( ',' parameter )*
                     loop46:
                     do {
                         int alt46=2;
@@ -4237,7 +4245,7 @@ public class malice_grammarParser extends Parser {
 
                         switch (alt46) {
                     	case 1 :
-                    	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:27: ',' parameter
+                    	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:27: ',' parameter
                     	    {
                     	    char_literal177=(Token)match(input,53,FOLLOW_53_in_parameters1407); if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) {
@@ -4294,7 +4302,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "function_name"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:103:1: function_name : IDENT ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:103:1: function_name : IDENT ;
     public final malice_grammarParser.function_name_return function_name() throws RecognitionException {
         malice_grammarParser.function_name_return retval = new malice_grammarParser.function_name_return();
         retval.start = input.LT(1);
@@ -4306,8 +4314,8 @@ public class malice_grammarParser extends Parser {
         CommonTree IDENT179_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:103:15: ( IDENT )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:103:17: IDENT
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:103:15: ( IDENT )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:103:17: IDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -4345,7 +4353,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "nested_function"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:1: nested_function : 'opened' statementList 'closed' ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:1: nested_function : 'opened' statementList 'closed' ;
     public final malice_grammarParser.nested_function_return nested_function() throws RecognitionException {
         malice_grammarParser.nested_function_return retval = new malice_grammarParser.nested_function_return();
         retval.start = input.LT(1);
@@ -4361,8 +4369,8 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal182_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:17: ( 'opened' statementList 'closed' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:19: 'opened' statementList 'closed'
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:17: ( 'opened' statementList 'closed' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:19: 'opened' statementList 'closed'
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -4407,7 +4415,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "function"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:1: function : 'The' ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types ) 'opened' statementList 'closed' ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:1: function : 'The' ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types ) 'opened' statementList 'closed' ;
     public final malice_grammarParser.function_return function() throws RecognitionException {
         malice_grammarParser.function_return retval = new malice_grammarParser.function_return();
         retval.start = input.LT(1);
@@ -4455,13 +4463,13 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal201_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:9: ( 'The' ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types ) 'opened' statementList 'closed' )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:11: 'The' ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types ) 'opened' statementList 'closed'
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:9: ( 'The' ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types ) 'opened' statementList 'closed' )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:11: 'The' ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types ) 'opened' statementList 'closed'
             {
             root_0 = (CommonTree)adaptor.nil();
 
             string_literal183=(Token)match(input,68,FOLLOW_68_in_function1441); if (state.failed) return retval;
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:18: ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:18: ( 'looking' '-' 'glass' function_name lpar parameters rpar | 'room' function_name lpar parameters rpar 'contained' 'a' data_types )
             int alt48=2;
             int LA48_0 = input.LA(1);
 
@@ -4480,7 +4488,7 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt48) {
                 case 1 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:20: 'looking' '-' 'glass' function_name lpar parameters rpar
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:20: 'looking' '-' 'glass' function_name lpar parameters rpar
                     {
                     string_literal184=(Token)match(input,69,FOLLOW_69_in_function1446); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -4517,7 +4525,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:106:21: 'room' function_name lpar parameters rpar 'contained' 'a' data_types
+                    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:106:21: 'room' function_name lpar parameters rpar 'contained' 'a' data_types
                     {
                     string_literal191=(Token)match(input,71,FOLLOW_71_in_function1484); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -4603,7 +4611,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "global_declaration"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:1: global_declaration : ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:1: global_declaration : ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* ;
     public final malice_grammarParser.global_declaration_return global_declaration() throws RecognitionException {
         malice_grammarParser.global_declaration_return retval = new malice_grammarParser.global_declaration_return();
         retval.start = input.LT(1);
@@ -4621,12 +4629,12 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal205_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:20: ( ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:20: ( ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
             loop50:
             do {
                 int alt50=2;
@@ -4639,7 +4647,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt50) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
             	    {
             	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1587);
             	    declaration_statements202=declaration_statements();
@@ -4647,7 +4655,7 @@ public class malice_grammarParser extends Parser {
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) adaptor.addChild(root_0, declaration_statements202.getTree());
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:46: ( statement_conjunctions declaration_statements )*
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:46: ( statement_conjunctions declaration_statements )*
             	    loop49:
             	    do {
             	        int alt49=2;
@@ -4669,7 +4677,7 @@ public class malice_grammarParser extends Parser {
 
             	        switch (alt49) {
             	    	case 1 :
-            	    	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: statement_conjunctions declaration_statements
+            	    	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: statement_conjunctions declaration_statements
             	    	    {
             	    	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1590);
             	    	    statement_conjunctions203=statement_conjunctions();
@@ -4731,7 +4739,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "program"
-    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:1: program : global_declaration ( function )+ EOF ;
+    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:1: program : global_declaration ( function )+ EOF ;
     public final malice_grammarParser.program_return program() throws RecognitionException {
         malice_grammarParser.program_return retval = new malice_grammarParser.program_return();
         retval.start = input.LT(1);
@@ -4747,8 +4755,8 @@ public class malice_grammarParser extends Parser {
         CommonTree EOF208_tree=null;
 
         try {
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:9: ( global_declaration ( function )+ EOF )
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:11: global_declaration ( function )+ EOF
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:9: ( global_declaration ( function )+ EOF )
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:11: global_declaration ( function )+ EOF
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -4758,7 +4766,7 @@ public class malice_grammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, global_declaration206.getTree());
-            // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:30: ( function )+
+            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:30: ( function )+
             int cnt51=0;
             loop51:
             do {
@@ -4772,7 +4780,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt51) {
             	case 1 :
-            	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: function
+            	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: function
             	    {
             	    pushFollow(FOLLOW_function_in_program1609);
             	    function207=function();
@@ -4820,8 +4828,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred31_malice_grammar
     public final void synpred31_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: ( '.' )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: '.'
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: ( '.' )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: '.'
         {
         match(input,48,FOLLOW_48_in_synpred31_malice_grammar784); if (state.failed) return ;
 
@@ -4831,8 +4839,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred37_malice_grammar
     public final void synpred37_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: ( expr )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: expr
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: ( expr )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:11: expr
         {
         pushFollow(FOLLOW_expr_in_synpred37_malice_grammar935);
         expr();
@@ -4846,10 +4854,10 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred42_malice_grammar
     public final void synpred42_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( ( argument ( ',' argument )* )? )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( ( argument ( ',' argument )* )? )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
         {
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:26: ( argument ( ',' argument )* )?
         int alt60=2;
         int LA60_0 = input.LA(1);
 
@@ -4858,14 +4866,14 @@ public class malice_grammarParser extends Parser {
         }
         switch (alt60) {
             case 1 :
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:27: argument ( ',' argument )*
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:27: argument ( ',' argument )*
                 {
                 pushFollow(FOLLOW_argument_in_synpred42_malice_grammar955);
                 argument();
 
                 state._fsp--;
                 if (state.failed) return ;
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:36: ( ',' argument )*
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:36: ( ',' argument )*
                 loop59:
                 do {
                     int alt59=2;
@@ -4878,7 +4886,7 @@ public class malice_grammarParser extends Parser {
 
                     switch (alt59) {
                 	case 1 :
-                	    // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:37: ',' argument
+                	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:37: ',' argument
                 	    {
                 	    match(input,53,FOLLOW_53_in_synpred42_malice_grammar958); if (state.failed) return ;
                 	    pushFollow(FOLLOW_argument_in_synpred42_malice_grammar961);
@@ -4908,15 +4916,15 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred44_malice_grammar
     public final void synpred44_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:21: ( expr ( 'spoke' | 'said' 'Alice' ) )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:22: expr ( 'spoke' | 'said' 'Alice' )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:21: ( expr ( 'spoke' | 'said' 'Alice' ) )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:22: expr ( 'spoke' | 'said' 'Alice' )
         {
         pushFollow(FOLLOW_expr_in_synpred44_malice_grammar979);
         expr();
 
         state._fsp--;
         if (state.failed) return ;
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:27: ( 'spoke' | 'said' 'Alice' )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:27: ( 'spoke' | 'said' 'Alice' )
         int alt61=2;
         int LA61_0 = input.LA(1);
 
@@ -4935,14 +4943,14 @@ public class malice_grammarParser extends Parser {
         }
         switch (alt61) {
             case 1 :
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:28: 'spoke'
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:28: 'spoke'
                 {
                 match(input,54,FOLLOW_54_in_synpred44_malice_grammar982); if (state.failed) return ;
 
                 }
                 break;
             case 2 :
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:39: 'said' 'Alice'
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:39: 'said' 'Alice'
                 {
                 match(input,55,FOLLOW_55_in_synpred44_malice_grammar987); if (state.failed) return ;
                 match(input,40,FOLLOW_40_in_synpred44_malice_grammar990); if (state.failed) return ;
@@ -4959,14 +4967,14 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred54_malice_grammar
     public final void synpred54_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: ( IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) ) )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: ( IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) ) )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:8: IDENT ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
         {
         match(input,IDENT,FOLLOW_IDENT_in_synpred54_malice_grammar1054); if (state.failed) return ;
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:9: ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:9: ( ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' ) )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )? ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
         {
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )?
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:11: ( '\\'s' expr 'piece' )?
         int alt64=2;
         int LA64_0 = input.LA(1);
 
@@ -4975,7 +4983,7 @@ public class malice_grammarParser extends Parser {
         }
         switch (alt64) {
             case 1 :
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:12: '\\'s' expr 'piece'
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:12: '\\'s' expr 'piece'
                 {
                 match(input,12,FOLLOW_12_in_synpred54_malice_grammar1067); if (state.failed) return ;
                 pushFollow(FOLLOW_expr_in_synpred54_malice_grammar1070);
@@ -4990,7 +4998,7 @@ public class malice_grammarParser extends Parser {
 
         }
 
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:13: ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:13: ( 'became' ( expr | LETTER | STRING ) | 'ate' | 'drank' )
         int alt66=3;
         switch ( input.LA(1) ) {
         case 56:
@@ -5018,10 +5026,10 @@ public class malice_grammarParser extends Parser {
 
         switch (alt66) {
             case 1 :
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:18: 'became' ( expr | LETTER | STRING )
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:18: 'became' ( expr | LETTER | STRING )
                 {
                 match(input,56,FOLLOW_56_in_synpred54_malice_grammar1093); if (state.failed) return ;
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:29: ( expr | LETTER | STRING )
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:29: ( expr | LETTER | STRING )
                 int alt65=3;
                 switch ( input.LA(1) ) {
                 case NUMBER:
@@ -5055,7 +5063,7 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt65) {
                     case 1 :
-                        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:30: expr
+                        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:30: expr
                         {
                         pushFollow(FOLLOW_expr_in_synpred54_malice_grammar1098);
                         expr();
@@ -5066,14 +5074,14 @@ public class malice_grammarParser extends Parser {
                         }
                         break;
                     case 2 :
-                        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:37: LETTER
+                        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:37: LETTER
                         {
                         match(input,LETTER,FOLLOW_LETTER_in_synpred54_malice_grammar1102); if (state.failed) return ;
 
                         }
                         break;
                     case 3 :
-                        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:46: STRING
+                        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:46: STRING
                         {
                         match(input,STRING,FOLLOW_STRING_in_synpred54_malice_grammar1106); if (state.failed) return ;
 
@@ -5086,14 +5094,14 @@ public class malice_grammarParser extends Parser {
                 }
                 break;
             case 2 :
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:18: 'ate'
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:18: 'ate'
                 {
                 match(input,57,FOLLOW_57_in_synpred54_malice_grammar1127); if (state.failed) return ;
 
                 }
                 break;
             case 3 :
-                // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:81:18: 'drank'
+                // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:81:18: 'drank'
                 {
                 match(input,58,FOLLOW_58_in_synpred54_malice_grammar1148); if (state.failed) return ;
 
@@ -5112,8 +5120,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred58_malice_grammar
     public final void synpred58_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: ( '.' )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: '.'
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: ( '.' )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:60: '.'
         {
         match(input,48,FOLLOW_48_in_synpred58_malice_grammar1229); if (state.failed) return ;
 
@@ -5123,8 +5131,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred60_malice_grammar
     public final void synpred60_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: ( rest_statements )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: rest_statements
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: ( rest_statements )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:13: rest_statements
         {
         pushFollow(FOLLOW_rest_statements_in_synpred60_malice_grammar1281);
         rest_statements();
@@ -5138,8 +5146,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred61_malice_grammar
     public final void synpred61_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: ( function_call )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: function_call
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: ( function_call )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:31: function_call
         {
         pushFollow(FOLLOW_function_call_in_synpred61_malice_grammar1285);
         function_call();
@@ -5153,8 +5161,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred69_malice_grammar
     public final void synpred69_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: ( statement_conjunctions )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: statement_conjunctions
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: ( statement_conjunctions )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:91: statement_conjunctions
         {
         pushFollow(FOLLOW_statement_conjunctions_in_synpred69_malice_grammar1346);
         statement_conjunctions();
@@ -5168,8 +5176,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred77_malice_grammar
     public final void synpred77_malice_grammar_fragment() throws RecognitionException {   
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: ( statement_conjunctions declaration_statements )
-        // C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: statement_conjunctions declaration_statements
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: ( statement_conjunctions declaration_statements )
+        // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:113:47: statement_conjunctions declaration_statements
         {
         pushFollow(FOLLOW_statement_conjunctions_in_synpred77_malice_grammar1590);
         statement_conjunctions();
