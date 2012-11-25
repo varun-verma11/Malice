@@ -8,23 +8,25 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	private Map<String,SymbolTableValue> symbolTable = new HashMap<String, SymbolTableValue>();
 	private int currentScopeLevel = 0;
 	
-	public boolean checkVariableScopeInCurrLevel(String var) 
+	public boolean checkVariableIsInCurrentScopeLevel(String var) 
 	{
 		return symbolTable.containsKey(var);
 	}
-	
-//	public boolean checkVariableScopeInAllReleventLevels(String var)
-	//{
-		
-	}
-	private void updateCurrentScopeLevel(int level){
-		this.currentScopeLevel = level;
-	}
-	
-	public boolean checkVariableScopeInFunctionInEnclosingLevel(String var, String f_name)
+
+	public boolean checkVariableIsInOtherScopeLevels(String var)
 	{
-		
-		return true;
+		for(int i = 0; i < currentScopeLevel; i++) {
+			if (checkVariableIsInCurrentScopeLevel(var)) {return true;} 
+		}
+		return false;
+	}
+
+	public int getCurrentScopeLevel() {
+		return currentScopeLevel;
+	}
+	
+	public void updateCurrentScopeLevel(int level){
+		this.currentScopeLevel = level;
 	}
 	
 	public Map<String,SymbolTableValue> getSymbolTable()
