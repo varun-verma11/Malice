@@ -10,6 +10,7 @@ import org.antlr.runtime.TokenStream;
 
 import symbol_table.DATA_TYPES;
 import symbol_table.ExpressionChecker;
+import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
 
@@ -79,7 +80,16 @@ public class MaliceParser {
 			};
 		SymbolTable symbolTable = new SymbolTable();
 		symbolTable.insert("v", new VariableSTValue("v", DATA_TYPES.NUMBER, true));
+<<<<<<< HEAD
 		CharStream input = new ANTLRStringStream("abs(c) <=3 && !(4>2-2*(2|1)-~3)"); 
+=======
+		
+		DATA_TYPES[] arg_types = {DATA_TYPES.NUMBER, DATA_TYPES.NUMBER};
+		symbolTable.insert("abs", new FunctionSTValue("abs", DATA_TYPES.LETTER, symbolTable, arg_types ));
+		
+		//CharStream input = new ANTLRStringStream("abs(c,d)<=3 && !(4>2-2*(2|1)-~3)"); 
+		CharStream input = new ANTLRStringStream("~3"); 
+>>>>>>> 23e7b9785d0280e6e60c60cac184c4f932b58c4c
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
@@ -87,7 +97,7 @@ public class MaliceParser {
 		//System.out.println(prog.tree.toString());
 		//System.out.println("done");
 		malice_grammarParser.expr_return prog =  parser.expr() ;
-		new ExpressionChecker().getExpressionType(prog.tree, symbolTable);
+		ExpressionChecker.getExpressionType(prog.tree, symbolTable);
 		System.out.println(prog.tree.toStringTree());
 		/*
 		int i = 0 ;

@@ -10,7 +10,7 @@ public class StatementChecker {
 		{
 			String var = node.getChild(0).getText();
 			
-			if (symbolTable.checkVariableScopeInFunctionInCurrLevel(var))
+			if (symbolTable.checkVariableScopeInCurrLevel(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 

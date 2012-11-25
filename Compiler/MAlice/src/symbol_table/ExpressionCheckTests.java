@@ -27,9 +27,27 @@ public class ExpressionCheckTests
 	}
 	
 	@Test
-	public void testExprWithOps( )
+	public void testExprWithFucntionCalls( ) throws RecognitionException
 	{
-		//symbolTable.insert("abs", new FunctionSTValue(identifier, symTable, args))
+		DATA_TYPES[][] args_types = {
+				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER},
+				{DATA_TYPES.LETTER, DATA_TYPES.NUMBER} ,
+				{DATA_TYPES.NUMBER, DATA_TYPES.STRING},
+		};
+		DATA_TYPES[] ret_types = {DATA_TYPES.NUMBER, DATA_TYPES.LETTER,
+				DATA_TYPES.STRING
+		};
+		String[] names = {"abs", "letter", "str"};
+		String[] exprs = {"abs(1,1)" , "letter('c', 2)" , "str(c,\"des\")"};
+		DATA_TYPES[] expected = {DATA_TYPES.NUMBER, DATA_TYPES.LETTER,
+				DATA_TYPES.STRING };
+		for (int i=0 ; i<args_types.length ; i++)
+		{
+			symbolTable.insert(names[i], new FunctionSTValue(ret_types[i], 
+					symbolTable, args_types[i]));
+		}
+		carry_out_tests(exprs, expected);
+		
 	}
 
 	private void carry_out_tests(String[] expressions, DATA_TYPES[] expected)

@@ -3,7 +3,19 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="antlr-generated"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="C:/Users/varun/Documents/External hard drive stuff/eclipses/eclipse-galileo/antlr3.2/antlr-3.2.jar"/>
+<<<<<<< HEAD
+	<classpathentry kind="lib" path="C:/Users/Varun/Desktop/antlr3.2/antlr-3.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+=======
+<<<<<<< HEAD
+	<classpathentry kind="lib" path="/home/ostwal/Desktop/antlr3.2/antlr-3.2.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/varun/Documents/External hard drive stuff/eclipses/eclipse-galileo/antlr3.2/antlr-3.2.jar"/>
+<<<<<<< HEAD
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+=======
+>>>>>>> 0851ffc3e2e8d0f4d742bf1aaf3a8dc37749e627
+>>>>>>> f5f316a3732be47ac71f72c56db894b2b76baae1
+>>>>>>> 23e7b9785d0280e6e60c60cac184c4f932b58c4c
 	<classpathentry kind="output" path="bin"/>
 </classpath>

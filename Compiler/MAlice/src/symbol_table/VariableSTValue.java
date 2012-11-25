@@ -26,5 +26,4 @@ public class VariableSTValue extends SymbolTableValue
 	{
 		return initialised ;
 	}
-
 }
