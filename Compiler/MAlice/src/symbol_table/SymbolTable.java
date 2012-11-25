@@ -17,10 +17,15 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 //		//this.currentLevelTable = this;//how to make it refer to this symTable??
 //	}
 	
-	public boolean checkVariableScopeInFunctionInCurrLevel(String var, String f_name)
+	public boolean checkVariableScopeInFunctionInCurrLevel(String var)
 	{
-		return ((FunctionSTValue) symbolTable.get(f_name))
-					.getTable().checkIfVariableExists(var);
+		return false; //implement this method
+	}
+	
+	public boolean checkVariableScopeInAllReleventLevels(String var)
+	{
+		return false; // implement this method
+		
 	}
 	
 	public boolean checkVariableScopeInFunctionInEnclosingLevel(String var, String f_name)
@@ -54,6 +59,8 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	{
 		return symbolTable.get(name);
 	}
+	
+	
 
 //	public void initializeScope() 
 //	{
