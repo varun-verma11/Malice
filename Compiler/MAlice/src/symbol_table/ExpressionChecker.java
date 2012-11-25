@@ -98,8 +98,11 @@ public class ExpressionChecker
 			}
 			for(int i=0; i<node.getChildCount(); i++) 
 			{
-				if (getExpressionType(node.getChild(i), symbol_table)
-						!= operators_map.get(node.getText()).arg_data_type )
+				DATA_TYPES child_return_type =
+					getExpressionType(node.getChild(i), symbol_table) ;
+				if (child_return_type
+						!= operators_map.get(node.getText()).arg_data_type
+					|| child_return_type == DATA_TYPES.ERROR)
 				{
 					System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " (" 
@@ -107,6 +110,15 @@ public class ExpressionChecker
 								"are of invalid type(s).");
 				}
 			}
+		} else {
+			if ( node.getChild(0).getText().contentEquals("(") 
+					&& node.getChild(node.getChildCount()-1).getText().contentEquals(")"))
+			{
+				System.err.println("Line "+ node.getLine()+ ": " 
+						+ node.getCharPositionInLine() + " (" 
+						+ node.getText() + ") Undefined function call.");
+			}
+			return DATA_TYPES.ERROR ;
 		}
 		
 		return operators_map.get(node.getText()).return_data_type;

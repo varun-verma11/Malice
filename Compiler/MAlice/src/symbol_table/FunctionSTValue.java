@@ -12,7 +12,10 @@ public class FunctionSTValue extends SymbolTableValue
 	public FunctionSTValue(String identifier, SymbolTable symTable, DATA_TYPES[] args) 
 	{
 		this.identifier = identifier;
+<<<<<<< HEAD
+=======
 		this.parent = symTable;
+>>>>>>> 75e067096c5e90e763dca73d8ed969d858a3d0d9
 		symbolTable = new SymbolTable();
 		this.currentScopeLevel++;
 		symbolTable.updateCurrentScopeLevel(currentScopeLevel);
@@ -30,7 +33,8 @@ public class FunctionSTValue extends SymbolTableValue
 		this.args = args;
 	}
 	
-	public DATA_TYPES getReturnType() {
+	public DATA_TYPES getReturnType() 
+	{
 		return return_type;
 	}
 	
