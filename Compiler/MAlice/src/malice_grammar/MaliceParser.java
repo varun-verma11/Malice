@@ -79,7 +79,7 @@ public class MaliceParser {
 			};
 		SymbolTable symbolTable = new SymbolTable();
 		symbolTable.insert("v", new VariableSTValue("v", DATA_TYPES.NUMBER, true));
-		CharStream input = new ANTLRStringStream("c<=3 && !(4>2-2*(2|1)-~3)"); 
+		CharStream input = new ANTLRStringStream("abs(c,d)<=3 && !(4>2-2*(2|1)-~3)"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
