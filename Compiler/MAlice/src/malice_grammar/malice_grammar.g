@@ -33,7 +33,7 @@ atom: IDENT ('\'s'! expr 'piece')? | NUMBER | function_call;
 
 data_types : 'number' | 'letter' | 'sentence' ; // need to check for the spider
 
-term : atom | lpar expr rpar ;
+term : atom | lpar! expr rpar! ;
 bool_neg : ('!'^)* term;
 unary_op : ('~'^ | '-'^ | '+'^)* bool_neg ;
 mult :unary_op (('*'^ | '/'^ | '%'^) unary_op)* ;
