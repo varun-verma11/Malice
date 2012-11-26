@@ -90,7 +90,7 @@ public class MaliceParser {
 		String perhaps = "perhaps (x<3) so " + '\n' +
 				"x spoke. Alice found y. " + '\n' +
 				"or maybe(c<2) so " + '\n' +
-				"x spoke. " + '\n' +
+				"perhaps spoke. " + '\n' +
 				"or " + '\n' +
 				"c spoke. " + '\n' +
 				"because Alice was unsure which. ";

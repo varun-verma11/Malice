@@ -11,24 +11,39 @@ public class ControlStructureChecks
 
 	public static void checkForControlStructures(Tree node, SymbolTable table)
 	{
+		Tree current = node.getChild(0);
 		if (node.getText().contentEquals("perhaps"))
 		{
-			Tree current = node.getChild(0);
-			checkForBooleanExpression(node.getChild(0), table);
+			checkForBooleanExpression(current, table);
+			current = getNextChild(current);
 			do
 			{
 				if(current.getText().contentEquals("maybe")
 						|| current.getText().contentEquals("or")) 
 				{
-					checkForBooleanExpression(getNextChild(current), table);
+					current = getNextChild(current) ;
+					checkForBooleanExpression(current, table);
+					current = getNextChild(current);
 				}
-				current = checkAllStatements(getNextChild(current), table);
+				current = checkAllStatements(current, table);
 				current = getNextChild(current);
 			}while(current != null) ;
 
 		} else if (node.getText().contentEquals("either"))
 		{
-			
+			checkForBooleanExpression(current, table);
+			current = getNextChild(current);
+			current = checkAllStatements(current, table);
+			current = getNextChild(current);
+			if (current.getText().contentEquals("or"))
+			{
+				current = getNextChild(current);
+				current = checkAllStatements(current, table);
+			}
+		} else if (node.getText().contentEquals("eventually"))
+		{
+			checkForBooleanExpression(current, table);
+			current = checkAllStatements(current, table);
 		}
 		
 	}
