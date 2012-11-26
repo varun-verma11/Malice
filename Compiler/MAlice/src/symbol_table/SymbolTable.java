@@ -5,8 +5,16 @@ import java.util.Map;
 										//do we need extends comparable here???
 public class SymbolTable implements SymbolTableInterface<String, SymbolTableValue>
 {
-	private Map<String,SymbolTableValue> symbolTable = new HashMap<String, SymbolTableValue>();
-	private int currentScopeLevel = 0;
+	private Map<String,SymbolTableValue> symbolTable;
+	private int currentScopeLevel;
+	private SymbolTable enclosingSymbolTable;
+	
+	public SymbolTable()
+	{
+		this.symbolTable = new HashMap<String, SymbolTableValue>();
+		this.currentScopeLevel = 0;
+		this.enclosingSymbolTable = null;
+	}
 	
 	public boolean checkVariableIsInCurrentScopeLevel(String var) 
 	{
@@ -20,6 +28,12 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		}
 		return false;
 	}
+	
+	public boolean checkItemWasDeclaredBefore(String name)
+	{
+		return this.checkVariableIsInOtherScopeLevels(name);
+	}
+
 
 	public int getCurrentScopeLevel() {
 		return currentScopeLevel;
@@ -39,16 +53,38 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		return ((VariableSTValue)symbolTable.get(var)).isInitialised();
 	}
 	
-	@Override
+	@Override	//check if this works cause eclipse is being weird
 	public void insert(String name, SymbolTableValue value) 
 	{
-		symbolTable.put(name, value);		
+		assert(!checkItemWasDeclaredBefore(name));
+		symbolTable.put(name, value);
+		
 	}
 
-	@Override  //need to change this so that it makes sure it looks in other scopes!!!!
+	@Override  
 	public SymbolTableValue lookup(String name) 
 	{
 		return symbolTable.get(name);
 	}
 	
+	public void finalizeCurrentScopeLevelTable() 
+	{
+		assert (currentScopeLevel != 0);
+		symbolTable = enclosingSymbolTable.getSymbolTable();
+		//symbolTable = null;
+		currentScopeLevel--;
+	}
+	
+	public SymbolTable getEnclosingSymbolTable() 
+	{
+		return enclosingSymbolTable;
+	}
+	
+	public void setEnclosingSymbolTable(SymbolTable table) 
+	{
+		this.enclosingSymbolTable = table;
+	}
+	
 }
+
+

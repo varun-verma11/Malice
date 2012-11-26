@@ -1,8 +1,8 @@
 package symbol_table;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
+
 
 public class SymbolTableTest {
 
@@ -15,12 +15,13 @@ public class SymbolTableTest {
 	}
 
 	@Test
-	public void canWeAddToTableTest() {
+	public void canAddToTableTest() {
 		symTab.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("y", new VariableSTValue(DATA_TYPES.LETTER, false));
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.STRING, false));
 		
+<<<<<<< HEAD
 //		assertEquals("hiiii", symTab.lookup("hiiii").getIdentifier());		
 		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
 //		assertEquals("y", symTab.lookup("y").getIdentifier());		
@@ -28,6 +29,11 @@ public class SymbolTableTest {
 //		assertEquals("abc", symTab.lookup("abc").getIdentifier());
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
 //		assertEquals("x", symTab.lookup("x").getIdentifier());
+=======
+		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
+		assertEquals(DATA_TYPES.LETTER, symTab.lookup("y").getType());		
+		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
+>>>>>>> a2c5b3df008505f7115d03f4d7a69d808de6d0fc
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("x").getType());		
 	
 		assertEquals(true, symTab.checkVariableIsInCurrentScopeLevel("x"));
@@ -46,6 +52,55 @@ public class SymbolTableTest {
 		symTab.insert("hiiii", new FunctionSTValue(retVal, symTab, args));
 	
 	}
+	
+	@Test
+	public void simpleProgramTest() {
+		SymbolTable currTable;
+		DATA_TYPES[] args = {DATA_TYPES.NUMBER};
+		FunctionSTValue fn = new FunctionSTValue(symTab, args);
+		symTab.insert("hello", fn);
+		currTable = fn.getTable();
+		System.out.println(currTable.getCurrentScopeLevel());
+		currTable.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, true));
+		assertEquals(true, currTable.checkVariableIsInCurrentScopeLevel("x"));
+		currTable.finalizeCurrentScopeLevelTable();
+		
+		assertEquals(false, currTable.checkItemWasDeclaredBefore("x"));
+		assertEquals(false, currTable.checkVariableIsInCurrentScopeLevel("x"));
+		assertEquals(false, currTable.checkVariableIsInOtherScopeLevels("x"));
+		
+	}
+	
+	
+	@Test
+	public void harderProgramTest() {
+		
+		/*
+		 * x was a number.
+		 * The looking-glass varun(number noOfEars, sentence nickname)
+		 * opened
+		 * 	
+		 * 	
+		 * closed
+		 */
+				
+		
+		SymbolTable currTable;
+		DATA_TYPES[] args = {DATA_TYPES.NUMBER};
+		FunctionSTValue fn = new FunctionSTValue(symTab, args);
+		symTab.insert("hello", fn);
+		currTable = fn.getTable();
+		System.out.println(currTable.getCurrentScopeLevel());
+		currTable.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, true));
+		assertEquals(true, currTable.checkVariableIsInCurrentScopeLevel("x"));
+		currTable.finalizeCurrentScopeLevelTable();
+		
+		assertEquals(false, currTable.checkItemWasDeclaredBefore("x"));
+		assertEquals(false, currTable.checkVariableIsInCurrentScopeLevel("x"));
+		assertEquals(false, currTable.checkVariableIsInOtherScopeLevels("x"));
+		
+	}
+	
 	
 
 }
