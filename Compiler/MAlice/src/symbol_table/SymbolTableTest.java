@@ -21,7 +21,6 @@ public class SymbolTableTest {
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.STRING, false));
 		
-<<<<<<< HEAD
 //		assertEquals("hiiii", symTab.lookup("hiiii").getIdentifier());		
 		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
 //		assertEquals("y", symTab.lookup("y").getIdentifier());		
@@ -29,11 +28,9 @@ public class SymbolTableTest {
 //		assertEquals("abc", symTab.lookup("abc").getIdentifier());
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
 //		assertEquals("x", symTab.lookup("x").getIdentifier());
-=======
 		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
 		assertEquals(DATA_TYPES.LETTER, symTab.lookup("y").getType());		
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
->>>>>>> a2c5b3df008505f7115d03f4d7a69d808de6d0fc
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("x").getType());		
 	
 		assertEquals(true, symTab.checkVariableIsInCurrentScopeLevel("x"));
@@ -97,7 +94,7 @@ public class SymbolTableTest {
 
 		
 		
-		FunctionSTValue fn = new FunctionSTValue(symTab, args);
+		FunctionSTValue fn = new FunctionSTValue(symTab,argsv);
 		symTab.insert("hello", fn);
 		currTable = fn.getTable();
 		System.out.println(currTable.getCurrentScopeLevel());

@@ -3,7 +3,7 @@ package symbol_table;
 import org.antlr.runtime.tree.Tree;
 
 public class StatementChecker {
-	
+	/*
 	public static void checkStatement(Tree node, SymbolTable symbolTable)
 	{
 		if (node.getText().contentEquals("was"))
@@ -102,5 +102,6 @@ public class StatementChecker {
 		node.getChild(1);//symTable lookup this node?
 		
 	}
+	*/
 
 }
