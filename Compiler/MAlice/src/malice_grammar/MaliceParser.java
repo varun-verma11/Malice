@@ -2,19 +2,11 @@ package malice_grammar;
 
 import java.io.IOException;
 
-import malice_grammar.malice_grammarParser.control_structure_return;
-
-import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
-
-import symbol_table.DATA_TYPES;
-import symbol_table.ExpressionChecker;
-import symbol_table.FunctionSTValue;
-import symbol_table.SymbolTable;
-import symbol_table.VariableSTValue;
 
 public class MaliceParser {
 	public static void main(String[] args) throws IOException, RecognitionException {
@@ -80,6 +72,7 @@ public class MaliceParser {
 					"b spoke. " + '\n' +
 				"closed " + '\n'
 			};
+		/*
 		SymbolTable symbolTable = new SymbolTable();
 		symbolTable.insert("v", new VariableSTValue( DATA_TYPES.NUMBER, true));
 		
@@ -90,7 +83,7 @@ public class MaliceParser {
 		String perhaps = "perhaps (x<3) so " + '\n' +
 				"x spoke. Alice found y. " + '\n' +
 				"or maybe(c<2) so " + '\n' +
-				"perhaps spoke. " + '\n' +
+				"x spoke. " + '\n' +
 				"or " + '\n' +
 				"c spoke. " + '\n' +
 				"because Alice was unsure which. ";
@@ -105,6 +98,8 @@ public class MaliceParser {
 		control_structure_return prog =  parser.control_structure();
 		System.out.println(prog.tree.toStringTree());
 		System.out.println("done");
+		*/
+		
 		/*
 		int i = 0 ;
 		for (String p: programs) {
@@ -130,7 +125,7 @@ public class MaliceParser {
 		StringTemplate st = gen.toDOT(t);
 		System.out.println(st);
 		*/
-		/*
+		
 		String[] ps = ("ackermann.alice binarySearch.alice bubbleSort.alice fibonacciIterative.alice " +
 				"fibonacciRecursive.alice gcdIterative.alice gcdRecursive.alice " +
 				"sieveOfEratosthenes.alice test01.alice test02.alice test03.alice " +
@@ -146,7 +141,6 @@ public class MaliceParser {
 			System.out.println(prog.tree.toStringTree());
 			System.out.println(p + " done");
 		}
-		*/
 		
 	}
 }
