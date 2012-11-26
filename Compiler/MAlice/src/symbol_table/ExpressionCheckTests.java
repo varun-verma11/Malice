@@ -35,8 +35,6 @@ public class ExpressionCheckTests
 				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER},
 		};
 		String[] exprs = {"abs(1,1)" , "ltr(3,2)" , "str(c,1)"};
-		DATA_TYPES[] expected = {DATA_TYPES.NUMBER, DATA_TYPES.NUMBER,
-				DATA_TYPES.ERROR};
 		
 		symbolTable.insert("abs", new FunctionSTValue(DATA_TYPES.NUMBER, 
 				symbolTable, args_types[0]));
@@ -71,7 +69,6 @@ public class ExpressionCheckTests
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 		malice_grammarParser.expr_return prog =  parser.expr() ;
-		System.out.println(prog.tree.toStringTree());
 		return new ExpressionChecker().getExpressionType(prog.tree, symbolTable);
 	}
 }

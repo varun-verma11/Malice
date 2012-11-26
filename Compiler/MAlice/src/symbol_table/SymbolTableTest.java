@@ -21,13 +21,13 @@ public class SymbolTableTest {
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.STRING, false));
 		
-		assertEquals("hiiii", symTab.lookup("hiiii").getIdentifier());		
+//		assertEquals("hiiii", symTab.lookup("hiiii").getIdentifier());		
 		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
-		assertEquals("y", symTab.lookup("y").getIdentifier());		
+//		assertEquals("y", symTab.lookup("y").getIdentifier());		
 		assertEquals(DATA_TYPES.LETTER, symTab.lookup("y").getType());		
-		assertEquals("abc", symTab.lookup("abc").getIdentifier());
+//		assertEquals("abc", symTab.lookup("abc").getIdentifier());
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
-		assertEquals("x", symTab.lookup("x").getIdentifier());
+//		assertEquals("x", symTab.lookup("x").getIdentifier());
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("x").getType());		
 	
 		assertEquals(true, symTab.checkVariableIsInCurrentScopeLevel("x"));

@@ -51,16 +51,17 @@ expr : bool_or ;
 bool_expr : expr ;
 
 control_structure
-      : ( 'perhaps'^ lpar bool_expr rpar 'so'!
-            statementList 
-          ('or'! 'maybe'^ lpar bool_expr rpar 'so'! statementList)*
-          ('or'^ statementList)?
+      : ( ('perhaps'^ lpar! bool_expr rpar! 'so'!
+            statementList
+          ('or'! 'maybe' lpar! bool_expr rpar! 'so'! statementList)*
+          ('or' statementList)?
           'because'! 'Alice'! 'was'! 'unsure'! 'which'!
-        | 'either'^ lpar bool_expr rpar 'so'
+          )
+        | 'either'^ lpar! bool_expr rpar! 'so'!
           statementList //check here
           'or' statementList
           'because'! 'Alice'! 'was'! 'unsure'! 'which'!
-        | 'eventually'^ lpar bool_expr rpar 'because'!
+        | 'eventually'^ lpar! bool_expr rpar! 'because'!
           statementList
           'enough'! 'times'!
       ) '.'!?;
