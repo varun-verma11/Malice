@@ -1,3 +1,4 @@
+
 package symbol_table;
 
 import org.antlr.runtime.tree.Tree;
