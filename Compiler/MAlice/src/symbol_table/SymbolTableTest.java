@@ -1,5 +1,7 @@
 package symbol_table;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -21,20 +23,14 @@ public class SymbolTableTest {
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.STRING, false));
 		
-<<<<<<< HEAD
-=======
 //		assertEquals("hiiii", symTab.lookup("hiiii").getIdentifier());		
->>>>>>> 30e143a279b2d5770383ccdba5d32e7944512de9
 		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
 		assertEquals(DATA_TYPES.LETTER, symTab.lookup("y").getType());		
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
-<<<<<<< HEAD
-=======
 //		assertEquals("x", symTab.lookup("x").getIdentifier());
 		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
 		assertEquals(DATA_TYPES.LETTER, symTab.lookup("y").getType());		
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
->>>>>>> 30e143a279b2d5770383ccdba5d32e7944512de9
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("x").getType());		
 	
 		assertEquals(true, symTab.checkVariableIsInCurrentScopeLevel("x"));
@@ -78,19 +74,12 @@ public class SymbolTableTest {
 	public void testVarInOtherScopeWorksTest() 
 	{
 		SymbolTable currTable;
-<<<<<<< HEAD
-		DATA_TYPES[] args = {};
-		FunctionSTValue currFunctTable;
-		FunctionSTValue fn = new FunctionSTValue(symTab, args);
-		currFunctTable = fn;
-=======
 		DATA_TYPES[] argsv = {DATA_TYPES.NUMBER, DATA_TYPES.STRING};
 		DATA_TYPES[] argsc, argsh = {DATA_TYPES.NUMBER};
 
 		
 		
 		FunctionSTValue fn = new FunctionSTValue(symTab,argsv);
->>>>>>> 30e143a279b2d5770383ccdba5d32e7944512de9
 		symTab.insert("hello", fn);
 		currTable = currFunctTable.getTable();
 		System.out.println(currTable.getCurrentScopeLevel());
