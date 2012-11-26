@@ -147,11 +147,11 @@ statementList : ((statement? statement_conjunctions) | control_structure | read_
 
 parameter : (SPIDER)? data_types^ IDENT ;
 
-parameters : (parameter ( ',' parameter)*)? ;
+parameters : (parameter ( ','! parameter)*)? ;
 function_name : IDENT;
 nested_function : OPENED^ statementList CLOSED! ;
-function: THE! ( LOOKING^ '-'! GLASS! function_name lpar parameters rpar 
-                  | ROOM^ function_name lpar parameters rpar CONTAINED A! data_types 
+function: THE! ( LOOKING^ '-'! GLASS! function_name lpar! parameters rpar! 
+                  | ROOM^ function_name lpar! parameters rpar! CONTAINED A! data_types 
                 )
           OPENED!
           statementList

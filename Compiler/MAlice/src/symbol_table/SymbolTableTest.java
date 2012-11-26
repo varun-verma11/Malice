@@ -76,17 +76,27 @@ public class SymbolTableTest {
 	public void harderProgramTest() {
 		
 		/*
-		 * x was a number.
+		 * noOfHeads was a number.
 		 * The looking-glass varun(number noOfEars, sentence nickname)
 		 * opened
-		 * 	
-		 * 	
+		 * noOfHeads became noOfEars / 2.
+		 * The room calculateBrainPower(number tirednessLevel) contained a number
+		 * opened
+		 * 	brainPower was a number of (noOfHeads / tirednessLevel).
+		 * 	Alice found brainPower.
+		 * closed
+		 * The looking-glass annoyingHarshie(number annoyingnessLevel)
+		 * opened
 		 * closed
 		 */
 				
 		
 		SymbolTable currTable;
-		DATA_TYPES[] args = {DATA_TYPES.NUMBER};
+		DATA_TYPES[] argsv = {DATA_TYPES.NUMBER, DATA_TYPES.STRING};
+		DATA_TYPES[] argsc, argsh = {DATA_TYPES.NUMBER};
+
+		
+		
 		FunctionSTValue fn = new FunctionSTValue(symTab, args);
 		symTab.insert("hello", fn);
 		currTable = fn.getTable();
