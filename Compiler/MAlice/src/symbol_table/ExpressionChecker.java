@@ -96,10 +96,7 @@ public class ExpressionChecker
 		{
 			if(operators_map.get(node.getText()).arity != node.getChildCount())
 			{
-				System.err.println("Line "+ node.getLine()+ ": " 
-						+ node.getCharPositionInLine() + " (" 
-						+ node.getText() + ") Incorrect Number of Arguments");
-				return DATA_TYPES.ERROR ;
+				return printIncorrectNumberOfArguments(node);
 			}
 			for(int i=0; i<node.getChildCount(); i++) 
 			{
@@ -107,22 +104,27 @@ public class ExpressionChecker
 			}
 		} 
 
-		FunctionSTValue symbol_table_val = (FunctionSTValue) symbol_table.lookup(node.getText());
-		if (symbol_table_val != null) 	{
-			if ( node.getChild(0).getText().contentEquals("(") 
-					&& node.getChild(node.getChildCount()-1).getText().contentEquals(")"))
+		//checking for the functions
+		if ( node.getChild(0).getText().contentEquals("(") 
+				&& node.getChild(node.getChildCount()-1).getText().contentEquals(")")){
+			FunctionSTValue symbol_table_val = (FunctionSTValue) symbol_table.lookup(node.getText());
+			if (symbol_table_val != null) 
 			{
 				DATA_TYPES[] args_types = symbol_table_val.getArgs();
-				for (int i=1 ; i< node.getChildCount()-1 ; i++)
+				if (args_types.length != node.getChildCount()-2)
 				{
-					if (getExpressionType(node.getChild(i),symbol_table) != args_types[i-1] )
+					printIncorrectNumberOfArguments(node);
+				} else {
+					for (int i=1 ; i< node.getChildCount()-1 ; i++)
 					{
-						printInvalidVariable(node);
+						if (getExpressionType(node.getChild(i),symbol_table) != args_types[i-1] )
+						{
+							printInvalidVariable(node);
+						}
 					}
 				}
 				return symbol_table.lookup(node.getText()).getType();
-			} 
-			else
+			} else
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " (" 
@@ -133,6 +135,14 @@ public class ExpressionChecker
 
 		return operators_map.get(node.getText()).return_data_type;
 
+	}
+
+	private static DATA_TYPES printIncorrectNumberOfArguments(Tree node)
+	{
+		System.err.println("Line "+ node.getLine()+ ": " 
+				+ node.getCharPositionInLine() + " (" 
+				+ node.getText() + ") Incorrect Number of Arguments");
+		return DATA_TYPES.ERROR ;
 	}
 
 	private static void checkVariableType(Tree node, SymbolTable symbol_table, int i)

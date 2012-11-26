@@ -79,17 +79,12 @@ public class MaliceParser {
 				"closed " + '\n'
 			};
 		SymbolTable symbolTable = new SymbolTable();
-		symbolTable.insert("v", new VariableSTValue("v", DATA_TYPES.NUMBER, true));
-<<<<<<< HEAD
-		CharStream input = new ANTLRStringStream("abs(c) <=3 && !(4>2-2*(2|1)-~3)"); 
-=======
-		
+		symbolTable.insert("v", new VariableSTValue( DATA_TYPES.NUMBER, true));
+		CharStream input = new ANTLRStringStream("abs(c)");// <=3 && !(4>2-2*(2|1)-~3)"); 
 		DATA_TYPES[] arg_types = {DATA_TYPES.NUMBER, DATA_TYPES.NUMBER};
-		symbolTable.insert("abs", new FunctionSTValue("abs", DATA_TYPES.LETTER, symbolTable, arg_types ));
+		symbolTable.insert("abs", new FunctionSTValue(DATA_TYPES.LETTER, symbolTable, arg_types ));
 		
 		//CharStream input = new ANTLRStringStream("abs(c,d)<=3 && !(4>2-2*(2|1)-~3)"); 
-		CharStream input = new ANTLRStringStream("~3"); 
->>>>>>> 23e7b9785d0280e6e60c60cac184c4f932b58c4c
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;

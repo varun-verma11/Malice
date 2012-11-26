@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="antlr-generated"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="C:/Users/varun/Documents/External hard drive stuff/eclipses/eclipse-galileo/antlr3.2/antlr-3.2.jar"/>
+>>>>>>> 231892cd2778e13a60e8de8297fc9fb2fda0db4c
 	<classpathentry kind="output" path="bin"/>
 </classpath>
