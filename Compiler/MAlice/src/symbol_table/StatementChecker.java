@@ -3,10 +3,6 @@ package symbol_table;
 import org.antlr.runtime.tree.Tree;
 
 public class StatementChecker {
-<<<<<<< HEAD
-	/*
-	public static void checkStatement(Tree node, SymbolTable symbolTable)
-=======
 
 	public static Tree checkAllStatements(Tree node, SymbolTable table) 
 	{
@@ -23,7 +19,6 @@ public class StatementChecker {
 	}
 
 	private static Tree getNextChild(Tree current)
->>>>>>> 7447260bdbc3bc92e34f993046f352ddb2624afd
 	{
 		return current.getParent().getChild(current.getChildIndex()+1);
 	}
@@ -167,6 +162,5 @@ public class StatementChecker {
 
 		return false;
 	}
-	*/
 
 }
