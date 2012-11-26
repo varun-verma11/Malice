@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 13:38:25
+=======
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-26 16:08:38
+>>>>>>> 30e143a279b2d5770383ccdba5d32e7944512de9
 
   package malice_grammar ;
 
