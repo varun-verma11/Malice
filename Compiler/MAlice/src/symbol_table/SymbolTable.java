@@ -12,15 +12,7 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	{
 		return symbolTable.containsKey(var);
 	}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 	
-	private void updateCurrentScopeLevel(int level){
-		this.currentScopeLevel = level;
-=======
->>>>>>> 23e7b9785d0280e6e60c60cac184c4f932b58c4c
-
 	public boolean checkVariableIsInOtherScopeLevels(String var)
 	{
 		for(int i = 0; i < currentScopeLevel; i++) {
@@ -31,10 +23,6 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 
 	public int getCurrentScopeLevel() {
 		return currentScopeLevel;
-<<<<<<< HEAD
-=======
->>>>>>> b70c12b10bb0579e542098bd11677d73a865b42a
->>>>>>> 23e7b9785d0280e6e60c60cac184c4f932b58c4c
 	}
 	
 	public void updateCurrentScopeLevel(int level){

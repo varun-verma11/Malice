@@ -93,8 +93,6 @@ public class StatementChecker {
 						+ var +" not initialised yet" + node.getText());				
 			}
 		}
-<<<<<<< HEAD
-=======
 		
 	}
 	
@@ -103,7 +101,6 @@ public class StatementChecker {
 		((VariableSTValue)symbolTable.lookup(node.getChild(0).getText())).getType();//type x == number
 		node.getChild(1);//symTable lookup this node?
 		
->>>>>>> 0851ffc3e2e8d0f4d742bf1aaf3a8dc37749e627
 	}
 
 }
