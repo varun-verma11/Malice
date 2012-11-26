@@ -1,8 +1,7 @@
-package symbol_table;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
+
 
 public class SymbolTableTest {
 
@@ -15,7 +14,7 @@ public class SymbolTableTest {
 	}
 
 	@Test
-	public void canWeAddToTableTest() {
+	public void canAddToTableTest() {
 		symTab.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("y", new VariableSTValue(DATA_TYPES.LETTER, false));
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
@@ -46,6 +45,5 @@ public class SymbolTableTest {
 		symTab.insert("hiiii", new FunctionSTValue(retVal, symTab, args));
 	
 	}
-	
 
 }

@@ -20,6 +20,12 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		}
 		return false;
 	}
+	
+	public boolean checkItemWasDeclaredBefore(String name)
+	{
+		return symbolTable.checkVariableIsInOtherScopeLevels(name);
+	}
+
 
 	public int getCurrentScopeLevel() {
 		return currentScopeLevel;
@@ -39,10 +45,12 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		return ((VariableSTValue)symbolTable.get(var)).isInitialised();
 	}
 	
-	@Override
+	@Override	//check if this 		1Q21works coz eclipse is being weird
 	public void insert(String name, SymbolTableValue value) 
 	{
-		symbolTable.put(name, value);		
+		assert(!checkItemWasDeclaredBefore(name));
+		symbolTable.put(name, value);
+		
 	}
 
 	@Override  //need to change this so that it makes sure it looks in other scopes!!!!
@@ -52,3 +60,5 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	}
 	
 }
+
+
