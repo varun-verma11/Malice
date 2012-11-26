@@ -4,10 +4,6 @@
 	<classpathentry kind="src" path="antlr-generated"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="/home/ostwal/Desktop/antlr3.2/antlr-3.2.jar"/>
-=======
 	<classpathentry kind="lib" path="antlr-3.2.jar"/>
->>>>>>> 4387915f1f8943ef6cdc28fc24eb368089565fd0
 	<classpathentry kind="output" path="bin"/>
 </classpath>
