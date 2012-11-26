@@ -25,33 +25,36 @@ public class ExpressionCheckTests
 		carry_out_tests(expressions, expected);
 
 	}
-	
+
 	@Test
 	public void testExprWithFucntionCalls( ) throws RecognitionException
 	{
 		DATA_TYPES[][] args_types = {
 				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER},
-				{DATA_TYPES.LETTER, DATA_TYPES.NUMBER} ,
-				{DATA_TYPES.NUMBER, DATA_TYPES.STRING},
+				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER} ,
+				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER},
 		};
-		DATA_TYPES[] ret_types = {DATA_TYPES.NUMBER, DATA_TYPES.LETTER,
-				DATA_TYPES.STRING
-		};
-		String[] names = {"abs", "letter", "str"};
-		String[] exprs = {"abs(1,1)" , "letter('c', 2)" , "str(c,\"des\")"};
-		DATA_TYPES[] expected = {DATA_TYPES.NUMBER, DATA_TYPES.LETTER,
-				DATA_TYPES.STRING };
-		for (int i=0 ; i<args_types.length ; i++)
-		{
-			symbolTable.insert(names[i], new FunctionSTValue(ret_types[i], 
-					symbolTable, args_types[i]));
-		}
-		carry_out_tests(exprs, expected);
+		String[] exprs = {"abs(1,1)" , "ltr(3,2)" , "str(c,1)"};
+		DATA_TYPES[] expected = {DATA_TYPES.NUMBER, DATA_TYPES.NUMBER,
+				DATA_TYPES.ERROR};
 		
+		symbolTable.insert("abs", new FunctionSTValue(DATA_TYPES.NUMBER, 
+				symbolTable, args_types[0]));
+		assertEquals(DATA_TYPES.NUMBER, getExprType(exprs[0]));
+		
+		symbolTable.insert("ltr", new FunctionSTValue(DATA_TYPES.NUMBER, 
+				symbolTable, args_types[1]));
+		assertEquals(DATA_TYPES.NUMBER, getExprType(exprs[1]));
+		
+		symbolTable.insert("str", new FunctionSTValue(DATA_TYPES.NUMBER, 
+				symbolTable, args_types[2]));
+		assertEquals(DATA_TYPES.NUMBER, getExprType(exprs[2]));
+		//carry_out_tests(exprs, expected);
+
 	}
 
 	private void carry_out_tests(String[] expressions, DATA_TYPES[] expected)
-			throws RecognitionException
+	throws RecognitionException
 	{
 		int i=0;
 		for (String e : expressions)
@@ -68,6 +71,7 @@ public class ExpressionCheckTests
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 		malice_grammarParser.expr_return prog =  parser.expr() ;
+		System.out.println(prog.tree.toStringTree());
 		return new ExpressionChecker().getExpressionType(prog.tree, symbolTable);
 	}
 }
