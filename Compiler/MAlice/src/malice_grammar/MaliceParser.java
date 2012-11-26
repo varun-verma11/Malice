@@ -2,17 +2,11 @@ package malice_grammar;
 
 import java.io.IOException;
 
-import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
-
-import symbol_table.DATA_TYPES;
-import symbol_table.ExpressionChecker;
-import symbol_table.FunctionSTValue;
-import symbol_table.SymbolTable;
-import symbol_table.VariableSTValue;
 
 public class MaliceParser {
 	public static void main(String[] args) throws IOException, RecognitionException {
@@ -22,11 +16,11 @@ public class MaliceParser {
 				" opened" +
 					" abs(y) spoke. \n" +
 					" x was a number. \n" +
-					" x was a letter too. \n" +
-					" x had 10 number. \n" +
-					" x became \"string\". \n" +
-					" Alice found x. \n" +
-					" what was x? ." +
+//					" x was a letter too. \n" +
+//					" x had 10 number. \n" +
+//					" x became \"string\". \n" +
+//					" Alice found x. \n" +
+//					" what was x? ." +
 				" closed" +
 				" enough times.";
 		String[] programs = 
@@ -78,12 +72,22 @@ public class MaliceParser {
 					"b spoke. " + '\n' +
 				"closed " + '\n'
 			};
+		/*
 		SymbolTable symbolTable = new SymbolTable();
 		symbolTable.insert("v", new VariableSTValue( DATA_TYPES.NUMBER, true));
-		CharStream input = new ANTLRStringStream("abs(c)");// <=3 && !(4>2-2*(2|1)-~3)"); 
+		
+		new ExpressionChecker();
 		DATA_TYPES[] arg_types = {DATA_TYPES.NUMBER, DATA_TYPES.NUMBER};
 		symbolTable.insert("abs", new FunctionSTValue(DATA_TYPES.LETTER, symbolTable, arg_types ));
 		
+		String perhaps = "perhaps (x<3) so " + '\n' +
+				"x spoke. Alice found y. " + '\n' +
+				"or maybe(c<2) so " + '\n' +
+				"x spoke. " + '\n' +
+				"or " + '\n' +
+				"c spoke. " + '\n' +
+				"because Alice was unsure which. ";
+		CharStream input = new ANTLRStringStream(perhaps );// <=3 && !(4>2-2*(2|1)-~3)"); 
 		//CharStream input = new ANTLRStringStream("abs(c,d)<=3 && !(4>2-2*(2|1)-~3)"); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
@@ -91,9 +95,11 @@ public class MaliceParser {
 		//expr_return prog = parser.expr();
 		//System.out.println(prog.tree.toString());
 		//System.out.println("done");
-		malice_grammarParser.expr_return prog =  parser.expr() ;
-		ExpressionChecker.getExpressionType(prog.tree, symbolTable);
+		control_structure_return prog =  parser.control_structure();
 		System.out.println(prog.tree.toStringTree());
+		System.out.println("done");
+		*/
+		
 		/*
 		int i = 0 ;
 		for (String p: programs) {
@@ -119,7 +125,7 @@ public class MaliceParser {
 		StringTemplate st = gen.toDOT(t);
 		System.out.println(st);
 		*/
-		/*
+		
 		String[] ps = ("ackermann.alice binarySearch.alice bubbleSort.alice fibonacciIterative.alice " +
 				"fibonacciRecursive.alice gcdIterative.alice gcdRecursive.alice " +
 				"sieveOfEratosthenes.alice test01.alice test02.alice test03.alice " +
@@ -135,7 +141,6 @@ public class MaliceParser {
 			System.out.println(prog.tree.toStringTree());
 			System.out.println(p + " done");
 		}
-		*/
 		
 	}
 }

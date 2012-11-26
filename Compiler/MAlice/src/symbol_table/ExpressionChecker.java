@@ -23,7 +23,8 @@ public class ExpressionChecker
 
 	}
 
-	private static Map<String, FunctionProperties> operators_map = new HashMap<String, FunctionProperties>();
+	private static Map<String, FunctionProperties> operators_map =
+		new HashMap<String, FunctionProperties>();
 
 	public ExpressionChecker()
 	{
@@ -106,35 +107,57 @@ public class ExpressionChecker
 
 		//checking for the functions
 		if ( node.getChild(0).getText().contentEquals("(") 
-				&& node.getChild(node.getChildCount()-1).getText().contentEquals(")")){
-			FunctionSTValue symbol_table_val = (FunctionSTValue) symbol_table.lookup(node.getText());
+				&& node.getChild(node.getChildCount()-1).getText()
+						.contentEquals(")"))
+		{
+			
+			FunctionSTValue symbol_table_val 
+					= (FunctionSTValue) symbol_table.lookup(node.getText());
 			if (symbol_table_val != null) 
 			{
-				DATA_TYPES[] args_types = symbol_table_val.getArgs();
-				if (args_types.length != node.getChildCount()-2)
-				{
-					printIncorrectNumberOfArguments(node);
-				} else {
-					for (int i=1 ; i< node.getChildCount()-1 ; i++)
-					{
-						if (getExpressionType(node.getChild(i),symbol_table) != args_types[i-1] )
-						{
-							printInvalidVariable(node);
-						}
-					}
-				}
+				validateFunctionCall(node, symbol_table, symbol_table_val);
 				return symbol_table.lookup(node.getText()).getType();
 			} else
 			{
-				System.err.println("Line "+ node.getLine()+ ": " 
-						+ node.getCharPositionInLine() + " (" 
-						+ node.getText() + ") Undefined function call.");
+				printUndefinedFunction(node);
 				return DATA_TYPES.ERROR ;
 			}
 		} 
 
 		return operators_map.get(node.getText()).return_data_type;
 
+	}
+
+	private static void printUndefinedFunction(Tree node)
+	{
+		System.err.println("Line "+ node.getLine()+ ": " 
+				+ node.getCharPositionInLine() + " (" 
+				+ node.getText() + ") Undefined function call.");
+	}
+
+	private static void validateFunctionCall(Tree node,
+			SymbolTable symbol_table, FunctionSTValue symbol_table_val)
+	{
+		DATA_TYPES[] args_types = symbol_table_val.getArgs();
+		if (args_types.length != node.getChildCount()-2)
+		{
+			printIncorrectNumberOfArguments(node);
+		} else {
+			checkArgumentsOfFunctions(node, symbol_table, args_types);
+		}
+	}
+
+	private static void checkArgumentsOfFunctions(Tree node,
+			SymbolTable symbol_table, DATA_TYPES[] args_types)
+	{
+		for (int i=1 ; i< node.getChildCount()-1 ; i++)
+		{
+			if (getExpressionType(node.getChild(i),symbol_table) 
+					!= args_types[i-1] )
+			{
+				printInvalidVariable(node);
+			}
+		}
 	}
 
 	private static DATA_TYPES printIncorrectNumberOfArguments(Tree node)
@@ -145,7 +168,8 @@ public class ExpressionChecker
 		return DATA_TYPES.ERROR ;
 	}
 
-	private static void checkVariableType(Tree node, SymbolTable symbol_table, int i)
+	private static void checkVariableType(Tree node, 
+			SymbolTable symbol_table, int i)
 	{
 		DATA_TYPES child_return_type = getExpressionType(node.getChild(i),
 				symbol_table);
