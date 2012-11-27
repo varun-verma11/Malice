@@ -12,13 +12,13 @@ public class StatementChecker
 	{
 		Tree current = node ;
 		boolean end_of_statements = false;
-		while(current != null || end_of_statements==false)
+		while(current != null || !end_of_statements)
 		{
 			end_of_statements = checkStatement(node, table);
+			if (end_of_statements) return current ;
 			current = getNextChild(current) ;
 		}
-
-		return node;
+		return current;
 
 	}
 
@@ -33,6 +33,7 @@ public class StatementChecker
 	{
 		if (node.getChildCount()==0) { return false; }
 		int currentScopeLevel = symbolTable.getCurrentScopeLevel();
+<<<<<<< HEAD
 
 
 		if (node.getText().contentEquals("was"))
@@ -40,10 +41,19 @@ public class StatementChecker
 			String var = node.getChild(0).getText();
 			
 			if (symbolTable.checkVariableIsInCurrentScopeLevel(var))
+=======
+
+		if (node.getText().contentEquals("was"))
+		{
+
+			if (!symbolTable.checkVariableIsInCurrentScopeLevel(var))
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 			{
+				System.err.println("doesnt work :'(");
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
 						+ " Multiple declarations of " + var);
+<<<<<<< HEAD
 			}
 			
 			else if (node.getChildCount() > 2 &&
@@ -54,6 +64,8 @@ public class StatementChecker
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
 						+ "Data types of " + var + " and subscribed value don't match.");
+=======
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 			}
 
 			else 
@@ -62,7 +74,7 @@ public class StatementChecker
 				symbolTable.insert(var, new VariableSTValue(type, false));
 			}
 
-			return true;
+			return false;
 
 		}
 
@@ -90,7 +102,7 @@ public class StatementChecker
 						+ var + " not a number.");
 			}
 
-			return true;
+			return false;
 
 		}		
 
@@ -126,7 +138,12 @@ public class StatementChecker
 
 			}
 
+<<<<<<< HEAD
 			return true;
+=======
+			return false;
+
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 		}
 
 		else if ( node.getText().contentEquals("spoke") || node.getText().contentEquals("said"))
@@ -148,7 +165,7 @@ public class StatementChecker
 
 			}
 
-			return true;
+			return false;
 		}
 
 		else if ( node.getText().contentEquals("what"))
@@ -167,7 +184,7 @@ public class StatementChecker
 				((VariableSTValue) symbolTable.lookup(node.getChild(0).getText())).setInitialised(true);
 			}
 
-			return true;
+			return false;
 		}
 
 		else if ( node.getText().contentEquals("found"))
@@ -187,7 +204,12 @@ public class StatementChecker
 						+ node.getCharPositionInLine() + ": "
 						+ var +" not initialised yet" + node.getText());				
 			}
+<<<<<<< HEAD
 			return true;
+=======
+			
+			return false;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 		}
 
 		else if ( node.getText().contentEquals("had"))
@@ -210,7 +232,13 @@ public class StatementChecker
 			
 		}
 
+<<<<<<< HEAD
 	return false;
+=======
+		return true;
+	}
+
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 }
 
 }

@@ -7,6 +7,7 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.tree.Tree;
 
 import symbol_table.ExpressionChecker;
 import symbol_table.SymbolTable;
@@ -39,7 +40,7 @@ public class Malice
 			TokenStream tokens = new CommonTokenStream(lexer);
 			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 			malice_grammarParser.program_return prog =  parser.program() ;
-			System.out.println(prog.tree.toStringTree());
+			System.out.println(((Tree)prog.getTree()).toStringTree());
 			SemanticVerifier.checkProgramSemantics(prog.tree, table);
 			System.out.println(args[0] + " done");
 		} 
