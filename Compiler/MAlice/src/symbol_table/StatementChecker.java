@@ -12,43 +12,37 @@ public class StatementChecker
 	{
 		Tree current = node ;
 		boolean end_of_statements = false;
-		while(current != null || end_of_statements==false)
+		while(current != null && !end_of_statements)
 		{
-			end_of_statements = checkStatement(node, table);
-			current = getNextChild(current) ;
+			end_of_statements = checkStatement(current, table);
+			if (end_of_statements) return current ;
+			current = SemanticsUtils.getNextChild(current) ;
 		}
 
-		return node;
+		return current;
 
-	}
-
-	private static Tree getNextChild(Tree current)
-
-	{
-		return current.getParent().getChild(current.getChildIndex()+1);
 	}
 
 
 	public static boolean checkStatement(Tree node, SymbolTable symbolTable)
 	{
-		if (node.getChildCount()==0) { return false; }
+		if (node.getChildCount()==0) { return true; }
 
 
 		if (node.getText().contentEquals("was"))
 		{
 			String var = node.getChild(0).getText();
-			
+
 			if (symbolTable.checkVariableIsInCurrentScopeLevel(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
 						+ " Multiple declarations of " + var);
 			}
-			
+
 			else if (node.getChildCount() > 2 &&
-						( ExpressionChecker.getExpressionType(node.getChild(2), symbolTable) !=
-						(SemanticsUtils.getReturnType(node.getChild(1))))
-					)
+					( ExpressionChecker.getExpressionType(node.getChild(2), symbolTable) !=
+						(SemanticsUtils.getReturnType(node.getChild(1)))))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
@@ -57,11 +51,11 @@ public class StatementChecker
 
 			else 
 			{
-				DATA_TYPES type = ExpressionChecker.getExpressionType(node.getChild(1), symbolTable);
+				DATA_TYPES type = ExpressionChecker.getExpressionType(node.getChild(0), symbolTable);
 				symbolTable.insert(var, new VariableSTValue(type, false));
 			}
 
-			return true;
+			return false;
 
 		}
 
@@ -89,7 +83,7 @@ public class StatementChecker
 						+ var + " not a number.");
 			}
 
-			return true;
+			return false;
 
 		}		
 
@@ -104,7 +98,7 @@ public class StatementChecker
 			}
 
 			else if ((symbolTable.lookup(node.getChild(0).getText())).getType() !=
-					ExpressionChecker.getExpressionType(node.getChild(node.getChildCount() - 1), symbolTable))
+				ExpressionChecker.getExpressionType(node.getChild(node.getChildCount() - 1), symbolTable))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " : Types of "
@@ -125,7 +119,7 @@ public class StatementChecker
 
 			}
 
-			return true;
+			return false;
 		}
 
 		else if ( node.getText().contentEquals("spoke") || node.getText().contentEquals("said"))
@@ -147,7 +141,7 @@ public class StatementChecker
 
 			}
 
-			return true;
+			return false;
 		}
 
 		else if ( node.getText().contentEquals("what"))
@@ -166,7 +160,7 @@ public class StatementChecker
 				((VariableSTValue) symbolTable.lookup(node.getChild(0).getText())).setInitialised(true);
 			}
 
-			return true;
+			return false;
 		}
 
 		else if ( node.getText().contentEquals("found"))
@@ -186,30 +180,31 @@ public class StatementChecker
 						+ node.getCharPositionInLine() + ": "
 						+ var +" not initialised yet" + node.getText());				
 			}
-			return true;
+			return false;
 		}
 
 		else if ( node.getText().contentEquals("had"))
 		{
 			String var = node.getChild(0).getText();
-			
+
 			if (symbolTable.checkVariableIsInCurrentScopeLevel(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
 						+ " Multiple declarations of " + node.getText());
 			}
-			
+
 			if ((symbolTable.lookup(node.getChild(1).getText())).getType() != DATA_TYPES.NUMBER)
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " : "
 						+ var + " not a number.");
 			}
-			
+			return false;
+
 		}
 
-	return false;
-}
+		return true;
+	}
 
 }

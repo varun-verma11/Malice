@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.antlr.runtime.tree.Tree;
 
+import semantics_checks.SemanticsUtils;
+
 public class ExpressionChecker
 {
 	private class FunctionProperties
@@ -79,15 +81,14 @@ public class ExpressionChecker
 			} 
 			catch (NumberFormatException e)
 			{
-				SymbolTableValue val =  symbol_table.lookup(node.getText()) ;
-				if (val==null)
+				if (!symbol_table.checkVariableIsInCurrentScopeLevel(node.getText()))
 				{
 					System.err.println("Line "+ node.getLine()+ ": " 
 							+ node.getCharPositionInLine() + " Identifier "
 							+ node.getText() + " is not defined.");
 					return DATA_TYPES.ERROR ;
 				}
-				return val.getType();
+				return symbol_table.lookup(node.getText()).getType();
 			}
 
 		}
