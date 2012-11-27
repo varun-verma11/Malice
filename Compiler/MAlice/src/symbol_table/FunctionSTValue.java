@@ -7,7 +7,7 @@ public class FunctionSTValue extends SymbolTableValue
 {
 	SymbolTable symbolTable;
 	ArrayList<DATA_TYPES> args;
-	int newTableScopeLevel;
+	//int newTableScopeLevel; don't think this is needed.
 	
 	public FunctionSTValue(SymbolTable currSymTable, ArrayList<DATA_TYPES> args) 
 	{
@@ -17,8 +17,6 @@ public class FunctionSTValue extends SymbolTableValue
 		symbolTable.updateCurrentScopeLevel(currSymTable.getCurrentScopeLevel() + 1);//check this, if it makes sense do the same in the second constructor 
 		this.args = args;
 	}
-	
-	//Could we basically have FunctionSTValue(SymbolTable currSymTable, DATA_TYPES[] args) = FunctionSTValue(null, currSymTable, args)??
 	
 	public FunctionSTValue(DATA_TYPES return_type, SymbolTable currSymTable, ArrayList<DATA_TYPES> args)
 	{
