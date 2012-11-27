@@ -47,4 +47,10 @@ public class TestSuiteForMainProgram
 			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
 		}
 	}
+	
+	@Test
+	public void testAllInvalidPrograms( ) 
+	{
+		
+	}
 }

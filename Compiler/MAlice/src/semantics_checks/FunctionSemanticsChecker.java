@@ -38,12 +38,14 @@ public class FunctionSemanticsChecker
 
 	private static DATA_TYPES getReturnType(Tree node)
 	{
-		Tree curr = node.getChild(0);
+		Tree curr = node;
 
-		while (curr != null && curr.getText().contentEquals("contained"))
+		while (!(curr == null || curr.getText().contentEquals("contained")))
 		{
 			curr = SemanticsUtils.getNextChild(curr);
 		}
+		
+		curr = SemanticsUtils.getNextChild(curr);
 
 		return DATA_TYPES.valueOf(curr.getText().toUpperCase());
 	}
