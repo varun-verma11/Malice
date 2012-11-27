@@ -193,11 +193,11 @@ public class StatementChecker
 						+ " Multiple declarations of " + node.getText());
 			}
 
-			else if (ExpressionChecker.getExpressionType(node.getChild(1),symbolTable)!= DATA_TYPES.NUMBER)
+			else if (getValueType(node.getChild(1),symbolTable)!= DATA_TYPES.NUMBER)
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
-						+ node.getCharPositionInLine() + " : "
-						+ var + " not a number.");
+						+ node.getCharPositionInLine() + " : Array length "
+						+ node.getChild(1).getText() + " is not a number.");
 			}
 			return false;
 

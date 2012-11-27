@@ -25,14 +25,25 @@ public class StatementCheckerTests {
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.SENTENCE, false));
 		
-		String[] expr = new String[4];
+		
+		String[] expr = new String[12];
 		
 		expr[0]  = " x became 3.";
 		expr[1] = " y became 'h'";
 		expr[2] = " m was a number too";
 		expr[3] = " RSG was a sentence of \"krv\"";
+		expr[4] = "x ate.";
+		expr[5] = "m became 45.";
+		expr[6] = "m drank.";
+		expr[7] = "m spoke.";
+		expr[8] = "abc spoke";
+		expr[9] = "x became 2*5-24";
+		expr[10] = "xs had \"nbsk\" number";
+		expr[11] = "ys had 24 letter";
+
 		
-		for(int i = 0; i < 4; i++)
+		
+		for(int i = 0; i < 12; i++)
 		{
 		assertEquals(false,checkStatement(expr[i]));
 		}
