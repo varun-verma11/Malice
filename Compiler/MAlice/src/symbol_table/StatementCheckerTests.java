@@ -25,10 +25,10 @@ public class StatementCheckerTests {
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.SENTENCE, false));
 		
-		String expr  = " x became 3.";
+		String expr  = " x came 3.";
 		String expr2 = " y became 56";
 		
-		assertEquals(true,checkStatement(expr));
+		assertEquals(false,checkStatement(expr));
 		assertEquals(true,checkStatement(expr2));
 	}
 
