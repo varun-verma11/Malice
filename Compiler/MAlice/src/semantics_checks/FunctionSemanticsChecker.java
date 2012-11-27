@@ -27,26 +27,16 @@ public class FunctionSemanticsChecker
 	private static Tree checkRoomFunction(Tree node, SymbolTable table)
 	{
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
-		table.insert(node.getText(), new FunctionSTValue(getReturnType(node),table, args));
+		table.insert(node.getText(), new FunctionSTValue(SemanticsUtils.getReturnType(node),table, args));
 		Tree curr = node ;
 		curr = checkParametersToFunction(table, curr);
 		//skipping two children due to the return value
-		curr = getNextChild(getNextChild(curr));
+		curr = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(curr));
 		curr = StatementChecker.checkAllStatements(curr, table);
 		return curr ;
 	}
 
-	private static DATA_TYPES getReturnType(Tree node)
-	{
-		Tree curr = node.getChild(0);
-		
-		while (curr != null && curr.getText().contentEquals("contained"))
-		{
-			curr = getNextChild(curr);
-		}
-		
-		return DATA_TYPES.valueOf(curr.getText().toUpperCase());
-	}
+	
 
 	//check with magdiee about the construct od fVal
 	private static Tree checkLookingFunction(Tree node, SymbolTable table)
@@ -77,14 +67,11 @@ public class FunctionSemanticsChecker
 					table.insert(curr.getChild(0).getText(), 
 							new VariableSTValue(type, true));
 				}
-				curr = getNextChild(curr);
+				curr = SemanticsUtils.getNextChild(curr);
 			}
 		} catch (IllegalArgumentException e) { }
 		return curr;
 	}
 
-	private static Tree getNextChild(Tree current)
-	{
-		return current.getParent().getChild(current.getChildIndex()+1);
-	}
+	
 }

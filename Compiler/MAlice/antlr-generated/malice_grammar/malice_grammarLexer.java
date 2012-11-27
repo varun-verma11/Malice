@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-27 13:28:11
+=======
+<<<<<<< HEAD
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-27 13:19:45
 =======
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-27 11:33:43
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
   package malice_grammar ;
 
@@ -95,15 +99,24 @@ public class malice_grammarLexer extends Lexer {
         super(input,state);
 
     }
+<<<<<<< HEAD
+    public String getGrammarFileName() { return "/home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g"; }
+=======
     public String getGrammarFileName() { return "C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g"; }
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
     // $ANTLR start "ATE"
     public final void mATE() throws RecognitionException {
         try {
             int _type = ATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:11:5: ( 'ate' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:11:7: 'ate'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:11:5: ( 'ate' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:11:7: 'ate'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("ate"); 
 
@@ -123,8 +136,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = DRANK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:12:7: ( 'drank' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:12:9: 'drank'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:12:7: ( 'drank' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:12:9: 'drank'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("drank"); 
 
@@ -144,8 +162,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = BECAME;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:13:8: ( 'became' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:13:10: 'became'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:13:8: ( 'became' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:13:10: 'became'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("became"); 
 
@@ -165,8 +188,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = WHAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:14:6: ( 'what' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:14:8: 'what'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:14:6: ( 'what' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:14:8: 'what'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("what"); 
 
@@ -186,8 +214,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = PIECE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:15:7: ( 'piece' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:15:9: 'piece'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:15:7: ( 'piece' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:15:9: 'piece'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("piece"); 
 
@@ -207,8 +240,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = CHAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:16:6: ( 'letter' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:16:8: 'letter'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:16:6: ( 'letter' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:16:8: 'letter'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("letter"); 
 
@@ -228,8 +266,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:5: ( 'number' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:17:7: 'number'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:17:5: ( 'number' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:17:7: 'number'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("number"); 
 
@@ -249,8 +292,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = STR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:5: ( 'sentence' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:18:7: 'sentence'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:18:5: ( 'sentence' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:18:7: 'sentence'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("sentence"); 
 
@@ -270,8 +318,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = PERHAPS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:19:9: ( 'perhaps' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:19:11: 'perhaps'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:19:9: ( 'perhaps' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:19:11: 'perhaps'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("perhaps"); 
 
@@ -291,8 +344,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:20:4: ( 'or' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:20:6: 'or'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:20:4: ( 'or' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:20:6: 'or'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("or"); 
 
@@ -312,8 +370,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = MAYBE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:21:7: ( 'maybe' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:21:9: 'maybe'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:21:7: ( 'maybe' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:21:9: 'maybe'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("maybe"); 
 
@@ -333,8 +396,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = WAS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:22:5: ( 'was' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:22:7: 'was'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:22:5: ( 'was' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:22:7: 'was'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("was"); 
 
@@ -354,8 +422,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = HAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:23:5: ( 'had' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:23:7: 'had'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:23:5: ( 'had' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:23:7: 'had'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("had"); 
 
@@ -375,8 +448,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = SPOKE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:24:7: ( 'spoke' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:24:9: 'spoke'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:24:7: ( 'spoke' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:24:9: 'spoke'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("spoke"); 
 
@@ -396,8 +474,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = FOUND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:25:7: ( 'found' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:25:9: 'found'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:25:7: ( 'found' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:25:9: 'found'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("found"); 
 
@@ -417,8 +500,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = BECAUSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:26:9: ( 'because' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:26:11: 'because'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:26:9: ( 'because' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:26:11: 'because'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("because"); 
 
@@ -438,8 +526,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = ALICE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:27:7: ( 'Alice' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:27:9: 'Alice'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:27:7: ( 'Alice' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:27:9: 'Alice'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("Alice"); 
 
@@ -459,8 +552,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = UNSURE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:28:8: ( 'unsure' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:28:10: 'unsure'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:28:8: ( 'unsure' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:28:10: 'unsure'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("unsure"); 
 
@@ -480,8 +578,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = WHICH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:29:7: ( 'which' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:29:9: 'which'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:7: ( 'which' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:29:9: 'which'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("which"); 
 
@@ -501,8 +604,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = EVENTUALLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:30:12: ( 'eventually' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:30:14: 'eventually'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:12: ( 'eventually' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:30:14: 'eventually'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("eventually"); 
 
@@ -522,8 +630,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = ENOUGH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:31:8: ( 'enough' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:31:10: 'enough'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:8: ( 'enough' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:31:10: 'enough'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("enough"); 
 
@@ -543,8 +656,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = TIMES;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:32:7: ( 'times' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:32:9: 'times'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:7: ( 'times' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:32:9: 'times'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("times"); 
 
@@ -564,8 +682,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = SO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:33:4: ( 'so' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:33:6: 'so'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:33:4: ( 'so' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:33:6: 'so'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("so"); 
 
@@ -585,8 +708,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = EITHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:34:8: ( 'either' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:34:10: 'either'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:34:8: ( 'either' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:34:10: 'either'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("either"); 
 
@@ -606,8 +734,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = A;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:35:3: ( 'a' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:35:5: 'a'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:35:3: ( 'a' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:35:5: 'a'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('a'); 
 
@@ -626,8 +759,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = TOO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:36:5: ( 'too' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:36:7: 'too'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:5: ( 'too' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:36:7: 'too'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("too"); 
 
@@ -647,8 +785,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = OF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:37:4: ( 'of' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:37:6: 'of'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:4: ( 'of' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:37:6: 'of'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("of"); 
 
@@ -668,8 +811,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = SAID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:38:6: ( 'said' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:38:8: 'said'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:6: ( 'said' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:38:8: 'said'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("said"); 
 
@@ -689,8 +837,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = OPENED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:39:8: ( 'opened' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:39:10: 'opened'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:8: ( 'opened' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:39:10: 'opened'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("opened"); 
 
@@ -710,8 +863,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = CLOSED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:40:8: ( 'closed' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:40:10: 'closed'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:8: ( 'closed' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:40:10: 'closed'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("closed"); 
 
@@ -731,8 +889,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = THE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:41:5: ( 'The' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:41:7: 'The'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:5: ( 'The' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:41:7: 'The'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("The"); 
 
@@ -752,8 +915,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = LOOKING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:42:9: ( 'looking' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:42:11: 'looking'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:9: ( 'looking' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:42:11: 'looking'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("looking"); 
 
@@ -773,8 +941,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = GLASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:43:7: ( 'glass' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:43:9: 'glass'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:7: ( 'glass' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:43:9: 'glass'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("glass"); 
 
@@ -794,8 +967,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = ROOM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:44:6: ( 'room' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:44:8: 'room'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:6: ( 'room' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:44:8: 'room'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("room"); 
 
@@ -815,8 +993,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = CONTAINED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:45:11: ( 'contained' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:45:13: 'contained'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:11: ( 'contained' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:45:13: 'contained'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("contained"); 
 
@@ -836,8 +1019,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = SPIDER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:46:8: ( 'spider' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:46:10: 'spider'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:8: ( 'spider' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:46:10: 'spider'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("spider"); 
 
@@ -857,8 +1045,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:47:5: ( 'and' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:47:7: 'and'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:5: ( 'and' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:47:7: 'and'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("and"); 
 
@@ -878,8 +1071,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = BUT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:48:5: ( 'but' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:48:7: 'but'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:48:5: ( 'but' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:48:7: 'but'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("but"); 
 
@@ -899,8 +1097,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = THEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:49:6: ( 'then' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:49:8: 'then'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:6: ( 'then' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:49:8: 'then'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("then"); 
 
@@ -920,8 +1123,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:50:7: ( '(' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:50:9: '('
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:50:7: ( '(' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:50:9: '('
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('('); 
 
@@ -940,8 +1148,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:51:7: ( ')' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:51:9: ')'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:7: ( ')' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:51:9: ')'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match(')'); 
 
@@ -960,8 +1173,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:52:7: ( '\\'s' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:52:9: '\\'s'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:52:7: ( '\\'s' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:52:9: '\\'s'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("'s"); 
 
@@ -981,8 +1199,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:53:7: ( '!' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:53:9: '!'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:53:7: ( '!' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:53:9: '!'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('!'); 
 
@@ -1001,8 +1224,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:54:7: ( '~' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:54:9: '~'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:7: ( '~' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:54:9: '~'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('~'); 
 
@@ -1021,8 +1249,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:55:7: ( '-' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:55:9: '-'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:55:7: ( '-' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:55:9: '-'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('-'); 
 
@@ -1041,8 +1274,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:56:7: ( '+' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:56:9: '+'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:56:7: ( '+' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:56:9: '+'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('+'); 
 
@@ -1061,8 +1299,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:57:7: ( '*' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:57:9: '*'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:57:7: ( '*' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:57:9: '*'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('*'); 
 
@@ -1081,8 +1324,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:58:7: ( '/' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:58:9: '/'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:58:7: ( '/' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:58:9: '/'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('/'); 
 
@@ -1101,8 +1349,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:59:7: ( '%' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:59:9: '%'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:59:7: ( '%' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:59:9: '%'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('%'); 
 
@@ -1121,8 +1374,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:60:7: ( '<=' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:60:9: '<='
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:60:7: ( '<=' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:60:9: '<='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("<="); 
 
@@ -1142,8 +1400,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:61:7: ( '<' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:61:9: '<'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:61:7: ( '<' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:61:9: '<'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('<'); 
 
@@ -1162,8 +1425,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:62:7: ( '>' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:62:9: '>'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:62:7: ( '>' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:62:9: '>'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('>'); 
 
@@ -1182,8 +1450,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:63:7: ( '>=' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:63:9: '>='
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:63:7: ( '>=' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:63:9: '>='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match(">="); 
 
@@ -1203,8 +1476,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:64:7: ( '==' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:64:9: '=='
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:64:7: ( '==' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:64:9: '=='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("=="); 
 
@@ -1224,8 +1502,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:65:7: ( '!=' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:65:9: '!='
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:65:7: ( '!=' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:65:9: '!='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("!="); 
 
@@ -1245,8 +1528,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:66:7: ( '&' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:66:9: '&'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:7: ( '&' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: '&'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('&'); 
 
@@ -1265,8 +1553,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:67:7: ( '^' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:67:9: '^'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:67:7: ( '^' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:67:9: '^'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('^'); 
 
@@ -1285,8 +1578,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:68:7: ( '|' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:68:9: '|'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:7: ( '|' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:9: '|'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('|'); 
 
@@ -1305,8 +1603,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:69:7: ( '&&' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:69:9: '&&'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:7: ( '&&' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:9: '&&'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("&&"); 
 
@@ -1326,8 +1629,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:70:7: ( '||' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:70:9: '||'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:70:7: ( '||' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:70:9: '||'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match("||"); 
 
@@ -1347,8 +1655,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:7: ( '.' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:9: '.'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:71:7: ( '.' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:71:9: '.'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('.'); 
 
@@ -1367,8 +1680,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:72:7: ( ',' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:72:9: ','
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:7: ( ',' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:9: ','
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match(','); 
 
@@ -1387,8 +1705,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:73:7: ( '?' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:73:9: '?'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:7: ( '?' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:73:9: '?'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('?'); 
 
@@ -1407,10 +1730,17 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:66:8: ( ( '0' .. '9' )+ )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:66:10: ( '0' .. '9' )+
+            {
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:66:10: ( '0' .. '9' )+
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:67:8: ( ( '0' .. '9' )+ )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:67:10: ( '0' .. '9' )+
             {
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:67:10: ( '0' .. '9' )+
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int cnt1=0;
             loop1:
             do {
@@ -1424,7 +1754,11 @@ public class malice_grammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:66:11: '0' .. '9'
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:67:11: '0' .. '9'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
             	    matchRange('0','9'); 
 
@@ -1456,8 +1790,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = IDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:67:7: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:67:9: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:7: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:9: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1468,7 +1807,11 @@ public class malice_grammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:67:30: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:68:30: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop2:
             do {
                 int alt2=2;
@@ -1481,7 +1824,11 @@ public class malice_grammarLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1517,10 +1864,17 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:68:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:68:6: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            {
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:68:6: ( ' ' | '\\t' | '\\n' | '\\r' )+
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:6: ( ' ' | '\\t' | '\\n' | '\\r' )+
             {
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:69:6: ( ' ' | '\\t' | '\\n' | '\\r' )+
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int cnt3=0;
             loop3:
             do {
@@ -1534,7 +1888,11 @@ public class malice_grammarLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -1575,12 +1933,21 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:5: ( '###' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:7: '###' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            {
+            match("###"); 
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:13: (~ ( '\\n' | '\\r' ) )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:5: ( '###' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:7: '###' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("###"); 
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:13: (~ ( '\\n' | '\\r' ) )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop4:
             do {
                 int alt4=2;
@@ -1593,7 +1960,11 @@ public class malice_grammarLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:13: ~ ( '\\n' | '\\r' )
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:13: ~ ( '\\n' | '\\r' )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1613,7 +1984,11 @@ public class malice_grammarLexer extends Lexer {
                 }
             } while (true);
 
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:27: ( '\\r' )?
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:27: ( '\\r' )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1622,7 +1997,11 @@ public class malice_grammarLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:71:27: '\\r'
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:72:27: '\\r'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     match('\r'); 
 
@@ -1649,8 +2028,13 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = LETTER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:73:8: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' ) '\\'' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:73:10: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' ) '\\''
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:8: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' ) '\\'' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:74:10: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' ) '\\''
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             match('\''); 
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -1679,11 +2063,19 @@ public class malice_grammarLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:74:8: ( '\"' (~ ( '\"' | '\\n' | '\\r' ) )* '\"' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:74:9: '\"' (~ ( '\"' | '\\n' | '\\r' ) )* '\"'
+            {
+            match('\"'); 
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:74:13: (~ ( '\"' | '\\n' | '\\r' ) )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:8: ( '\"' (~ ( '\"' | '\\n' | '\\r' ) )* '\"' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:9: '\"' (~ ( '\"' | '\\n' | '\\r' ) )* '\"'
             {
             match('\"'); 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:13: (~ ( '\"' | '\\n' | '\\r' ) )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop6:
             do {
                 int alt6=2;
@@ -1696,7 +2088,11 @@ public class malice_grammarLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:74:14: ~ ( '\"' | '\\n' | '\\r' )
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:75:14: ~ ( '\"' | '\\n' | '\\r' )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1729,488 +2125,768 @@ public class malice_grammarLexer extends Lexer {
     // $ANTLR end "STRING"
 
     public void mTokens() throws RecognitionException {
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:8: ( ATE | DRANK | BECAME | WHAT | PIECE | CHAR | INT | STR | PERHAPS | OR | MAYBE | WAS | HAD | SPOKE | FOUND | BECAUSE | ALICE | UNSURE | WHICH | EVENTUALLY | ENOUGH | TIMES | SO | EITHER | A | TOO | OF | SAID | OPENED | CLOSED | THE | LOOKING | GLASS | ROOM | CONTAINED | SPIDER | AND | BUT | THEN | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | NUMBER | IDENT | WS | LINE_COMMENT | LETTER | STRING )
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:8: ( ATE | DRANK | BECAME | WHAT | PIECE | CHAR | INT | STR | PERHAPS | OR | MAYBE | WAS | HAD | SPOKE | FOUND | BECAUSE | ALICE | UNSURE | WHICH | EVENTUALLY | ENOUGH | TIMES | SO | EITHER | A | TOO | OF | SAID | OPENED | CLOSED | THE | LOOKING | GLASS | ROOM | CONTAINED | SPIDER | AND | BUT | THEN | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | NUMBER | IDENT | WS | LINE_COMMENT | LETTER | STRING )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         int alt7=69;
         alt7 = dfa7.predict(input);
         switch (alt7) {
             case 1 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:10: ATE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:10: ATE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mATE(); 
 
                 }
                 break;
             case 2 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:14: DRANK
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:14: DRANK
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mDRANK(); 
 
                 }
                 break;
             case 3 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:20: BECAME
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:20: BECAME
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mBECAME(); 
 
                 }
                 break;
             case 4 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:27: WHAT
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:27: WHAT
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mWHAT(); 
 
                 }
                 break;
             case 5 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:32: PIECE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:32: PIECE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mPIECE(); 
 
                 }
                 break;
             case 6 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:38: CHAR
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:38: CHAR
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mCHAR(); 
 
                 }
                 break;
             case 7 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:43: INT
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:43: INT
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mINT(); 
 
                 }
                 break;
             case 8 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:47: STR
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:47: STR
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mSTR(); 
 
                 }
                 break;
             case 9 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:51: PERHAPS
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:51: PERHAPS
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mPERHAPS(); 
 
                 }
                 break;
             case 10 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:59: OR
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:59: OR
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mOR(); 
 
                 }
                 break;
             case 11 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:62: MAYBE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:62: MAYBE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mMAYBE(); 
 
                 }
                 break;
             case 12 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:68: WAS
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:68: WAS
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mWAS(); 
 
                 }
                 break;
             case 13 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:72: HAD
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:72: HAD
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mHAD(); 
 
                 }
                 break;
             case 14 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:76: SPOKE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:76: SPOKE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mSPOKE(); 
 
                 }
                 break;
             case 15 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:82: FOUND
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:82: FOUND
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mFOUND(); 
 
                 }
                 break;
             case 16 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:88: BECAUSE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:88: BECAUSE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mBECAUSE(); 
 
                 }
                 break;
             case 17 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:96: ALICE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:96: ALICE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mALICE(); 
 
                 }
                 break;
             case 18 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:102: UNSURE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:102: UNSURE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mUNSURE(); 
 
                 }
                 break;
             case 19 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:109: WHICH
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:109: WHICH
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mWHICH(); 
 
                 }
                 break;
             case 20 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:115: EVENTUALLY
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:115: EVENTUALLY
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mEVENTUALLY(); 
 
                 }
                 break;
             case 21 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:126: ENOUGH
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:126: ENOUGH
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mENOUGH(); 
 
                 }
                 break;
             case 22 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:133: TIMES
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:133: TIMES
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mTIMES(); 
 
                 }
                 break;
             case 23 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:139: SO
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:139: SO
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mSO(); 
 
                 }
                 break;
             case 24 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:142: EITHER
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:142: EITHER
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mEITHER(); 
 
                 }
                 break;
             case 25 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:149: A
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:149: A
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mA(); 
 
                 }
                 break;
             case 26 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:151: TOO
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:151: TOO
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mTOO(); 
 
                 }
                 break;
             case 27 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:155: OF
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:155: OF
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mOF(); 
 
                 }
                 break;
             case 28 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:158: SAID
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:158: SAID
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mSAID(); 
 
                 }
                 break;
             case 29 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:163: OPENED
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:163: OPENED
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mOPENED(); 
 
                 }
                 break;
             case 30 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:170: CLOSED
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:170: CLOSED
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mCLOSED(); 
 
                 }
                 break;
             case 31 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:177: THE
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:177: THE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mTHE(); 
 
                 }
                 break;
             case 32 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:181: LOOKING
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:181: LOOKING
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mLOOKING(); 
 
                 }
                 break;
             case 33 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:189: GLASS
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:189: GLASS
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mGLASS(); 
 
                 }
                 break;
             case 34 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:195: ROOM
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:195: ROOM
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mROOM(); 
 
                 }
                 break;
             case 35 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:200: CONTAINED
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:200: CONTAINED
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mCONTAINED(); 
 
                 }
                 break;
             case 36 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:210: SPIDER
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:210: SPIDER
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mSPIDER(); 
 
                 }
                 break;
             case 37 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:217: AND
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:217: AND
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mAND(); 
 
                 }
                 break;
             case 38 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:221: BUT
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:221: BUT
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mBUT(); 
 
                 }
                 break;
             case 39 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:225: THEN
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:225: THEN
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mTHEN(); 
 
                 }
                 break;
             case 40 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:230: T__49
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:230: T__49
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__49(); 
 
                 }
                 break;
             case 41 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:236: T__50
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:236: T__50
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__50(); 
 
                 }
                 break;
             case 42 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:242: T__51
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:242: T__51
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__51(); 
 
                 }
                 break;
             case 43 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:248: T__52
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:248: T__52
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__52(); 
 
                 }
                 break;
             case 44 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:254: T__53
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:254: T__53
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__53(); 
 
                 }
                 break;
             case 45 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:260: T__54
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:260: T__54
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__54(); 
 
                 }
                 break;
             case 46 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:266: T__55
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:266: T__55
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__55(); 
 
                 }
                 break;
             case 47 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:272: T__56
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:272: T__56
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__56(); 
 
                 }
                 break;
             case 48 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:278: T__57
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:278: T__57
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__57(); 
 
                 }
                 break;
             case 49 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:284: T__58
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:284: T__58
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__58(); 
 
                 }
                 break;
             case 50 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:290: T__59
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:290: T__59
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__59(); 
 
                 }
                 break;
             case 51 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:296: T__60
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:296: T__60
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__60(); 
 
                 }
                 break;
             case 52 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:302: T__61
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:302: T__61
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__61(); 
 
                 }
                 break;
             case 53 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:308: T__62
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:308: T__62
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__62(); 
 
                 }
                 break;
             case 54 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:314: T__63
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:314: T__63
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__63(); 
 
                 }
                 break;
             case 55 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:320: T__64
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:320: T__64
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__64(); 
 
                 }
                 break;
             case 56 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:326: T__65
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:326: T__65
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__65(); 
 
                 }
                 break;
             case 57 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:332: T__66
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:332: T__66
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__66(); 
 
                 }
                 break;
             case 58 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:338: T__67
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:338: T__67
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__67(); 
 
                 }
                 break;
             case 59 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:344: T__68
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:344: T__68
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__68(); 
 
                 }
                 break;
             case 60 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:350: T__69
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:350: T__69
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__69(); 
 
                 }
                 break;
             case 61 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:356: T__70
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:356: T__70
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__70(); 
 
                 }
                 break;
             case 62 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:362: T__71
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:362: T__71
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__71(); 
 
                 }
                 break;
             case 63 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:368: T__72
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:368: T__72
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mT__72(); 
 
                 }
                 break;
             case 64 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:374: NUMBER
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:374: NUMBER
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mNUMBER(); 
 
                 }
                 break;
             case 65 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:381: IDENT
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:381: IDENT
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mIDENT(); 
 
                 }
                 break;
             case 66 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:387: WS
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:387: WS
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mWS(); 
 
                 }
                 break;
             case 67 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:390: LINE_COMMENT
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:390: LINE_COMMENT
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mLINE_COMMENT(); 
 
                 }
                 break;
             case 68 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:403: LETTER
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:403: LETTER
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mLETTER(); 
 
                 }
                 break;
             case 69 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:1:410: STRING
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:1:410: STRING
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
                 mSTRING(); 
 
@@ -2259,9 +2935,9 @@ public class malice_grammarLexer extends Lexer {
         "\1\60\1\156\2\uffff\2\60\1\uffff\1\60\1\uffff\1\145\3\uffff\1\154"+
         "\3\uffff\1\145\3\uffff\1\60\1\154\1\144\1\uffff\1\171\2\60\2\uffff";
     static final String DFA7_maxS =
-        "\1\176\1\172\1\162\1\165\1\150\1\151\1\157\1\165\1\160\1\162\2"+
-        "\141\1\157\1\154\1\156\1\166\2\157\1\150\1\154\1\157\2\uffff\1\172"+
-        "\1\75\6\uffff\2\75\1\uffff\1\46\1\uffff\1\174\10\uffff\1\145\1\144"+
+        "\1\176\1\172\1\162\1\165\1\150\1\151\1\157\1\165\1\160\1\162\2\141"+
+        "\1\157\1\154\1\156\1\166\2\157\1\150\1\154\1\157\2\uffff\1\172\1"+
+        "\75\6\uffff\2\75\1\uffff\1\46\1\uffff\1\174\10\uffff\1\145\1\144"+
         "\1\uffff\1\141\1\143\1\164\1\151\1\163\1\145\1\162\1\164\1\157\1"+
         "\155\1\156\1\157\1\172\1\151\2\172\1\145\1\171\1\144\1\165\1\151"+
         "\1\163\1\145\1\157\1\164\1\155\1\157\1\145\1\157\1\156\1\145\1\141"+

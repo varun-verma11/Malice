@@ -22,8 +22,7 @@ tokens
   PERHAPS = 'perhaps';
   OR = 'or';
   MAYBE = 'maybe';
-  WAS = 'was';
-  BECAME = 'became' ;  
+  WAS = 'was'; 
   HAD = 'had';
   SPOKE = 'spoke';
   FOUND = 'found';

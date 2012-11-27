@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-27 13:28:10
+=======
+<<<<<<< HEAD
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-27 13:19:45
 =======
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-27 11:33:41
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
   package malice_grammar ;
 
@@ -113,7 +117,11 @@ public class malice_grammarParser extends Parser {
     }
 
     public String[] getTokenNames() { return malice_grammarParser.tokenNames; }
+<<<<<<< HEAD
+    public String getGrammarFileName() { return "/home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g"; }
+=======
     public String getGrammarFileName() { return "C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g"; }
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
 
     public static class endif_return extends ParserRuleReturnScope {
@@ -122,7 +130,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "endif"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:65:1: endif : BECAUSE ALICE WAS UNSURE WHICH ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:1: endif : BECAUSE ALICE WAS UNSURE WHICH ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.endif_return endif() throws RecognitionException {
         malice_grammarParser.endif_return retval = new malice_grammarParser.endif_return();
         retval.start = input.LT(1);
@@ -142,32 +154,37 @@ public class malice_grammarParser extends Parser {
         CommonTree WHICH5_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:65:7: ( BECAUSE ALICE WAS UNSURE WHICH )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:65:9: BECAUSE ALICE WAS UNSURE WHICH
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:7: ( BECAUSE ALICE WAS UNSURE WHICH )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:66:9: BECAUSE ALICE WAS UNSURE WHICH
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            BECAUSE1=(Token)match(input,BECAUSE,FOLLOW_BECAUSE_in_endif440); if (state.failed) return retval;
+            BECAUSE1=(Token)match(input,BECAUSE,FOLLOW_BECAUSE_in_endif429); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             BECAUSE1_tree = (CommonTree)adaptor.create(BECAUSE1);
             adaptor.addChild(root_0, BECAUSE1_tree);
             }
-            ALICE2=(Token)match(input,ALICE,FOLLOW_ALICE_in_endif442); if (state.failed) return retval;
+            ALICE2=(Token)match(input,ALICE,FOLLOW_ALICE_in_endif431); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             ALICE2_tree = (CommonTree)adaptor.create(ALICE2);
             adaptor.addChild(root_0, ALICE2_tree);
             }
-            WAS3=(Token)match(input,WAS,FOLLOW_WAS_in_endif444); if (state.failed) return retval;
+            WAS3=(Token)match(input,WAS,FOLLOW_WAS_in_endif433); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             WAS3_tree = (CommonTree)adaptor.create(WAS3);
             adaptor.addChild(root_0, WAS3_tree);
             }
-            UNSURE4=(Token)match(input,UNSURE,FOLLOW_UNSURE_in_endif446); if (state.failed) return retval;
+            UNSURE4=(Token)match(input,UNSURE,FOLLOW_UNSURE_in_endif435); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             UNSURE4_tree = (CommonTree)adaptor.create(UNSURE4);
             adaptor.addChild(root_0, UNSURE4_tree);
             }
-            WHICH5=(Token)match(input,WHICH,FOLLOW_WHICH_in_endif448); if (state.failed) return retval;
+            WHICH5=(Token)match(input,WHICH,FOLLOW_WHICH_in_endif437); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             WHICH5_tree = (CommonTree)adaptor.create(WHICH5);
             adaptor.addChild(root_0, WHICH5_tree);
@@ -201,7 +218,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "lpar"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:76:1: lpar : '(' ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:1: lpar : '(' ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.lpar_return lpar() throws RecognitionException {
         malice_grammarParser.lpar_return retval = new malice_grammarParser.lpar_return();
         retval.start = input.LT(1);
@@ -213,12 +234,17 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal6_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:76:5: ( '(' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:76:7: '('
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:5: ( '(' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:77:7: '('
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            char_literal6=(Token)match(input,49,FOLLOW_49_in_lpar601); if (state.failed) return retval;
+            char_literal6=(Token)match(input,49,FOLLOW_49_in_lpar590); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             char_literal6_tree = (CommonTree)adaptor.create(char_literal6);
             adaptor.addChild(root_0, char_literal6_tree);
@@ -252,7 +278,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "rpar"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:77:1: rpar : ')' ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:1: rpar : ')' ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.rpar_return rpar() throws RecognitionException {
         malice_grammarParser.rpar_return retval = new malice_grammarParser.rpar_return();
         retval.start = input.LT(1);
@@ -264,12 +294,17 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal7_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:77:5: ( ')' )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:77:7: ')'
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:5: ( ')' )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:78:7: ')'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            char_literal7=(Token)match(input,50,FOLLOW_50_in_rpar608); if (state.failed) return retval;
+            char_literal7=(Token)match(input,50,FOLLOW_50_in_rpar597); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             char_literal7_tree = (CommonTree)adaptor.create(char_literal7);
             adaptor.addChild(root_0, char_literal7_tree);
@@ -303,7 +338,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "array_elem"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:78:1: array_elem : IDENT '\\'s' expr PIECE ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:1: array_elem : IDENT '\\'s' expr PIECE ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.array_elem_return array_elem() throws RecognitionException {
         malice_grammarParser.array_elem_return retval = new malice_grammarParser.array_elem_return();
         retval.start = input.LT(1);
@@ -321,24 +360,29 @@ public class malice_grammarParser extends Parser {
         CommonTree PIECE11_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:78:12: ( IDENT '\\'s' expr PIECE )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:78:14: IDENT '\\'s' expr PIECE
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:12: ( IDENT '\\'s' expr PIECE )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:79:14: IDENT '\\'s' expr PIECE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT8=(Token)match(input,IDENT,FOLLOW_IDENT_in_array_elem616); if (state.failed) return retval;
+            IDENT8=(Token)match(input,IDENT,FOLLOW_IDENT_in_array_elem605); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT8_tree = (CommonTree)adaptor.create(IDENT8);
             adaptor.addChild(root_0, IDENT8_tree);
             }
-            string_literal9=(Token)match(input,51,FOLLOW_51_in_array_elem618); if (state.failed) return retval;
-            pushFollow(FOLLOW_expr_in_array_elem621);
+            string_literal9=(Token)match(input,51,FOLLOW_51_in_array_elem607); if (state.failed) return retval;
+            pushFollow(FOLLOW_expr_in_array_elem610);
             expr10=expr();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr10.getTree());
-            PIECE11=(Token)match(input,PIECE,FOLLOW_PIECE_in_array_elem623); if (state.failed) return retval;
+            PIECE11=(Token)match(input,PIECE,FOLLOW_PIECE_in_array_elem612); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             PIECE11_tree = (CommonTree)adaptor.create(PIECE11);
             adaptor.addChild(root_0, PIECE11_tree);
@@ -372,7 +416,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "atom"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:79:1: atom : ( IDENT ( '\\'s' expr PIECE )? | NUMBER | function_call );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:1: atom : ( IDENT ( '\\'s' expr PIECE )? | NUMBER | function_call );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.atom_return atom() throws RecognitionException {
         malice_grammarParser.atom_return retval = new malice_grammarParser.atom_return();
         retval.start = input.LT(1);
@@ -394,7 +442,11 @@ public class malice_grammarParser extends Parser {
         CommonTree NUMBER16_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:79:5: ( IDENT ( '\\'s' expr PIECE )? | NUMBER | function_call )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:5: ( IDENT ( '\\'s' expr PIECE )? | NUMBER | function_call )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt2=3;
             int LA2_0 = input.LA(1);
 
@@ -427,16 +479,24 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:79:7: IDENT ( '\\'s' expr PIECE )?
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:7: IDENT ( '\\'s' expr PIECE )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    IDENT12=(Token)match(input,IDENT,FOLLOW_IDENT_in_atom629); if (state.failed) return retval;
+                    IDENT12=(Token)match(input,IDENT,FOLLOW_IDENT_in_atom618); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     IDENT12_tree = (CommonTree)adaptor.create(IDENT12);
                     adaptor.addChild(root_0, IDENT12_tree);
                     }
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:79:13: ( '\\'s' expr PIECE )?
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:13: ( '\\'s' expr PIECE )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     int alt1=2;
                     int LA1_0 = input.LA(1);
 
@@ -445,16 +505,20 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt1) {
                         case 1 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:79:14: '\\'s' expr PIECE
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:14: '\\'s' expr PIECE
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             {
-                            string_literal13=(Token)match(input,51,FOLLOW_51_in_atom632); if (state.failed) return retval;
-                            pushFollow(FOLLOW_expr_in_atom635);
+                            string_literal13=(Token)match(input,51,FOLLOW_51_in_atom621); if (state.failed) return retval;
+                            pushFollow(FOLLOW_expr_in_atom624);
                             expr14=expr();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr14.getTree());
-                            PIECE15=(Token)match(input,PIECE,FOLLOW_PIECE_in_atom637); if (state.failed) return retval;
+                            PIECE15=(Token)match(input,PIECE,FOLLOW_PIECE_in_atom626); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             PIECE15_tree = (CommonTree)adaptor.create(PIECE15);
                             adaptor.addChild(root_0, PIECE15_tree);
@@ -469,11 +533,15 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:79:36: NUMBER
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:36: NUMBER
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    NUMBER16=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_atom643); if (state.failed) return retval;
+                    NUMBER16=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_atom632); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     NUMBER16_tree = (CommonTree)adaptor.create(NUMBER16);
                     adaptor.addChild(root_0, NUMBER16_tree);
@@ -482,11 +550,15 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:79:45: function_call
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:80:45: function_call
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_function_call_in_atom647);
+                    pushFollow(FOLLOW_function_call_in_atom636);
                     function_call17=function_call();
 
                     state._fsp--;
@@ -523,7 +595,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "data_types"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:81:1: data_types : ( INT | CHAR | STR );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:82:1: data_types : ( INT | CHAR | STR );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.data_types_return data_types() throws RecognitionException {
         malice_grammarParser.data_types_return retval = new malice_grammarParser.data_types_return();
         retval.start = input.LT(1);
@@ -535,8 +611,13 @@ public class malice_grammarParser extends Parser {
         CommonTree set18_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:81:12: ( INT | CHAR | STR )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:82:12: ( INT | CHAR | STR )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -581,7 +662,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "term"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:83:1: term : ( atom | lpar expr rpar );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:1: term : ( atom | lpar expr rpar );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.term_return term() throws RecognitionException {
         malice_grammarParser.term_return retval = new malice_grammarParser.term_return();
         retval.start = input.LT(1);
@@ -599,7 +684,11 @@ public class malice_grammarParser extends Parser {
 
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:83:6: ( atom | lpar expr rpar )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:6: ( atom | lpar expr rpar )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -618,11 +707,15 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt3) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:83:8: atom
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:8: atom
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_atom_in_term673);
+                    pushFollow(FOLLOW_atom_in_term662);
                     atom19=atom();
 
                     state._fsp--;
@@ -632,22 +725,26 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:83:15: lpar expr rpar
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:84:15: lpar expr rpar
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_lpar_in_term677);
+                    pushFollow(FOLLOW_lpar_in_term666);
                     lpar20=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_term680);
+                    pushFollow(FOLLOW_expr_in_term669);
                     expr21=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr21.getTree());
-                    pushFollow(FOLLOW_rpar_in_term682);
+                    pushFollow(FOLLOW_rpar_in_term671);
                     rpar22=rpar();
 
                     state._fsp--;
@@ -683,7 +780,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_neg"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:84:1: bool_neg : ( '!' )* term ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:85:1: bool_neg : ( '!' )* term ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bool_neg_return bool_neg() throws RecognitionException {
         malice_grammarParser.bool_neg_return retval = new malice_grammarParser.bool_neg_return();
         retval.start = input.LT(1);
@@ -697,12 +798,21 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal23_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:84:10: ( ( '!' )* term )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:84:12: ( '!' )* term
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:84:12: ( '!' )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:85:10: ( ( '!' )* term )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:85:12: ( '!' )* term
             {
             root_0 = (CommonTree)adaptor.nil();
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:85:12: ( '!' )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop4:
             do {
                 int alt4=2;
@@ -715,9 +825,13 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:84:13: '!'
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:85:13: '!'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    char_literal23=(Token)match(input,52,FOLLOW_52_in_bool_neg692); if (state.failed) return retval;
+            	    char_literal23=(Token)match(input,52,FOLLOW_52_in_bool_neg681); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal23_tree = (CommonTree)adaptor.create(char_literal23);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal23_tree, root_0);
@@ -731,7 +845,7 @@ public class malice_grammarParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_term_in_bool_neg697);
+            pushFollow(FOLLOW_term_in_bool_neg686);
             term24=term();
 
             state._fsp--;
@@ -766,7 +880,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "unary_op"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:85:1: unary_op : ( '~' | '-' | '+' )* bool_neg ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:86:1: unary_op : ( '~' | '-' | '+' )* bool_neg ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.unary_op_return unary_op() throws RecognitionException {
         malice_grammarParser.unary_op_return retval = new malice_grammarParser.unary_op_return();
         retval.start = input.LT(1);
@@ -784,12 +902,21 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal27_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:85:10: ( ( '~' | '-' | '+' )* bool_neg )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:85:12: ( '~' | '-' | '+' )* bool_neg
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:85:12: ( '~' | '-' | '+' )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:86:10: ( ( '~' | '-' | '+' )* bool_neg )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:86:12: ( '~' | '-' | '+' )* bool_neg
             {
             root_0 = (CommonTree)adaptor.nil();
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:86:12: ( '~' | '-' | '+' )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop5:
             do {
                 int alt5=4;
@@ -814,9 +941,13 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt5) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:85:13: '~'
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:86:13: '~'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    char_literal25=(Token)match(input,53,FOLLOW_53_in_unary_op705); if (state.failed) return retval;
+            	    char_literal25=(Token)match(input,53,FOLLOW_53_in_unary_op694); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal25_tree = (CommonTree)adaptor.create(char_literal25);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal25_tree, root_0);
@@ -825,9 +956,13 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 2 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:85:20: '-'
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:86:20: '-'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    char_literal26=(Token)match(input,54,FOLLOW_54_in_unary_op710); if (state.failed) return retval;
+            	    char_literal26=(Token)match(input,54,FOLLOW_54_in_unary_op699); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal26_tree = (CommonTree)adaptor.create(char_literal26);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal26_tree, root_0);
@@ -836,9 +971,13 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 3 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:85:27: '+'
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:86:27: '+'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    char_literal27=(Token)match(input,55,FOLLOW_55_in_unary_op715); if (state.failed) return retval;
+            	    char_literal27=(Token)match(input,55,FOLLOW_55_in_unary_op704); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal27_tree = (CommonTree)adaptor.create(char_literal27);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal27_tree, root_0);
@@ -852,7 +991,7 @@ public class malice_grammarParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_bool_neg_in_unary_op720);
+            pushFollow(FOLLOW_bool_neg_in_unary_op709);
             bool_neg28=bool_neg();
 
             state._fsp--;
@@ -887,7 +1026,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "mult"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:1: mult : unary_op ( ( '*' | '/' | '%' ) unary_op )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:1: mult : unary_op ( ( '*' | '/' | '%' ) unary_op )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.mult_return mult() throws RecognitionException {
         malice_grammarParser.mult_return retval = new malice_grammarParser.mult_return();
         retval.start = input.LT(1);
@@ -907,18 +1050,27 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal32_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:6: ( unary_op ( ( '*' | '/' | '%' ) unary_op )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:7: unary_op ( ( '*' | '/' | '%' ) unary_op )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:6: ( unary_op ( ( '*' | '/' | '%' ) unary_op )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:7: unary_op ( ( '*' | '/' | '%' ) unary_op )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_unary_op_in_mult727);
+            pushFollow(FOLLOW_unary_op_in_mult716);
             unary_op29=unary_op();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, unary_op29.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:16: ( ( '*' | '/' | '%' ) unary_op )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:16: ( ( '*' | '/' | '%' ) unary_op )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop7:
             do {
                 int alt7=2;
@@ -931,9 +1083,15 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt7) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:17: ( '*' | '/' | '%' ) unary_op
+            	    {
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:17: ( '*' | '/' | '%' )
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:17: ( '*' | '/' | '%' ) unary_op
             	    {
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:17: ( '*' | '/' | '%' )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    int alt6=3;
             	    switch ( input.LA(1) ) {
             	    case 56:
@@ -961,9 +1119,13 @@ public class malice_grammarParser extends Parser {
 
             	    switch (alt6) {
             	        case 1 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:18: '*'
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:18: '*'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            char_literal30=(Token)match(input,56,FOLLOW_56_in_mult731); if (state.failed) return retval;
+            	            char_literal30=(Token)match(input,56,FOLLOW_56_in_mult720); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal30_tree = (CommonTree)adaptor.create(char_literal30);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal30_tree, root_0);
@@ -972,9 +1134,13 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:25: '/'
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:25: '/'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            char_literal31=(Token)match(input,57,FOLLOW_57_in_mult736); if (state.failed) return retval;
+            	            char_literal31=(Token)match(input,57,FOLLOW_57_in_mult725); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal31_tree = (CommonTree)adaptor.create(char_literal31);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal31_tree, root_0);
@@ -983,9 +1149,13 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 3 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:86:32: '%'
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:87:32: '%'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            char_literal32=(Token)match(input,58,FOLLOW_58_in_mult741); if (state.failed) return retval;
+            	            char_literal32=(Token)match(input,58,FOLLOW_58_in_mult730); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal32_tree = (CommonTree)adaptor.create(char_literal32);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal32_tree, root_0);
@@ -996,7 +1166,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_unary_op_in_mult745);
+            	    pushFollow(FOLLOW_unary_op_in_mult734);
             	    unary_op33=unary_op();
 
             	    state._fsp--;
@@ -1040,7 +1210,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "add"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:1: add : mult ( ( '+' | '-' ) mult )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:1: add : mult ( ( '+' | '-' ) mult )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.add_return add() throws RecognitionException {
         malice_grammarParser.add_return retval = new malice_grammarParser.add_return();
         retval.start = input.LT(1);
@@ -1058,18 +1232,27 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal36_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:5: ( mult ( ( '+' | '-' ) mult )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:7: mult ( ( '+' | '-' ) mult )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:5: ( mult ( ( '+' | '-' ) mult )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:7: mult ( ( '+' | '-' ) mult )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_mult_in_add755);
+            pushFollow(FOLLOW_mult_in_add744);
             mult34=mult();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, mult34.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:12: ( ( '+' | '-' ) mult )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:12: ( ( '+' | '-' ) mult )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop9:
             do {
                 int alt9=2;
@@ -1082,9 +1265,15 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt9) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:13: ( '+' | '-' ) mult
+            	    {
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:13: ( '+' | '-' )
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:13: ( '+' | '-' ) mult
             	    {
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:13: ( '+' | '-' )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    int alt8=2;
             	    int LA8_0 = input.LA(1);
 
@@ -1103,9 +1292,13 @@ public class malice_grammarParser extends Parser {
             	    }
             	    switch (alt8) {
             	        case 1 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:14: '+'
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:14: '+'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            char_literal35=(Token)match(input,55,FOLLOW_55_in_add759); if (state.failed) return retval;
+            	            char_literal35=(Token)match(input,55,FOLLOW_55_in_add748); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal35_tree = (CommonTree)adaptor.create(char_literal35);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal35_tree, root_0);
@@ -1114,9 +1307,13 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:87:21: '-'
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:88:21: '-'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            char_literal36=(Token)match(input,54,FOLLOW_54_in_add764); if (state.failed) return retval;
+            	            char_literal36=(Token)match(input,54,FOLLOW_54_in_add753); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal36_tree = (CommonTree)adaptor.create(char_literal36);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal36_tree, root_0);
@@ -1127,7 +1324,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_mult_in_add768);
+            	    pushFollow(FOLLOW_mult_in_add757);
             	    mult37=mult();
 
             	    state._fsp--;
@@ -1171,7 +1368,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_comp"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:1: bool_comp : add ( ( '<=' | '<' | '>' | '>=' ) add )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:1: bool_comp : add ( ( '<=' | '<' | '>' | '>=' ) add )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bool_comp_return bool_comp() throws RecognitionException {
         malice_grammarParser.bool_comp_return retval = new malice_grammarParser.bool_comp_return();
         retval.start = input.LT(1);
@@ -1193,18 +1394,27 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal42_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:11: ( add ( ( '<=' | '<' | '>' | '>=' ) add )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:13: add ( ( '<=' | '<' | '>' | '>=' ) add )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:11: ( add ( ( '<=' | '<' | '>' | '>=' ) add )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:13: add ( ( '<=' | '<' | '>' | '>=' ) add )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_add_in_bool_comp778);
+            pushFollow(FOLLOW_add_in_bool_comp767);
             add38=add();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, add38.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:17: ( ( '<=' | '<' | '>' | '>=' ) add )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:17: ( ( '<=' | '<' | '>' | '>=' ) add )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop11:
             do {
                 int alt11=2;
@@ -1217,9 +1427,15 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt11) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:18: ( '<=' | '<' | '>' | '>=' ) add
+            	    {
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:18: ( '<=' | '<' | '>' | '>=' )
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:18: ( '<=' | '<' | '>' | '>=' ) add
             	    {
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:18: ( '<=' | '<' | '>' | '>=' )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    int alt10=4;
             	    switch ( input.LA(1) ) {
             	    case 59:
@@ -1252,9 +1468,13 @@ public class malice_grammarParser extends Parser {
 
             	    switch (alt10) {
             	        case 1 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:19: '<='
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:19: '<='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            string_literal39=(Token)match(input,59,FOLLOW_59_in_bool_comp782); if (state.failed) return retval;
+            	            string_literal39=(Token)match(input,59,FOLLOW_59_in_bool_comp771); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal39_tree = (CommonTree)adaptor.create(string_literal39);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal39_tree, root_0);
@@ -1263,9 +1483,13 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:27: '<'
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:27: '<'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            char_literal40=(Token)match(input,60,FOLLOW_60_in_bool_comp787); if (state.failed) return retval;
+            	            char_literal40=(Token)match(input,60,FOLLOW_60_in_bool_comp776); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal40_tree = (CommonTree)adaptor.create(char_literal40);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal40_tree, root_0);
@@ -1274,9 +1498,13 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 3 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:34: '>'
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:34: '>'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            char_literal41=(Token)match(input,61,FOLLOW_61_in_bool_comp792); if (state.failed) return retval;
+            	            char_literal41=(Token)match(input,61,FOLLOW_61_in_bool_comp781); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal41_tree = (CommonTree)adaptor.create(char_literal41);
             	            root_0 = (CommonTree)adaptor.becomeRoot(char_literal41_tree, root_0);
@@ -1285,9 +1513,13 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 4 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:88:41: '>='
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:89:41: '>='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            string_literal42=(Token)match(input,62,FOLLOW_62_in_bool_comp797); if (state.failed) return retval;
+            	            string_literal42=(Token)match(input,62,FOLLOW_62_in_bool_comp786); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal42_tree = (CommonTree)adaptor.create(string_literal42);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal42_tree, root_0);
@@ -1298,7 +1530,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_add_in_bool_comp801);
+            	    pushFollow(FOLLOW_add_in_bool_comp790);
             	    add43=add();
 
             	    state._fsp--;
@@ -1342,7 +1574,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_eq"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:1: bool_eq : bool_comp ( ( '==' | '!=' ) bool_comp )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:1: bool_eq : bool_comp ( ( '==' | '!=' ) bool_comp )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bool_eq_return bool_eq() throws RecognitionException {
         malice_grammarParser.bool_eq_return retval = new malice_grammarParser.bool_eq_return();
         retval.start = input.LT(1);
@@ -1360,18 +1596,27 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal46_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:9: ( bool_comp ( ( '==' | '!=' ) bool_comp )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:11: bool_comp ( ( '==' | '!=' ) bool_comp )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:9: ( bool_comp ( ( '==' | '!=' ) bool_comp )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:11: bool_comp ( ( '==' | '!=' ) bool_comp )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_comp_in_bool_eq811);
+            pushFollow(FOLLOW_bool_comp_in_bool_eq800);
             bool_comp44=bool_comp();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_comp44.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:21: ( ( '==' | '!=' ) bool_comp )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:21: ( ( '==' | '!=' ) bool_comp )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop13:
             do {
                 int alt13=2;
@@ -1384,9 +1629,15 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt13) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:22: ( '==' | '!=' ) bool_comp
+            	    {
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:22: ( '==' | '!=' )
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:22: ( '==' | '!=' ) bool_comp
             	    {
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:22: ( '==' | '!=' )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    int alt12=2;
             	    int LA12_0 = input.LA(1);
 
@@ -1405,9 +1656,13 @@ public class malice_grammarParser extends Parser {
             	    }
             	    switch (alt12) {
             	        case 1 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:23: '=='
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:23: '=='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            string_literal45=(Token)match(input,63,FOLLOW_63_in_bool_eq815); if (state.failed) return retval;
+            	            string_literal45=(Token)match(input,63,FOLLOW_63_in_bool_eq804); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal45_tree = (CommonTree)adaptor.create(string_literal45);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal45_tree, root_0);
@@ -1416,9 +1671,13 @@ public class malice_grammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:89:31: '!='
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:90:31: '!='
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            {
-            	            string_literal46=(Token)match(input,64,FOLLOW_64_in_bool_eq820); if (state.failed) return retval;
+            	            string_literal46=(Token)match(input,64,FOLLOW_64_in_bool_eq809); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal46_tree = (CommonTree)adaptor.create(string_literal46);
             	            root_0 = (CommonTree)adaptor.becomeRoot(string_literal46_tree, root_0);
@@ -1429,7 +1688,7 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_bool_comp_in_bool_eq824);
+            	    pushFollow(FOLLOW_bool_comp_in_bool_eq813);
             	    bool_comp47=bool_comp();
 
             	    state._fsp--;
@@ -1473,7 +1732,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bitw_and"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:90:1: bitw_and : bool_eq ( '&' bool_eq )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:91:1: bitw_and : bool_eq ( '&' bool_eq )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bitw_and_return bitw_and() throws RecognitionException {
         malice_grammarParser.bitw_and_return retval = new malice_grammarParser.bitw_and_return();
         retval.start = input.LT(1);
@@ -1489,18 +1752,27 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal49_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:90:10: ( bool_eq ( '&' bool_eq )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:90:12: bool_eq ( '&' bool_eq )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:91:10: ( bool_eq ( '&' bool_eq )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:91:12: bool_eq ( '&' bool_eq )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_eq_in_bitw_and834);
+            pushFollow(FOLLOW_bool_eq_in_bitw_and823);
             bool_eq48=bool_eq();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_eq48.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:90:20: ( '&' bool_eq )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:91:20: ( '&' bool_eq )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop14:
             do {
                 int alt14=2;
@@ -1513,14 +1785,18 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt14) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:90:21: '&' bool_eq
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:91:21: '&' bool_eq
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    char_literal49=(Token)match(input,65,FOLLOW_65_in_bitw_and837); if (state.failed) return retval;
+            	    char_literal49=(Token)match(input,65,FOLLOW_65_in_bitw_and826); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal49_tree = (CommonTree)adaptor.create(char_literal49);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal49_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bool_eq_in_bitw_and840);
+            	    pushFollow(FOLLOW_bool_eq_in_bitw_and829);
             	    bool_eq50=bool_eq();
 
             	    state._fsp--;
@@ -1564,7 +1840,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bitw_xor"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:91:1: bitw_xor : bitw_and ( '^' bitw_and )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:1: bitw_xor : bitw_and ( '^' bitw_and )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bitw_xor_return bitw_xor() throws RecognitionException {
         malice_grammarParser.bitw_xor_return retval = new malice_grammarParser.bitw_xor_return();
         retval.start = input.LT(1);
@@ -1580,18 +1860,27 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal52_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:91:10: ( bitw_and ( '^' bitw_and )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:91:12: bitw_and ( '^' bitw_and )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:10: ( bitw_and ( '^' bitw_and )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:12: bitw_and ( '^' bitw_and )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bitw_and_in_bitw_xor850);
+            pushFollow(FOLLOW_bitw_and_in_bitw_xor839);
             bitw_and51=bitw_and();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bitw_and51.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:91:21: ( '^' bitw_and )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:21: ( '^' bitw_and )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop15:
             do {
                 int alt15=2;
@@ -1604,14 +1893,18 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt15) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:91:22: '^' bitw_and
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:92:22: '^' bitw_and
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    char_literal52=(Token)match(input,66,FOLLOW_66_in_bitw_xor853); if (state.failed) return retval;
+            	    char_literal52=(Token)match(input,66,FOLLOW_66_in_bitw_xor842); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal52_tree = (CommonTree)adaptor.create(char_literal52);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal52_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bitw_and_in_bitw_xor856);
+            	    pushFollow(FOLLOW_bitw_and_in_bitw_xor845);
             	    bitw_and53=bitw_and();
 
             	    state._fsp--;
@@ -1655,7 +1948,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bitw_or"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:92:1: bitw_or : bitw_xor ( '|' bitw_xor )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:1: bitw_or : bitw_xor ( '|' bitw_xor )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bitw_or_return bitw_or() throws RecognitionException {
         malice_grammarParser.bitw_or_return retval = new malice_grammarParser.bitw_or_return();
         retval.start = input.LT(1);
@@ -1671,18 +1968,27 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal55_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:92:9: ( bitw_xor ( '|' bitw_xor )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:92:11: bitw_xor ( '|' bitw_xor )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:9: ( bitw_xor ( '|' bitw_xor )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:11: bitw_xor ( '|' bitw_xor )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bitw_xor_in_bitw_or866);
+            pushFollow(FOLLOW_bitw_xor_in_bitw_or855);
             bitw_xor54=bitw_xor();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bitw_xor54.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:92:20: ( '|' bitw_xor )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:20: ( '|' bitw_xor )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop16:
             do {
                 int alt16=2;
@@ -1695,14 +2001,18 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt16) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:92:21: '|' bitw_xor
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:93:21: '|' bitw_xor
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    char_literal55=(Token)match(input,67,FOLLOW_67_in_bitw_or869); if (state.failed) return retval;
+            	    char_literal55=(Token)match(input,67,FOLLOW_67_in_bitw_or858); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal55_tree = (CommonTree)adaptor.create(char_literal55);
             	    root_0 = (CommonTree)adaptor.becomeRoot(char_literal55_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bitw_xor_in_bitw_or872);
+            	    pushFollow(FOLLOW_bitw_xor_in_bitw_or861);
             	    bitw_xor56=bitw_xor();
 
             	    state._fsp--;
@@ -1746,7 +2056,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_and"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:93:1: bool_and : bitw_or ( '&&' bitw_or )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:1: bool_and : bitw_or ( '&&' bitw_or )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bool_and_return bool_and() throws RecognitionException {
         malice_grammarParser.bool_and_return retval = new malice_grammarParser.bool_and_return();
         retval.start = input.LT(1);
@@ -1762,18 +2076,27 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal58_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:93:10: ( bitw_or ( '&&' bitw_or )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:93:12: bitw_or ( '&&' bitw_or )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:10: ( bitw_or ( '&&' bitw_or )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:12: bitw_or ( '&&' bitw_or )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bitw_or_in_bool_and882);
+            pushFollow(FOLLOW_bitw_or_in_bool_and871);
             bitw_or57=bitw_or();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bitw_or57.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:93:20: ( '&&' bitw_or )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:20: ( '&&' bitw_or )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop17:
             do {
                 int alt17=2;
@@ -1786,14 +2109,18 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt17) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:93:21: '&&' bitw_or
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:94:21: '&&' bitw_or
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    string_literal58=(Token)match(input,68,FOLLOW_68_in_bool_and885); if (state.failed) return retval;
+            	    string_literal58=(Token)match(input,68,FOLLOW_68_in_bool_and874); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal58_tree = (CommonTree)adaptor.create(string_literal58);
             	    root_0 = (CommonTree)adaptor.becomeRoot(string_literal58_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bitw_or_in_bool_and888);
+            	    pushFollow(FOLLOW_bitw_or_in_bool_and877);
             	    bitw_or59=bitw_or();
 
             	    state._fsp--;
@@ -1837,7 +2164,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_or"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:94:1: bool_or : bool_and ( '||' bool_and )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:1: bool_or : bool_and ( '||' bool_and )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bool_or_return bool_or() throws RecognitionException {
         malice_grammarParser.bool_or_return retval = new malice_grammarParser.bool_or_return();
         retval.start = input.LT(1);
@@ -1853,18 +2184,27 @@ public class malice_grammarParser extends Parser {
         CommonTree string_literal61_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:94:9: ( bool_and ( '||' bool_and )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:94:11: bool_and ( '||' bool_and )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:9: ( bool_and ( '||' bool_and )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:11: bool_and ( '||' bool_and )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_and_in_bool_or898);
+            pushFollow(FOLLOW_bool_and_in_bool_or887);
             bool_and60=bool_and();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_and60.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:94:20: ( '||' bool_and )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:20: ( '||' bool_and )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop18:
             do {
                 int alt18=2;
@@ -1877,14 +2217,18 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt18) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:94:21: '||' bool_and
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:95:21: '||' bool_and
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    {
-            	    string_literal61=(Token)match(input,69,FOLLOW_69_in_bool_or901); if (state.failed) return retval;
+            	    string_literal61=(Token)match(input,69,FOLLOW_69_in_bool_or890); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal61_tree = (CommonTree)adaptor.create(string_literal61);
             	    root_0 = (CommonTree)adaptor.becomeRoot(string_literal61_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_bool_and_in_bool_or904);
+            	    pushFollow(FOLLOW_bool_and_in_bool_or893);
             	    bool_and62=bool_and();
 
             	    state._fsp--;
@@ -1928,7 +2272,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "expr"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:96:1: expr : bool_or ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:1: expr : bool_or ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.expr_return expr() throws RecognitionException {
         malice_grammarParser.expr_return retval = new malice_grammarParser.expr_return();
         retval.start = input.LT(1);
@@ -1940,12 +2288,17 @@ public class malice_grammarParser extends Parser {
 
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:96:6: ( bool_or )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:96:8: bool_or
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:6: ( bool_or )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:97:8: bool_or
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_bool_or_in_expr915);
+            pushFollow(FOLLOW_bool_or_in_expr904);
             bool_or63=bool_or();
 
             state._fsp--;
@@ -1980,7 +2333,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "bool_expr"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:98:1: bool_expr : expr ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:1: bool_expr : expr ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.bool_expr_return bool_expr() throws RecognitionException {
         malice_grammarParser.bool_expr_return retval = new malice_grammarParser.bool_expr_return();
         retval.start = input.LT(1);
@@ -1992,12 +2349,17 @@ public class malice_grammarParser extends Parser {
 
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:98:11: ( expr )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:98:13: expr
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:11: ( expr )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:99:13: expr
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_in_bool_expr924);
+            pushFollow(FOLLOW_expr_in_bool_expr913);
             expr64=expr();
 
             state._fsp--;
@@ -2032,7 +2394,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "control_structure"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:100:1: control_structure : ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES ) ( '.' )? ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:101:1: control_structure : ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES ) ( '.' )? ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.control_structure_return control_structure() throws RecognitionException {
         malice_grammarParser.control_structure_return retval = new malice_grammarParser.control_structure_return();
         retval.start = input.LT(1);
@@ -2110,12 +2476,21 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal98_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:101:7: ( ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES ) ( '.' )? )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:101:9: ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES ) ( '.' )?
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:101:9: ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:7: ( ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES ) ( '.' )? )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:9: ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES ) ( '.' )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:9: ( PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif | EITHER lpar bool_expr rpar SO statementList OR statementList endif | EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt21=3;
             switch ( input.LA(1) ) {
             case PERHAPS:
@@ -2143,37 +2518,45 @@ public class malice_grammarParser extends Parser {
 
             switch (alt21) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:101:11: PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:102:11: PERHAPS lpar bool_expr rpar SO statementList ( OR MAYBE lpar bool_expr rpar SO statementList )* ( OR statementList )? endif
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
-                    PERHAPS65=(Token)match(input,PERHAPS,FOLLOW_PERHAPS_in_control_structure941); if (state.failed) return retval;
+                    PERHAPS65=(Token)match(input,PERHAPS,FOLLOW_PERHAPS_in_control_structure930); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PERHAPS65_tree = (CommonTree)adaptor.create(PERHAPS65);
                     root_0 = (CommonTree)adaptor.becomeRoot(PERHAPS65_tree, root_0);
                     }
-                    pushFollow(FOLLOW_lpar_in_control_structure944);
+                    pushFollow(FOLLOW_lpar_in_control_structure933);
                     lpar66=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_bool_expr_in_control_structure947);
+                    pushFollow(FOLLOW_bool_expr_in_control_structure936);
                     bool_expr67=bool_expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr67.getTree());
-                    pushFollow(FOLLOW_rpar_in_control_structure949);
+                    pushFollow(FOLLOW_rpar_in_control_structure938);
                     rpar68=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    SO69=(Token)match(input,SO,FOLLOW_SO_in_control_structure952); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statementList_in_control_structure966);
+                    SO69=(Token)match(input,SO,FOLLOW_SO_in_control_structure941); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statementList_in_control_structure955);
                     statementList70=statementList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList70.getTree());
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:103:11: ( OR MAYBE lpar bool_expr rpar SO statementList )*
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:11: ( OR MAYBE lpar bool_expr rpar SO statementList )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     loop19:
                     do {
                         int alt19=2;
@@ -2192,32 +2575,36 @@ public class malice_grammarParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
+<<<<<<< HEAD
+                    	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:103:12: OR MAYBE lpar bool_expr rpar SO statementList
+=======
                     	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:104:12: OR MAYBE lpar bool_expr rpar SO statementList
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     	    {
-                    	    OR71=(Token)match(input,OR,FOLLOW_OR_in_control_structure979); if (state.failed) return retval;
-                    	    MAYBE72=(Token)match(input,MAYBE,FOLLOW_MAYBE_in_control_structure982); if (state.failed) return retval;
+                    	    OR71=(Token)match(input,OR,FOLLOW_OR_in_control_structure968); if (state.failed) return retval;
+                    	    MAYBE72=(Token)match(input,MAYBE,FOLLOW_MAYBE_in_control_structure971); if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) {
                     	    MAYBE72_tree = (CommonTree)adaptor.create(MAYBE72);
                     	    adaptor.addChild(root_0, MAYBE72_tree);
                     	    }
-                    	    pushFollow(FOLLOW_lpar_in_control_structure984);
+                    	    pushFollow(FOLLOW_lpar_in_control_structure973);
                     	    lpar73=lpar();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
-                    	    pushFollow(FOLLOW_bool_expr_in_control_structure987);
+                    	    pushFollow(FOLLOW_bool_expr_in_control_structure976);
                     	    bool_expr74=bool_expr();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr74.getTree());
-                    	    pushFollow(FOLLOW_rpar_in_control_structure989);
+                    	    pushFollow(FOLLOW_rpar_in_control_structure978);
                     	    rpar75=rpar();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
-                    	    SO76=(Token)match(input,SO,FOLLOW_SO_in_control_structure992); if (state.failed) return retval;
-                    	    pushFollow(FOLLOW_statementList_in_control_structure995);
+                    	    SO76=(Token)match(input,SO,FOLLOW_SO_in_control_structure981); if (state.failed) return retval;
+                    	    pushFollow(FOLLOW_statementList_in_control_structure984);
                     	    statementList77=statementList();
 
                     	    state._fsp--;
@@ -2232,7 +2619,11 @@ public class malice_grammarParser extends Parser {
                         }
                     } while (true);
 
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:104:11: ( OR statementList )?
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:11: ( OR statementList )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     int alt20=2;
                     int LA20_0 = input.LA(1);
 
@@ -2241,14 +2632,18 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt20) {
                         case 1 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:104:12: OR statementList
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:105:12: OR statementList
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             {
-                            OR78=(Token)match(input,OR,FOLLOW_OR_in_control_structure1010); if (state.failed) return retval;
+                            OR78=(Token)match(input,OR,FOLLOW_OR_in_control_structure999); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             OR78_tree = (CommonTree)adaptor.create(OR78);
                             adaptor.addChild(root_0, OR78_tree);
                             }
-                            pushFollow(FOLLOW_statementList_in_control_structure1012);
+                            pushFollow(FOLLOW_statementList_in_control_structure1001);
                             statementList79=statementList();
 
                             state._fsp--;
@@ -2260,7 +2655,7 @@ public class malice_grammarParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_endif_in_control_structure1026);
+                    pushFollow(FOLLOW_endif_in_control_structure1015);
                     endif80=endif();
 
                     state._fsp--;
@@ -2269,48 +2664,52 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:106:11: EITHER lpar bool_expr rpar SO statementList OR statementList endif
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:107:11: EITHER lpar bool_expr rpar SO statementList OR statementList endif
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
-                    EITHER81=(Token)match(input,EITHER,FOLLOW_EITHER_in_control_structure1039); if (state.failed) return retval;
+                    EITHER81=(Token)match(input,EITHER,FOLLOW_EITHER_in_control_structure1028); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     EITHER81_tree = (CommonTree)adaptor.create(EITHER81);
                     root_0 = (CommonTree)adaptor.becomeRoot(EITHER81_tree, root_0);
                     }
-                    pushFollow(FOLLOW_lpar_in_control_structure1042);
+                    pushFollow(FOLLOW_lpar_in_control_structure1031);
                     lpar82=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_bool_expr_in_control_structure1045);
+                    pushFollow(FOLLOW_bool_expr_in_control_structure1034);
                     bool_expr83=bool_expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr83.getTree());
-                    pushFollow(FOLLOW_rpar_in_control_structure1047);
+                    pushFollow(FOLLOW_rpar_in_control_structure1036);
                     rpar84=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    SO85=(Token)match(input,SO,FOLLOW_SO_in_control_structure1050); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statementList_in_control_structure1063);
+                    SO85=(Token)match(input,SO,FOLLOW_SO_in_control_structure1039); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statementList_in_control_structure1052);
                     statementList86=statementList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList86.getTree());
-                    OR87=(Token)match(input,OR,FOLLOW_OR_in_control_structure1076); if (state.failed) return retval;
+                    OR87=(Token)match(input,OR,FOLLOW_OR_in_control_structure1065); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     OR87_tree = (CommonTree)adaptor.create(OR87);
                     adaptor.addChild(root_0, OR87_tree);
                     }
-                    pushFollow(FOLLOW_statementList_in_control_structure1078);
+                    pushFollow(FOLLOW_statementList_in_control_structure1067);
                     statementList88=statementList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList88.getTree());
-                    pushFollow(FOLLOW_endif_in_control_structure1090);
+                    pushFollow(FOLLOW_endif_in_control_structure1079);
                     endif89=endif();
 
                     state._fsp--;
@@ -2319,45 +2718,53 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:110:11: EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:111:11: EVENTUALLY lpar bool_expr rpar BECAUSE statementList ENOUGH TIMES
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
-                    EVENTUALLY90=(Token)match(input,EVENTUALLY,FOLLOW_EVENTUALLY_in_control_structure1103); if (state.failed) return retval;
+                    EVENTUALLY90=(Token)match(input,EVENTUALLY,FOLLOW_EVENTUALLY_in_control_structure1092); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     EVENTUALLY90_tree = (CommonTree)adaptor.create(EVENTUALLY90);
                     root_0 = (CommonTree)adaptor.becomeRoot(EVENTUALLY90_tree, root_0);
                     }
-                    pushFollow(FOLLOW_lpar_in_control_structure1106);
+                    pushFollow(FOLLOW_lpar_in_control_structure1095);
                     lpar91=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    pushFollow(FOLLOW_bool_expr_in_control_structure1109);
+                    pushFollow(FOLLOW_bool_expr_in_control_structure1098);
                     bool_expr92=bool_expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, bool_expr92.getTree());
-                    pushFollow(FOLLOW_rpar_in_control_structure1111);
+                    pushFollow(FOLLOW_rpar_in_control_structure1100);
                     rpar93=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    BECAUSE94=(Token)match(input,BECAUSE,FOLLOW_BECAUSE_in_control_structure1114); if (state.failed) return retval;
-                    pushFollow(FOLLOW_statementList_in_control_structure1127);
+                    BECAUSE94=(Token)match(input,BECAUSE,FOLLOW_BECAUSE_in_control_structure1103); if (state.failed) return retval;
+                    pushFollow(FOLLOW_statementList_in_control_structure1116);
                     statementList95=statementList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList95.getTree());
-                    ENOUGH96=(Token)match(input,ENOUGH,FOLLOW_ENOUGH_in_control_structure1139); if (state.failed) return retval;
-                    TIMES97=(Token)match(input,TIMES,FOLLOW_TIMES_in_control_structure1142); if (state.failed) return retval;
+                    ENOUGH96=(Token)match(input,ENOUGH,FOLLOW_ENOUGH_in_control_structure1128); if (state.failed) return retval;
+                    TIMES97=(Token)match(input,TIMES,FOLLOW_TIMES_in_control_structure1131); if (state.failed) return retval;
 
                     }
                     break;
 
             }
 
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:113:12: ( '.' )?
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:12: ( '.' )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -2370,9 +2777,13 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt22) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:0:0: '.'
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: '.'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
-                    char_literal98=(Token)match(input,70,FOLLOW_70_in_control_structure1153); if (state.failed) return retval;
+                    char_literal98=(Token)match(input,70,FOLLOW_70_in_control_structure1142); if (state.failed) return retval;
 
                     }
                     break;
@@ -2408,7 +2819,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "declaration_statements"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:1: declaration_statements : IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:1: declaration_statements : IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.declaration_statements_return declaration_statements() throws RecognitionException {
         malice_grammarParser.declaration_statements_return retval = new malice_grammarParser.declaration_statements_return();
         retval.start = input.LT(1);
@@ -2442,17 +2857,26 @@ public class malice_grammarParser extends Parser {
         CommonTree HAD108_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:24: ( IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:26: IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:24: ( IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:26: IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT99=(Token)match(input,IDENT,FOLLOW_IDENT_in_declaration_statements1163); if (state.failed) return retval;
+            IDENT99=(Token)match(input,IDENT,FOLLOW_IDENT_in_declaration_statements1152); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT99_tree = (CommonTree)adaptor.create(IDENT99);
             adaptor.addChild(root_0, IDENT99_tree);
             }
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:32: ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:32: ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -2471,21 +2895,29 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt25) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:34: WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )?
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:34: WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
-                    WAS100=(Token)match(input,WAS,FOLLOW_WAS_in_declaration_statements1167); if (state.failed) return retval;
+                    WAS100=(Token)match(input,WAS,FOLLOW_WAS_in_declaration_statements1156); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     WAS100_tree = (CommonTree)adaptor.create(WAS100);
                     root_0 = (CommonTree)adaptor.becomeRoot(WAS100_tree, root_0);
                     }
-                    A101=(Token)match(input,A,FOLLOW_A_in_declaration_statements1170); if (state.failed) return retval;
-                    pushFollow(FOLLOW_data_types_in_declaration_statements1173);
+                    A101=(Token)match(input,A,FOLLOW_A_in_declaration_statements1159); if (state.failed) return retval;
+                    pushFollow(FOLLOW_data_types_in_declaration_statements1162);
                     data_types102=data_types();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, data_types102.getTree());
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:53: ( TOO | OF ( LETTER | STRING | expr ) )?
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:53: ( TOO | OF ( LETTER | STRING | expr ) )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     int alt24=3;
                     int LA24_0 = input.LA(1);
 
@@ -2497,9 +2929,13 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt24) {
                         case 1 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:55: TOO
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:55: TOO
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             {
-                            TOO103=(Token)match(input,TOO,FOLLOW_TOO_in_declaration_statements1177); if (state.failed) return retval;
+                            TOO103=(Token)match(input,TOO,FOLLOW_TOO_in_declaration_statements1166); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             TOO103_tree = (CommonTree)adaptor.create(TOO103);
                             adaptor.addChild(root_0, TOO103_tree);
@@ -2508,10 +2944,17 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:61: OF ( LETTER | STRING | expr )
+                            {
+                            OF104=(Token)match(input,OF,FOLLOW_OF_in_declaration_statements1170); if (state.failed) return retval;
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:65: ( LETTER | STRING | expr )
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:61: OF ( LETTER | STRING | expr )
                             {
                             OF104=(Token)match(input,OF,FOLLOW_OF_in_declaration_statements1181); if (state.failed) return retval;
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:65: ( LETTER | STRING | expr )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             int alt23=3;
                             switch ( input.LA(1) ) {
                             case LETTER:
@@ -2545,9 +2988,13 @@ public class malice_grammarParser extends Parser {
 
                             switch (alt23) {
                                 case 1 :
+<<<<<<< HEAD
+                                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:66: LETTER
+=======
                                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:66: LETTER
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                                     {
-                                    LETTER105=(Token)match(input,LETTER,FOLLOW_LETTER_in_declaration_statements1185); if (state.failed) return retval;
+                                    LETTER105=(Token)match(input,LETTER,FOLLOW_LETTER_in_declaration_statements1174); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
                                     LETTER105_tree = (CommonTree)adaptor.create(LETTER105);
                                     adaptor.addChild(root_0, LETTER105_tree);
@@ -2556,9 +3003,13 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 2 :
+<<<<<<< HEAD
+                                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:75: STRING
+=======
                                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:75: STRING
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                                     {
-                                    STRING106=(Token)match(input,STRING,FOLLOW_STRING_in_declaration_statements1189); if (state.failed) return retval;
+                                    STRING106=(Token)match(input,STRING,FOLLOW_STRING_in_declaration_statements1178); if (state.failed) return retval;
                                     if ( state.backtracking==0 ) {
                                     STRING106_tree = (CommonTree)adaptor.create(STRING106);
                                     adaptor.addChild(root_0, STRING106_tree);
@@ -2567,9 +3018,13 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 3 :
+<<<<<<< HEAD
+                                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:115:84: expr
+=======
                                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:84: expr
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                                     {
-                                    pushFollow(FOLLOW_expr_in_declaration_statements1193);
+                                    pushFollow(FOLLOW_expr_in_declaration_statements1182);
                                     expr107=expr();
 
                                     state._fsp--;
@@ -2591,20 +3046,24 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:35: HAD expr data_types
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:117:35: HAD expr data_types
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
-                    HAD108=(Token)match(input,HAD,FOLLOW_HAD_in_declaration_statements1233); if (state.failed) return retval;
+                    HAD108=(Token)match(input,HAD,FOLLOW_HAD_in_declaration_statements1222); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     HAD108_tree = (CommonTree)adaptor.create(HAD108);
                     root_0 = (CommonTree)adaptor.becomeRoot(HAD108_tree, root_0);
                     }
-                    pushFollow(FOLLOW_expr_in_declaration_statements1236);
+                    pushFollow(FOLLOW_expr_in_declaration_statements1225);
                     expr109=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr109.getTree());
-                    pushFollow(FOLLOW_data_types_in_declaration_statements1238);
+                    pushFollow(FOLLOW_data_types_in_declaration_statements1227);
                     data_types110=data_types();
 
                     state._fsp--;
@@ -2645,7 +3104,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "argument"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:1: argument : ( expr | LETTER | STRING | array_elem );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:1: argument : ( expr | LETTER | STRING | array_elem );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.argument_return argument() throws RecognitionException {
         malice_grammarParser.argument_return retval = new malice_grammarParser.argument_return();
         retval.start = input.LT(1);
@@ -2663,16 +3126,24 @@ public class malice_grammarParser extends Parser {
         CommonTree STRING113_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:9: ( expr | LETTER | STRING | array_elem )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:9: ( expr | LETTER | STRING | array_elem )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt26=4;
             alt26 = dfa26.predict(input);
             switch (alt26) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:11: expr
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:11: expr
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expr_in_argument1304);
+                    pushFollow(FOLLOW_expr_in_argument1293);
                     expr111=expr();
 
                     state._fsp--;
@@ -2682,11 +3153,15 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:18: LETTER
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:18: LETTER
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    LETTER112=(Token)match(input,LETTER,FOLLOW_LETTER_in_argument1308); if (state.failed) return retval;
+                    LETTER112=(Token)match(input,LETTER,FOLLOW_LETTER_in_argument1297); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     LETTER112_tree = (CommonTree)adaptor.create(LETTER112);
                     adaptor.addChild(root_0, LETTER112_tree);
@@ -2695,11 +3170,15 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:27: STRING
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:27: STRING
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    STRING113=(Token)match(input,STRING,FOLLOW_STRING_in_argument1312); if (state.failed) return retval;
+                    STRING113=(Token)match(input,STRING,FOLLOW_STRING_in_argument1301); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STRING113_tree = (CommonTree)adaptor.create(STRING113);
                     adaptor.addChild(root_0, STRING113_tree);
@@ -2708,11 +3187,15 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 4 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:36: array_elem
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:36: array_elem
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_array_elem_in_argument1316);
+                    pushFollow(FOLLOW_array_elem_in_argument1305);
                     array_elem114=array_elem();
 
                     state._fsp--;
@@ -2749,7 +3232,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "arguments_to_functions"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:1: arguments_to_functions : ( ( argument ( ',' argument )* )? | function_call );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:1: arguments_to_functions : ( ( argument ( ',' argument )* )? | function_call );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.arguments_to_functions_return arguments_to_functions() throws RecognitionException {
         malice_grammarParser.arguments_to_functions_return retval = new malice_grammarParser.arguments_to_functions_return();
         retval.start = input.LT(1);
@@ -2767,16 +3254,28 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal116_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:24: ( ( argument ( ',' argument )* )? | function_call )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:24: ( ( argument ( ',' argument )* )? | function_call )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt29=2;
             alt29 = dfa29.predict(input);
             switch (alt29) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:26: ( argument ( ',' argument )* )?
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:26: ( argument ( ',' argument )* )?
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:26: ( argument ( ',' argument )* )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:26: ( argument ( ',' argument )* )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     int alt28=2;
                     int LA28_0 = input.LA(1);
 
@@ -2785,15 +3284,23 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt28) {
                         case 1 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:27: argument ( ',' argument )*
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:27: argument ( ',' argument )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             {
-                            pushFollow(FOLLOW_argument_in_arguments_to_functions1324);
+                            pushFollow(FOLLOW_argument_in_arguments_to_functions1313);
                             argument115=argument();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) adaptor.addChild(root_0, argument115.getTree());
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:36: ( ',' argument )*
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:36: ( ',' argument )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             loop27:
                             do {
                                 int alt27=2;
@@ -2806,10 +3313,14 @@ public class malice_grammarParser extends Parser {
 
                                 switch (alt27) {
                             	case 1 :
+<<<<<<< HEAD
+                            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:37: ',' argument
+=======
                             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:37: ',' argument
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             	    {
-                            	    char_literal116=(Token)match(input,71,FOLLOW_71_in_arguments_to_functions1327); if (state.failed) return retval;
-                            	    pushFollow(FOLLOW_argument_in_arguments_to_functions1330);
+                            	    char_literal116=(Token)match(input,71,FOLLOW_71_in_arguments_to_functions1316); if (state.failed) return retval;
+                            	    pushFollow(FOLLOW_argument_in_arguments_to_functions1319);
                             	    argument117=argument();
 
                             	    state._fsp--;
@@ -2834,11 +3345,15 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:57: function_call
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:57: function_call
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_function_call_in_arguments_to_functions1338);
+                    pushFollow(FOLLOW_function_call_in_arguments_to_functions1327);
                     function_call118=function_call();
 
                     state._fsp--;
@@ -2875,7 +3390,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "rest_statements"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:122:1: rest_statements : ( ( expr print )=> ( expr print ) | ( LETTER | STRING ) print | IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) | ALICE FOUND ( expr | LETTER | STRING ) );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:123:1: rest_statements : ( ( expr print )=> ( expr print ) | ( LETTER | STRING ) print | IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) | ALICE FOUND ( expr | LETTER | STRING ) );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.rest_statements_return rest_statements() throws RecognitionException {
         malice_grammarParser.rest_statements_return retval = new malice_grammarParser.rest_statements_return();
         retval.start = input.LT(1);
@@ -2923,11 +3442,25 @@ public class malice_grammarParser extends Parser {
         CommonTree STRING137_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:122:17: ( ( expr print )=> ( expr print ) | ( LETTER | STRING ) print | IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) | ALICE FOUND ( expr | LETTER | STRING ) )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:123:17: ( ( expr print )=> ( expr print ) | ( LETTER | STRING ) print | IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) | ALICE FOUND ( expr | LETTER | STRING ) )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt34=4;
             alt34 = dfa34.predict(input);
             switch (alt34) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:122:21: ( expr print )=> ( expr print )
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:122:38: ( expr print )
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:122:39: expr print
+                    {
+                    pushFollow(FOLLOW_expr_in_rest_statements1346);
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:123:21: ( expr print )=> ( expr print )
                     {
                     root_0 = (CommonTree)adaptor.nil();
@@ -2941,12 +3474,17 @@ public class malice_grammarParser extends Parser {
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
                     {
                     pushFollow(FOLLOW_expr_in_rest_statements1358);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     expr119=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr119.getTree());
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_print_in_rest_statements1348);
+=======
                     pushFollow(FOLLOW_print_in_rest_statements1360);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     print120=print();
 
                     state._fsp--;
@@ -2959,7 +3497,11 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:123:9: ( LETTER | STRING ) print
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:124:9: ( LETTER | STRING ) print
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2975,7 +3517,11 @@ public class malice_grammarParser extends Parser {
                         throw mse;
                     }
 
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_print_in_rest_statements1373);
+=======
                     pushFollow(FOLLOW_print_in_rest_statements1386);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     print122=print();
 
                     state._fsp--;
@@ -2985,19 +3531,34 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:124:8: IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) )
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    IDENT123=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements1382); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:8: IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     IDENT123=(Token)match(input,IDENT,FOLLOW_IDENT_in_rest_statements1395); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     IDENT123_tree = (CommonTree)adaptor.create(IDENT123);
                     adaptor.addChild(root_0, IDENT123_tree);
                     }
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:9: ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) )
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:11: ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK )
+                    {
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:11: ( '\\'s' expr PIECE )?
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:126:9: ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) )
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:126:11: ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK )
                     {
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:126:11: ( '\\'s' expr PIECE )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     int alt30=2;
                     int LA30_0 = input.LA(1);
 
@@ -3006,16 +3567,27 @@ public class malice_grammarParser extends Parser {
                     }
                     switch (alt30) {
                         case 1 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:12: '\\'s' expr PIECE
+                            {
+                            string_literal124=(Token)match(input,51,FOLLOW_51_in_rest_statements1395); if (state.failed) return retval;
+                            pushFollow(FOLLOW_expr_in_rest_statements1398);
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:126:12: '\\'s' expr PIECE
                             {
                             string_literal124=(Token)match(input,51,FOLLOW_51_in_rest_statements1408); if (state.failed) return retval;
                             pushFollow(FOLLOW_expr_in_rest_statements1411);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             expr125=expr();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr125.getTree());
+<<<<<<< HEAD
+                            PIECE126=(Token)match(input,PIECE,FOLLOW_PIECE_in_rest_statements1400); if (state.failed) return retval;
+=======
                             PIECE126=(Token)match(input,PIECE,FOLLOW_PIECE_in_rest_statements1413); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             if ( state.backtracking==0 ) {
                             PIECE126_tree = (CommonTree)adaptor.create(PIECE126);
                             adaptor.addChild(root_0, PIECE126_tree);
@@ -3026,7 +3598,11 @@ public class malice_grammarParser extends Parser {
 
                     }
 
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:13: ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK )
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:13: ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     int alt32=3;
                     switch ( input.LA(1) ) {
                     case BECAME:
@@ -3054,14 +3630,24 @@ public class malice_grammarParser extends Parser {
 
                     switch (alt32) {
                         case 1 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:17: BECAME ( expr | LETTER | STRING )
+                            {
+                            BECAME127=(Token)match(input,BECAME,FOLLOW_BECAME_in_rest_statements1420); if (state.failed) return retval;
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:17: BECAME ( expr | LETTER | STRING )
                             {
                             BECAME127=(Token)match(input,BECAME,FOLLOW_BECAME_in_rest_statements1433); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             if ( state.backtracking==0 ) {
                             BECAME127_tree = (CommonTree)adaptor.create(BECAME127);
                             root_0 = (CommonTree)adaptor.becomeRoot(BECAME127_tree, root_0);
                             }
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:26: ( expr | LETTER | STRING )
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:26: ( expr | LETTER | STRING )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             int alt31=3;
                             switch ( input.LA(1) ) {
                             case NUMBER:
@@ -3095,9 +3681,15 @@ public class malice_grammarParser extends Parser {
 
                             switch (alt31) {
                                 case 1 :
+<<<<<<< HEAD
+                                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:27: expr
+                                    {
+                                    pushFollow(FOLLOW_expr_in_rest_statements1425);
+=======
                                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:27: expr
                                     {
                                     pushFollow(FOLLOW_expr_in_rest_statements1438);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                                     expr128=expr();
 
                                     state._fsp--;
@@ -3107,9 +3699,15 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 2 :
+<<<<<<< HEAD
+                                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:34: LETTER
+                                    {
+                                    LETTER129=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1429); if (state.failed) return retval;
+=======
                                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:34: LETTER
                                     {
                                     LETTER129=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1442); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                                     if ( state.backtracking==0 ) {
                                     LETTER129_tree = (CommonTree)adaptor.create(LETTER129);
                                     adaptor.addChild(root_0, LETTER129_tree);
@@ -3118,9 +3716,15 @@ public class malice_grammarParser extends Parser {
                                     }
                                     break;
                                 case 3 :
+<<<<<<< HEAD
+                                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:43: STRING
+                                    {
+                                    STRING130=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1433); if (state.failed) return retval;
+=======
                                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:43: STRING
                                     {
                                     STRING130=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1446); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                                     if ( state.backtracking==0 ) {
                                     STRING130_tree = (CommonTree)adaptor.create(STRING130);
                                     adaptor.addChild(root_0, STRING130_tree);
@@ -3135,9 +3739,15 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:127:18: ATE
+                            {
+                            ATE131=(Token)match(input,ATE,FOLLOW_ATE_in_rest_statements1454); if (state.failed) return retval;
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:128:18: ATE
                             {
                             ATE131=(Token)match(input,ATE,FOLLOW_ATE_in_rest_statements1467); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             if ( state.backtracking==0 ) {
                             ATE131_tree = (CommonTree)adaptor.create(ATE131);
                             root_0 = (CommonTree)adaptor.becomeRoot(ATE131_tree, root_0);
@@ -3146,9 +3756,15 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 3 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:128:18: DRANK
+                            {
+                            DRANK132=(Token)match(input,DRANK,FOLLOW_DRANK_in_rest_statements1475); if (state.failed) return retval;
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:129:18: DRANK
                             {
                             DRANK132=(Token)match(input,DRANK,FOLLOW_DRANK_in_rest_statements1488); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             if ( state.backtracking==0 ) {
                             DRANK132_tree = (CommonTree)adaptor.create(DRANK132);
                             root_0 = (CommonTree)adaptor.becomeRoot(DRANK132_tree, root_0);
@@ -3166,17 +3782,30 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 4 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:131:7: ALICE FOUND ( expr | LETTER | STRING )
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    ALICE133=(Token)match(input,ALICE,FOLLOW_ALICE_in_rest_statements1508); if (state.failed) return retval;
+                    FOUND134=(Token)match(input,FOUND,FOLLOW_FOUND_in_rest_statements1511); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:7: ALICE FOUND ( expr | LETTER | STRING )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     ALICE133=(Token)match(input,ALICE,FOLLOW_ALICE_in_rest_statements1521); if (state.failed) return retval;
                     FOUND134=(Token)match(input,FOUND,FOLLOW_FOUND_in_rest_statements1524); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     FOUND134_tree = (CommonTree)adaptor.create(FOUND134);
                     root_0 = (CommonTree)adaptor.becomeRoot(FOUND134_tree, root_0);
                     }
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:131:21: ( expr | LETTER | STRING )
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:21: ( expr | LETTER | STRING )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     int alt33=3;
                     switch ( input.LA(1) ) {
                     case NUMBER:
@@ -3210,9 +3839,15 @@ public class malice_grammarParser extends Parser {
 
                     switch (alt33) {
                         case 1 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:131:22: expr
+                            {
+                            pushFollow(FOLLOW_expr_in_rest_statements1515);
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:22: expr
                             {
                             pushFollow(FOLLOW_expr_in_rest_statements1528);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             expr135=expr();
 
                             state._fsp--;
@@ -3222,9 +3857,15 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 2 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:131:29: LETTER
+                            {
+                            LETTER136=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1519); if (state.failed) return retval;
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:29: LETTER
                             {
                             LETTER136=(Token)match(input,LETTER,FOLLOW_LETTER_in_rest_statements1532); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             if ( state.backtracking==0 ) {
                             LETTER136_tree = (CommonTree)adaptor.create(LETTER136);
                             adaptor.addChild(root_0, LETTER136_tree);
@@ -3233,9 +3874,15 @@ public class malice_grammarParser extends Parser {
                             }
                             break;
                         case 3 :
+<<<<<<< HEAD
+                            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:131:38: STRING
+                            {
+                            STRING137=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1523); if (state.failed) return retval;
+=======
                             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:132:38: STRING
                             {
                             STRING137=(Token)match(input,STRING,FOLLOW_STRING_in_rest_statements1536); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                             if ( state.backtracking==0 ) {
                             STRING137_tree = (CommonTree)adaptor.create(STRING137);
                             adaptor.addChild(root_0, STRING137_tree);
@@ -3277,7 +3924,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "read_statement"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:1: read_statement : WHAT WAS ( IDENT | array_elem ) '?' ( '.' )? ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:1: read_statement : WHAT WAS ( IDENT | array_elem ) '?' ( '.' )? ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.read_statement_return read_statement() throws RecognitionException {
         malice_grammarParser.read_statement_return retval = new malice_grammarParser.read_statement_return();
         retval.start = input.LT(1);
@@ -3299,16 +3950,29 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal143_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:16: ( WHAT WAS ( IDENT | array_elem ) '?' ( '.' )? )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:18: WHAT WAS ( IDENT | array_elem ) '?' ( '.' )?
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            WHAT138=(Token)match(input,WHAT,FOLLOW_WHAT_in_read_statement1538); if (state.failed) return retval;
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:16: ( WHAT WAS ( IDENT | array_elem ) '?' ( '.' )? )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:18: WHAT WAS ( IDENT | array_elem ) '?' ( '.' )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
             WHAT138=(Token)match(input,WHAT,FOLLOW_WHAT_in_read_statement1551); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             if ( state.backtracking==0 ) {
             WHAT138_tree = (CommonTree)adaptor.create(WHAT138);
             root_0 = (CommonTree)adaptor.becomeRoot(WHAT138_tree, root_0);
             }
+<<<<<<< HEAD
+            WAS139=(Token)match(input,WAS,FOLLOW_WAS_in_read_statement1541); if (state.failed) return retval;
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:29: ( IDENT | array_elem )
+=======
 <<<<<<< HEAD
             WAS139=(Token)match(input,WAS,FOLLOW_WAS_in_read_statement1554); if (state.failed) return retval;
             // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:29: ( IDENT | array_elem )
@@ -3316,6 +3980,7 @@ public class malice_grammarParser extends Parser {
             WAS139=(Token)match(input,WAS,FOLLOW_WAS_in_read_statement1552); if (state.failed) return retval;
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:29: ( IDENT | array_elem )
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt35=2;
             int LA35_0 = input.LA(1);
 
@@ -3345,9 +4010,15 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt35) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:30: IDENT
+                    {
+                    IDENT140=(Token)match(input,IDENT,FOLLOW_IDENT_in_read_statement1545); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:30: IDENT
                     {
                     IDENT140=(Token)match(input,IDENT,FOLLOW_IDENT_in_read_statement1558); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     IDENT140_tree = (CommonTree)adaptor.create(IDENT140);
                     adaptor.addChild(root_0, IDENT140_tree);
@@ -3356,9 +4027,15 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:38: array_elem
+                    {
+                    pushFollow(FOLLOW_array_elem_in_read_statement1549);
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:38: array_elem
                     {
                     pushFollow(FOLLOW_array_elem_in_read_statement1562);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     array_elem141=array_elem();
 
                     state._fsp--;
@@ -3371,12 +4048,17 @@ public class malice_grammarParser extends Parser {
             }
 
 <<<<<<< HEAD
+            char_literal142=(Token)match(input,72,FOLLOW_72_in_read_statement1552); if (state.failed) return retval;
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:55: ( '.' )?
+=======
+<<<<<<< HEAD
             char_literal142=(Token)match(input,72,FOLLOW_72_in_read_statement1565); if (state.failed) return retval;
             // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:55: ( '.' )?
 =======
             char_literal142=(Token)match(input,72,FOLLOW_72_in_read_statement1563); if (state.failed) return retval;
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:55: ( '.' )?
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt36=2;
             int LA36_0 = input.LA(1);
 
@@ -3389,9 +4071,15 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt36) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:56: '.'
+                    {
+                    char_literal143=(Token)match(input,70,FOLLOW_70_in_read_statement1556); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:56: '.'
                     {
                     char_literal143=(Token)match(input,70,FOLLOW_70_in_read_statement1569); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                     }
                     break;
@@ -3427,7 +4115,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "print"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:135:1: print : ( SPOKE | SAID ALICE );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:136:1: print : ( SPOKE | SAID ALICE );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.print_return print() throws RecognitionException {
         malice_grammarParser.print_return retval = new malice_grammarParser.print_return();
         retval.start = input.LT(1);
@@ -3443,7 +4135,11 @@ public class malice_grammarParser extends Parser {
         CommonTree ALICE146_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:135:6: ( SPOKE | SAID ALICE )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:136:6: ( SPOKE | SAID ALICE )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt37=2;
             int LA37_0 = input.LA(1);
 
@@ -3462,11 +4158,19 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt37) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:136:5: SPOKE
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    SPOKE144=(Token)match(input,SPOKE,FOLLOW_SPOKE_in_print1571); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:137:5: SPOKE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     SPOKE144=(Token)match(input,SPOKE,FOLLOW_SPOKE_in_print1584); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     SPOKE144_tree = (CommonTree)adaptor.create(SPOKE144);
                     root_0 = (CommonTree)adaptor.becomeRoot(SPOKE144_tree, root_0);
@@ -3475,16 +4179,28 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:136:14: SAID ALICE
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    SAID145=(Token)match(input,SAID,FOLLOW_SAID_in_print1576); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:137:14: SAID ALICE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     SAID145=(Token)match(input,SAID,FOLLOW_SAID_in_print1589); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     SAID145_tree = (CommonTree)adaptor.create(SAID145);
                     root_0 = (CommonTree)adaptor.becomeRoot(SAID145_tree, root_0);
                     }
+<<<<<<< HEAD
+                    ALICE146=(Token)match(input,ALICE,FOLLOW_ALICE_in_print1579); if (state.failed) return retval;
+=======
                     ALICE146=(Token)match(input,ALICE,FOLLOW_ALICE_in_print1592); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                     }
                     break;
@@ -3516,7 +4232,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "function_call"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:139:1: function_call : function_name lpar arguments_to_functions rpar ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:140:1: function_call : function_name lpar arguments_to_functions rpar ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.function_call_return function_call() throws RecognitionException {
         malice_grammarParser.function_call_return retval = new malice_grammarParser.function_call_return();
         retval.start = input.LT(1);
@@ -3534,30 +4254,51 @@ public class malice_grammarParser extends Parser {
 
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:139:15: ( function_name lpar arguments_to_functions rpar )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:139:17: function_name lpar arguments_to_functions rpar
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            pushFollow(FOLLOW_function_name_in_function_call1593);
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:140:15: ( function_name lpar arguments_to_functions rpar )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:140:17: function_name lpar arguments_to_functions rpar
             {
             root_0 = (CommonTree)adaptor.nil();
 
             pushFollow(FOLLOW_function_name_in_function_call1606);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             function_name147=function_name();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot(function_name147.getTree(), root_0);
+<<<<<<< HEAD
+            pushFollow(FOLLOW_lpar_in_function_call1596);
+=======
             pushFollow(FOLLOW_lpar_in_function_call1609);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             lpar148=lpar();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, lpar148.getTree());
+<<<<<<< HEAD
+            pushFollow(FOLLOW_arguments_to_functions_in_function_call1598);
+=======
             pushFollow(FOLLOW_arguments_to_functions_in_function_call1611);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             arguments_to_functions149=arguments_to_functions();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, arguments_to_functions149.getTree());
+<<<<<<< HEAD
+            pushFollow(FOLLOW_rpar_in_function_call1600);
+=======
             pushFollow(FOLLOW_rpar_in_function_call1613);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             rpar150=rpar();
 
             state._fsp--;
@@ -3592,7 +4333,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "statement"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:1: statement : ( rest_statements | function_call | declaration_statements );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:1: statement : ( rest_statements | function_call | declaration_statements );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.statement_return statement() throws RecognitionException {
         malice_grammarParser.statement_return retval = new malice_grammarParser.statement_return();
         retval.start = input.LT(1);
@@ -3608,16 +4353,28 @@ public class malice_grammarParser extends Parser {
 
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:11: ( rest_statements | function_call | declaration_statements )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:11: ( rest_statements | function_call | declaration_statements )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt38=3;
             alt38 = dfa38.predict(input);
             switch (alt38) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:13: rest_statements
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    pushFollow(FOLLOW_rest_statements_in_statement1608);
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:13: rest_statements
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     pushFollow(FOLLOW_rest_statements_in_statement1621);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     rest_statements151=rest_statements();
 
                     state._fsp--;
@@ -3627,11 +4384,19 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:31: function_call
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    pushFollow(FOLLOW_function_call_in_statement1612);
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:31: function_call
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     pushFollow(FOLLOW_function_call_in_statement1625);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     function_call152=function_call();
 
                     state._fsp--;
@@ -3641,11 +4406,19 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 3 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:47: declaration_statements
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    pushFollow(FOLLOW_declaration_statements_in_statement1616);
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:47: declaration_statements
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     pushFollow(FOLLOW_declaration_statements_in_statement1629);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     declaration_statements153=declaration_statements();
 
                     state._fsp--;
@@ -3682,7 +4455,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "statement_conjunctions"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:142:1: statement_conjunctions : ( AND | THEN | BUT | ',' | '.' );
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:143:1: statement_conjunctions : ( AND | THEN | BUT | ',' | '.' );
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.statement_conjunctions_return statement_conjunctions() throws RecognitionException {
         malice_grammarParser.statement_conjunctions_return retval = new malice_grammarParser.statement_conjunctions_return();
         retval.start = input.LT(1);
@@ -3702,7 +4479,11 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal158_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:142:24: ( AND | THEN | BUT | ',' | '.' )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:143:24: ( AND | THEN | BUT | ',' | '.' )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt39=5;
             switch ( input.LA(1) ) {
             case AND:
@@ -3740,47 +4521,87 @@ public class malice_grammarParser extends Parser {
 
             switch (alt39) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:142:26: AND
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    AND154=(Token)match(input,AND,FOLLOW_AND_in_statement_conjunctions1629); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:143:26: AND
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     AND154=(Token)match(input,AND,FOLLOW_AND_in_statement_conjunctions1642); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:142:33: THEN
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    THEN155=(Token)match(input,THEN,FOLLOW_THEN_in_statement_conjunctions1634); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:143:33: THEN
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     THEN155=(Token)match(input,THEN,FOLLOW_THEN_in_statement_conjunctions1647); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                     }
                     break;
                 case 3 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:142:41: BUT
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    BUT156=(Token)match(input,BUT,FOLLOW_BUT_in_statement_conjunctions1639); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:143:41: BUT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     BUT156=(Token)match(input,BUT,FOLLOW_BUT_in_statement_conjunctions1652); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                     }
                     break;
                 case 4 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:142:48: ','
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    char_literal157=(Token)match(input,71,FOLLOW_71_in_statement_conjunctions1644); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:143:48: ','
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     char_literal157=(Token)match(input,71,FOLLOW_71_in_statement_conjunctions1657); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                     }
                     break;
                 case 5 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:142:54: '.'
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    char_literal158=(Token)match(input,70,FOLLOW_70_in_statement_conjunctions1648); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:143:54: '.'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     char_literal158=(Token)match(input,70,FOLLOW_70_in_statement_conjunctions1661); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                     }
                     break;
@@ -3812,7 +4633,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "statementList"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:1: statementList : ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:1: statementList : ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.statementList_return statementList() throws RecognitionException {
         malice_grammarParser.statementList_return retval = new malice_grammarParser.statementList_return();
         retval.start = input.LT(1);
@@ -3836,12 +4661,21 @@ public class malice_grammarParser extends Parser {
 
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:15: ( ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:15: ( ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:17: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function | function )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop42:
             do {
                 int alt42=6;
@@ -3892,12 +4726,21 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt42) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:18: ( ( statement )? statement_conjunctions )
+            	    {
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:18: ( ( statement )? statement_conjunctions )
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:19: ( statement )? statement_conjunctions
+            	    {
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:19: ( statement )?
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:18: ( ( statement )? statement_conjunctions )
             	    {
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:18: ( ( statement )? statement_conjunctions )
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:19: ( statement )? statement_conjunctions
             	    {
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:19: ( statement )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    int alt40=2;
             	    int LA40_0 = input.LA(1);
 
@@ -3906,9 +4749,15 @@ public class malice_grammarParser extends Parser {
             	    }
             	    switch (alt40) {
             	        case 1 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:0:0: statement
+            	            {
+            	            pushFollow(FOLLOW_statement_in_statementList1659);
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement
             	            {
             	            pushFollow(FOLLOW_statement_in_statementList1672);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            statement159=statement();
 
             	            state._fsp--;
@@ -3920,7 +4769,11 @@ public class malice_grammarParser extends Parser {
 
             	    }
 
+<<<<<<< HEAD
+            	    pushFollow(FOLLOW_statement_conjunctions_in_statementList1662);
+=======
             	    pushFollow(FOLLOW_statement_conjunctions_in_statementList1675);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    statement_conjunctions160=statement_conjunctions();
 
             	    state._fsp--;
@@ -3933,9 +4786,15 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 2 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:56: control_structure
+            	    {
+            	    pushFollow(FOLLOW_control_structure_in_statementList1667);
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:56: control_structure
             	    {
             	    pushFollow(FOLLOW_control_structure_in_statementList1680);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    control_structure161=control_structure();
 
             	    state._fsp--;
@@ -3945,15 +4804,25 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 3 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:76: read_statement ( statement_conjunctions )?
+            	    {
+            	    pushFollow(FOLLOW_read_statement_in_statementList1671);
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:76: read_statement ( statement_conjunctions )?
             	    {
             	    pushFollow(FOLLOW_read_statement_in_statementList1684);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    read_statement162=read_statement();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) adaptor.addChild(root_0, read_statement162.getTree());
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:91: ( statement_conjunctions )?
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:91: ( statement_conjunctions )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    int alt41=2;
             	    switch ( input.LA(1) ) {
             	        case AND:
@@ -4005,9 +4874,15 @@ public class malice_grammarParser extends Parser {
 
             	    switch (alt41) {
             	        case 1 :
+<<<<<<< HEAD
+            	            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:0:0: statement_conjunctions
+            	            {
+            	            pushFollow(FOLLOW_statement_conjunctions_in_statementList1673);
+=======
             	            // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: statement_conjunctions
             	            {
             	            pushFollow(FOLLOW_statement_conjunctions_in_statementList1686);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	            statement_conjunctions163=statement_conjunctions();
 
             	            state._fsp--;
@@ -4023,9 +4898,15 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 4 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:117: nested_function
+            	    {
+            	    pushFollow(FOLLOW_nested_function_in_statementList1678);
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:117: nested_function
             	    {
             	    pushFollow(FOLLOW_nested_function_in_statementList1691);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    nested_function164=nested_function();
 
             	    state._fsp--;
@@ -4035,9 +4916,15 @@ public class malice_grammarParser extends Parser {
             	    }
             	    break;
             	case 5 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:145:19: function
+            	    {
+            	    pushFollow(FOLLOW_function_in_statementList1702);
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:146:19: function
             	    {
             	    pushFollow(FOLLOW_function_in_statementList1715);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    function165=function();
 
             	    state._fsp--;
@@ -4081,7 +4968,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "parameter"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:1: parameter : ( SPIDER )? data_types IDENT ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:148:1: parameter : ( SPIDER )? data_types IDENT ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.parameter_return parameter() throws RecognitionException {
         malice_grammarParser.parameter_return retval = new malice_grammarParser.parameter_return();
         retval.start = input.LT(1);
@@ -4097,12 +4988,21 @@ public class malice_grammarParser extends Parser {
         CommonTree IDENT168_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:11: ( ( SPIDER )? data_types IDENT )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:13: ( SPIDER )? data_types IDENT
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:13: ( SPIDER )?
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:148:11: ( ( SPIDER )? data_types IDENT )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:148:13: ( SPIDER )? data_types IDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:148:13: ( SPIDER )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -4111,9 +5011,15 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt43) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:14: SPIDER
+                    {
+                    SPIDER166=(Token)match(input,SPIDER,FOLLOW_SPIDER_in_parameter1713); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:148:14: SPIDER
                     {
                     SPIDER166=(Token)match(input,SPIDER,FOLLOW_SPIDER_in_parameter1726); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     SPIDER166_tree = (CommonTree)adaptor.create(SPIDER166);
                     adaptor.addChild(root_0, SPIDER166_tree);
@@ -4124,13 +5030,21 @@ public class malice_grammarParser extends Parser {
 
             }
 
+<<<<<<< HEAD
+            pushFollow(FOLLOW_data_types_in_parameter1717);
+=======
             pushFollow(FOLLOW_data_types_in_parameter1730);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             data_types167=data_types();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot(data_types167.getTree(), root_0);
+<<<<<<< HEAD
+            IDENT168=(Token)match(input,IDENT,FOLLOW_IDENT_in_parameter1720); if (state.failed) return retval;
+=======
             IDENT168=(Token)match(input,IDENT,FOLLOW_IDENT_in_parameter1733); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             if ( state.backtracking==0 ) {
             IDENT168_tree = (CommonTree)adaptor.create(IDENT168);
             adaptor.addChild(root_0, IDENT168_tree);
@@ -4164,7 +5078,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "parameters"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:1: parameters : ( parameter ( ',' parameter )* )? ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:150:1: parameters : ( parameter ( ',' parameter )* )? ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.parameters_return parameters() throws RecognitionException {
         malice_grammarParser.parameters_return retval = new malice_grammarParser.parameters_return();
         retval.start = input.LT(1);
@@ -4180,12 +5098,21 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal170_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:12: ( ( parameter ( ',' parameter )* )? )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:14: ( parameter ( ',' parameter )* )?
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:14: ( parameter ( ',' parameter )* )?
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:150:12: ( ( parameter ( ',' parameter )* )? )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:150:14: ( parameter ( ',' parameter )* )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:150:14: ( parameter ( ',' parameter )* )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt45=2;
             int LA45_0 = input.LA(1);
 
@@ -4194,15 +5121,25 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt45) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:15: parameter ( ',' parameter )*
+                    {
+                    pushFollow(FOLLOW_parameter_in_parameters1730);
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:150:15: parameter ( ',' parameter )*
                     {
                     pushFollow(FOLLOW_parameter_in_parameters1743);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     parameter169=parameter();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, parameter169.getTree());
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:25: ( ',' parameter )*
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:150:25: ( ',' parameter )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     loop44:
                     do {
                         int alt44=2;
@@ -4215,10 +5152,17 @@ public class malice_grammarParser extends Parser {
 
                         switch (alt44) {
                     	case 1 :
+<<<<<<< HEAD
+                    	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:27: ',' parameter
+                    	    {
+                    	    char_literal170=(Token)match(input,71,FOLLOW_71_in_parameters1734); if (state.failed) return retval;
+                    	    pushFollow(FOLLOW_parameter_in_parameters1737);
+=======
                     	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:150:27: ',' parameter
                     	    {
                     	    char_literal170=(Token)match(input,71,FOLLOW_71_in_parameters1747); if (state.failed) return retval;
                     	    pushFollow(FOLLOW_parameter_in_parameters1750);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     	    parameter171=parameter();
 
                     	    state._fsp--;
@@ -4268,7 +5212,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "function_name"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:150:1: function_name : IDENT ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:1: function_name : IDENT ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.function_name_return function_name() throws RecognitionException {
         malice_grammarParser.function_name_return retval = new malice_grammarParser.function_name_return();
         retval.start = input.LT(1);
@@ -4280,12 +5228,21 @@ public class malice_grammarParser extends Parser {
         CommonTree IDENT172_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:150:15: ( IDENT )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:150:17: IDENT
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            IDENT172=(Token)match(input,IDENT,FOLLOW_IDENT_in_function_name1749); if (state.failed) return retval;
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:15: ( IDENT )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:151:17: IDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
             IDENT172=(Token)match(input,IDENT,FOLLOW_IDENT_in_function_name1762); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             if ( state.backtracking==0 ) {
             IDENT172_tree = (CommonTree)adaptor.create(IDENT172);
             adaptor.addChild(root_0, IDENT172_tree);
@@ -4319,7 +5276,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "nested_function"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:151:1: nested_function : OPENED statementList CLOSED ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:152:1: nested_function : OPENED statementList CLOSED ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.nested_function_return nested_function() throws RecognitionException {
         malice_grammarParser.nested_function_return retval = new malice_grammarParser.nested_function_return();
         retval.start = input.LT(1);
@@ -4335,23 +5296,40 @@ public class malice_grammarParser extends Parser {
         CommonTree CLOSED175_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:151:17: ( OPENED statementList CLOSED )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:151:19: OPENED statementList CLOSED
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            OPENED173=(Token)match(input,OPENED,FOLLOW_OPENED_in_nested_function1756); if (state.failed) return retval;
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:152:17: ( OPENED statementList CLOSED )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:152:19: OPENED statementList CLOSED
             {
             root_0 = (CommonTree)adaptor.nil();
 
             OPENED173=(Token)match(input,OPENED,FOLLOW_OPENED_in_nested_function1769); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             if ( state.backtracking==0 ) {
             OPENED173_tree = (CommonTree)adaptor.create(OPENED173);
             root_0 = (CommonTree)adaptor.becomeRoot(OPENED173_tree, root_0);
             }
+<<<<<<< HEAD
+            pushFollow(FOLLOW_statementList_in_nested_function1759);
+=======
             pushFollow(FOLLOW_statementList_in_nested_function1772);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             statementList174=statementList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList174.getTree());
+<<<<<<< HEAD
+            CLOSED175=(Token)match(input,CLOSED,FOLLOW_CLOSED_in_nested_function1761); if (state.failed) return retval;
+=======
             CLOSED175=(Token)match(input,CLOSED,FOLLOW_CLOSED_in_nested_function1774); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
             }
 
@@ -4381,7 +5359,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "function"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:152:1: function : THE ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types ) OPENED statementList CLOSED ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:153:1: function : THE ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types ) OPENED statementList CLOSED ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.function_return function() throws RecognitionException {
         malice_grammarParser.function_return retval = new malice_grammarParser.function_return();
         retval.start = input.LT(1);
@@ -4429,6 +5411,15 @@ public class malice_grammarParser extends Parser {
         CommonTree CLOSED194_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:152:9: ( THE ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types ) OPENED statementList CLOSED )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:152:11: THE ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types ) OPENED statementList CLOSED
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            THE176=(Token)match(input,THE,FOLLOW_THE_in_function1769); if (state.failed) return retval;
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:152:16: ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types )
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:153:9: ( THE ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types ) OPENED statementList CLOSED )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:153:11: THE ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types ) OPENED statementList CLOSED
             {
@@ -4441,6 +5432,7 @@ public class malice_grammarParser extends Parser {
             THE176=(Token)match(input,THE,FOLLOW_THE_in_function1780); if (state.failed) return retval;
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:153:16: ( LOOKING '-' GLASS function_name lpar parameters rpar | ROOM function_name lpar parameters rpar CONTAINED A data_types )
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int alt46=2;
             int LA46_0 = input.LA(1);
 
@@ -4459,33 +5451,57 @@ public class malice_grammarParser extends Parser {
             }
             switch (alt46) {
                 case 1 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:152:18: LOOKING '-' GLASS function_name lpar parameters rpar
+                    {
+                    LOOKING177=(Token)match(input,LOOKING,FOLLOW_LOOKING_in_function1774); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:153:18: LOOKING '-' GLASS function_name lpar parameters rpar
                     {
                     LOOKING177=(Token)match(input,LOOKING,FOLLOW_LOOKING_in_function1787); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     LOOKING177_tree = (CommonTree)adaptor.create(LOOKING177);
                     root_0 = (CommonTree)adaptor.becomeRoot(LOOKING177_tree, root_0);
                     }
+<<<<<<< HEAD
+                    char_literal178=(Token)match(input,54,FOLLOW_54_in_function1777); if (state.failed) return retval;
+                    GLASS179=(Token)match(input,GLASS,FOLLOW_GLASS_in_function1780); if (state.failed) return retval;
+                    pushFollow(FOLLOW_function_name_in_function1783);
+=======
                     char_literal178=(Token)match(input,54,FOLLOW_54_in_function1790); if (state.failed) return retval;
                     GLASS179=(Token)match(input,GLASS,FOLLOW_GLASS_in_function1793); if (state.failed) return retval;
                     pushFollow(FOLLOW_function_name_in_function1796);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     function_name180=function_name();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, function_name180.getTree());
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_lpar_in_function1785);
+=======
                     pushFollow(FOLLOW_lpar_in_function1798);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     lpar181=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_parameters_in_function1788);
+=======
                     pushFollow(FOLLOW_parameters_in_function1801);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     parameters182=parameters();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, parameters182.getTree());
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_rpar_in_function1790);
+=======
                     pushFollow(FOLLOW_rpar_in_function1803);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     rpar183=rpar();
 
                     state._fsp--;
@@ -4494,42 +5510,73 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
+<<<<<<< HEAD
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:153:21: ROOM function_name lpar parameters rpar CONTAINED A data_types
+                    {
+                    ROOM184=(Token)match(input,ROOM,FOLLOW_ROOM_in_function1814); if (state.failed) return retval;
+=======
                     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:154:21: ROOM function_name lpar parameters rpar CONTAINED A data_types
                     {
                     ROOM184=(Token)match(input,ROOM,FOLLOW_ROOM_in_function1827); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     ROOM184_tree = (CommonTree)adaptor.create(ROOM184);
                     root_0 = (CommonTree)adaptor.becomeRoot(ROOM184_tree, root_0);
                     }
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_function_name_in_function1817);
+=======
                     pushFollow(FOLLOW_function_name_in_function1830);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     function_name185=function_name();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, function_name185.getTree());
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_lpar_in_function1819);
+=======
                     pushFollow(FOLLOW_lpar_in_function1832);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     lpar186=lpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_parameters_in_function1822);
+=======
                     pushFollow(FOLLOW_parameters_in_function1835);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     parameters187=parameters();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, parameters187.getTree());
+<<<<<<< HEAD
+                    pushFollow(FOLLOW_rpar_in_function1824);
+=======
                     pushFollow(FOLLOW_rpar_in_function1837);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     rpar188=rpar();
 
                     state._fsp--;
                     if (state.failed) return retval;
+<<<<<<< HEAD
+                    CONTAINED189=(Token)match(input,CONTAINED,FOLLOW_CONTAINED_in_function1827); if (state.failed) return retval;
+=======
                     CONTAINED189=(Token)match(input,CONTAINED,FOLLOW_CONTAINED_in_function1840); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     if ( state.backtracking==0 ) {
                     CONTAINED189_tree = (CommonTree)adaptor.create(CONTAINED189);
                     adaptor.addChild(root_0, CONTAINED189_tree);
                     }
+<<<<<<< HEAD
+                    A190=(Token)match(input,A,FOLLOW_A_in_function1829); if (state.failed) return retval;
+                    pushFollow(FOLLOW_data_types_in_function1832);
+=======
                     A190=(Token)match(input,A,FOLLOW_A_in_function1842); if (state.failed) return retval;
                     pushFollow(FOLLOW_data_types_in_function1845);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                     data_types191=data_types();
 
                     state._fsp--;
@@ -4541,14 +5588,23 @@ public class malice_grammarParser extends Parser {
 
             }
 
+<<<<<<< HEAD
+            OPENED192=(Token)match(input,OPENED,FOLLOW_OPENED_in_function1863); if (state.failed) return retval;
+            pushFollow(FOLLOW_statementList_in_function1876);
+=======
             OPENED192=(Token)match(input,OPENED,FOLLOW_OPENED_in_function1876); if (state.failed) return retval;
             pushFollow(FOLLOW_statementList_in_function1889);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             statementList193=statementList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, statementList193.getTree());
+<<<<<<< HEAD
+            CLOSED194=(Token)match(input,CLOSED,FOLLOW_CLOSED_in_function1888); if (state.failed) return retval;
+=======
             CLOSED194=(Token)match(input,CLOSED,FOLLOW_CLOSED_in_function1901); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
             }
 
@@ -4578,7 +5634,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "global_declaration"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:1: global_declaration : ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:1: global_declaration : ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.global_declaration_return global_declaration() throws RecognitionException {
         malice_grammarParser.global_declaration_return retval = new malice_grammarParser.global_declaration_return();
         retval.start = input.LT(1);
@@ -4596,12 +5656,21 @@ public class malice_grammarParser extends Parser {
         CommonTree char_literal198_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:20: ( ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:20: ( ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )* )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:22: ( declaration_statements ( statement_conjunctions declaration_statements )* '.' )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             loop48:
             do {
                 int alt48=2;
@@ -4614,15 +5683,25 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt48) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
+            	    {
+            	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1919);
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:23: declaration_statements ( statement_conjunctions declaration_statements )* '.'
             	    {
             	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1932);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    declaration_statements195=declaration_statements();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) adaptor.addChild(root_0, declaration_statements195.getTree());
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:46: ( statement_conjunctions declaration_statements )*
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:46: ( statement_conjunctions declaration_statements )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    loop47:
             	    do {
             	        int alt47=2;
@@ -4644,15 +5723,25 @@ public class malice_grammarParser extends Parser {
 
             	        switch (alt47) {
             	    	case 1 :
+<<<<<<< HEAD
+            	    	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:47: statement_conjunctions declaration_statements
+            	    	    {
+            	    	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1922);
+=======
             	    	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:47: statement_conjunctions declaration_statements
             	    	    {
             	    	    pushFollow(FOLLOW_statement_conjunctions_in_global_declaration1935);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    	    statement_conjunctions196=statement_conjunctions();
 
             	    	    state._fsp--;
             	    	    if (state.failed) return retval;
             	    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, statement_conjunctions196.getTree());
+<<<<<<< HEAD
+            	    	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1924);
+=======
             	    	    pushFollow(FOLLOW_declaration_statements_in_global_declaration1937);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    	    declaration_statements197=declaration_statements();
 
             	    	    state._fsp--;
@@ -4667,7 +5756,11 @@ public class malice_grammarParser extends Parser {
             	        }
             	    } while (true);
 
+<<<<<<< HEAD
+            	    char_literal198=(Token)match(input,70,FOLLOW_70_in_global_declaration1928); if (state.failed) return retval;
+=======
             	    char_literal198=(Token)match(input,70,FOLLOW_70_in_global_declaration1941); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
             	    }
             	    break;
@@ -4706,7 +5799,11 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "program"
+<<<<<<< HEAD
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:161:1: program : global_declaration ( function )+ EOF ;
+=======
     // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:162:1: program : global_declaration ( function )+ EOF ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
     public final malice_grammarParser.program_return program() throws RecognitionException {
         malice_grammarParser.program_return retval = new malice_grammarParser.program_return();
         retval.start = input.LT(1);
@@ -4722,18 +5819,31 @@ public class malice_grammarParser extends Parser {
         CommonTree EOF201_tree=null;
 
         try {
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:161:9: ( global_declaration ( function )+ EOF )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:161:11: global_declaration ( function )+ EOF
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            pushFollow(FOLLOW_global_declaration_in_program1939);
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:162:9: ( global_declaration ( function )+ EOF )
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:162:11: global_declaration ( function )+ EOF
             {
             root_0 = (CommonTree)adaptor.nil();
 
             pushFollow(FOLLOW_global_declaration_in_program1952);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             global_declaration199=global_declaration();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, global_declaration199.getTree());
+<<<<<<< HEAD
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:161:30: ( function )+
+=======
             // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:162:30: ( function )+
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             int cnt49=0;
             loop49:
             do {
@@ -4747,9 +5857,15 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt49) {
             	case 1 :
+<<<<<<< HEAD
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:0:0: function
+            	    {
+            	    pushFollow(FOLLOW_function_in_program1941);
+=======
             	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:0:0: function
             	    {
             	    pushFollow(FOLLOW_function_in_program1954);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
             	    function200=function();
 
             	    state._fsp--;
@@ -4769,7 +5885,11 @@ public class malice_grammarParser extends Parser {
                 cnt49++;
             } while (true);
 
+<<<<<<< HEAD
+            EOF201=(Token)match(input,EOF,FOLLOW_EOF_in_program1944); if (state.failed) return retval;
+=======
             EOF201=(Token)match(input,EOF,FOLLOW_EOF_in_program1957); if (state.failed) return retval;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
             }
 
@@ -4795,10 +5915,15 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred31_malice_grammar
     public final void synpred31_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:113:9: ( '.' )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:113:9: '.'
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:9: ( '.' )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:114:9: '.'
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         {
-        match(input,70,FOLLOW_70_in_synpred31_malice_grammar1153); if (state.failed) return ;
+        match(input,70,FOLLOW_70_in_synpred31_malice_grammar1142); if (state.failed) return ;
 
         }
     }
@@ -4806,10 +5931,15 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred37_malice_grammar
     public final void synpred37_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:11: ( expr )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:120:11: expr
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:11: ( expr )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:121:11: expr
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         {
-        pushFollow(FOLLOW_expr_in_synpred37_malice_grammar1304);
+        pushFollow(FOLLOW_expr_in_synpred37_malice_grammar1293);
         expr();
 
         state._fsp--;
@@ -4821,10 +5951,17 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred42_malice_grammar
     public final void synpred42_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:26: ( ( argument ( ',' argument )* )? )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:26: ( argument ( ',' argument )* )?
+        {
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:26: ( argument ( ',' argument )* )?
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:26: ( ( argument ( ',' argument )* )? )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:26: ( argument ( ',' argument )* )?
         {
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:26: ( argument ( ',' argument )* )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         int alt58=2;
         int LA58_0 = input.LA(1);
 
@@ -4833,14 +5970,22 @@ public class malice_grammarParser extends Parser {
         }
         switch (alt58) {
             case 1 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:27: argument ( ',' argument )*
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:27: argument ( ',' argument )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 {
-                pushFollow(FOLLOW_argument_in_synpred42_malice_grammar1324);
+                pushFollow(FOLLOW_argument_in_synpred42_malice_grammar1313);
                 argument();
 
                 state._fsp--;
                 if (state.failed) return ;
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:36: ( ',' argument )*
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:36: ( ',' argument )*
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 loop57:
                 do {
                     int alt57=2;
@@ -4853,10 +5998,14 @@ public class malice_grammarParser extends Parser {
 
                     switch (alt57) {
                 	case 1 :
+<<<<<<< HEAD
+                	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:121:37: ',' argument
+=======
                 	    // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:122:37: ',' argument
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 	    {
-                	    match(input,71,FOLLOW_71_in_synpred42_malice_grammar1327); if (state.failed) return ;
-                	    pushFollow(FOLLOW_argument_in_synpred42_malice_grammar1330);
+                	    match(input,71,FOLLOW_71_in_synpred42_malice_grammar1316); if (state.failed) return ;
+                	    pushFollow(FOLLOW_argument_in_synpred42_malice_grammar1319);
                 	    argument();
 
                 	    state._fsp--;
@@ -4883,15 +6032,20 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred43_malice_grammar
     public final void synpred43_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:122:21: ( expr print )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:122:22: expr print
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:123:21: ( expr print )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:123:22: expr print
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         {
-        pushFollow(FOLLOW_expr_in_synpred43_malice_grammar1348);
+        pushFollow(FOLLOW_expr_in_synpred43_malice_grammar1337);
         expr();
 
         state._fsp--;
         if (state.failed) return ;
-        pushFollow(FOLLOW_print_in_synpred43_malice_grammar1350);
+        pushFollow(FOLLOW_print_in_synpred43_malice_grammar1339);
         print();
 
         state._fsp--;
@@ -4903,6 +6057,16 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred51_malice_grammar
     public final void synpred51_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:124:8: ( IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:124:8: IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) )
+        {
+        match(input,IDENT,FOLLOW_IDENT_in_synpred51_malice_grammar1382); if (state.failed) return ;
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:9: ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:11: ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK )
+        {
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:11: ( '\\'s' expr PIECE )?
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:8: ( IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:125:8: IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) )
         {
@@ -4917,6 +6081,7 @@ public class malice_grammarParser extends Parser {
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
         {
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:126:11: ( '\\'s' expr PIECE )?
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         int alt60=2;
         int LA60_0 = input.LA(1);
 
@@ -4925,22 +6090,37 @@ public class malice_grammarParser extends Parser {
         }
         switch (alt60) {
             case 1 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:125:12: '\\'s' expr PIECE
+                {
+                match(input,51,FOLLOW_51_in_synpred51_malice_grammar1395); if (state.failed) return ;
+                pushFollow(FOLLOW_expr_in_synpred51_malice_grammar1398);
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:126:12: '\\'s' expr PIECE
                 {
                 match(input,51,FOLLOW_51_in_synpred51_malice_grammar1408); if (state.failed) return ;
                 pushFollow(FOLLOW_expr_in_synpred51_malice_grammar1411);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 expr();
 
                 state._fsp--;
                 if (state.failed) return ;
+<<<<<<< HEAD
+                match(input,PIECE,FOLLOW_PIECE_in_synpred51_malice_grammar1400); if (state.failed) return ;
+=======
                 match(input,PIECE,FOLLOW_PIECE_in_synpred51_malice_grammar1413); if (state.failed) return ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                 }
                 break;
 
         }
 
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:13: ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK )
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:13: ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK )
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         int alt62=3;
         switch ( input.LA(1) ) {
         case BECAME:
@@ -4968,6 +6148,12 @@ public class malice_grammarParser extends Parser {
 
         switch (alt62) {
             case 1 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:17: BECAME ( expr | LETTER | STRING )
+                {
+                match(input,BECAME,FOLLOW_BECAME_in_synpred51_malice_grammar1420); if (state.failed) return ;
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:26: ( expr | LETTER | STRING )
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:17: BECAME ( expr | LETTER | STRING )
                 {
 <<<<<<< HEAD
@@ -4977,6 +6163,7 @@ public class malice_grammarParser extends Parser {
                 match(input,BECAME,FOLLOW_BECAME_in_synpred51_malice_grammar1431); if (state.failed) return ;
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:26: ( expr | LETTER | STRING )
 >>>>>>> ea8a39469ba08af743890c44185f452b97464f2e
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                 int alt61=3;
                 switch ( input.LA(1) ) {
                 case NUMBER:
@@ -5010,9 +6197,15 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt61) {
                     case 1 :
+<<<<<<< HEAD
+                        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:27: expr
+                        {
+                        pushFollow(FOLLOW_expr_in_synpred51_malice_grammar1425);
+=======
                         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:27: expr
                         {
                         pushFollow(FOLLOW_expr_in_synpred51_malice_grammar1438);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
                         expr();
 
                         state._fsp--;
@@ -5021,16 +6214,28 @@ public class malice_grammarParser extends Parser {
                         }
                         break;
                     case 2 :
+<<<<<<< HEAD
+                        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:34: LETTER
+                        {
+                        match(input,LETTER,FOLLOW_LETTER_in_synpred51_malice_grammar1429); if (state.failed) return ;
+=======
                         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:34: LETTER
                         {
                         match(input,LETTER,FOLLOW_LETTER_in_synpred51_malice_grammar1442); if (state.failed) return ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                         }
                         break;
                     case 3 :
+<<<<<<< HEAD
+                        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:126:43: STRING
+                        {
+                        match(input,STRING,FOLLOW_STRING_in_synpred51_malice_grammar1433); if (state.failed) return ;
+=======
                         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:127:43: STRING
                         {
                         match(input,STRING,FOLLOW_STRING_in_synpred51_malice_grammar1446); if (state.failed) return ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                         }
                         break;
@@ -5041,16 +6246,28 @@ public class malice_grammarParser extends Parser {
                 }
                 break;
             case 2 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:127:18: ATE
+                {
+                match(input,ATE,FOLLOW_ATE_in_synpred51_malice_grammar1454); if (state.failed) return ;
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:128:18: ATE
                 {
                 match(input,ATE,FOLLOW_ATE_in_synpred51_malice_grammar1467); if (state.failed) return ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                 }
                 break;
             case 3 :
+<<<<<<< HEAD
+                // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:128:18: DRANK
+                {
+                match(input,DRANK,FOLLOW_DRANK_in_synpred51_malice_grammar1475); if (state.failed) return ;
+=======
                 // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:129:18: DRANK
                 {
                 match(input,DRANK,FOLLOW_DRANK_in_synpred51_malice_grammar1488); if (state.failed) return ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
                 }
                 break;
@@ -5067,10 +6284,17 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred55_malice_grammar
     public final void synpred55_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:56: ( '.' )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:134:56: '.'
+        {
+        match(input,70,FOLLOW_70_in_synpred55_malice_grammar1556); if (state.failed) return ;
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:56: ( '.' )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:135:56: '.'
         {
         match(input,70,FOLLOW_70_in_synpred55_malice_grammar1569); if (state.failed) return ;
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
         }
     }
@@ -5078,10 +6302,17 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred57_malice_grammar
     public final void synpred57_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:13: ( rest_statements )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:13: rest_statements
+        {
+        pushFollow(FOLLOW_rest_statements_in_synpred57_malice_grammar1608);
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:13: ( rest_statements )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:13: rest_statements
         {
         pushFollow(FOLLOW_rest_statements_in_synpred57_malice_grammar1621);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         rest_statements();
 
         state._fsp--;
@@ -5093,10 +6324,17 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred58_malice_grammar
     public final void synpred58_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:31: ( function_call )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:140:31: function_call
+        {
+        pushFollow(FOLLOW_function_call_in_synpred58_malice_grammar1612);
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:31: ( function_call )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:141:31: function_call
         {
         pushFollow(FOLLOW_function_call_in_synpred58_malice_grammar1625);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         function_call();
 
         state._fsp--;
@@ -5108,10 +6346,17 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred66_malice_grammar
     public final void synpred66_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:91: ( statement_conjunctions )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:144:91: statement_conjunctions
+        {
+        pushFollow(FOLLOW_statement_conjunctions_in_synpred66_malice_grammar1673);
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:91: ( statement_conjunctions )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:145:91: statement_conjunctions
         {
         pushFollow(FOLLOW_statement_conjunctions_in_synpred66_malice_grammar1686);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         statement_conjunctions();
 
         state._fsp--;
@@ -5123,15 +6368,26 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred74_malice_grammar
     public final void synpred74_malice_grammar_fragment() throws RecognitionException {   
+<<<<<<< HEAD
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:47: ( statement_conjunctions declaration_statements )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:160:47: statement_conjunctions declaration_statements
+        {
+        pushFollow(FOLLOW_statement_conjunctions_in_synpred74_malice_grammar1922);
+=======
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:47: ( statement_conjunctions declaration_statements )
         // C:\\Users\\Varun\\Desktop\\Malice\\malice\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:161:47: statement_conjunctions declaration_statements
         {
         pushFollow(FOLLOW_statement_conjunctions_in_synpred74_malice_grammar1935);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         statement_conjunctions();
 
         state._fsp--;
         if (state.failed) return ;
+<<<<<<< HEAD
+        pushFollow(FOLLOW_declaration_statements_in_synpred74_malice_grammar1924);
+=======
         pushFollow(FOLLOW_declaration_statements_in_synpred74_malice_grammar1937);
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
         declaration_statements();
 
         state._fsp--;
@@ -5345,7 +6601,7 @@ public class malice_grammarParser extends Parser {
             this.transition = DFA26_transition;
         }
         public String getDescription() {
-            return "121:1: argument : ( expr | LETTER | STRING | array_elem );";
+            return "120:1: argument : ( expr | LETTER | STRING | array_elem );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -5431,7 +6687,7 @@ public class malice_grammarParser extends Parser {
             this.transition = DFA29_transition;
         }
         public String getDescription() {
-            return "122:1: arguments_to_functions : ( ( argument ( ',' argument )* )? | function_call );";
+            return "121:1: arguments_to_functions : ( ( argument ( ',' argument )* )? | function_call );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -5517,7 +6773,7 @@ public class malice_grammarParser extends Parser {
             this.transition = DFA34_transition;
         }
         public String getDescription() {
-            return "123:1: rest_statements : ( ( expr print )=> ( expr print ) | ( LETTER | STRING ) print | IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) | ALICE FOUND ( expr | LETTER | STRING ) );";
+            return "122:1: rest_statements : ( ( expr print )=> ( expr print ) | ( LETTER | STRING ) print | IDENT ( ( '\\'s' expr PIECE )? ( BECAME ( expr | LETTER | STRING ) | ATE | DRANK ) ) | ALICE FOUND ( expr | LETTER | STRING ) );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -5632,7 +6888,7 @@ public class malice_grammarParser extends Parser {
             this.transition = DFA38_transition;
         }
         public String getDescription() {
-            return "141:1: statement : ( rest_statements | function_call | declaration_statements );";
+            return "140:1: statement : ( rest_statements | function_call | declaration_statements );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -5665,24 +6921,232 @@ public class malice_grammarParser extends Parser {
     }
  
 
-    public static final BitSet FOLLOW_BECAUSE_in_endif440 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_ALICE_in_endif442 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_WAS_in_endif444 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_UNSURE_in_endif446 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_WHICH_in_endif448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_lpar601 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_rpar608 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_array_elem616 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51_in_array_elem618 = new BitSet(new long[]{0x00F2180000000000L});
-    public static final BitSet FOLLOW_expr_in_array_elem621 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_PIECE_in_array_elem623 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_atom629 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_51_in_atom632 = new BitSet(new long[]{0x00F2180000000000L});
-    public static final BitSet FOLLOW_expr_in_atom635 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_PIECE_in_atom637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NUMBER_in_atom643 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_function_call_in_atom647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BECAUSE_in_endif429 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_ALICE_in_endif431 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_WAS_in_endif433 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_UNSURE_in_endif435 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_WHICH_in_endif437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_lpar590 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_rpar597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_array_elem605 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_51_in_array_elem607 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_expr_in_array_elem610 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_PIECE_in_array_elem612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_atom618 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_51_in_atom621 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_expr_in_atom624 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_PIECE_in_atom626 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NUMBER_in_atom632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_atom636 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_data_types0 = new BitSet(new long[]{0x0000000000000002L});
+<<<<<<< HEAD
+    public static final BitSet FOLLOW_atom_in_term662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_lpar_in_term666 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_expr_in_term669 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_term671 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_bool_neg681 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_term_in_bool_neg686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_unary_op694 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_54_in_unary_op699 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_55_in_unary_op704 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_neg_in_unary_op709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_unary_op_in_mult716 = new BitSet(new long[]{0x0700000000000002L});
+    public static final BitSet FOLLOW_56_in_mult720 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_57_in_mult725 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_58_in_mult730 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_unary_op_in_mult734 = new BitSet(new long[]{0x0700000000000002L});
+    public static final BitSet FOLLOW_mult_in_add744 = new BitSet(new long[]{0x00C0000000000002L});
+    public static final BitSet FOLLOW_55_in_add748 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_54_in_add753 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_mult_in_add757 = new BitSet(new long[]{0x00C0000000000002L});
+    public static final BitSet FOLLOW_add_in_bool_comp767 = new BitSet(new long[]{0x7800000000000002L});
+    public static final BitSet FOLLOW_59_in_bool_comp771 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_60_in_bool_comp776 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_61_in_bool_comp781 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_62_in_bool_comp786 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_add_in_bool_comp790 = new BitSet(new long[]{0x7800000000000002L});
+    public static final BitSet FOLLOW_bool_comp_in_bool_eq800 = new BitSet(new long[]{0x8000000000000002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_63_in_bool_eq804 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_64_in_bool_eq809 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_comp_in_bool_eq813 = new BitSet(new long[]{0x8000000000000002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_bool_eq_in_bitw_and823 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_bitw_and826 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_eq_in_bitw_and829 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
+    public static final BitSet FOLLOW_bitw_and_in_bitw_xor839 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_66_in_bitw_xor842 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bitw_and_in_bitw_xor845 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_bitw_xor_in_bitw_or855 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L});
+    public static final BitSet FOLLOW_67_in_bitw_or858 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bitw_xor_in_bitw_or861 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L});
+    public static final BitSet FOLLOW_bitw_or_in_bool_and871 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_bool_and874 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bitw_or_in_bool_and877 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_bool_and_in_bool_or887 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000020L});
+    public static final BitSet FOLLOW_69_in_bool_or890 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_and_in_bool_or893 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000020L});
+    public static final BitSet FOLLOW_bool_or_in_expr904 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_bool_expr913 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PERHAPS_in_control_structure930 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_lpar_in_control_structure933 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure936 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_control_structure938 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_SO_in_control_structure941 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_control_structure955 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_OR_in_control_structure968 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_MAYBE_in_control_structure971 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_lpar_in_control_structure973 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure976 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_control_structure978 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_SO_in_control_structure981 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_control_structure984 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_OR_in_control_structure999 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_control_structure1001 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_endif_in_control_structure1015 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
+    public static final BitSet FOLLOW_EITHER_in_control_structure1028 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_lpar_in_control_structure1031 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure1034 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_control_structure1036 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_SO_in_control_structure1039 = new BitSet(new long[]{0x00F39F0508903080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_control_structure1052 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_OR_in_control_structure1065 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_control_structure1067 = new BitSet(new long[]{0x00F39F0508983080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_endif_in_control_structure1079 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
+    public static final BitSet FOLLOW_EVENTUALLY_in_control_structure1092 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_lpar_in_control_structure1095 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_bool_expr_in_control_structure1098 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_control_structure1100 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_BECAUSE_in_control_structure1103 = new BitSet(new long[]{0x00F39F0509901080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_control_structure1116 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_ENOUGH_in_control_structure1128 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_TIMES_in_control_structure1131 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
+    public static final BitSet FOLLOW_70_in_control_structure1142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_declaration_statements1152 = new BitSet(new long[]{0x0000000000018000L});
+    public static final BitSet FOLLOW_WAS_in_declaration_statements1156 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_A_in_declaration_statements1159 = new BitSet(new long[]{0x0000000000000E00L});
+    public static final BitSet FOLLOW_data_types_in_declaration_statements1162 = new BitSet(new long[]{0x0000000060000002L});
+    public static final BitSet FOLLOW_TOO_in_declaration_statements1166 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OF_in_declaration_statements1170 = new BitSet(new long[]{0x00F3980000000000L});
+    public static final BitSet FOLLOW_LETTER_in_declaration_statements1174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_declaration_statements1178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_declaration_statements1182 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_HAD_in_declaration_statements1222 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_expr_in_declaration_statements1225 = new BitSet(new long[]{0x0000000000000E00L});
+    public static final BitSet FOLLOW_data_types_in_declaration_statements1227 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_argument1293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_argument1297 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_argument1301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_array_elem_in_argument1305 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_argument_in_arguments_to_functions1313 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_71_in_arguments_to_functions1316 = new BitSet(new long[]{0x00F3980000000000L});
+    public static final BitSet FOLLOW_argument_in_arguments_to_functions1319 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_function_call_in_arguments_to_functions1327 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_rest_statements1346 = new BitSet(new long[]{0x0000000080020000L});
+    public static final BitSet FOLLOW_print_in_rest_statements1348 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_rest_statements1365 = new BitSet(new long[]{0x0000000080020000L});
+    public static final BitSet FOLLOW_print_in_rest_statements1373 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_rest_statements1382 = new BitSet(new long[]{0x0008000000000070L});
+    public static final BitSet FOLLOW_51_in_rest_statements1395 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_expr_in_rest_statements1398 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_PIECE_in_rest_statements1400 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_BECAME_in_rest_statements1420 = new BitSet(new long[]{0x00F3980000000000L});
+    public static final BitSet FOLLOW_expr_in_rest_statements1425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_rest_statements1429 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_rest_statements1433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ATE_in_rest_statements1454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DRANK_in_rest_statements1475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALICE_in_rest_statements1508 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_FOUND_in_rest_statements1511 = new BitSet(new long[]{0x00F3980000000000L});
+    public static final BitSet FOLLOW_expr_in_rest_statements1515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_rest_statements1519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_rest_statements1523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHAT_in_read_statement1538 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_WAS_in_read_statement1541 = new BitSet(new long[]{0x00F3980000000000L});
+    public static final BitSet FOLLOW_IDENT_in_read_statement1545 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_array_elem_in_read_statement1549 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_72_in_read_statement1552 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
+    public static final BitSet FOLLOW_70_in_read_statement1556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SPOKE_in_print1571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SAID_in_print1576 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_ALICE_in_print1579 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_name_in_function_call1593 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_lpar_in_function_call1596 = new BitSet(new long[]{0x00F7980000000000L});
+    public static final BitSet FOLLOW_arguments_to_functions_in_function_call1598 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_function_call1600 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rest_statements_in_statement1608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_statement1612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_statements_in_statement1616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_AND_in_statement_conjunctions1629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THEN_in_statement_conjunctions1634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BUT_in_statement_conjunctions1639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_statement_conjunctions1644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_statement_conjunctions1648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_statementList1659 = new BitSet(new long[]{0x00F39F0000100000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1662 = new BitSet(new long[]{0x00F39F0508901082L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_control_structure_in_statementList1667 = new BitSet(new long[]{0x00F39F0508901082L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_read_statement_in_statementList1671 = new BitSet(new long[]{0x00F39F0508901082L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_statementList1673 = new BitSet(new long[]{0x00F39F0508901082L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_nested_function_in_statementList1678 = new BitSet(new long[]{0x00F39F0508901082L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_function_in_statementList1702 = new BitSet(new long[]{0x00F39F0508901082L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_SPIDER_in_parameter1713 = new BitSet(new long[]{0x0000000000000E00L});
+    public static final BitSet FOLLOW_data_types_in_parameter1717 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_IDENT_in_parameter1720 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parameter_in_parameters1730 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_71_in_parameters1734 = new BitSet(new long[]{0x0000008000000E00L});
+    public static final BitSet FOLLOW_parameter_in_parameters1737 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_IDENT_in_function_name1749 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OPENED_in_nested_function1756 = new BitSet(new long[]{0x00F39F0708901080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_nested_function1759 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_CLOSED_in_nested_function1761 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THE_in_function1769 = new BitSet(new long[]{0x0000002800000000L});
+    public static final BitSet FOLLOW_LOOKING_in_function1774 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_54_in_function1777 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_GLASS_in_function1780 = new BitSet(new long[]{0x0000180000000000L});
+    public static final BitSet FOLLOW_function_name_in_function1783 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_lpar_in_function1785 = new BitSet(new long[]{0x0004008000000E00L});
+    public static final BitSet FOLLOW_parameters_in_function1788 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_function1790 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_ROOM_in_function1814 = new BitSet(new long[]{0x0000180000000000L});
+    public static final BitSet FOLLOW_function_name_in_function1817 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_lpar_in_function1819 = new BitSet(new long[]{0x0004008000000E00L});
+    public static final BitSet FOLLOW_parameters_in_function1822 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rpar_in_function1824 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_CONTAINED_in_function1827 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_A_in_function1829 = new BitSet(new long[]{0x0000000000000E00L});
+    public static final BitSet FOLLOW_data_types_in_function1832 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_OPENED_in_function1863 = new BitSet(new long[]{0x00F39F0708901080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statementList_in_function1876 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_CLOSED_in_function1888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1919 = new BitSet(new long[]{0x00F39F0000100000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_global_declaration1922 = new BitSet(new long[]{0x00F3980000100000L});
+    public static final BitSet FOLLOW_declaration_statements_in_global_declaration1924 = new BitSet(new long[]{0x00F39F0000100000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_70_in_global_declaration1928 = new BitSet(new long[]{0x00F3980000100002L});
+    public static final BitSet FOLLOW_global_declaration_in_program1939 = new BitSet(new long[]{0x00F39F0508901080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_function_in_program1941 = new BitSet(new long[]{0x00F39F0508901080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_EOF_in_program1944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_synpred31_malice_grammar1142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_synpred37_malice_grammar1293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_argument_in_synpred42_malice_grammar1313 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_71_in_synpred42_malice_grammar1316 = new BitSet(new long[]{0x00F3980000000000L});
+    public static final BitSet FOLLOW_argument_in_synpred42_malice_grammar1319 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_expr_in_synpred43_malice_grammar1337 = new BitSet(new long[]{0x0000000080020000L});
+    public static final BitSet FOLLOW_print_in_synpred43_malice_grammar1339 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred51_malice_grammar1382 = new BitSet(new long[]{0x0008000000000070L});
+    public static final BitSet FOLLOW_51_in_synpred51_malice_grammar1395 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_expr_in_synpred51_malice_grammar1398 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_PIECE_in_synpred51_malice_grammar1400 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_BECAME_in_synpred51_malice_grammar1420 = new BitSet(new long[]{0x00F3980000000000L});
+    public static final BitSet FOLLOW_expr_in_synpred51_malice_grammar1425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LETTER_in_synpred51_malice_grammar1429 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_synpred51_malice_grammar1433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ATE_in_synpred51_malice_grammar1454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DRANK_in_synpred51_malice_grammar1475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_synpred55_malice_grammar1556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rest_statements_in_synpred57_malice_grammar1608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_function_call_in_synpred58_malice_grammar1612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_synpred66_malice_grammar1673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_synpred74_malice_grammar1922 = new BitSet(new long[]{0x00F3980000100000L});
+    public static final BitSet FOLLOW_declaration_statements_in_synpred74_malice_grammar1924 = new BitSet(new long[]{0x0000000000000002L});
+=======
     public static final BitSet FOLLOW_atom_in_term673 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_lpar_in_term677 = new BitSet(new long[]{0x00F2180000000000L});
     public static final BitSet FOLLOW_expr_in_term680 = new BitSet(new long[]{0x0004000000000000L});
@@ -5889,5 +7353,6 @@ public class malice_grammarParser extends Parser {
     public static final BitSet FOLLOW_statement_conjunctions_in_synpred66_malice_grammar1686 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_statement_conjunctions_in_synpred74_malice_grammar1935 = new BitSet(new long[]{0x00F3980000100000L});
     public static final BitSet FOLLOW_declaration_statements_in_synpred74_malice_grammar1937 = new BitSet(new long[]{0x0000000000000002L});
+>>>>>>> 87bfdcd25a9c78f1bb573a724696f8a180fd4a72
 
 }
