@@ -25,9 +25,10 @@ public class StatementChecker {
 	}
 
 
-	private static boolean checkStatement(Tree node, SymbolTable symbolTable)
+	public static boolean checkStatement(Tree node, SymbolTable symbolTable)
 	{
 		String var = node.getChild(0).getText();
+		int currentScopeLevel = symbolTable.getCurrentScopeLevel();
 
 		if (node.getText().contentEquals("was"))
 		{
@@ -52,7 +53,7 @@ public class StatementChecker {
 		else if ( node.getText().contentEquals("ate") ||  node.getText().contentEquals("drank"))
 		{	
 
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(null))
+			if (!symbolTable.checkVariableIsInOtherScopeLevels(var, currentScopeLevel))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " : "
@@ -80,7 +81,7 @@ public class StatementChecker {
 		else if ( node.getText().contentEquals("became"))
 		{
 
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkVariableIsInOtherScopeLevels(var, currentScopeLevel))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
@@ -106,7 +107,7 @@ public class StatementChecker {
 		else if ( node.getText().contentEquals("spoke") || node.getText().contentEquals("said"))
 		{
 
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkVariableIsInOtherScopeLevels(var, currentScopeLevel))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
@@ -126,7 +127,7 @@ public class StatementChecker {
 		else if ( node.getText().contentEquals("what"))
 
 		{
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkVariableIsInOtherScopeLevels(var, currentScopeLevel))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
@@ -144,7 +145,7 @@ public class StatementChecker {
 		else if ( node.getText().contentEquals("found"))
 
 		{
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkVariableIsInOtherScopeLevels(var, currentScopeLevel))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
@@ -159,6 +160,11 @@ public class StatementChecker {
 			}
 			
 			return true;
+		}
+		
+		else if ( node.getText().contentEquals("had"))
+		{
+			
 		}
 
 		return false;

@@ -114,7 +114,7 @@ control_structure
       ) '.'!?;
 
 declaration_statements : IDENT ( WAS^ A! data_types ( TOO | OF! (LETTER | STRING | expr))? 
-                                | HAD^ atom data_types//its atom here because we can use variable too -> see test12
+                                | HAD^ expr data_types//its atom here because we can use variable too -> see test12
                                )
                         ;
  

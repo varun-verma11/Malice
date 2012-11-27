@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 16:23:30
-=======
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 17:04:06
->>>>>>> c5eb0d285873f31df98b354a1e956e176d0d63dd
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 23:15:35
 
   package malice_grammar ;
 

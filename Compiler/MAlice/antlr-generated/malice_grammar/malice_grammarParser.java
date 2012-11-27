@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /homes/mg2111/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 16:23:29
-=======
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 17:04:05
->>>>>>> c5eb0d285873f31df98b354a1e956e176d0d63dd
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 23:15:34
 
   package malice_grammar ;
 
@@ -1923,7 +1919,7 @@ public class malice_grammarParser extends Parser {
     // $ANTLR end "bool_or"
 
     public static class expr_return extends ParserRuleReturnScope {
-        public CommonTree tree;
+        CommonTree tree;
         public Object getTree() { return tree; }
     };
 
@@ -2408,7 +2404,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "declaration_statements"
-    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:1: declaration_statements : IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types ) ;
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:1: declaration_statements : IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) ;
     public final malice_grammarParser.declaration_statements_return declaration_statements() throws RecognitionException {
         malice_grammarParser.declaration_statements_return retval = new malice_grammarParser.declaration_statements_return();
         retval.start = input.LT(1);
@@ -2427,7 +2423,7 @@ public class malice_grammarParser extends Parser {
 
         malice_grammarParser.expr_return expr107 = null;
 
-        malice_grammarParser.atom_return atom109 = null;
+        malice_grammarParser.expr_return expr109 = null;
 
         malice_grammarParser.data_types_return data_types110 = null;
 
@@ -2442,8 +2438,8 @@ public class malice_grammarParser extends Parser {
         CommonTree HAD108_tree=null;
 
         try {
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:24: ( IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types ) )
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:26: IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:24: ( IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:26: IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -2452,7 +2448,7 @@ public class malice_grammarParser extends Parser {
             IDENT99_tree = (CommonTree)adaptor.create(IDENT99);
             adaptor.addChild(root_0, IDENT99_tree);
             }
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:32: ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:32: ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -2591,19 +2587,19 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:117:35: HAD atom data_types
+                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:117:35: HAD expr data_types
                     {
                     HAD108=(Token)match(input,HAD,FOLLOW_HAD_in_declaration_statements1233); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     HAD108_tree = (CommonTree)adaptor.create(HAD108);
                     root_0 = (CommonTree)adaptor.becomeRoot(HAD108_tree, root_0);
                     }
-                    pushFollow(FOLLOW_atom_in_declaration_statements1236);
-                    atom109=atom();
+                    pushFollow(FOLLOW_expr_in_declaration_statements1236);
+                    expr109=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, atom109.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, expr109.getTree());
                     pushFollow(FOLLOW_data_types_in_declaration_statements1238);
                     data_types110=data_types();
 
@@ -5741,8 +5737,8 @@ public class malice_grammarParser extends Parser {
     public static final BitSet FOLLOW_LETTER_in_declaration_statements1185 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STRING_in_declaration_statements1189 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expr_in_declaration_statements1193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_HAD_in_declaration_statements1233 = new BitSet(new long[]{0x0000180000000000L});
-    public static final BitSet FOLLOW_atom_in_declaration_statements1236 = new BitSet(new long[]{0x0000000000000E00L});
+    public static final BitSet FOLLOW_HAD_in_declaration_statements1233 = new BitSet(new long[]{0x00F2180000000000L});
+    public static final BitSet FOLLOW_expr_in_declaration_statements1236 = new BitSet(new long[]{0x0000000000000E00L});
     public static final BitSet FOLLOW_data_types_in_declaration_statements1238 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expr_in_argument1304 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_LETTER_in_argument1308 = new BitSet(new long[]{0x0000000000000002L});
