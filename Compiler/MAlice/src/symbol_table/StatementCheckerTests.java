@@ -25,11 +25,17 @@ public class StatementCheckerTests {
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.SENTENCE, false));
 		
-		String expr  = " x came 3.";
-		String expr2 = " y became 56";
+		String[] expr = new String[4];
 		
-		assertEquals(false,checkStatement(expr));
-		assertEquals(true,checkStatement(expr2));
+		expr[0]  = " x became 3.";
+		expr[1] = " y became 'h'";
+		expr[2] = " m was a number too";
+		expr[3] = " RSG was a sentence of \"krv\"";
+		
+		for(int i = 0; i < 4; i++)
+		{
+		assertEquals(false,checkStatement(expr[i]));
+		}
 	}
 
 	public boolean checkStatement(String expr) throws RecognitionException

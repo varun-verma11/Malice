@@ -41,8 +41,8 @@ public class StatementChecker
 			}
 
 			else if (node.getChildCount() > 2 &&
-					( ExpressionChecker.getExpressionType(node.getChild(2), symbolTable) !=
-						(SemanticsUtils.getReturnType(node.getChild(1)))))
+					( getValueType(node.getChild(2), symbolTable) !=
+					(SemanticsUtils.getReturnType(node.getChild(1)))))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
@@ -51,8 +51,7 @@ public class StatementChecker
 
 			else 
 			{
-				DATA_TYPES type = ExpressionChecker.getExpressionType(node.getChild(0), symbolTable);
-				symbolTable.insert(var, new VariableSTValue(type, false));
+				symbolTable.insert(var, new VariableSTValue(SemanticsUtils.getReturnType(node.getChild(1)), false));
 			}
 
 			return false;
@@ -98,7 +97,7 @@ public class StatementChecker
 			}
 
 			else if ((symbolTable.lookup(node.getChild(0).getText())).getType() !=
-				ExpressionChecker.getExpressionType(node.getChild(node.getChildCount() - 1), symbolTable))
+					getValueType(node.getChild(node.getChildCount() - 1), symbolTable))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " : Types of "
@@ -106,7 +105,7 @@ public class StatementChecker
 			}
 
 			else if (node.getChildCount() > 2 &&
-					ExpressionChecker.getExpressionType(node.getChild(1), symbolTable) != DATA_TYPES.NUMBER)
+					getValueType(node.getChild(1), symbolTable) != DATA_TYPES.NUMBER)
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " : Length of the Array" + var + " should be an Integer");
@@ -207,4 +206,25 @@ public class StatementChecker
 		return true;
 	}
 
+
+
+	private static DATA_TYPES getValueType (Tree node, SymbolTable symbolTable)
+	{
+		char firstChar = node.getText().charAt(0);
+		if (firstChar == '\'')
+		{
+			return DATA_TYPES.LETTER;
+		}
+		
+		else if (firstChar == '\"')
+		
+		{
+			return DATA_TYPES.SENTENCE;
+		}
+		
+		else
+		{
+			return ExpressionChecker.getExpressionType(node, symbolTable);
+		}
+	}
 }
