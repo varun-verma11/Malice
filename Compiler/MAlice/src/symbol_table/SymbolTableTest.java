@@ -78,51 +78,51 @@ public class SymbolTableTest {
 		
 	}
 	
-	@Test
-	public void testVarInOtherScopeWorksTest() 
-	{
-		SymbolTable currTable;
-		ArrayList<DATA_TYPES> argsv = new ArrayList<DATA_TYPES>();
-		argsv.add(DATA_TYPES.NUMBER);
-		argsv.add(DATA_TYPES.SENTENCE);
+//	@Test
+//	public void testVarInOtherScopeWorksTest() 
+//	{
+//		SymbolTable currTable;
+//		ArrayList<DATA_TYPES> argsv = new ArrayList<DATA_TYPES>();
+//		argsv.add(DATA_TYPES.NUMBER);
+//		argsv.add(DATA_TYPES.SENTENCE);
+//		
+//		ArrayList<DATA_TYPES> argsc = new ArrayList<DATA_TYPES>();
+//		argsc.add(DATA_TYPES.NUMBER);
+//		ArrayList<DATA_TYPES> argsh = new ArrayList<DATA_TYPES>();
+//		argsh.add(DATA_TYPES.NUMBER);
+//
+//		
+//		
+//		FunctionSTValue fn = new FunctionSTValue(symTab,argsv);
+//		symTab.insert("hello", fn);
+//		currTable = currFunctTable.getTable();
+//		System.out.println(currTable.getCurrentScopeLevel());
+//		currTable.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, true));
+//	
+//		assertEquals(true, currTable.checkItemWasDeclaredBefore("x"));
+//		assertEquals(true, currTable.checkVariableIsInCurrentScopeLevel("x"));
+//		assertEquals(true, currTable.checkVariableIsInOtherScopeLevels("x", currTable.getCurrentScopeLevel()));
+//
+//		FunctionSTValue fnn = new FunctionSTValue(currTable, args);
+//		currTable.insert("hi", fnn);
+//		currTable = fnn.getTable();
+//		
+//		System.out.println(currTable.getCurrentScopeLevel());
+//		currTable. insert("sbs", new VariableSTValue(DATA_TYPES.SENTENCE, false));
+//		currTable.insert("j", new VariableSTValue(DATA_TYPES.NUMBER, false));
+//		
+//		assertTrue(currTable.checkItemWasDeclaredBefore("j"));
+//		assertTrue(currTable.checkItemWasDeclaredBefore("sbs"));
+//		assertFalse(currTable.checkItemWasDeclaredBefore("g"));
+//		assertTrue(currTable.checkItemWasDeclaredBefore("hi"));
+//
+//		
+//		assertTrue(currTable.checkVariableIsInCurrentScopeLevel("j"));
+//		assertFalse(currTable.checkVariableIsInCurrentScopeLevel("x"));
+//		assertTrue(currTable.checkVariableIsInOtherScopeLevels("x"));
+//		assertFalse(currTable.checkVariableIsInOtherScopeLevels("htt"));
 		
-		ArrayList<DATA_TYPES> argsc = new ArrayList<DATA_TYPES>();
-		argsc.add(DATA_TYPES.NUMBER);
-		ArrayList<DATA_TYPES> argsh = new ArrayList<DATA_TYPES>();
-		argsh.add(DATA_TYPES.NUMBER);
-
-		
-		
-		FunctionSTValue fn = new FunctionSTValue(symTab,argsv);
-		symTab.insert("hello", fn);
-		currTable = currFunctTable.getTable();
-		System.out.println(currTable.getCurrentScopeLevel());
-		currTable.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, true));
-	
-		assertEquals(true, currTable.checkItemWasDeclaredBefore("x"));
-		assertEquals(true, currTable.checkVariableIsInCurrentScopeLevel("x"));
-		assertEquals(true, currTable.checkVariableIsInOtherScopeLevels("x", currTable.getCurrentScopeLevel()));
-
-		FunctionSTValue fnn = new FunctionSTValue(currTable, args);
-		currTable.insert("hi", fnn);
-		currTable = fnn.getTable();
-		
-		System.out.println(currTable.getCurrentScopeLevel());
-		currTable. insert("sbs", new VariableSTValue(DATA_TYPES.SENTENCE, false));
-		currTable.insert("j", new VariableSTValue(DATA_TYPES.NUMBER, false));
-		
-		assertTrue(currTable.checkItemWasDeclaredBefore("j"));
-		assertTrue(currTable.checkItemWasDeclaredBefore("sbs"));
-		assertFalse(currTable.checkItemWasDeclaredBefore("g"));
-		assertTrue(currTable.checkItemWasDeclaredBefore("hi"));
-
-		
-		assertTrue(currTable.checkVariableIsInCurrentScopeLevel("j"));
-		assertFalse(currTable.checkVariableIsInCurrentScopeLevel("x"));
-	//	assertTrue(currTable.checkVariableIsInOtherScopeLevels("x"));
-	//	assertFalse(currTable.checkVariableIsInOtherScopeLevels("htt"));
-		
-	}
+//	}
 	
 	
 //	@Test

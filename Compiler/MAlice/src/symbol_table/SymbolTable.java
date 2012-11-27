@@ -24,14 +24,13 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	public boolean checkVariableIsInOtherScopeLevels(String var, int currScopeLevel)
 	{	SymbolTable currTable = this;
 	
-		while (currScopeLevel < 0) {
-			if (checkVariableIsInCurrentScopeLevel(var)) {return true;} 
+		while (currScopeLevel > 0) {
+			if (currTable.checkVariableIsInCurrentScopeLevel(var)) {return true;} 
 			currScopeLevel--;
 			currTable = this.enclosingSymbolTable;
 		}
-		if (checkVariableIsInCurrentScopeLevel(var)) {return true;} 
 	
-		return false;
+		return currTable.checkVariableIsInCurrentScopeLevel(var);
 	}
 	
 	public boolean checkItemWasDeclaredBefore(String name)
