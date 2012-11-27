@@ -39,9 +39,11 @@ public class Malice
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
 			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-			malice_grammarParser.program_return prog =  parser.program() ;
-			System.out.println(((Tree)prog.getTree()).toStringTree());
-			SemanticVerifier.checkProgramSemantics(prog.tree, table);
+			if (!parser.failed()) {
+				Tree tree =  (Tree) parser.program().getTree() ;
+				System.out.println(tree.toStringTree());
+				SemanticVerifier.checkProgramSemantics(tree, table);
+			}
 			System.out.println(args[0] + " done");
 		} 
 		catch (IOException e) { System.out.println("The filepath is incorrect." +

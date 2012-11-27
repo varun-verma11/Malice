@@ -27,9 +27,11 @@ public class TestSuiteForMainProgram
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-		Tree tree =  (Tree) parser.program().getTree() ;
-		System.out.println(tree.toStringTree());
-		SemanticVerifier.checkProgramSemantics(tree, table);
+		if (!parser.failed()) {
+			Tree tree =  (Tree) parser.program().getTree() ;
+			System.out.println(tree.toStringTree());
+			SemanticVerifier.checkProgramSemantics(tree, table);
+		}
 		System.out.println(filepath + " done");
 		return true;
 	}
@@ -50,7 +52,21 @@ public class TestSuiteForMainProgram
 	
 	@Test
 	public void testAllInvalidPrograms( ) 
+		throws IOException, RecognitionException 
 	{
-		
+		String[] ps = ("test01.alice test02.alice test03.alice test04.alice" +
+				" test05.alice test06.alice test07.alice test08.alice " +
+				"test09.alice test10.alice test11.alice test12.alice " +
+				"test13.alice test14.alice test15.alice test16.alice " +
+				"test17.alice test18.alice test19.alice test20.alice " +
+				"test21.alice test22.alice test23.alice test24.alice " +
+				"test25.alice test26.alice test27.alice test28.alice " +
+				"test29.alice test30.alice test31.alice test32.alice " +
+				"test33.alice test34.alice test35.alice " +
+				"test36.alice").split(" ") ;
+		for(String p: ps) {
+			assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
+					"/malice_examples/invalid/" + p));
+		}
 	}
 }
