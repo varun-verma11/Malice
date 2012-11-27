@@ -66,7 +66,6 @@ public class SymbolTableTest {
 		
 		assertEquals(false, currTable.checkItemWasDeclaredBefore("x"));
 		assertEquals(false, currTable.checkVariableIsInCurrentScopeLevel("x"));
-		assertEquals(false, currTable.checkVariableIsInOtherScopeLevels("x"));
 		assertTrue(currTable.checkVariableIsInCurrentScopeLevel("hello"));
 
 	}
@@ -94,7 +93,7 @@ public class SymbolTableTest {
 	
 		assertEquals(true, currTable.checkItemWasDeclaredBefore("x"));
 		assertEquals(true, currTable.checkVariableIsInCurrentScopeLevel("x"));
-		assertEquals(true, currTable.checkVariableIsInOtherScopeLevels("x"));
+		assertEquals(true, currTable.checkItemWasDeclaredBefore("x"));
 
 		FunctionSTValue fnn = new FunctionSTValue(currTable, argsc);
 		currTable.insert("hi", fnn);
@@ -112,8 +111,8 @@ public class SymbolTableTest {
 		
 		assertTrue(currTable.checkVariableIsInCurrentScopeLevel("j"));
 		assertFalse(currTable.checkVariableIsInCurrentScopeLevel("x"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("x"));
-		assertFalse(currTable.checkVariableIsInOtherScopeLevels("htt"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("x"));
+		assertFalse(currTable.checkItemWasDeclaredBefore("htt"));
 		
 		currTable = currTable.finalizeCurrentScopeLevelTable();
 		System.out.println("testVar scope level -1: " + currTable.getCurrentScopeLevel());
@@ -161,9 +160,9 @@ public class SymbolTableTest {
 		symTab.insert("varun", varunNode);
 		
 		assertTrue(symTab.checkItemWasDeclaredBefore("noOfHeads"));
-		assertTrue(symTab.checkVariableIsInOtherScopeLevels("noOfHeads"));
+		assertTrue(symTab.checkItemWasDeclaredBefore("noOfHeads"));
 		assertTrue(symTab.checkItemWasDeclaredBefore("varun"));
-		assertTrue(symTab.checkVariableIsInOtherScopeLevels("varun"));
+		assertTrue(symTab.checkItemWasDeclaredBefore("varun"));
 		
 		System.out.println("Varun program: scope level 0: " + symTab.getCurrentScopeLevel());
 		
@@ -177,49 +176,50 @@ public class SymbolTableTest {
 		FunctionSTValue calcNode = new FunctionSTValue(DATA_TYPES.NUMBER, currTable, argsc);
 		currTable.insert("calculateBrainPower", calcNode);
 		
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("noOfHeads"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("varun"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("noOfEars"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("nickname"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("calculateBrainPower"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("noOfHeads"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("noOfHeads"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("varun"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("noOfEars"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("nickname"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("calculateBrainPower"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("noOfHeads"));
 
 		currTable = calcNode.getTable();
+		
 		
 		System.out.println("Varun program: scope level 2: " + currTable.getCurrentScopeLevel());
 		
 		currTable.insert("tirednessLevel", new VariableSTValue(DATA_TYPES.NUMBER, true));
 		currTable.insert("brainPower", new VariableSTValue(DATA_TYPES.NUMBER, true));
 		
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("tirednessLevel"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("brainPower"));
-		assertFalse(currTable.checkVariableIsInOtherScopeLevels("Nickname"));
-		//assertTrue(currTable.checkVariableIsInOtherScopeLevels("noOfHeads"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("tirednessLevel"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("brainPower"));
+		assertFalse(currTable.checkItemWasDeclaredBefore("Nickname"));
+		//assertTrue(currTable.checkItemWasDeclaredBefore("noOfHeads"));
 		
 		currTable = currTable.finalizeCurrentScopeLevelTable();
 		
 		System.out.println("Varun program: scope level 1: " + currTable.getCurrentScopeLevel());
 		
-		assertFalse(currTable.checkVariableIsInOtherScopeLevels("brainPower"));
+		assertFalse(currTable.checkItemWasDeclaredBefore("brainPower"));
 		assertTrue(currTable.checkItemWasDeclaredBefore("nickname"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("calculateBrainPower"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("calculateBrainPower"));
 
 
 		currTable = currTable.finalizeCurrentScopeLevelTable();
 		
 		System.out.println("Varun program: scope level 0: " + currTable.getCurrentScopeLevel());
 		
-		//assertTrue(currTable.checkVariableIsInOtherScopeLevels("heads"));
-		assertFalse(currTable.checkVariableIsInOtherScopeLevels("brainPower"));
-		assertFalse(currTable.checkVariableIsInOtherScopeLevels("calculateBrainPower"));
-		assertFalse(currTable.checkVariableIsInOtherScopeLevels("annoyingHarshie"));
+		//assertTrue(currTable.checkItemWasDeclaredBefore("heads"));
+		assertFalse(currTable.checkItemWasDeclaredBefore("brainPower"));
+		assertFalse(currTable.checkItemWasDeclaredBefore("calculateBrainPower"));
+		assertFalse(currTable.checkItemWasDeclaredBefore("annoyingHarshie"));
 
 		
 		FunctionSTValue aHNode = new FunctionSTValue(currTable, argsc);
 		currTable.insert("annoyingHarshie", aHNode);
 		
 		
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("annoyingHarshie"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("annoyingHarshie"));
 
 		
 		currTable = aHNode.getTable();
@@ -227,8 +227,8 @@ public class SymbolTableTest {
 		currTable.insert("annoyingnessLevel", new VariableSTValue(DATA_TYPES.NUMBER, true));
 		
 		
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("annoyingHarshie"));
-		assertTrue(currTable.checkVariableIsInOtherScopeLevels("annoyingnessLevel"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("annoyingHarshie"));
+		assertTrue(currTable.checkItemWasDeclaredBefore("annoyingnessLevel"));
 
 		
 		currTable = currTable.finalizeCurrentScopeLevelTable();

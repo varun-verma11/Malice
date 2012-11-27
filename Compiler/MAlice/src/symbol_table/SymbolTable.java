@@ -21,21 +21,17 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		return table.containsKey(var);
 	}
 
-	public boolean checkVariableIsInOtherScopeLevels(String var)
-	{	SymbolTable currTable = this;
-	int currScopeLevel = this.currentScopeLevel;
-	while (currScopeLevel > 0) {
-		if (currTable.checkVariableIsInCurrentScopeLevel(var)) {return true;} 
-		currScopeLevel--;
-		currTable = this.enclosingSymbolTable;
-	}
-
-	return currTable.checkVariableIsInCurrentScopeLevel(var);
-	}
-
 	public boolean checkItemWasDeclaredBefore(String name)
 	{
-		return this.checkVariableIsInOtherScopeLevels(name);
+		SymbolTable currTable = this;
+		int currScopeLevel = this.currentScopeLevel;
+		while (currScopeLevel > 0) {
+			if (currTable.checkVariableIsInCurrentScopeLevel(name)) {return true;} 
+			currScopeLevel--;
+			currTable = this.enclosingSymbolTable;
+		}
+
+		return currTable.checkVariableIsInCurrentScopeLevel(name);
 	}
 
 
