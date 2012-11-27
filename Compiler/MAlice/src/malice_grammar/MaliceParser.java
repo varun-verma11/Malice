@@ -125,7 +125,6 @@ public class MaliceParser {
 		StringTemplate st = gen.toDOT(t);
 		System.out.println(st);
 		*/
-		
 		String[] ps = ("ackermann.alice binarySearch.alice bubbleSort.alice fibonacciIterative.alice " +
 				"fibonacciRecursive.alice gcdIterative.alice gcdRecursive.alice " +
 				"sieveOfEratosthenes.alice test01.alice test02.alice test03.alice " +
@@ -133,7 +132,7 @@ public class MaliceParser {
 				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
 		for(String p: ps) {
 			System.out.println(p + " started");
-			CharStream input = new ANTLRFileStream("/home/ostwal/malice_examples/valid/" + p); 
+			CharStream input = new ANTLRFileStream("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p); 
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
 			malice_grammarParser parser = new malice_grammarParser(tokens ) ;

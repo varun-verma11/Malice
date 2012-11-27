@@ -1,6 +1,9 @@
 package symbol_table;
 
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+
 import malice_grammar.malice_grammarLexer;
 import malice_grammar.malice_grammarParser;
 
@@ -14,10 +17,12 @@ import org.junit.Test;
 
 public class ExpressionCheckTests
 {
-	SymbolTable symbolTable = new SymbolTable();
+	SymbolTable symbolTable = new SymbolTable() ;
+	
 	@Test
 	public void testSimpleExprs() throws RecognitionException
 	{
+		new ExpressionChecker();
 		symbolTable.insert("v", new VariableSTValue(DATA_TYPES.LETTER, true));
 		String[] expressions = {"1", "a", "v", "abs(c)"};
 		DATA_TYPES[] expected = {DATA_TYPES.NUMBER, DATA_TYPES.ERROR, 
@@ -29,23 +34,23 @@ public class ExpressionCheckTests
 	@Test
 	public void testExprWithFucntionCalls( ) throws RecognitionException
 	{
-		DATA_TYPES[][] args_types = {
-				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER},
-				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER} ,
-				{DATA_TYPES.NUMBER, DATA_TYPES.NUMBER},
-		};
+		new ExpressionChecker();
+		ArrayList<DATA_TYPES> args_types = new ArrayList<DATA_TYPES>();
+		args_types.add(DATA_TYPES.NUMBER);
+		args_types.add(DATA_TYPES.NUMBER);
+		
 		String[] exprs = {"abs(1,1)" , "ltr(3,2)" , "str(c,1)"};
 		
 		symbolTable.insert("abs", new FunctionSTValue(DATA_TYPES.NUMBER, 
-				symbolTable, args_types[0]));
+				symbolTable, args_types));
 		assertEquals(DATA_TYPES.NUMBER, getExprType(exprs[0]));
 		
 		symbolTable.insert("ltr", new FunctionSTValue(DATA_TYPES.NUMBER, 
-				symbolTable, args_types[1]));
+				symbolTable, args_types));
 		assertEquals(DATA_TYPES.NUMBER, getExprType(exprs[1]));
 		
 		symbolTable.insert("str", new FunctionSTValue(DATA_TYPES.NUMBER, 
-				symbolTable, args_types[2]));
+				symbolTable, args_types));
 		assertEquals(DATA_TYPES.NUMBER, getExprType(exprs[2]));
 		//carry_out_tests(exprs, expected);
 
@@ -69,6 +74,6 @@ public class ExpressionCheckTests
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 		malice_grammarParser.expr_return prog =  parser.expr() ;
-		return new ExpressionChecker().getExpressionType(prog.tree, symbolTable);
+		return ExpressionChecker.getExpressionType(prog.tree, symbolTable);
 	}
 }

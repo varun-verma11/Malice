@@ -1,5 +1,6 @@
 package symbol_table;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -138,8 +139,8 @@ public class ExpressionChecker
 	private static void validateFunctionCall(Tree node,
 			SymbolTable symbol_table, FunctionSTValue symbol_table_val)
 	{
-		DATA_TYPES[] args_types = symbol_table_val.getArgs();
-		if (args_types.length != node.getChildCount()-2)
+		ArrayList<DATA_TYPES> args_types = symbol_table_val.getArgs();
+		if (args_types.size() != node.getChildCount()-2)
 		{
 			printIncorrectNumberOfArguments(node);
 		} else {
@@ -148,12 +149,12 @@ public class ExpressionChecker
 	}
 
 	private static void checkArgumentsOfFunctions(Tree node,
-			SymbolTable symbol_table, DATA_TYPES[] args_types)
+			SymbolTable symbol_table, ArrayList<DATA_TYPES> argsTypes )
 	{
 		for (int i=1 ; i< node.getChildCount()-1 ; i++)
 		{
 			if (getExpressionType(node.getChild(i),symbol_table) 
-					!= args_types[i-1] )
+					!= argsTypes.get(i-1))
 			{
 				printInvalidVariable(node);
 			}

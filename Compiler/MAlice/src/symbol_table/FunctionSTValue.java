@@ -1,16 +1,15 @@
 package symbol_table;
 
-import symbol_table.DATA_TYPES;
-import symbol_table.SymbolTable;
-import symbol_table.SymbolTableValue;
+import java.util.ArrayList;
+
 
 public class FunctionSTValue extends SymbolTableValue
 {
 	SymbolTable symbolTable;
-	DATA_TYPES[] args;
+	ArrayList<DATA_TYPES> args;
 	int newTableScopeLevel;
 	
-	public FunctionSTValue(SymbolTable currSymTable, DATA_TYPES[] args) 
+	public FunctionSTValue(SymbolTable currSymTable, ArrayList<DATA_TYPES> args) 
 	{
 		this.type = null;
 		symbolTable = new SymbolTable();
@@ -21,7 +20,7 @@ public class FunctionSTValue extends SymbolTableValue
 	
 	//Could we basically have FunctionSTValue(SymbolTable currSymTable, DATA_TYPES[] args) = FunctionSTValue(null, currSymTable, args)??
 	
-	public FunctionSTValue(DATA_TYPES return_type, SymbolTable currSymTable, DATA_TYPES[] args)
+	public FunctionSTValue(DATA_TYPES return_type, SymbolTable currSymTable, ArrayList<DATA_TYPES> args)
 	{
 		this.type = return_type ;
 		symbolTable = new SymbolTable();
@@ -35,7 +34,7 @@ public class FunctionSTValue extends SymbolTableValue
 		return symbolTable ;
 	}	
 	
-	public DATA_TYPES[] getArgs() 
+	public ArrayList<DATA_TYPES> getArgs() 
 	{
 		return args;
 	}
