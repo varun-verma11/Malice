@@ -10,6 +10,7 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.tree.Tree;
 import org.junit.Test;
 
 public class StatementCheckerTests {
@@ -22,7 +23,7 @@ public class StatementCheckerTests {
 		symTab.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("y", new VariableSTValue(DATA_TYPES.LETTER, false));
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
-		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.STRING, false));
+		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.SENTENCE, false));
 		
 		String expr  = " x became 3.";
 		String expr2 = " y became 56";
@@ -38,6 +39,6 @@ public class StatementCheckerTests {
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 		statement_return prog = parser.statement() ;
-		return StatementChecker.checkStatement(prog.tree, symTab);
+		return StatementChecker.checkStatement((Tree) prog.getTree(), symTab);
 	}
 }

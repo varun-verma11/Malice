@@ -8,11 +8,11 @@ public class StatementChecker {
 	public static Tree checkAllStatements(Tree node, SymbolTable table) 
 	{
 		Tree current = node ;
-		boolean end_of_statements = checkStatement(node, table);
-		while(current != null || end_of_statements==true)
+		boolean end_of_statements = false;
+		while(current != null || end_of_statements==false)
 		{
-			current = getNextChild(current) ;
 			end_of_statements = checkStatement(node, table);
+			current = getNextChild(current) ;
 		}
 
 		return node;

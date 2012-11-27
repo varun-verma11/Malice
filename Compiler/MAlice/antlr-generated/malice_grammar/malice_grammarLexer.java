@@ -1,20 +1,12 @@
-<<<<<<< HEAD
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 23:15:35
-=======
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-26 20:28:55
->>>>>>> 1ed043a9947a9c70348e55c5993a822f6a8c9864
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-27 09:57:13
 
   package malice_grammar ;
 
 
-import org.antlr.runtime.BaseRecognizer;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.DFA;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.Lexer;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class malice_grammarLexer extends Lexer {
     public static final int T__68=68;

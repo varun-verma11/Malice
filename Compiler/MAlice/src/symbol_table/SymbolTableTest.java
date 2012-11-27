@@ -23,14 +23,14 @@ public class SymbolTableTest {
 		symTab.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		symTab.insert("y", new VariableSTValue(DATA_TYPES.LETTER, false));
 		symTab.insert("abc", new VariableSTValue(DATA_TYPES.NUMBER, false));
-		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.STRING, false));
+		symTab.insert("hiiii", new VariableSTValue( DATA_TYPES.SENTENCE, false));
 		
 //		assertEquals("hiiii", symTab.lookup("hiiii").getIdentifier());		
-		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
+		assertEquals(DATA_TYPES.SENTENCE, symTab.lookup("hiiii").getType());		
 		assertEquals(DATA_TYPES.LETTER, symTab.lookup("y").getType());		
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
 //		assertEquals("x", symTab.lookup("x").getIdentifier());
-		assertEquals(DATA_TYPES.STRING, symTab.lookup("hiiii").getType());		
+		assertEquals(DATA_TYPES.SENTENCE, symTab.lookup("hiiii").getType());		
 		assertEquals(DATA_TYPES.LETTER, symTab.lookup("y").getType());		
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("x").getType());		
@@ -42,7 +42,11 @@ public class SymbolTableTest {
 
 	@Test
 	public void multipleScopingTest() {
-		DATA_TYPES[] args = {DATA_TYPES.NUMBER, DATA_TYPES.LETTER, DATA_TYPES.STRING};
+		//DATA_TYPES[] args = {DATA_TYPES.NUMBER, DATA_TYPES.LETTER, DATA_TYPES.SENTENCE};
+		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
+		args.add(DATA_TYPES.NUMBER);
+		args.add(DATA_TYPES.LETTER);
+		args.add(DATA_TYPES.SENTENCE);
 		DATA_TYPES retVal = DATA_TYPES.NUMBER;
 
 		symTab.insert("x", new VariableSTValue( DATA_TYPES.NUMBER, false));
@@ -55,7 +59,9 @@ public class SymbolTableTest {
 	@Test
 	public void simpleProgramTest() {
 		SymbolTable currTable;
-		DATA_TYPES[] args = {DATA_TYPES.NUMBER};
+		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
+		args.add(DATA_TYPES.NUMBER);
+		
 		FunctionSTValue fn = new FunctionSTValue(symTab, args);
 		symTab.insert("hello", fn);
 		currTable = fn.getTable();

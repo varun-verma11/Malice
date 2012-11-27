@@ -12,6 +12,7 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.tree.Tree;
 import org.junit.Test;
 
 
@@ -74,6 +75,6 @@ public class ExpressionCheckTests
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 		malice_grammarParser.expr_return prog =  parser.expr() ;
-		return ExpressionChecker.getExpressionType(prog.tree, symbolTable);
+		return ExpressionChecker.getExpressionType((Tree) prog.getTree(), symbolTable);
 	}
 }

@@ -1,28 +1,16 @@
-<<<<<<< HEAD
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-11-26 23:15:34
-=======
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-26 20:28:55
->>>>>>> 1ed043a9947a9c70348e55c5993a822f6a8c9864
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g 2012-11-27 09:57:12
 
   package malice_grammar ;
 
 
-import org.antlr.runtime.BaseRecognizer;
-import org.antlr.runtime.BitSet;
-import org.antlr.runtime.DFA;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.IntStream;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.NoViableAltException;
-import org.antlr.runtime.Parser;
-import org.antlr.runtime.ParserRuleReturnScope;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
-import org.antlr.runtime.Token;
-import org.antlr.runtime.TokenStream;
-import org.antlr.runtime.tree.CommonTree;
-import org.antlr.runtime.tree.CommonTreeAdaptor;
-import org.antlr.runtime.tree.TreeAdaptor;
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+
+import org.antlr.runtime.tree.*;
 
 public class malice_grammarParser extends Parser {
     public static final String[] tokenNames = new String[] {
@@ -2416,11 +2404,7 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "declaration_statements"
-<<<<<<< HEAD
-    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:1: declaration_statements : IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) ;
-=======
-    // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:1: declaration_statements : IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types ) ;
->>>>>>> 1ed043a9947a9c70348e55c5993a822f6a8c9864
+    // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:1: declaration_statements : IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) ;
     public final malice_grammarParser.declaration_statements_return declaration_statements() throws RecognitionException {
         malice_grammarParser.declaration_statements_return retval = new malice_grammarParser.declaration_statements_return();
         retval.start = input.LT(1);
@@ -2454,13 +2438,8 @@ public class malice_grammarParser extends Parser {
         CommonTree HAD108_tree=null;
 
         try {
-<<<<<<< HEAD
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:24: ( IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) )
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:26: IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
-=======
-            // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:24: ( IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types ) )
-            // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:26: IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types )
->>>>>>> 1ed043a9947a9c70348e55c5993a822f6a8c9864
+            // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:24: ( IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types ) )
+            // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:26: IDENT ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -2469,11 +2448,7 @@ public class malice_grammarParser extends Parser {
             IDENT99_tree = (CommonTree)adaptor.create(IDENT99);
             adaptor.addChild(root_0, IDENT99_tree);
             }
-<<<<<<< HEAD
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:116:32: ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
-=======
-            // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:32: ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD atom data_types )
->>>>>>> 1ed043a9947a9c70348e55c5993a822f6a8c9864
+            // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:116:32: ( WAS A data_types ( TOO | OF ( LETTER | STRING | expr ) )? | HAD expr data_types )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -2612,11 +2587,7 @@ public class malice_grammarParser extends Parser {
                     }
                     break;
                 case 2 :
-<<<<<<< HEAD
-                    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:117:35: HAD expr data_types
-=======
-                    // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:117:35: HAD atom data_types
->>>>>>> 1ed043a9947a9c70348e55c5993a822f6a8c9864
+                    // C:\\Users\\varun\\Documents\\Malice\\malice_new_clone\\Compiler\\MAlice\\src\\malice_grammar\\malice_grammar.g:117:35: HAD expr data_types
                     {
                     HAD108=(Token)match(input,HAD,FOLLOW_HAD_in_declaration_statements1233); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
