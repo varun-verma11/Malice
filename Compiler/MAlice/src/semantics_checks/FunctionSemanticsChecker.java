@@ -1,10 +1,14 @@
 package semantics_checks;
 
+import java.util.ArrayList;
+
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
 import symbol_table.FunctionSTValue;
+import symbol_table.StatementChecker;
 import symbol_table.SymbolTable;
+import symbol_table.VariableSTValue;
 
 public class FunctionSemanticsChecker
 {
@@ -22,52 +26,65 @@ public class FunctionSemanticsChecker
 
 	private static Tree checkRoomFunction(Tree node, SymbolTable table)
 	{
-
-		return node ;
+		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
+		table.insert(node.getText(), new FunctionSTValue(getReturnType(node),table, args));
+		Tree curr = node ;
+		curr = checkParametersToFunction(table, curr);
+		//skipping two children due to the return value
+		curr = getNextChild(getNextChild(curr));
+		curr = StatementChecker.checkAllStatements(curr, table);
+		return curr ;
 	}
 
+	private static DATA_TYPES getReturnType(Tree node)
+	{
+		Tree curr = node.getChild(0);
+		
+		while (curr != null && curr.getText().contentEquals("contained"))
+		{
+			curr = getNextChild(curr);
+		}
+		
+		return DATA_TYPES.valueOf(curr.getText().toUpperCase());
+	}
+
+	//check with magdiee about the construct od fVal
 	private static Tree checkLookingFunction(Tree node, SymbolTable table)
 	{
-		DATA_TYPES[] args = getArgumentsTypes(node);
+		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
 		table.insert(node.getText(), new FunctionSTValue(table, args));
-		return node;
-	}
-
-	private static DATA_TYPES[] getArgumentsTypes(Tree node)
-	{
-		DATA_TYPES[] args_types = new DATA_TYPES[getNumberOfArguments(node)];
-		for (int i=1; i<=args_types.length ; i++)
-		{
-			try 
-			{
-			args_types[i] = DATA_TYPES.valueOf(
-					(node.getChild(i).getText().toUpperCase()));
-			} catch (IllegalArgumentException e) {
-				
-			}
-		}
-		return args_types;
-	}
-
-	private static int getNumberOfArguments(Tree node)
-	{
-		int i = 0;
 		Tree curr = node ;
+		curr = checkParametersToFunction(table, curr);
+		curr = StatementChecker.checkAllStatements(curr, table);
+		return curr;
+	}
 
-		try 
-		{
-			while(curr != null)
-			{
-				DATA_TYPES.valueOf((curr.getText().toUpperCase()));
+	private static Tree checkParametersToFunction(SymbolTable table, Tree curr)
+	{
+		try {
+			while(curr!=null ) {
+				DATA_TYPES type ;
+				if (curr.getChildCount()==1)
+				{
+					type = DATA_TYPES.valueOf(
+							curr.getText().toUpperCase());
+					table.insert(curr.getChild(0).getText(), 
+							new VariableSTValue(type, true));
+				} else 
+				{
+					type = DATA_TYPES.valueOf(("array_"+
+							curr.getText()).toUpperCase());
+					table.insert(curr.getChild(0).getText(), 
+							new VariableSTValue(type, true));
+				}
 				curr = getNextChild(curr);
 			}
-		} catch (IllegalArgumentException e ) {	}
-		return i;
+		} catch (IllegalArgumentException e) { }
+		return curr;
 	}
 
 	private static Tree getNextChild(Tree current)
 	{
 		return current.getParent().getChild(current.getChildIndex()+1);
 	}
-
 }

@@ -3,6 +3,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 
@@ -74,8 +76,14 @@ public class SymbolTableTest {
 	public void testVarInOtherScopeWorksTest() 
 	{
 		SymbolTable currTable;
-		DATA_TYPES[] argsv = {DATA_TYPES.NUMBER, DATA_TYPES.STRING};
-		DATA_TYPES[] argsc, argsh = {DATA_TYPES.NUMBER};
+		ArrayList<DATA_TYPES> argsv = new ArrayList<DATA_TYPES>();
+		argsv.add(DATA_TYPES.NUMBER);
+		argsv.add(DATA_TYPES.SENTENCE);
+		
+		ArrayList<DATA_TYPES> argsc = new ArrayList<DATA_TYPES>();
+		argsc.add(DATA_TYPES.NUMBER);
+		ArrayList<DATA_TYPES> argsh = new ArrayList<DATA_TYPES>();
+		argsh.add(DATA_TYPES.NUMBER);
 
 		
 		
@@ -94,7 +102,7 @@ public class SymbolTableTest {
 		currTable = fnn.getTable();
 		
 		System.out.println(currTable.getCurrentScopeLevel());
-		currTable. insert("sbs", new VariableSTValue(DATA_TYPES.STRING, false));
+		currTable. insert("sbs", new VariableSTValue(DATA_TYPES.SENTENCE, false));
 		currTable.insert("j", new VariableSTValue(DATA_TYPES.NUMBER, false));
 		
 		assertTrue(currTable.checkItemWasDeclaredBefore("j"));

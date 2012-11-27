@@ -8,8 +8,6 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 
-import symbol_table.DATA_TYPES;
-
 public class MaliceParser {
 	public static void main(String[] args) throws IOException, RecognitionException {
 		
