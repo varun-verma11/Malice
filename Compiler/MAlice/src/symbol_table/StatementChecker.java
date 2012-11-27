@@ -27,8 +27,10 @@ public class StatementChecker {
 
 	public static boolean checkStatement(Tree node, SymbolTable symbolTable)
 	{
+		if (node.getChildCount()==0) { return false; }
 		String var = node.getChild(0).getText();
 		int currentScopeLevel = symbolTable.getCurrentScopeLevel();
+		
 
 		if (node.getText().contentEquals("was"))
 		{
