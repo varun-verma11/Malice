@@ -64,7 +64,7 @@ public class TestSuiteForMainProgram
 				"test29.alice test30.alice test31.alice test32.alice " +
 				"test33.alice test34.alice test35.alice " +
 				"test36.alice").split(" ") ;
-		for(String p: ps) {
+		for(String p : ps) {
 			assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
 					"/malice_examples/invalid/" + p));
 		}
