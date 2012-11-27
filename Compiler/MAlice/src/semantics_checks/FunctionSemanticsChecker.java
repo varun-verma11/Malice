@@ -27,7 +27,7 @@ public class FunctionSemanticsChecker
 	private static Tree checkRoomFunction(Tree node, SymbolTable table)
 	{
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
-		table.insert(node.getText(), new FunctionSTValue(SemanticsUtils.getReturnType(node),table, args));
+		table.insert(node.getText(), new FunctionSTValue(getReturnType(node),table, args));
 		Tree curr = node ;
 		curr = checkParametersToFunction(table, curr);
 		//skipping two children due to the return value
@@ -36,9 +36,19 @@ public class FunctionSemanticsChecker
 		return curr ;
 	}
 
-	
+	private static DATA_TYPES getReturnType(Tree node)
+	{
+		Tree curr = node.getChild(0);
 
-	//check with magdiee about the construct od fVal
+		while (curr != null && curr.getText().contentEquals("contained"))
+		{
+			curr = SemanticsUtils.getNextChild(curr);
+		}
+
+		return DATA_TYPES.valueOf(curr.getText().toUpperCase());
+	}
+
+	//check with magdiee about the construct of Val
 	private static Tree checkLookingFunction(Tree node, SymbolTable table)
 	{
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();

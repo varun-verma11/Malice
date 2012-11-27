@@ -40,5 +40,11 @@ public class TestSuiteForMainProgram
 		String filepath = "c:/Users/varun/Documents/Malice/" +
 				"malice_examples/my_tests/test_scope.g";
 		assertTrue( runProgram(filepath));
+		String[] ps = ("test01.alice test02.alice test03.alice " +
+				"test04.alice test05.alice test06.alice test07.alice test08.alice test09.alice " +
+				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
+		for(String p: ps) {
+			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
+		}
 	}
 }
