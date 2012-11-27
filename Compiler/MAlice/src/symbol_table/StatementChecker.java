@@ -9,13 +9,13 @@ public class StatementChecker {
 	{
 		Tree current = node ;
 		boolean end_of_statements = false;
-		while(current != null || end_of_statements==false)
+		while(current != null || !end_of_statements)
 		{
 			end_of_statements = checkStatement(node, table);
+			if (end_of_statements) return current ;
 			current = getNextChild(current) ;
 		}
-
-		return node;
+		return current;
 
 	}
 
@@ -30,16 +30,16 @@ public class StatementChecker {
 		if (node.getChildCount()==0) { return false; }
 		String var = node.getChild(0).getText();
 		int currentScopeLevel = symbolTable.getCurrentScopeLevel();
-		
 
 		if (node.getText().contentEquals("was"))
 		{
 
-			if (symbolTable.checkVariableIsInCurrentScopeLevel(var))
+			if (!symbolTable.checkVariableIsInCurrentScopeLevel(var))
 			{
+				System.err.println("doesnt work :'(");
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
-						+ " Multiple declarations of " + node.getText());
+						+ " Multiple declarations of " + var);
 			}
 
 			else 
@@ -48,7 +48,7 @@ public class StatementChecker {
 				symbolTable.insert(var, new VariableSTValue(type, false));
 			}
 
-			return true;
+			return false;
 
 		}
 
@@ -76,7 +76,7 @@ public class StatementChecker {
 						+ var + " not a number.");
 			}
 
-			return true;
+			return false;
 
 		}		
 
@@ -102,7 +102,7 @@ public class StatementChecker {
 				((VariableSTValue) symbolTable.lookup(node.getChild(0).getText())).setInitialised(true) ;
 			}
 
-			return true;
+			return false;
 
 		}
 
@@ -123,7 +123,7 @@ public class StatementChecker {
 						+ var +" not initialised yet" + node.getText());				
 			}
 
-			return true;
+			return false;
 		}
 
 		else if ( node.getText().contentEquals("what"))
@@ -141,7 +141,7 @@ public class StatementChecker {
 				((VariableSTValue) symbolTable.lookup(node.getChild(0).getText())).setInitialised(true);
 			}
 
-			return true;
+			return false;
 		}
 		
 		else if ( node.getText().contentEquals("found"))
@@ -161,7 +161,7 @@ public class StatementChecker {
 						+ var +" not initialised yet" + node.getText());				
 			}
 			
-			return true;
+			return false;
 		}
 		
 		else if ( node.getText().contentEquals("had"))
@@ -169,7 +169,7 @@ public class StatementChecker {
 			
 		}
 
-		return false;
+		return true;
 	}
 
 }

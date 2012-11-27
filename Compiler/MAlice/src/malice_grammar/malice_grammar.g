@@ -120,7 +120,7 @@ declaration_statements : IDENT ( WAS^ A! data_types ( TOO | OF! (LETTER | STRING
  
 argument: expr | LETTER | STRING | array_elem;
 arguments_to_functions : (argument (','! argument)*)? | function_call;
-rest_statements :   (expr print) =>  (expr print)      
+rest_statements :   (expr print^) =>  (expr print^)      
     |   (LETTER | STRING) print
     |  IDENT
         ( ('\'s'! expr PIECE)?
