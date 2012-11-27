@@ -12,11 +12,12 @@ public class SemanticVerifier
 {
 	public static void checkProgramSemantics(Tree node, SymbolTable table)
 	{
-		Tree current = node ;
+		Tree current = node.getChild(0) ;
 		new ExpressionChecker();
 		current = StatementChecker.checkAllStatements(current, table);
 		while(current != null)
 		{
+			System.out.println(current);
 			current = FunctionSemanticsChecker.checkFunction(current, table);
 		}
 	}
