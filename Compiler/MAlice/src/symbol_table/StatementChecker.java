@@ -62,7 +62,7 @@ public class StatementChecker
 		else if ( node.getText().contentEquals("ate") ||  node.getText().contentEquals("drank"))
 		{	
 			String var = node.getChild(0).getText();
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkItemWasDeclaredBefore(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " : "
@@ -90,7 +90,7 @@ public class StatementChecker
 		else if ( node.getText().contentEquals("became"))
 		{
 			String var = node.getChild(0).getText();
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkItemWasDeclaredBefore(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
@@ -126,7 +126,7 @@ public class StatementChecker
 
 		{
 			String var = node.getChild(0).getText();
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkItemWasDeclaredBefore(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
@@ -148,7 +148,7 @@ public class StatementChecker
 
 		{
 			String var = node.getChild(0).getText();
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkItemWasDeclaredBefore(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
@@ -167,7 +167,7 @@ public class StatementChecker
 
 		{
 			String var = node.getChild(0).getText();
-			if (!symbolTable.checkVariableIsInOtherScopeLevels(var))
+			if (!symbolTable.checkItemWasDeclaredBefore(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + ": "
