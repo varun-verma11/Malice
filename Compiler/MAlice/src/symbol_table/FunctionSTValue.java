@@ -7,11 +7,9 @@ public class FunctionSTValue extends SymbolTableValue
 {
 	SymbolTable symbolTable;
 	ArrayList<DATA_TYPES> args;
-	int newTableScopeLevel; //don't think this is needed.
 	
 	public FunctionSTValue(SymbolTable currSymTable, ArrayList<DATA_TYPES> args) 
 	{
-		//this.newTableScopeLevel = 
 		this.type = null;
 		symbolTable = new SymbolTable();
 		symbolTable.updateCurrentScopeLevel(currSymTable.getCurrentScopeLevel() + 1);//check this, if it makes sense do the same in the second constructor 
@@ -24,7 +22,7 @@ public class FunctionSTValue extends SymbolTableValue
 		this.type = return_type ;
 		symbolTable = new SymbolTable();
 		symbolTable.setEnclosingSymbolTable(currSymTable);
-		symbolTable.updateCurrentScopeLevel(symbolTable.getCurrentScopeLevel() + 1);
+		symbolTable.updateCurrentScopeLevel(currSymTable.getCurrentScopeLevel() + 1);
 		this.args = args;
 	}
 
