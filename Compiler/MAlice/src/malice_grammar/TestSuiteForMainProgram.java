@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import malice_grammar.malice_grammarParser.program_return;
+
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -25,12 +27,16 @@ public class TestSuiteForMainProgram
 		System.out.println(filepath + " started");
 		CharStream input = new ANTLRFileStream(filepath); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
-		TokenStream tokens = new CommonTokenStream(lexer);
-		malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-		if (!parser.failed()) {
-			Tree tree =  (Tree) parser.program().getTree() ;
-			System.out.println(tree.toStringTree());
-			SemanticVerifier.checkProgramSemantics(tree, table);
+		CommonTokenStream tokens = new CommonTokenStream(lexer);
+		if (lexer.getNumberOfSyntaxErrors()==0)
+		{
+			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
+			program_return prog = parser.program();
+			if (parser.getNumberOfSyntaxErrors()==0) {
+				Tree tree =  (Tree) prog.getTree() ;
+				System.out.println(tree.toStringTree());
+				SemanticVerifier.checkProgramSemantics(tree, table);
+			}
 		}
 		System.out.println(filepath + " done");
 		return true;
@@ -64,9 +70,11 @@ public class TestSuiteForMainProgram
 				"test29.alice test30.alice test31.alice test32.alice " +
 				"test33.alice test34.alice test35.alice " +
 				"test36.alice").split(" ") ;
-		for(String p : ps) {
-			assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
-					"/malice_examples/invalid/" + p));
-		}
+		assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
+				"/malice_examples/invalid/" + "test01.alice"));
+//		for(String p : ps) {
+//			assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
+//					"/malice_examples/invalid/" + p));
+//		}
 	}
 }
