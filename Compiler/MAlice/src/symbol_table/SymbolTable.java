@@ -2,7 +2,7 @@ package symbol_table;
 
 import java.util.HashMap;
 import java.util.Map;
-//do we need extends comparable here???
+
 public class SymbolTable implements SymbolTableInterface<String, SymbolTableValue>
 {
 	private Map<String,SymbolTableValue> table;
@@ -27,8 +27,9 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		int currScopeLevel = this.currentScopeLevel;
 		while (currScopeLevel > 0) {
 			if (currTable.checkVariableIsInCurrentScopeLevel(name)) {return true;} 
+			currTable = currTable.enclosingSymbolTable;//or curr.encltab??
 			currScopeLevel--;
-			currTable = this.enclosingSymbolTable;
+
 		}
 
 		return currTable.checkVariableIsInCurrentScopeLevel(name);
