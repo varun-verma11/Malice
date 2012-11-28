@@ -3,6 +3,7 @@ package symbol_table;
 
 import org.antlr.runtime.tree.Tree;
 
+import semantics_checks.FunctionSemanticsChecker;
 import semantics_checks.SemanticsUtils;
 
 public class StatementChecker
@@ -33,7 +34,7 @@ public class StatementChecker
 		{
 			String var = node.getChild(0).getText();
 
-			if (symbolTable.checkVariableIsInCurrentScopeLevel(var))
+			if (symbolTable.checkItemIsInCurrentScopeLevel(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
@@ -42,7 +43,7 @@ public class StatementChecker
 
 			else if (node.getChildCount() > 2 &&
 					( getValueType(node.getChild(2), symbolTable) !=
-					(SemanticsUtils.getReturnType(node.getChild(1)))))
+						(SemanticsUtils.getReturnType(node.getChild(1)))))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
@@ -97,7 +98,7 @@ public class StatementChecker
 			}
 
 			else if ((symbolTable.lookup(node.getChild(0).getText())).getType() !=
-					getValueType(node.getChild(node.getChildCount() - 1), symbolTable))
+				getValueType(node.getChild(node.getChildCount() - 1), symbolTable))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() + " : Types of "
@@ -186,7 +187,7 @@ public class StatementChecker
 		{
 			String var = node.getChild(0).getText();
 
-			if (symbolTable.checkVariableIsInCurrentScopeLevel(var))
+			if (symbolTable.checkItemIsInCurrentScopeLevel(var))
 			{
 				System.err.println("Line "+ node.getLine()+ ": " 
 						+ node.getCharPositionInLine() 
@@ -201,12 +202,68 @@ public class StatementChecker
 			}
 			return false;
 
+		}else if (node.getText().contentEquals("perhaps"))
+		{
+			checkForBooleanExpression(node, symbolTable);
+			node =SemanticsUtils. getNextChild(node);
+			do
+			{
+				if(node.getText().contentEquals("maybe")
+						|| node.getText().contentEquals("or")) 
+				{
+					node = SemanticsUtils.getNextChild(node) ;
+					checkForBooleanExpression(node, symbolTable);
+					node = SemanticsUtils.getNextChild(node);
+				}
+				node = checkAllStatements(node, symbolTable);
+				node = SemanticsUtils.getNextChild(node);
+			}while(node != null) ;
+			return false;
+
+		} else if (node.getText().contentEquals("either"))
+		{
+			checkForBooleanExpression(node, symbolTable);
+			node = SemanticsUtils.getNextChild(node);
+			node = checkAllStatements(node, symbolTable);
+			node = SemanticsUtils.getNextChild(node);
+			if (node.getText().contentEquals("or"))
+			{
+				node = SemanticsUtils.getNextChild(node);
+				node = checkAllStatements(node, symbolTable);
+			}
+			return false;
+		} else if (node.getText().contentEquals("eventually"))
+		{
+			checkForBooleanExpression(node, symbolTable);
+			node = checkAllStatements(node, symbolTable);
+			return false;
+		} else if(node.getText().contentEquals("opened"))
+		{
+			CodeBlockSTValue codeVal = new CodeBlockSTValue(symbolTable);
+			symbolTable.insert("l"+node.getLine() 
+					+ "c" + node.getCharPositionInLine(), codeVal);
+			symbolTable = codeVal.getTable();
+			node = checkAllStatements(SemanticsUtils.getNextChild(node), symbolTable);
+			symbolTable = symbolTable.finalizeCurrentScopeLevelTable();
+			return false;
 		}
 
 		return true;
 	}
 
-
+	private static void checkForBooleanExpression(Tree expr, SymbolTable table)
+	{
+		DATA_TYPES expr_type = 
+			ExpressionChecker.getExpressionType(expr, table) ;
+		if( expr_type !=DATA_TYPES.BOOLEAN)
+		{
+			System.out.println(expr.getLine() + " :" 
+					+ expr.getCharPositionInLine() +" Invalid Expression " +
+					"for the statement. Expected BOOLEAN, Actual Type " +
+					expr_type
+			);
+		}
+	}
 
 	private static DATA_TYPES getValueType (Tree node, SymbolTable symbolTable)
 	{
@@ -215,13 +272,13 @@ public class StatementChecker
 		{
 			return DATA_TYPES.LETTER;
 		}
-		
+
 		else if (firstChar == '\"')
-		
+
 		{
 			return DATA_TYPES.SENTENCE;
 		}
-		
+
 		else
 		{
 			return ExpressionChecker.getExpressionType(node, symbolTable);

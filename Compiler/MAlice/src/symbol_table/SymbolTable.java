@@ -16,7 +16,7 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		this.enclosingSymbolTable = null;
 	}
 
-	public boolean checkVariableIsInCurrentScopeLevel(String var) 
+	public boolean checkItemIsInCurrentScopeLevel(String var) 
 	{
 		return table.containsKey(var);
 	}
@@ -26,13 +26,13 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 		SymbolTable currTable = this;
 		int currScopeLevel = this.currentScopeLevel;
 		while (currScopeLevel > 0) {
-			if (currTable.checkVariableIsInCurrentScopeLevel(name)) {return true;} 
+			if (currTable.checkItemIsInCurrentScopeLevel(name)) {return true;} 
 			currTable = currTable.enclosingSymbolTable;//or curr.encltab??
 			currScopeLevel--;
 
 		}
 
-		return currTable.checkVariableIsInCurrentScopeLevel(name);
+		return currTable.checkItemIsInCurrentScopeLevel(name);
 	}
 
 

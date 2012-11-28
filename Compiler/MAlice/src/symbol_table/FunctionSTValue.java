@@ -12,7 +12,7 @@ public class FunctionSTValue extends SymbolTableValue
 	{
 		this.type = null;
 		symbolTable = new SymbolTable();
-		symbolTable.updateCurrentScopeLevel(currSymTable.getCurrentScopeLevel() + 1);//check this, if it makes sense do the same in the second constructor 
+		symbolTable.updateCurrentScopeLevel(currSymTable.getCurrentScopeLevel() + 1); 
 		symbolTable.setEnclosingSymbolTable(currSymTable);
 		this.args = args;
 	}

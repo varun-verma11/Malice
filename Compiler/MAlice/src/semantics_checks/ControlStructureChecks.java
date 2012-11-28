@@ -9,48 +9,43 @@ import symbol_table.SymbolTable;
 public class ControlStructureChecks
 {
 
-	public static void checkForControlStructures(Tree node, SymbolTable table)
+	public static void checkForControlStructures(Tree n, SymbolTable table)
 	{
-		Tree current = node.getChild(0);
+		Tree node = n.getChild(0);
 		if (node.getText().contentEquals("perhaps"))
 		{
-			checkForBooleanExpression(current, table);
-			current = getNextChild(current);
+			checkForBooleanExpression(node, table);
+			node =SemanticsUtils. getNextChild(node);
 			do
 			{
-				if(current.getText().contentEquals("maybe")
-						|| current.getText().contentEquals("or")) 
+				if(node.getText().contentEquals("maybe")
+						|| node.getText().contentEquals("or")) 
 				{
-					current = getNextChild(current) ;
-					checkForBooleanExpression(current, table);
-					current = getNextChild(current);
+					node = SemanticsUtils.getNextChild(node) ;
+					checkForBooleanExpression(node, table);
+					node = SemanticsUtils.getNextChild(node);
 				}
-				current = checkAllStatements(current, table);
-				current = getNextChild(current);
-			}while(current != null) ;
+				node = checkAllStatements(node, table);
+				node = SemanticsUtils.getNextChild(node);
+			}while(node != null) ;
 
 		} else if (node.getText().contentEquals("either"))
 		{
-			checkForBooleanExpression(current, table);
-			current = getNextChild(current);
-			current = checkAllStatements(current, table);
-			current = getNextChild(current);
-			if (current.getText().contentEquals("or"))
+			checkForBooleanExpression(node, table);
+			node = SemanticsUtils.getNextChild(node);
+			node = checkAllStatements(node, table);
+			node = SemanticsUtils.getNextChild(node);
+			if (node.getText().contentEquals("or"))
 			{
-				current = getNextChild(current);
-				current = checkAllStatements(current, table);
+				node = SemanticsUtils.getNextChild(node);
+				node = checkAllStatements(node, table);
 			}
 		} else if (node.getText().contentEquals("eventually"))
 		{
-			checkForBooleanExpression(current, table);
-			current = checkAllStatements(current, table);
+			checkForBooleanExpression(node, table);
+			node = checkAllStatements(node, table);
 		}
 		
-	}
-
-	private static Tree getNextChild(Tree current)
-	{
-		return current.getParent().getChild(current.getChildIndex()+1);
 	}
 
 	private static void checkForBooleanExpression(Tree expr, SymbolTable table)
@@ -78,7 +73,7 @@ public class ControlStructureChecks
 			 * pass current to the method to check 			*
 			 * the statement    							*
 			 ************************************************/
-			current = getNextChild(current) ;
+			current = SemanticsUtils.getNextChild(current) ;
 		}
 		return node;
 	}

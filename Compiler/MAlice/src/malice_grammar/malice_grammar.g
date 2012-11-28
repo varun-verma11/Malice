@@ -141,8 +141,12 @@ statement : rest_statements | function_call | declaration_statements ;
     
 statement_conjunctions : AND! | THEN! | BUT! | ','! |'.'!;//check for all cunjunctions
 
-statementList : ((statement? statement_conjunctions) | control_structure | read_statement statement_conjunctions? | nested_function  | 
-                  function)*;
+statementList : global_declaration function* 
+              ( (statement? statement_conjunctions) 
+              | control_structure 
+              | read_statement statement_conjunctions? 
+              | nested_function 
+              )*;
 
 parameter : (SPIDER)? data_types^ IDENT ;
 

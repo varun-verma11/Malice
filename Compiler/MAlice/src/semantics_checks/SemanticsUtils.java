@@ -12,6 +12,13 @@ public class SemanticsUtils {
 
 	public static Tree getNextChild(Tree current)
 	{
-		return current.getParent().getChild(current.getChildIndex()+1);
+		try 
+		{
+			Tree parent = current.getParent();
+			return parent.getChild(1+current.getChildIndex());
+		} catch (NullPointerException e) 
+		{
+			return null;
+		}
 	}
 }

@@ -28,8 +28,8 @@ public class SymbolTableTest {
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("abc").getType());		
 		assertEquals(DATA_TYPES.NUMBER, symTab.lookup("x").getType());		
 	
-		assertEquals(true, symTab.checkVariableIsInCurrentScopeLevel("x"));
-		assertEquals(false, symTab.checkVariableIsInCurrentScopeLevel("r"));
+		assertEquals(true, symTab.checkItemIsInCurrentScopeLevel("x"));
+		assertEquals(false, symTab.checkItemIsInCurrentScopeLevel("r"));
 	}
 
 
@@ -59,14 +59,14 @@ public class SymbolTableTest {
 		currTable = fn.getTable();
 		System.out.println("simpleProgramTest scope level: " + currTable.getCurrentScopeLevel());
 		currTable.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, true));
-		assertEquals(true, currTable.checkVariableIsInCurrentScopeLevel("x"));
+		assertEquals(true, currTable.checkItemIsInCurrentScopeLevel("x"));
 		assertEquals(true, currTable.checkItemWasDeclaredBefore("hello"));
 
 		currTable = currTable.finalizeCurrentScopeLevelTable();
 		
 		assertEquals(false, currTable.checkItemWasDeclaredBefore("x"));
-		assertEquals(false, currTable.checkVariableIsInCurrentScopeLevel("x"));
-		assertTrue(currTable.checkVariableIsInCurrentScopeLevel("hello"));
+		assertEquals(false, currTable.checkItemIsInCurrentScopeLevel("x"));
+		assertTrue(currTable.checkItemIsInCurrentScopeLevel("hello"));
 
 	}
 	
@@ -92,7 +92,7 @@ public class SymbolTableTest {
 		currTable.insert("x", new VariableSTValue(DATA_TYPES.NUMBER, true));
 	
 		assertEquals(true, currTable.checkItemWasDeclaredBefore("x"));
-		assertEquals(true, currTable.checkVariableIsInCurrentScopeLevel("x"));
+		assertEquals(true, currTable.checkItemIsInCurrentScopeLevel("x"));
 		assertEquals(true, currTable.checkItemWasDeclaredBefore("x"));
 
 		FunctionSTValue fnn = new FunctionSTValue(currTable, argsc);
@@ -109,8 +109,8 @@ public class SymbolTableTest {
 		assertTrue(currTable.checkItemWasDeclaredBefore("hi"));
 
 		
-		assertTrue(currTable.checkVariableIsInCurrentScopeLevel("j"));
-		assertFalse(currTable.checkVariableIsInCurrentScopeLevel("x"));
+		assertTrue(currTable.checkItemIsInCurrentScopeLevel("j"));
+		assertFalse(currTable.checkItemIsInCurrentScopeLevel("x"));
 		assertTrue(currTable.checkItemWasDeclaredBefore("x"));
 		assertFalse(currTable.checkItemWasDeclaredBefore("htt"));
 		

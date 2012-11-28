@@ -14,26 +14,38 @@ public class FunctionSemanticsChecker
 {
 	public static Tree checkFunction(Tree node, SymbolTable table)
 	{
+		System.out.println(node + "in funct check");
 		if (node.getText().contentEquals("room")) 
 		{
-			return checkRoomFunction(node.getChild(0), table);
+//			System.out.println(node.getChild(0));
+			checkRoomFunction(node.getChild(0), table);
+//			System.out.println(node.getChild(0));
 		} else if (node.getText().contentEquals("looking"))
 		{
-			return checkLookingFunction(node.getChild(0),table);
+//			System.out.println(node.getChild(0));
+			checkLookingFunction(node.getChild(0),table);
+//			System.out.println(node.getChild(0));
 		}
 		return node;
 	}
 
-	private static Tree checkRoomFunction(Tree node, SymbolTable table)
+	private static void checkRoomFunction(Tree node, SymbolTable table)
 	{
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
-		table.insert(node.getText(), new FunctionSTValue(getReturnType(node),table, args));
+		FunctionSTValue func_val = new FunctionSTValue(getReturnType(node),table, args);
+		table.insert(node.getText(), func_val);
 		Tree curr = node ;
-		curr = checkParametersToFunction(table, curr);
+		table = func_val.getTable();
+		curr = checkParametersToFunction(table, curr, args);
 		//skipping two children due to the return value
 		curr = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(curr));
 		curr = StatementChecker.checkAllStatements(curr, table);
-		return curr ;
+		Tree temp = checkFunction(SemanticsUtils.getNextChild(curr), table);
+//		while (temp!=curr)
+//		{
+//			temp = checkFunction(SemanticsUtils.getNextChild(curr), table);
+//		}
+		table = table.finalizeCurrentScopeLevelTable();
 	}
 
 	private static DATA_TYPES getReturnType(Tree node)
@@ -51,33 +63,43 @@ public class FunctionSemanticsChecker
 	}
 
 	//check with magdiee about the construct of Val
-	private static Tree checkLookingFunction(Tree node, SymbolTable table)
+	private static void checkLookingFunction(Tree node, SymbolTable table)
 	{
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
-		table.insert(node.getText(), new FunctionSTValue(table, args));
+		FunctionSTValue func_val = new FunctionSTValue(table, args);
+		table.insert(node.getText(), func_val);
 		Tree curr = node ;
-		curr = checkParametersToFunction(table, curr);
+		table = func_val.getTable();
+		curr = checkParametersToFunction(table, curr, args);
 		curr = StatementChecker.checkAllStatements(curr, table);
-		return curr;
+//		Tree temp = checkFunction(SemanticsUtils.getNextChild(curr), table);
+//		while (temp!=curr) 
+//		{
+//			temp = checkFunction(SemanticsUtils.getNextChild(curr), table);
+//		}
+		table.finalizeCurrentScopeLevelTable();
 	}
 
-	private static Tree checkParametersToFunction(SymbolTable table, Tree curr)
+	private static Tree checkParametersToFunction(SymbolTable table, Tree curr,
+			ArrayList<DATA_TYPES> args)
 	{
 		try {
 			while(curr!=null ) {
 				DATA_TYPES type ;
-				if (curr.getChildCount()==1)
+				if (curr.getChildCount()== 1)
 				{
 					type = DATA_TYPES.valueOf(
 							curr.getText().toUpperCase());
 					table.insert(curr.getChild(0).getText(), 
 							new VariableSTValue(type, true));
+					args.add(type);
 				} else 
 				{
 					type = DATA_TYPES.valueOf(("array_"+
 							curr.getText()).toUpperCase());
 					table.insert(curr.getChild(0).getText(), 
 							new VariableSTValue(type, true));
+					args.add(type);
 				}
 				curr = SemanticsUtils.getNextChild(curr);
 			}

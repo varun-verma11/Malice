@@ -81,7 +81,7 @@ public class ExpressionChecker
 			} 
 			catch (NumberFormatException e)
 			{
-				if (!symbol_table.checkVariableIsInCurrentScopeLevel(node.getText()))
+				if (!symbol_table.checkItemIsInCurrentScopeLevel(node.getText()))
 				{
 					System.err.println("Line "+ node.getLine()+ ": " 
 							+ node.getCharPositionInLine() + " Identifier "
