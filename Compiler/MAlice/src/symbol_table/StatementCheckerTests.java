@@ -13,6 +13,9 @@ import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.Tree;
 import org.junit.Test;
 
+import semantics_checks.ExpressionChecker;
+import semantics_checks.StatementChecker;
+
 public class StatementCheckerTests {
 
 	SymbolTable symTab = new SymbolTable();

@@ -6,7 +6,6 @@ import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
 import symbol_table.FunctionSTValue;
-import symbol_table.StatementChecker;
 import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
 
@@ -14,7 +13,6 @@ public class FunctionSemanticsChecker
 {
 	public static Tree checkFunction(Tree node, SymbolTable table)
 	{
-		System.out.println(node + "in funct check");
 		if (node.getText().contentEquals("room")) 
 		{
 //			System.out.println(node.getChild(0));
@@ -40,7 +38,7 @@ public class FunctionSemanticsChecker
 		//skipping two children due to the return value
 		curr = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(curr));
 		curr = StatementChecker.checkAllStatements(curr, table);
-		Tree temp = checkFunction(SemanticsUtils.getNextChild(curr), table);
+//		Tree temp = checkFunction(SemanticsUtils.getNextChild(curr), table);
 //		while (temp!=curr)
 //		{
 //			temp = checkFunction(SemanticsUtils.getNextChild(curr), table);

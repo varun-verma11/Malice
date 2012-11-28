@@ -2,7 +2,10 @@ package symbol_table;
 
 import java.util.ArrayList;
 
-
+/**
+ * A class describing the state and behavior of a symbol table value 
+ * corresponding to a function. 
+ */
 public class FunctionSTValue extends SymbolTableValue
 {
 	SymbolTable symbolTable;
