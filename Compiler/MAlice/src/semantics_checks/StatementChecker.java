@@ -1,8 +1,11 @@
-package symbol_table;
+package semantics_checks;
 
 import org.antlr.runtime.tree.Tree;
 
-import semantics_checks.SemanticsUtils;
+import symbol_table.CodeBlockSTValue;
+import symbol_table.DATA_TYPES;
+import symbol_table.SymbolTable;
+import symbol_table.VariableSTValue;
 
 public class StatementChecker
 {

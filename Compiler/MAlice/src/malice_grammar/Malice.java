@@ -41,7 +41,6 @@ public class Malice {
 				program_return prog = parser.program();
 				if (parser.getNumberOfSyntaxErrors() == 0) {
 					Tree tree = (Tree) prog.getTree();
-					System.out.println(tree.toStringTree());
 					SemanticVerifier.checkProgramSemantics(tree, table);
 				}
 			}

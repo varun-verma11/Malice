@@ -1,0 +1,3 @@
+for item in "$@"; do
+  java -jar compiler.jar $item
+done
