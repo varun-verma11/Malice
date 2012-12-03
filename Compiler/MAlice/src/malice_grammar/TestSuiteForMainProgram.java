@@ -13,7 +13,7 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.Tree;
 import org.junit.Test;
 
-import semantics_checks.ExpressionChecker;
+import symbol_table.ExpressionChecker;
 import symbol_table.SymbolTable;
 
 
@@ -23,7 +23,7 @@ public class TestSuiteForMainProgram
 	{
 		new ExpressionChecker();
 		SymbolTable table = new SymbolTable();
-		System.out.println(filepath + " start");
+		System.out.println(filepath + " started");
 		CharStream input = new ANTLRFileStream(filepath); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -49,9 +49,9 @@ public class TestSuiteForMainProgram
 		String[] ps = ("test01.alice test02.alice test03.alice " +
 				"test04.alice test05.alice test06.alice test07.alice test08.alice test09.alice " +
 				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
-//		assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + "test03.alice"));
+//		assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + "test13.alice"));
 		for(String p: ps) {
-			assertTrue( runProgram("c:/Users/Varun/Desktop/Malice/malice_examples/valid/" + p));
+			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
 		}
 	}
 	
@@ -69,12 +69,8 @@ public class TestSuiteForMainProgram
 //				"test29.alice test30.alice test31.alice test32.alice " +
 //				"test33.alice test34.alice test35.alice " +
 //				"test36.alice").split(" ") ;
-//		
-//		for(String p: ps)
-//		{
-//		assertTrue( runProgram("c:/Users/Varun/Desktop/Malice" +
-//				"/malice_examples/invalid/" + p));
-//		}
+//		assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
+//				"/malice_examples/invalid/" + "test21" + ".alice"));
 ////		for(String p : ps) {
 ////			assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
 ////					"/malice_examples/invalid/" + p));

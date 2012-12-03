@@ -3,6 +3,7 @@ package semantics_checks;
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
+import symbol_table.ExpressionChecker;
 import symbol_table.SymbolTable;
 
 public class ControlStructureChecks

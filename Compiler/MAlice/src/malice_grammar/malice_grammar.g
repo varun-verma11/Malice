@@ -112,15 +112,18 @@ control_structure
           ENOUGH! TIMES!
       ) '.'!?;
 
-declaration_statements : IDENT ( WAS^ A! data_types ( TOO! | OF! (LETTER | STRING | expr))? 
+declaration_statements : IDENT ( WAS^ A! data_types TOO!? 
                                 | HAD^ expr data_types//its atom here because we can use variable too -> see test12
                                )
+                         | declaration_init 
                         ;
+                        
+declaration_init : IDENT WAS^ A! data_types OF! (LETTER | STRING | expr);
  
 argument: expr | LETTER | STRING | array_elem;
 arguments_to_functions : (argument (','! argument)*)? | function_call;
 rest_statements :   (expr print^) =>  (expr print^)      
-    |   (LETTER | STRING) print
+    |  (LETTER | STRING) ( SPOKE^ | SAID^ ALICE!)
     |  IDENT
         ( ('\'s'! expr PIECE)?
             (   BECAME^  (expr | LETTER | STRING )
@@ -137,15 +140,15 @@ print:
     ;
 
 function_call : function_name^ lpar arguments_to_functions rpar ;
-statement : rest_statements | function_call | declaration_statements ;
+statement : rest_statements | function_call | declaration_init ;
     
 statement_conjunctions : AND! | THEN! | BUT! | ','! |'.'!;//check for all cunjunctions
 
-statementList : global_declaration function* 
+statementList : (declaration_statements statement_conjunctions)* function* 
               ( (statement? statement_conjunctions) 
-              | control_structure 
-              | read_statement statement_conjunctions? 
-              | nested_function 
+	              | control_structure 
+	              | read_statement statement_conjunctions? 
+	              | nested_function 
               )*;
 
 parameter : (SPIDER)? data_types^ IDENT ;
@@ -160,6 +163,7 @@ function: THE! ( LOOKING^ '-'! GLASS! function_name lpar! parameters rpar!
           statementList
           CLOSED!
           ;
-          
+
+
 global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.'!)* ;
 program : global_declaration function+ EOF! ;
