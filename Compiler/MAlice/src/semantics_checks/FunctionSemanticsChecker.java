@@ -11,7 +11,7 @@ import symbol_table.VariableSTValue;
 
 public class FunctionSemanticsChecker
 {
-	public static boolean hasReturnStatement = false;
+	public static DATA_TYPES returnType = DATA_TYPES.ERROR;
 	public static Tree checkFunction(Tree node, SymbolTable table)
 	{
 		if (node.getText().contentEquals("room"))
@@ -31,7 +31,8 @@ public class FunctionSemanticsChecker
 			SemanticsUtils.printMultipleDefinitionsOfFunctions(node);
 		}
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
-		FunctionSTValue func_val = new FunctionSTValue(getReturnType(node),
+		DATA_TYPES expectedReturnType = getReturnType(node);
+		FunctionSTValue func_val = new FunctionSTValue(expectedReturnType,
 				table, args);
 		table.insert(node.getText(), func_val);
 		Tree curr = node;
@@ -40,7 +41,7 @@ public class FunctionSemanticsChecker
 		// skipping two children due to the return value
 		curr = SemanticsUtils.getNextChild(curr);
 		curr = SemanticsUtils.getNextChild(curr);
-		hasReturnStatement = false;
+		returnType = DATA_TYPES.ERROR;
 		curr = StatementChecker.checkAllStatements(curr, table);
 		try
 		{
@@ -57,14 +58,20 @@ public class FunctionSemanticsChecker
 		} catch (NullPointerException e)
 		{
 		}
-		if (!hasReturnStatement)
+		if (returnType==DATA_TYPES.ERROR)
 		{
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": The function " 
-					//+ node.getChild(0).getText()
 					+ " has no return statement." );
 		}
-		hasReturnStatement = false;
+		if (expectedReturnType!=returnType)
+		{
+			System.err.println("Line " + node.getLine() + ": "
+					+ node.getCharPositionInLine() + ": The function's " 
+					+ " return type mismatch. (ACTUAL : " + returnType 
+					+ ", EXPECTED: " + expectedReturnType  );
+		}
+		returnType = DATA_TYPES.ERROR;
 		table = table.finalizeCurrentScopeLevelTable();
 	}
 
@@ -96,7 +103,7 @@ public class FunctionSemanticsChecker
 		table = func_val.getTable();
 		curr = SemanticsUtils.getNextChild(curr);
 		curr = checkParametersToFunction(table, curr, args);
-		hasReturnStatement = false;
+		returnType = DATA_TYPES.ERROR;
 		curr = StatementChecker.checkAllStatements(curr, table);
 		try
 		{
@@ -113,14 +120,14 @@ public class FunctionSemanticsChecker
 		} catch (NullPointerException e)
 		{
 		}
-		if (hasReturnStatement)
+		if (returnType!=DATA_TYPES.ERROR)
 		{
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": The procedure " 
 					+ node.getChild(0).getText()
 					+ " has a return statement." );
 		}
-		hasReturnStatement = false;
+		returnType = DATA_TYPES.ERROR;
 		table.finalizeCurrentScopeLevelTable();
 	}
 

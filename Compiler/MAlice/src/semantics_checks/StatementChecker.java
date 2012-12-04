@@ -100,8 +100,8 @@ public class StatementChecker
 
 	private static void validateFound(Tree node, SymbolTable symbolTable)
 	{
-		FunctionSemanticsChecker.hasReturnStatement = true;
-		SemanticsUtils.getValueType(node, symbolTable);
+		FunctionSemanticsChecker.returnType = 
+			SemanticsUtils.getValueType(node, symbolTable);
 	}
 
 	private static void validateCodeBlock(Tree node, SymbolTable symbolTable)

@@ -3,6 +3,7 @@ package tests;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 import malice_grammar.SemanticVerifier;
 import malice_grammar.malice_grammarLexer;
@@ -44,37 +45,38 @@ public class TestSuiteForMainProgram
 		return true;
 	}
 	
-//	@Test
-//	public void testForValidPrograms( ) throws IOException, RecognitionException
-//	{
-//		String[] ps = ("test01.alice test02.alice test03.alice " +
-//				"test04.alice test05.alice test06.alice test07.alice test08.alice test09.alice " +
-//				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
-////		assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + "test15.alice"));
-//		for(String p: ps) {
-//			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
-//		}
-//	}
-	
 	@Test
-	public void testAllInvalidPrograms( ) 
-		throws IOException, RecognitionException 
+	public void testForValidPrograms( ) throws IOException, RecognitionException
 	{
-		String[] ps = ("test01.alice test02.alice test03.alice test04.alice" +
-				" test05.alice test06.alice test07.alice test08.alice " +
-				"test09.alice test10.alice test11.alice test12.alice " +
-				"test13.alice test14.alice test15.alice test16.alice " +
-				"test17.alice test18.alice test19.alice test20.alice " +
-				"test21.alice test22.alice test23.alice test24.alice " +
-				"test25.alice test26.alice test27.alice test28.alice " +
-				"test29.alice test30.alice test31.alice test32.alice " +
-				"test33.alice test34.alice test35.alice " +
-				"test36.alice").split(" ") ;
-//		assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
-//				"/malice_examples/invalid/" + "test09" + ".alice"));
-		for(String p : ps) {
-			assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
-					"/malice_examples/invalid/" + p));
+		String[] ps = ("test01.alice test02.alice test03.alice " +
+				"test04.alice test05.alice test06.alice test07.alice test08.alice test09.alice " +
+				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
+//		assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + "test15.alice"));
+		for(String p: ps) {
+			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
 		}
 	}
+	
+//	@Test
+//	public void testAllInvalidPrograms( ) 
+//		throws IOException, RecognitionException 
+//	{
+//		String[] ps = ("test01.alice test02.alice test03.alice test04.alice" +
+//				" test05.alice test06.alice test07.alice test08.alice " +
+//				"test09.alice test10.alice test11.alice test12.alice " +
+//				"test13.alice test14.alice test15.alice test16.alice " +
+//				"test17.alice test18.alice test19.alice test20.alice " +
+//				"test21.alice test22.alice test23.alice test24.alice " +
+//				"test25.alice test26.alice test27.alice test28.alice " +
+//				"test29.alice test30.alice test31.alice test32.alice " +
+//				"test33.alice test34.alice test35.alice " +
+//				"test36.alice").split(" ") ;
+//		assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
+//				"/malice_examples/invalid/" + "test34" + ".alice"));
+////		for(String p : ps) {
+////			assertTrue( runProgram("c:/Users/varun/Documents/Malice" +
+////					"/malice_examples/invalid/" + p));
+////			String in = new Scanner(System.in).nextLine();
+////		}
+//	}
 }
