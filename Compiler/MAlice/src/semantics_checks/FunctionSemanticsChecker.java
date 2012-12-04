@@ -11,6 +11,7 @@ import symbol_table.VariableSTValue;
 
 public class FunctionSemanticsChecker
 {
+	public static boolean hasReturnStatement = false;
 	public static Tree checkFunction(Tree node, SymbolTable table)
 	{
 		if (node.getText().contentEquals("room"))
@@ -39,6 +40,7 @@ public class FunctionSemanticsChecker
 		// skipping two children due to the return value
 		curr = SemanticsUtils.getNextChild(curr);
 		curr = SemanticsUtils.getNextChild(curr);
+		hasReturnStatement = false;
 		curr = StatementChecker.checkAllStatements(curr, table);
 		try
 		{
@@ -55,6 +57,14 @@ public class FunctionSemanticsChecker
 		} catch (NullPointerException e)
 		{
 		}
+		if (!hasReturnStatement)
+		{
+			System.err.println("Line " + node.getLine() + ": "
+					+ node.getCharPositionInLine() + ": The function " 
+					//+ node.getChild(0).getText()
+					+ " has no return statement." );
+		}
+		hasReturnStatement = false;
 		table = table.finalizeCurrentScopeLevelTable();
 	}
 
@@ -86,6 +96,7 @@ public class FunctionSemanticsChecker
 		table = func_val.getTable();
 		curr = SemanticsUtils.getNextChild(curr);
 		curr = checkParametersToFunction(table, curr, args);
+		hasReturnStatement = false;
 		curr = StatementChecker.checkAllStatements(curr, table);
 		try
 		{
@@ -102,6 +113,14 @@ public class FunctionSemanticsChecker
 		} catch (NullPointerException e)
 		{
 		}
+		if (hasReturnStatement)
+		{
+			System.err.println("Line " + node.getLine() + ": "
+					+ node.getCharPositionInLine() + ": The procedure " 
+					+ node.getChild(0).getText()
+					+ " has a return statement." );
+		}
+		hasReturnStatement = false;
 		table.finalizeCurrentScopeLevelTable();
 	}
 

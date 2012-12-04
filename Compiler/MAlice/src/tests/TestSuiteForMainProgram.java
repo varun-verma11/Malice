@@ -3,7 +3,6 @@ package tests;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 import malice_grammar.SemanticVerifier;
 import malice_grammar.malice_grammarLexer;
@@ -56,7 +55,7 @@ public class TestSuiteForMainProgram
 //			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
 //		}
 //	}
-//	
+	
 	@Test
 	public void testAllInvalidPrograms( ) 
 		throws IOException, RecognitionException 

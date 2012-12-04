@@ -100,6 +100,7 @@ public class StatementChecker
 
 	private static void validateFound(Tree node, SymbolTable symbolTable)
 	{
+		FunctionSemanticsChecker.hasReturnStatement = true;
 		SemanticsUtils.getValueType(node, symbolTable);
 	}
 

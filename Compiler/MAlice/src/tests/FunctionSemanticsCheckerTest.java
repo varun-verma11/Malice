@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import semantics_checks.ExpressionChecker;
 
-
-
 public class FunctionSemanticsCheckerTest
 {
 	
@@ -13,6 +11,5 @@ public class FunctionSemanticsCheckerTest
 	public void checkEmptyFunction()
 	{
 		new ExpressionChecker();
-		String funcs ;
 	}
 }
