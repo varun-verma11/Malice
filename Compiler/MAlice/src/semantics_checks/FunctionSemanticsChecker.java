@@ -1,13 +1,11 @@
 package semantics_checks;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
 import symbol_table.FunctionSTValue;
-import symbol_table.StatementChecker;
 import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
 
@@ -27,6 +25,10 @@ public class FunctionSemanticsChecker
 
 	private static void checkRoomFunction(Tree node, SymbolTable table)
 	{
+		if(table.checkItemIsInCurrentScopeLevel(node.getText()))
+		{
+			SemanticsUtils.printMultipleDefinitionsOfFunctions(node);
+		}
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
 		FunctionSTValue func_val = new FunctionSTValue(getReturnType(node),
 				table, args);
@@ -53,10 +55,6 @@ public class FunctionSemanticsChecker
 		} catch (NullPointerException e)
 		{
 		}
-		// while (temp!=curr)
-		// {
-		// temp = checkFunction(SemanticsUtils.getNextChild(curr), table);
-		// }
 		table = table.finalizeCurrentScopeLevelTable();
 	}
 
@@ -77,6 +75,10 @@ public class FunctionSemanticsChecker
 	// check with magdiee about the construct of Val
 	private static void checkLookingFunction(Tree node, SymbolTable table)
 	{
+		if(table.checkItemIsInCurrentScopeLevel(node.getText()))
+		{
+			SemanticsUtils.printMultipleDefinitionsOfFunctions(node);
+		}
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
 		FunctionSTValue func_val = new FunctionSTValue(table, args);
 		table.insert(node.getText(), func_val);

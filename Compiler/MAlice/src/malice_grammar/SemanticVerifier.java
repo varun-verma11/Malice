@@ -2,10 +2,10 @@ package malice_grammar;
 
 import org.antlr.runtime.tree.Tree;
 
+import semantics_checks.ExpressionChecker;
 import semantics_checks.FunctionSemanticsChecker;
 import semantics_checks.SemanticsUtils;
-import symbol_table.ExpressionChecker;
-import symbol_table.StatementChecker;
+import semantics_checks.StatementChecker;
 import symbol_table.SymbolTable;
 
 
@@ -21,10 +21,17 @@ public class SemanticVerifier
 			current = FunctionSemanticsChecker.checkFunction(current, table);
 			current = SemanticsUtils.getNextChild(current);
 		}
-		if (!table.checkItemIsInCurrentScopeLevel("hatta"))
+		if (table.checkItemIsInCurrentScopeLevel("hatta"))
 		{
-			System.out.println("ERROR: No hatta function defined " +
-					"(Entry point of the program)");
+			if (table.lookup("hatta").getType()!=null)
+			{
+				System.err.println("Error: The main procedure hatta defined " +
+						"as a function.");
+			}
+		} else 
+		{
+			System.err.println("ERROR: No hatta function defined " +
+			"(Entry point of the program)");
 		}
 	}
 }

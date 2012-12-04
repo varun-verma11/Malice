@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
-import symbol_table.ExpressionChecker;
 import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
 
@@ -47,6 +46,13 @@ public class SemanticsUtils {
 		return DATA_TYPES.ERROR ;
 	}
 	
+	public static void printMultipleDefinitionsOfFunctions(Tree node) 
+	{
+		System.err.println("Line "+ node.getLine()+ ": " 
+				+ node.getCharPositionInLine() + " (" 
+				+ node.getText() + ") Muliple definitions.");
+	}
+	
 	private static void checkArgumentsOfFunctions(Tree node,
 			SymbolTable symbol_table, ArrayList<DATA_TYPES> argsTypes )
 	{
@@ -70,18 +76,17 @@ public class SemanticsUtils {
 	public static DATA_TYPES getValueType(Tree node, SymbolTable symbolTable)
 	{
 		char firstChar = node.getText().charAt(0);
-		if (firstChar == '\'')
+		if(node.getText().contentEquals("piece"))
+		{
+			return ArrayElemCheck.checkArrayElem(node, symbolTable); 
+		}else if (firstChar == '\'')
 		{
 			return DATA_TYPES.LETTER;
 		}
-	
 		else if (firstChar == '\"')
-	
 		{
 			return DATA_TYPES.SENTENCE;
-		}
-	
-		else
+		} else 
 		{
 			return ExpressionChecker.getExpressionType(node, symbolTable);
 		}
