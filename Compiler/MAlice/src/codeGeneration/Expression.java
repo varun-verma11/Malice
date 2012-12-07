@@ -1,8 +1,5 @@
 package codeGeneration;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.SymbolTable;
@@ -20,6 +17,16 @@ public class Expression
 		//checking for single arity functions would be checked before this point
 		String arg1 = getResultReg(node.getChild(0), table);
 		String arg2 = getResultReg(node.getChild(1), table);
+
+		try{
+			int i = Integer.parseInt(arg1);
+			if( op==OPERATOR.NOT || op==OPERATOR.BWNOT) {
+				return calculateUanary(op, i) + "";
+			}
+			int j = Integer.parseInt(arg2);
+			return calculateExpr(op, i, j) + "";
+		} catch (NumberFormatException e)
+		{ }
 		String uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		switch(op)
 		{
@@ -64,6 +71,7 @@ public class Expression
 				break;
 			case MUL:
 				writeOperationExpressions(uniqueRegisterID, "mul", arg1, arg2);
+				break;
 			case DIV:
 				writeOperationExpressions(uniqueRegisterID, "sdiv", arg1, arg2);
 				break;
@@ -78,6 +86,52 @@ public class Expression
 				break;
 		}
 		return uniqueRegisterID;
+	}
+	private static int calculateExpr(OPERATOR op, int i, int j)
+	{
+		switch(op)
+		{
+			case EQ:
+				return (i==j)? 1 : 0 ;
+			case ADD:
+				return i+j;
+			case BWOR:
+				return i|j;
+			case BWXOR:
+				return i^j;
+			case BWAND:
+				return i&j;
+			case NE:
+				return (i!=j)? 1 : 0 ;
+			case LTE:
+				return (i<=j)? 1 : 0 ;
+			case LT:
+				return (i<j)? 1 : 0 ;
+			case GT:
+				return (i>j)? 1 : 0 ;
+			case GTE:
+				return (i>=j)? 1 : 0 ;
+			case SUB:
+				return i-j;
+			case MUL:
+				return i*j;
+			case DIV:
+				return i/j;
+			case MOD:
+				return i%j;
+		}
+		return -1;
+	}
+	private static int calculateUanary(OPERATOR op, int i)
+	{
+		switch(op)
+		{
+			case NOT:
+				return (i==0)? 1 : 0 ;
+			case BWNOT:
+				return ~i;
+		}
+		return -1;
 	}
 	private static void writeNotStatement(String uniqueRegisterID, String arg1)
 	{
