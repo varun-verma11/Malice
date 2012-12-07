@@ -11,6 +11,12 @@ public class ExpressionCodeGenerator
 {
 	private static int regNumber =0;
 	private static Queue<String> expression = new ArrayDeque<String>();
+	
+	public static void emptyQueue()
+	{
+		expression = new ArrayDeque<String>();
+		regNumber = 0;
+	}
 	public static String getResultReg(Tree node, SymbolTable table)
 	{
 		if (node==null) return null;
@@ -41,6 +47,7 @@ public class ExpressionCodeGenerator
 				writeOperationExpressions(uniqueRegisterID, "xor", arg1, arg2);
 				break;
 			case BWAND:
+				writeOperationExpressions(uniqueRegisterID, "and", arg1, arg2);
 				break;
 			case NE:
 				writeComparisonStatements(uniqueRegisterID, "ne", arg1, arg2);

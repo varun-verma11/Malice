@@ -1,5 +1,7 @@
 package codeGeneration;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 
 import malice_grammar.malice_grammarLexer;
@@ -24,7 +26,30 @@ public class ExpressionCodeGeneratorTests
 	@Test
 	public void testEq() throws IOException, RecognitionException
 	{
-		String expr = "x>2==1+x<3";
+		assertTrue(generateCodeForExpression("x>2==1+x<3"));
+		assertTrue(generateCodeForExpression("x>2"));
+		assertTrue(generateCodeForExpression("x"));
+		assertTrue(generateCodeForExpression("2"));
+		assertTrue(generateCodeForExpression("x<2"));
+		assertTrue(generateCodeForExpression("x|2"));
+		assertTrue(generateCodeForExpression("x^4"));
+		assertTrue(generateCodeForExpression("x&4"));
+		assertTrue(generateCodeForExpression("x==2"));
+		assertTrue(generateCodeForExpression("x!=2"));
+		assertTrue(generateCodeForExpression("x<=3"));
+		assertTrue(generateCodeForExpression("x>2"));
+		assertTrue(generateCodeForExpression("x>=2"));
+		assertTrue(generateCodeForExpression("x+2"));
+		assertTrue(generateCodeForExpression("x-2"));
+		assertTrue(generateCodeForExpression("x*4"));
+		assertTrue(generateCodeForExpression("x/3"));
+		assertTrue(generateCodeForExpression("x%x"));
+		assertTrue(generateCodeForExpression("~x"));
+	}
+
+	private boolean generateCodeForExpression(String expr)
+			throws RecognitionException
+	{
 		new ExpressionChecker();
 		SymbolTable table = new SymbolTable();
 		table.insert("x", new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true));
@@ -37,6 +62,10 @@ public class ExpressionCodeGeneratorTests
 			System.out.println(tree.toStringTree());
 			ExpressionCodeGenerator.getResultReg(tree, table);
 			ExpressionCodeGenerator.printInstructions();
+//			(new Scanner(System.in)).nextLine();
+			ExpressionCodeGenerator.emptyQueue();
+			return true;
 		}
+		return false;
 	}
 }
