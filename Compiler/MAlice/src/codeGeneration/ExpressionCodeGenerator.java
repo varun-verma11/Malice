@@ -37,8 +37,10 @@ public class ExpressionCodeGenerator
 				writeOperationExpressions(uniqueRegisterID, "add", arg1, arg2);
 				break;
 			case OR:
+				writeOrStatement(arg1, arg2, uniqueRegisterID);
 				break;
 			case AND:
+				writeAndStatement(arg1, arg2, uniqueRegisterID);
 				break;
 			case BWOR:
 				writeOperationExpressions(uniqueRegisterID, "or", arg1, arg2);
@@ -79,9 +81,42 @@ public class ExpressionCodeGenerator
 				writeOperationExpressions(uniqueRegisterID, "xor", arg1, "-1");
 				break;
 			case NOT:
+				writeNotStatement(uniqueRegisterID,arg1);
 				break;
 		}
 		return uniqueRegisterID;
+	}
+	private static void writeNotStatement(String uniqueRegisterID, String arg1)
+	{
+		writeComparison(uniqueRegisterID, "eq", arg1, "0");
+		String prev = uniqueRegisterID;
+		uniqueRegisterID = getUniqueRegisterID();
+		writeExtensionIns(uniqueRegisterID, prev);
+	}
+	private static void writeOrStatement(String arg1, String arg2,
+			String uniqueRegisterID)
+	{
+		expression.add(uniqueRegisterID + " = or i32 " + arg2 + ", " + arg1);
+		String prev = uniqueRegisterID;
+		uniqueRegisterID = getUniqueRegisterID();
+		writeComparison(uniqueRegisterID, "ne", prev, "0");
+		prev = uniqueRegisterID;
+		uniqueRegisterID = getUniqueRegisterID();
+		writeExtensionIns(uniqueRegisterID, prev);
+	}
+	private static void writeAndStatement(String arg1, String arg2,
+			String uniqueRegisterID)
+	{
+		writeComparison(uniqueRegisterID, "ne", arg2, "0");
+		String a1 = uniqueRegisterID;
+		uniqueRegisterID = getUniqueRegisterID();
+		writeComparison(uniqueRegisterID, "ne", arg1, "0");
+		String a2 = uniqueRegisterID;
+		uniqueRegisterID = getUniqueRegisterID();
+		expression.add(uniqueRegisterID + " = and il " + a1 + ", " + a2);
+		String ans = uniqueRegisterID;
+		uniqueRegisterID = getUniqueRegisterID();
+		writeExtensionIns(uniqueRegisterID, ans);
 	}
 	
 	private static void writeOperationExpressions(String uniqueRegisterID, 
@@ -92,11 +127,20 @@ public class ExpressionCodeGenerator
 	}
 	private static void writeComparisonStatements(String uniqueRegisterID, String operation, String arg1, String arg2)
 	{
-		expression.add(uniqueRegisterID + " = " + "icmp " + operation + " i32 " 
-				+ arg1 + ", " + arg2);
+		writeComparison(uniqueRegisterID, operation, arg1, arg2);
 		String prev = uniqueRegisterID;
 		uniqueRegisterID = getUniqueRegisterID();
-		expression.add(uniqueRegisterID + " = zest il " + prev 
+		writeExtensionIns(uniqueRegisterID, prev);
+	}
+	private static void writeComparison(String uniqueRegisterID,
+			String operation, String arg1, String arg2)
+	{
+		expression.add(uniqueRegisterID + " = " + "icmp " + operation + " i32 " 
+				+ arg1 + ", " + arg2);
+	}
+	private static void writeExtensionIns(String uniqueRegisterID, String reg)
+	{
+		expression.add(uniqueRegisterID + " = zest il " + reg 
 				+ " to i32");
 	}
 	

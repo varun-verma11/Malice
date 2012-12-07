@@ -24,7 +24,7 @@ import symbol_table.VariableSTValue;
 public class ExpressionCodeGeneratorTests
 {
 	@Test
-	public void testEq() throws IOException, RecognitionException
+	public void testSimpleExpressions() throws IOException, RecognitionException
 	{
 		assertTrue(generateCodeForExpression("x>2==1+x<3"));
 		assertTrue(generateCodeForExpression("x>2"));
@@ -45,14 +45,18 @@ public class ExpressionCodeGeneratorTests
 		assertTrue(generateCodeForExpression("x/3"));
 		assertTrue(generateCodeForExpression("x%x"));
 		assertTrue(generateCodeForExpression("~x"));
+		assertTrue(generateCodeForExpression("x && y"));
+		assertTrue(generateCodeForExpression("x || y"));
+		assertTrue(generateCodeForExpression("!x"));
 	}
-
+	
 	private boolean generateCodeForExpression(String expr)
 			throws RecognitionException
 	{
 		new ExpressionChecker();
 		SymbolTable table = new SymbolTable();
 		table.insert("x", new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true));
+		table.insert("y", new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true));
 		CharStream input = new ANTLRStringStream(expr); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
@@ -62,7 +66,6 @@ public class ExpressionCodeGeneratorTests
 			System.out.println(tree.toStringTree());
 			ExpressionCodeGenerator.getResultReg(tree, table);
 			ExpressionCodeGenerator.printInstructions();
-//			(new Scanner(System.in)).nextLine();
 			ExpressionCodeGenerator.emptyQueue();
 			return true;
 		}
