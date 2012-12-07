@@ -19,10 +19,18 @@ public class StatementCodeGenerator {
 	
 	public static String getResultReg(Tree node, SymbolTable table){
 		if (node==null) return null;
-		if (node.getChildCount()==0) return makeVar(node, table);
+		
+		Statement stat = getStatement(node.getText());
 		
 		
 	}
 	
-	
+	private static getStatement(String s){
+		if (s.contentEquals("was")) return Statement.WAS;
+		
+	}
+
+	private enum Statmentment{
+		
+	}
 }
