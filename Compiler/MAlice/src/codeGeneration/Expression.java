@@ -31,7 +31,7 @@ public class Expression
 		switch(op)
 		{
 			case EQ: 
-				writeComparisonStatements(uniqueRegisterID, "eq", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "eq", arg1, arg2);
 				break;
 			case ADD:
 				writeOperationExpressions(uniqueRegisterID, "add", arg1, arg2);
@@ -40,7 +40,7 @@ public class Expression
 				writeOrStatement(arg1, arg2, uniqueRegisterID);
 				break;
 			case AND:
-				writeAndStatement(arg1, arg2, uniqueRegisterID);
+				uniqueRegisterID = writeAndStatement(arg1, arg2, uniqueRegisterID);
 				break;
 			case BWOR:
 				writeOperationExpressions(uniqueRegisterID, "or", arg1, arg2);
@@ -52,19 +52,19 @@ public class Expression
 				writeOperationExpressions(uniqueRegisterID, "and", arg1, arg2);
 				break;
 			case NE:
-				writeComparisonStatements(uniqueRegisterID, "ne", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "ne", arg1, arg2);
 				break;
 			case LTE:
-				writeComparisonStatements(uniqueRegisterID, "sle", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sle", arg1, arg2);
 				break;
 			case LT:
-				writeComparisonStatements(uniqueRegisterID, "slt", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "slt", arg1, arg2);
 				break;
 			case GT:
-				writeComparisonStatements(uniqueRegisterID, "sgt", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sgt", arg1, arg2);
 				break;
 			case GTE:
-				writeComparisonStatements(uniqueRegisterID, "sge", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sge", arg1, arg2);
 				break;
 			case SUB:
 				writeOperationExpressions(uniqueRegisterID, "sub", arg1, arg2);
@@ -82,7 +82,7 @@ public class Expression
 				writeOperationExpressions(uniqueRegisterID, "xor", arg1, "-1");
 				break;
 			case NOT:
-				writeNotStatement(uniqueRegisterID,arg1);
+				uniqueRegisterID = writeNotStatement(uniqueRegisterID,arg1);
 				break;
 		}
 		return uniqueRegisterID;
@@ -133,14 +133,15 @@ public class Expression
 		}
 		return -1;
 	}
-	private static void writeNotStatement(String uniqueRegisterID, String arg1)
+	private static String writeNotStatement(String uniqueRegisterID, String arg1)
 	{
 		writeComparison(uniqueRegisterID, "eq", arg1, "0");
 		String prev = uniqueRegisterID;
 		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
+		return uniqueRegisterID;
 	}
-	private static void writeOrStatement(String arg1, String arg2,
+	private static String writeOrStatement(String arg1, String arg2,
 			String uniqueRegisterID)
 	{
 		CodeGenerator.addInstruction(uniqueRegisterID + " = or i32 " + arg2 + ", " + arg1);
@@ -150,8 +151,9 @@ public class Expression
 		prev = uniqueRegisterID;
 		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
+		return uniqueRegisterID;
 	}
-	private static void writeAndStatement(String arg1, String arg2,
+	private static String writeAndStatement(String arg1, String arg2,
 			String uniqueRegisterID)
 	{
 		writeComparison(uniqueRegisterID, "ne", arg2, "0");
@@ -164,6 +166,7 @@ public class Expression
 		String ans = uniqueRegisterID;
 		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, ans);
+		return uniqueRegisterID;
 	}
 	
 	private static void writeOperationExpressions(String uniqueRegisterID, 
@@ -172,12 +175,13 @@ public class Expression
 		CodeGenerator.addInstruction(uniqueRegisterID + " = " + operation + " nsw i32 " 
 				+ arg1 + ", " + arg2);
 	}
-	private static void writeComparisonStatements(String uniqueRegisterID, String operation, String arg1, String arg2)
+	private static String writeComparisonStatements(String uniqueRegisterID, String operation, String arg1, String arg2)
 	{
 		writeComparison(uniqueRegisterID, operation, arg1, arg2);
 		String prev = uniqueRegisterID;
 		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
+		return uniqueRegisterID;
 	}
 	private static void writeComparison(String uniqueRegisterID,
 			String operation, String arg1, String arg2)

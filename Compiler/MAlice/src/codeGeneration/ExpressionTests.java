@@ -51,6 +51,7 @@ public class ExpressionTests
 	{
 		assertTrue(generateCodeForExpression("x>2==1+2<x"));
 		assertTrue(generateCodeForExpression("x>2==1+2<3+2"));
+		assertTrue(generateCodeForExpression("3>2==1+2<3+2"));
 	}
 	private boolean generateCodeForExpression(String expr)
 			throws RecognitionException
@@ -66,7 +67,8 @@ public class ExpressionTests
 		if (!parser.failed()) {
 			Tree tree =  (Tree) parser.expr().getTree() ;
 			System.out.println(tree.toStringTree());
-			Expression.getResultReg(tree, table);
+			String reg = Expression.getResultReg(tree, table);
+			System.out.println("OUTPUT REG => " + reg);
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;
