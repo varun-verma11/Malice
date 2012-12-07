@@ -3,7 +3,6 @@ package tests;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 import malice_grammar.SemanticVerifier;
 import malice_grammar.malice_grammarLexer;
@@ -51,10 +50,10 @@ public class TestSuiteForMainProgram
 		String[] ps = ("test01.alice test02.alice test03.alice " +
 				"test04.alice test05.alice test06.alice test07.alice test08.alice test09.alice " +
 				"test10.alice test11.alice test12.alice test13.alice test14.alice test15.alice vectorFunctions.alice").split(" ") ;
-//		assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + "test15.alice"));
-		for(String p: ps) {
-			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
-		}
+		assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + "test12.alice"));
+//		for(String p: ps) {
+//			assertTrue( runProgram("c:/Users/varun/Documents/Malice/malice_examples/valid/" + p));
+//		}
 	}
 	
 //	@Test

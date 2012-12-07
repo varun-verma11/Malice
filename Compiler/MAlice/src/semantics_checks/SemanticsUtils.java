@@ -78,7 +78,7 @@ public class SemanticsUtils {
 		char firstChar = node.getText().charAt(0);
 		if(node.getText().contentEquals("piece"))
 		{
-			return ArrayElemCheck.checkArrayElem(node, symbolTable); 
+			return ArrayElemCheck.checkArrayElem(node, symbolTable);
 		}else if (firstChar == '\'')
 		{
 			return DATA_TYPES.LETTER;

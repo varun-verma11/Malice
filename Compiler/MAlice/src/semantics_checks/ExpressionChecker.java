@@ -67,6 +67,10 @@ public class ExpressionChecker
 				DATA_TYPES.NUMBER));
 	}
 
+	public static Map<String,FunctionProperties> getOperatorsMap()
+	{
+		return operators_map;
+	}
 	public static DATA_TYPES getExpressionType(Tree node,
 			SymbolTable symbol_table)
 	{

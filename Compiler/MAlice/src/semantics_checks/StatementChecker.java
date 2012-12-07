@@ -244,6 +244,8 @@ public class StatementChecker
 					+ node.getCharPositionInLine() + ": " + var
 					+ " not initialised yet");
 		}
+		String out = "@."+ var + " = private unnamed_addr constant [" + (var.length() + 1) + " x i8] c\"" + "VAL_FROM_TABLE" + '\\' + '0' +"0\", align 1" ;
+		System.out.println(out);
 	}
 
 	private static void validateWasStatement(Tree node, SymbolTable symbolTable)
