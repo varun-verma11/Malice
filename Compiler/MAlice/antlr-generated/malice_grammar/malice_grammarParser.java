@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-12-07 14:42:54
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g 2012-12-07 15:51:29
 
   package malice_grammar ;
 
@@ -3968,15 +3968,15 @@ public class malice_grammarParser extends Parser {
     }
     // $ANTLR end "statement_conjunctions"
 
-    public static class declations_return extends ParserRuleReturnScope {
+    public static class declarations_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "declations"
-    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:1: declations : ( declaration_statements statement_conjunctions )* ;
-    public final malice_grammarParser.declations_return declations() throws RecognitionException {
-        malice_grammarParser.declations_return retval = new malice_grammarParser.declations_return();
+    // $ANTLR start "declarations"
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:1: declarations : ( declaration_statements statement_conjunctions )* ;
+    public final malice_grammarParser.declarations_return declarations() throws RecognitionException {
+        malice_grammarParser.declarations_return retval = new malice_grammarParser.declarations_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
@@ -3988,12 +3988,12 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:12: ( ( declaration_statements statement_conjunctions )* )
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:14: ( declaration_statements statement_conjunctions )*
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:14: ( ( declaration_statements statement_conjunctions )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:16: ( declaration_statements statement_conjunctions )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:14: ( declaration_statements statement_conjunctions )*
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:16: ( declaration_statements statement_conjunctions )*
             loop42:
             do {
                 int alt42=2;
@@ -4012,15 +4012,15 @@ public class malice_grammarParser extends Parser {
 
                 switch (alt42) {
             	case 1 :
-            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:15: declaration_statements statement_conjunctions
+            	    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:17: declaration_statements statement_conjunctions
             	    {
-            	    pushFollow(FOLLOW_declaration_statements_in_declations1740);
+            	    pushFollow(FOLLOW_declaration_statements_in_declarations1740);
             	    declaration_statements166=declaration_statements();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) adaptor.addChild(root_0, declaration_statements166.getTree());
-            	    pushFollow(FOLLOW_statement_conjunctions_in_declations1742);
+            	    pushFollow(FOLLOW_statement_conjunctions_in_declarations1742);
             	    statement_conjunctions167=statement_conjunctions();
 
             	    state._fsp--;
@@ -4056,7 +4056,7 @@ public class malice_grammarParser extends Parser {
         }
         return retval;
     }
-    // $ANTLR end "declations"
+    // $ANTLR end "declarations"
 
     public static class statementList_return extends ParserRuleReturnScope {
         CommonTree tree;
@@ -4064,18 +4064,18 @@ public class malice_grammarParser extends Parser {
     };
 
     // $ANTLR start "statementList"
-    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:1: statementList : declations ( function )* declations ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function )* ;
+    // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:1: statementList : declarations ( function )* declarations ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function )* ;
     public final malice_grammarParser.statementList_return statementList() throws RecognitionException {
         malice_grammarParser.statementList_return retval = new malice_grammarParser.statementList_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        malice_grammarParser.declations_return declations168 = null;
+        malice_grammarParser.declarations_return declarations168 = null;
 
         malice_grammarParser.function_return function169 = null;
 
-        malice_grammarParser.declations_return declations170 = null;
+        malice_grammarParser.declarations_return declarations170 = null;
 
         malice_grammarParser.statement_return statement171 = null;
 
@@ -4092,18 +4092,18 @@ public class malice_grammarParser extends Parser {
 
 
         try {
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:15: ( declations ( function )* declations ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function )* )
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:17: declations ( function )* declations ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function )*
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:15: ( declarations ( function )* declarations ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function )* )
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:17: declarations ( function )* declarations ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_declations_in_statementList1752);
-            declations168=declations();
+            pushFollow(FOLLOW_declarations_in_statementList1752);
+            declarations168=declarations();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, declations168.getTree());
-            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:28: ( function )*
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, declarations168.getTree());
+            // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:148:30: ( function )*
             loop43:
             do {
                 int alt43=2;
@@ -4133,12 +4133,12 @@ public class malice_grammarParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_declations_in_statementList1757);
-            declations170=declations();
+            pushFollow(FOLLOW_declarations_in_statementList1757);
+            declarations170=declarations();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, declations170.getTree());
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, declarations170.getTree());
             // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:149:15: ( ( ( statement )? statement_conjunctions ) | control_structure | read_statement ( statement_conjunctions )? | nested_function )*
             loop46:
             do {
@@ -5373,8 +5373,8 @@ public class malice_grammarParser extends Parser {
 
     // $ANTLR start synpred64_malice_grammar
     public final void synpred64_malice_grammar_fragment() throws RecognitionException {   
-        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:15: ( declaration_statements statement_conjunctions )
-        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:15: declaration_statements statement_conjunctions
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:17: ( declaration_statements statement_conjunctions )
+        // /home/ostwal/malice/Compiler/MAlice/src/malice_grammar/malice_grammar.g:147:17: declaration_statements statement_conjunctions
         {
         pushFollow(FOLLOW_declaration_statements_in_synpred64_malice_grammar1740);
         declaration_statements();
@@ -6129,11 +6129,11 @@ public class malice_grammarParser extends Parser {
     public static final BitSet FOLLOW_BUT_in_statement_conjunctions1721 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_71_in_statement_conjunctions1726 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_70_in_statement_conjunctions1730 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_statements_in_declations1740 = new BitSet(new long[]{0x00F39F0000100000L,0x00000000000000C0L});
-    public static final BitSet FOLLOW_statement_conjunctions_in_declations1742 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_declations_in_statementList1752 = new BitSet(new long[]{0x00F39F0508901080L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_declaration_statements_in_declarations1740 = new BitSet(new long[]{0x00F39F0000100000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_statement_conjunctions_in_declarations1742 = new BitSet(new long[]{0x0000100000000002L});
+    public static final BitSet FOLLOW_declarations_in_statementList1752 = new BitSet(new long[]{0x00F39F0508901080L,0x00000000000000C0L});
     public static final BitSet FOLLOW_function_in_statementList1754 = new BitSet(new long[]{0x00F39F0508901080L,0x00000000000000C0L});
-    public static final BitSet FOLLOW_declations_in_statementList1757 = new BitSet(new long[]{0x00F39F0108901082L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_declarations_in_statementList1757 = new BitSet(new long[]{0x00F39F0108901082L,0x00000000000000C0L});
     public static final BitSet FOLLOW_statement_in_statementList1777 = new BitSet(new long[]{0x00F39F0000100000L,0x00000000000000C0L});
     public static final BitSet FOLLOW_statement_conjunctions_in_statementList1780 = new BitSet(new long[]{0x00F39F0108901082L,0x00000000000000C0L});
     public static final BitSet FOLLOW_control_structure_in_statementList1801 = new BitSet(new long[]{0x00F39F0108901082L,0x00000000000000C0L});
