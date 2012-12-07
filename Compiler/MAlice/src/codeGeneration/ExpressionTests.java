@@ -21,7 +21,7 @@ import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
 
 
-public class ExpressionCodeGeneratorTests
+public class ExpressionTests
 {
 	@Test
 	public void testSimpleExpressions() throws IOException, RecognitionException
@@ -64,9 +64,9 @@ public class ExpressionCodeGeneratorTests
 		if (!parser.failed()) {
 			Tree tree =  (Tree) parser.expr().getTree() ;
 			System.out.println(tree.toStringTree());
-			ExpressionCodeGenerator.getResultReg(tree, table);
-			ExpressionCodeGenerator.printInstructions();
-			ExpressionCodeGenerator.emptyQueue();
+			Expression.getResultReg(tree, table);
+			CodeGenerator.printInstructions();
+			CodeGenerator.emptyInstructions();
 			return true;
 		}
 		return false;

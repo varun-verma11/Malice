@@ -7,16 +7,9 @@ import org.antlr.runtime.tree.Tree;
 
 import symbol_table.SymbolTable;
 
-public class ExpressionCodeGenerator
+public class Expression
 {
-	private static int regNumber =0;
-	private static Queue<String> expression = new ArrayDeque<String>();
 	
-	public static void emptyQueue()
-	{
-		expression = new ArrayDeque<String>();
-		regNumber = 0;
-	}
 	public static String getResultReg(Tree node, SymbolTable table)
 	{
 		if (node==null) return null;
@@ -27,7 +20,7 @@ public class ExpressionCodeGenerator
 		//checking for single arity functions would be checked before this point
 		String arg1 = getResultReg(node.getChild(0), table);
 		String arg2 = getResultReg(node.getChild(1), table);
-		String uniqueRegisterID = getUniqueRegisterID();
+		String uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		switch(op)
 		{
 			case EQ: 
@@ -90,18 +83,18 @@ public class ExpressionCodeGenerator
 	{
 		writeComparison(uniqueRegisterID, "eq", arg1, "0");
 		String prev = uniqueRegisterID;
-		uniqueRegisterID = getUniqueRegisterID();
+		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
 	}
 	private static void writeOrStatement(String arg1, String arg2,
 			String uniqueRegisterID)
 	{
-		expression.add(uniqueRegisterID + " = or i32 " + arg2 + ", " + arg1);
+		CodeGenerator.addInstruction(uniqueRegisterID + " = or i32 " + arg2 + ", " + arg1);
 		String prev = uniqueRegisterID;
-		uniqueRegisterID = getUniqueRegisterID();
+		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeComparison(uniqueRegisterID, "ne", prev, "0");
 		prev = uniqueRegisterID;
-		uniqueRegisterID = getUniqueRegisterID();
+		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
 	}
 	private static void writeAndStatement(String arg1, String arg2,
@@ -109,49 +102,41 @@ public class ExpressionCodeGenerator
 	{
 		writeComparison(uniqueRegisterID, "ne", arg2, "0");
 		String a1 = uniqueRegisterID;
-		uniqueRegisterID = getUniqueRegisterID();
+		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeComparison(uniqueRegisterID, "ne", arg1, "0");
 		String a2 = uniqueRegisterID;
-		uniqueRegisterID = getUniqueRegisterID();
-		expression.add(uniqueRegisterID + " = and il " + a1 + ", " + a2);
+		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		CodeGenerator.addInstruction(uniqueRegisterID + " = and il " + a1 + ", " + a2);
 		String ans = uniqueRegisterID;
-		uniqueRegisterID = getUniqueRegisterID();
+		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, ans);
 	}
 	
 	private static void writeOperationExpressions(String uniqueRegisterID, 
 			String operation, String arg1, String arg2)
 	{
-		expression.add(uniqueRegisterID + " = " + operation + " nsw i32 " 
+		CodeGenerator.addInstruction(uniqueRegisterID + " = " + operation + " nsw i32 " 
 				+ arg1 + ", " + arg2);
 	}
 	private static void writeComparisonStatements(String uniqueRegisterID, String operation, String arg1, String arg2)
 	{
 		writeComparison(uniqueRegisterID, operation, arg1, arg2);
 		String prev = uniqueRegisterID;
-		uniqueRegisterID = getUniqueRegisterID();
+		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
 	}
 	private static void writeComparison(String uniqueRegisterID,
 			String operation, String arg1, String arg2)
 	{
-		expression.add(uniqueRegisterID + " = " + "icmp " + operation + " i32 " 
+		CodeGenerator.addInstruction(uniqueRegisterID + " = " + "icmp " + operation + " i32 " 
 				+ arg1 + ", " + arg2);
 	}
 	private static void writeExtensionIns(String uniqueRegisterID, String reg)
 	{
-		expression.add(uniqueRegisterID + " = zest il " + reg 
+		CodeGenerator.addInstruction(uniqueRegisterID + " = zest il " + reg 
 				+ " to i32");
 	}
 	
-	//THIS METHOD IS ONLY FOR TESTING PURPOSES AND HAS TO BE REMOVED FOR FINAL CODE
-	public static void printInstructions()
-	{
-		for (String ins: expression)
-		{
-			System.out.println(ins);
-		}
-	}
 	
 	private static String makeVar(Tree leaf, SymbolTable table)
 	{
@@ -162,16 +147,6 @@ public class ExpressionCodeGenerator
 			return "@." + leaf.getText();
 		}
 		return leaf.getText();
-	}
-
-	public static String getUniqueRegisterID()
-	{
-		++regNumber;
-		return "%"+regNumber;
-	}
-	public static String getLocalRegisterID(int reg)
-	{
-		return "%" + reg;
 	}
 	
 	private static OPERATOR getOperator(String op)
