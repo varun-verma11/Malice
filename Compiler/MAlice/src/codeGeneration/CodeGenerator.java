@@ -1,15 +1,24 @@
 package codeGeneration;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.ArrayList;
 
 public class CodeGenerator
 {
-	private static Queue<String> instructions = new ArrayDeque<String>();
+	private static ArrayList<String> instructions = new ArrayList<String>();
 	private static int regNumber =0;
 	public static void addInstruction(String ins)
 	{
 		instructions.add(ins);
+	}
+	
+	public static int getNumberOfInstructions()
+	{
+		return instructions.size();
+	}
+	
+	public static void addInstruction(String ins, int index)
+	{
+		instructions.add(index, ins);
 	}
 	
 	public static void printInstructions()
@@ -26,6 +35,11 @@ public class CodeGenerator
 		regNumber = 0;
 	}
 	
+	public static String getUniqueLabel()
+	{
+		++regNumber;
+		return "%"+regNumber;
+	}
 	public static String getUniqueRegisterID()
 	{
 		++regNumber;
