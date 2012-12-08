@@ -21,7 +21,7 @@ public class ControlStructureTest
 	@Test
 	public void testEither() throws RecognitionException
 	{
-		String either = "either (x<0) so \n x became x+2. \n or \n x became x+2. \n because Alice was unsure which";
+		String either = "either (x<0 && x>43) so \n x became x+x-x+4*x. \n or \n x became x+2*(~x)+x. \n because Alice was unsure which";
 		generateCodeForEither(either);
 	}
 
