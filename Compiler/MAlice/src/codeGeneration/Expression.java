@@ -2,6 +2,7 @@ package codeGeneration;
 
 import org.antlr.runtime.tree.Tree;
 
+import symbol_table.DATA_TYPES;
 import symbol_table.SymbolTable;
 
 public class Expression
@@ -198,6 +199,18 @@ public class Expression
 	
 	private static String makeVar(Tree leaf, SymbolTable table)
 	{
+		if (leaf.getChildCount()!=0)
+		{
+			String id = CodeGenerator.getUniqueRegisterID();
+			
+			CodeGenerator.addInstruction(id + " = call " 
+					+ getReturnTypeOfFunction(table.lookup
+							(leaf.getText()).getType()) 
+					+ " @" + leaf.getText() 
+					+ "(" 
+					+ getParamsToFunction(leaf, table)
+					+ ")" );
+		}
 		if (table.checkItemWasDeclaredBefore(leaf.getText())) 
 		{
 			//THIS NEEDS TO BE THE NEW METHOD WHICH WOULD RETURN THE NAME OF 
@@ -207,6 +220,24 @@ public class Expression
 		return leaf.getText();
 	}
 	
+	private static String getParamsToFunction(Tree leaf, SymbolTable table)
+	{
+		return null;
+	}
+	private static String getReturnTypeOfFunction(DATA_TYPES type)
+	{
+		switch(type)
+		{
+			case NUMBER :
+				return "i32";
+				break;
+			case LETTER:
+				break;
+			case SENTENCE:
+				break;
+		}
+		return null;
+	}
 	private static OPERATOR getOperator(String op)
 	{
 		if (op.contentEquals("==")) return OPERATOR.EQ;

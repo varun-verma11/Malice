@@ -21,11 +21,20 @@ public class ControlStructureTest
 	@Test
 	public void testEither() throws RecognitionException
 	{
-		String either = "either (x<0) so \n x became x+2. \n or \n x became x+2. \n because Alice was unsure which";
-		generateCodeForEither(either);
+		String either = "either (x<0 && x>43) so \n x became x+x-x+4*x. \n or \n x became x+2*(~x)+x. \n because Alice was unsure which";
+		generateCodeForEither(either, TYPE.EITHER);
 	}
-
-	private boolean generateCodeForEither(String statement)
+	
+	@Test
+	public void testEventually() throws RecognitionException
+	{
+		String eventually = "eventually (x<6) because \n x became x+x-x+4*x. enough times";
+		generateCodeForEither(eventually, TYPE.EVENTUALLY);
+	}
+	private enum TYPE {
+		EVENTUALLY, EITHER, PERHAPS;
+	}
+	private boolean generateCodeForEither(String statement, TYPE type)
 			throws RecognitionException
 	{
 		new ExpressionChecker();
@@ -39,10 +48,21 @@ public class ControlStructureTest
 		if (!parser.failed())
 		{
 			Tree tree = (Tree) parser.control_structure().getTree();
-			System.out.println(tree.toStringTree());
-			ControlStructure.writeEitherStatement(tree, table);
+//			System.out.println(tree.toStringTree());
+			switch(type)
+			{
+				case EITHER :
+					ControlStructure.writeEitherStatement(tree, table);
+					break;
+				case EVENTUALLY:
+					ControlStructure.writeEventuallyStatement(tree, table);
+					break;
+				case PERHAPS:
+					break;
+			}
+			
 			CodeGenerator.printInstructions();
-			CodeGenerator.emptyInstructions();
+//			CodeGenerator.emptyInstructions();
 			return true;
 		}
 		return false;
