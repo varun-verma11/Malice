@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CodeGenerator
 {
 	private static ArrayList<String> instructions = new ArrayList<String>();
-	private static int regNumber =0;
+	private static int regNumber = 0;
 	public static void addInstruction(String ins)
 	{
 		instructions.add(ins);
