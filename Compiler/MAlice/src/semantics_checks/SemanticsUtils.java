@@ -2,6 +2,8 @@ package semantics_checks;
 
 import java.util.ArrayList;
 
+import malice_grammar.SemanticVerifier;
+
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
@@ -40,6 +42,7 @@ public class SemanticsUtils {
 
 	public static DATA_TYPES printIncorrectNumberOfArguments(Tree node)
 	{
+		SemanticVerifier.failed = true;
 		System.err.println("Line "+ node.getLine()+ ": " 
 				+ node.getCharPositionInLine() + " (" 
 				+ node.getText() + ") Incorrect Number of Arguments");
@@ -48,6 +51,7 @@ public class SemanticsUtils {
 	
 	public static void printMultipleDefinitionsOfFunctions(Tree node) 
 	{
+		SemanticVerifier.failed = true;
 		System.err.println("Line "+ node.getLine()+ ": " 
 				+ node.getCharPositionInLine() + " (" 
 				+ node.getText() + ") Muliple definitions.");
@@ -68,6 +72,7 @@ public class SemanticsUtils {
 	
 	public static void printInvalidVariable(Tree node)
 	{
+		SemanticVerifier.failed = true;
 		System.err.println("Line " + node.getLine() + ": "
 				+ node.getCharPositionInLine() + " (" + node.getText()
 				+ ") The arguments for operator " + "are of invalid type(s).");

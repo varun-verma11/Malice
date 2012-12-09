@@ -75,8 +75,6 @@ public class Function
 			Tree temp = current;
 			while (true)
 			{
-				System.out.println("temp => " + temp);
-				System.out.println("curr => " + current);
 				temp = writeCodeForFunction(current , table);
 				if (temp == current)
 				{

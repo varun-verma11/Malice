@@ -9,6 +9,8 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.Tree;
 
+import codeGeneration.CodeGenerator;
+
 import semantics_checks.ExpressionChecker;
 import symbol_table.SymbolTable;
 
@@ -31,6 +33,14 @@ public class Malice
 					"): Wrong extension.");
 			return ;
 		}
+		String filepath = "";
+		if(args.length==2)
+		{
+			filepath = args[1];
+		} else 
+		{
+			filepath = args[0].replace(".alice", ".llvm");
+		}
 		try {
 			new ExpressionChecker();
 			SymbolTable table = new SymbolTable();
@@ -38,13 +48,21 @@ public class Malice
 			CharStream input = new ANTLRFileStream(args[0]); 
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
-			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-			if (!parser.failed()) {
-				Tree tree =  (Tree) parser.program().getTree() ;
-				System.out.println(tree.toStringTree());
-				SemanticVerifier.checkProgramSemantics(tree, table);
+			if (!lexer.failed())
+			{
+				malice_grammarParser parser = new malice_grammarParser(tokens ) ;
+				if (!parser.failed()) {
+					Tree tree =  (Tree) parser.program().getTree() ;
+					System.out.println(tree.toStringTree());
+					SemanticVerifier.checkProgramSemantics(tree, table);
+					if (!SemanticVerifier.failed) 
+					{
+						CodeGenerator.generateCode(tree, table);
+						CodeGenerator.saveToFile(filepath);
+					}
+				}
+				System.out.println(args[0] + " done");	
 			}
-			System.out.println(args[0] + " done");
 		} 
 		catch (IOException e) { System.out.println("The filepath is incorrect." +
 				" Please use a valid filepath");} 

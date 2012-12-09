@@ -11,6 +11,7 @@ import symbol_table.SymbolTable;
 
 public class SemanticVerifier 
 {
+	public static boolean failed = false;
 	public static void checkProgramSemantics(Tree node, SymbolTable table)
 	{
 		new ExpressionChecker();
@@ -25,11 +26,13 @@ public class SemanticVerifier
 		{
 			if (table.lookup("hatta").getType()!=null)
 			{
+				failed = true;
 				System.err.println("Error: The main procedure hatta defined " +
 						"as a function.");
 			}
 		} else 
 		{
+			failed = true;
 			System.err.println("ERROR: No hatta function defined " +
 			"(Entry point of the program)");
 		}
