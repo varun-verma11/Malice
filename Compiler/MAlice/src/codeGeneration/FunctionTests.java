@@ -42,6 +42,33 @@ public class FunctionTests
 		proc = "The looking-glass hatta(letter x, sentence y) opened . closed";
 		generateCodeForFunctions(proc, table);
 	}
+	
+	@Test
+	public void testFunctionWithNoStatements() throws RecognitionException
+	{
+		SymbolTable table = new SymbolTable();
+		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
+		args.add(DATA_TYPES.NUMBER);
+		args.add(DATA_TYPES.NUMBER);
+		FunctionSTValue fVal = new FunctionSTValue(DATA_TYPES.NUMBER, table,
+				args);
+		
+		table.insert("function", fVal);
+		table.insert("hatta", fVal);
+		FunctionSTValue fValLetter = new FunctionSTValue(DATA_TYPES.LETTER, table,
+				args);
+		table.insert("functionLetter", fValLetter);
+		FunctionSTValue fValString = new FunctionSTValue(DATA_TYPES.SENTENCE, table,
+				args);
+		table.insert("functionSentence", fValString);
+		
+		String proc = "The room function() contained a number opened . closed";
+		generateCodeForFunctions(proc, table);
+		proc = "The room functionLetter() contained a letter opened . closed";
+		generateCodeForFunctions(proc, table);
+		proc = "The room functionSentence() contained a sentence opened . closed";
+		generateCodeForFunctions(proc, table);
+	}
 
 	private boolean generateCodeForFunctions(String expr, SymbolTable table)
 			throws RecognitionException

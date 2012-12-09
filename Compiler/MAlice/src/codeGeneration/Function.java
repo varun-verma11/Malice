@@ -35,6 +35,41 @@ public class Function
 		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
 		CodeGenerator.addInstruction("WOULD BE HERE");
 		//DO ALL STATEMENTS
+		current = writeNestedFunctions(table, current);
+		writeReturnStatement("i32", "0");
+		CodeGenerator.decrementIdentLevel();
+		CodeGenerator.addInstruction("}");
+		return current;
+	}
+	
+	private static Tree writeCodeForFunction(Tree node, SymbolTable table)
+	{
+		Tree current = node.getChild(0);
+		FunctionSTValue fVal = 
+			(FunctionSTValue) table.lookup(node.getChild(0).getText());
+		fVal.setLocationReg("@" + current);
+		current = SemanticsUtils.getNextChild(current);
+		String params = getParamsForFunctions(current,table);
+		current = SemanticsUtils.getNextChild(
+				SemanticsUtils.getNextChild(current));
+		writeFunctionHeader(
+				Utils.getReturnTypeOfFunction(fVal.getType())
+				, fVal.getLocationReg()
+				, params);
+		
+		CodeGenerator.incrementIdentLevel();
+		//DO ALL STATEMENTS
+		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
+		CodeGenerator.addInstruction("WOULD BE HERE");
+		//DO ALL STATEMENTS
+		current = writeNestedFunctions(table, current);
+		CodeGenerator.decrementIdentLevel();
+		CodeGenerator.addInstruction("}");
+		return current;
+	}
+
+	private static Tree writeNestedFunctions(SymbolTable table, Tree current)
+	{
 		try
 		{
 			Tree temp = current;
@@ -56,9 +91,6 @@ public class Function
 		} catch (NullPointerException e)
 		{
 		}
-		writeReturnStatement("i32", "0");
-		CodeGenerator.decrementIdentLevel();
-		CodeGenerator.addInstruction("}");
 		return current;
 	}
 
@@ -68,19 +100,8 @@ public class Function
 		String params = "";
 		while (current!=null)
 		{
-			DATA_TYPES type ;
-			if(current.getText().contentEquals("number"))
-			{
-				type = DATA_TYPES.NUMBER;
-			} else if(current.getText().contentEquals("letter"))
-			{
-				type = DATA_TYPES.LETTER;
-			} else if (current.getText().contentEquals("sentence"))
-			{
-				type = DATA_TYPES.SENTENCE;
-			} else {
-				break;
-			}
+			DATA_TYPES type = getType(current.getText()) ;
+			if (type == null) break;
 			params += Utils.getReturnTypeOfFunction(type) + " "
 			+ "%" + current.getChild(0).getText()
 			+ ", ";
@@ -88,12 +109,21 @@ public class Function
 		}
 		return (params.length()!=0)? "(" + params.substring(0, params.length()-2) + ")" : "()";
 	}
-
-	private static Tree writeCodeForFunction(Tree node, SymbolTable table)
+	
+	private static DATA_TYPES getType(String type) 
 	{
+		if(type.contentEquals("number"))
+		{
+			return DATA_TYPES.NUMBER;
+		} else if(type.contentEquals("letter"))
+		{
+			return DATA_TYPES.LETTER;
+		} else if (type.contentEquals("sentence"))
+		{
+			return DATA_TYPES.SENTENCE;
+		} 
 		return null;
 	}
-	
 	private static void writeFunctionHeader(String ret_type, String name, String params)
 	{
 		CodeGenerator.addInstruction(
