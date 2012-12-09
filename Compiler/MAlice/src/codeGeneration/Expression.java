@@ -1,5 +1,6 @@
 package codeGeneration;
 
+
 import java.util.ArrayList;
 
 import org.antlr.runtime.tree.Tree;
@@ -224,50 +225,17 @@ public class Expression
 	{
 		String id = CodeGenerator.getUniqueRegisterID();
 		
-		String returnType = getReturnTypeOfFunction(table.lookup
+		String returnType = Utils.getReturnTypeOfFunction(table.lookup
 				(leaf.getText()).getType());
 		CodeGenerator.addInstruction(id + " = call " 
 				+ returnType + " "
 				+ table.lookup(leaf.getText()).getLocationReg() 
 				+ "(" 
-				+ getParamsToFunction(leaf, table)
+				+ Expression.getParamsToFunction(leaf, table)
 				+ ")" );
 		return id;
 	}
 	
-	private static String getParamsToFunction(Tree leaf, SymbolTable table)
-	{
-		if (leaf.getChildCount()==0) return "";
-		String params = "" ;
-		FunctionSTValue fVal = (FunctionSTValue) table.lookup(leaf.getText());
-		ArrayList<DATA_TYPES> args = fVal.getArgs();
-		for (int i=1 ; i<leaf.getChildCount()-2; i++)
-		{
-			params += getReturnTypeOfFunction(args.get(i-1)) 
-					  + " " 
-					  + table.lookup(leaf.getChild(i).getText()).getLocationReg()
-					  + ", ";
-		}
-		
-		return params 
-			   + getReturnTypeOfFunction(args.get(leaf.getChildCount()-2)) 
-			   + " "
-			   + table.lookup(leaf.getChild(leaf.getChildCount()-2).getText())
-					.getLocationReg();
-	}
-	private static String getReturnTypeOfFunction(DATA_TYPES type)
-	{
-		switch(type)
-		{
-			case NUMBER :
-				return "i32";
-			case LETTER:
-				return "i8";
-			case SENTENCE:
-				return "i8*";
-		}
-		return null;
-	}
 	private static OPERATOR getOperator(String op)
 	{
 		if (op.contentEquals("==")) return OPERATOR.EQ;
@@ -295,5 +263,25 @@ public class Expression
 	{
 		OR, AND, BWOR, BWXOR, BWAND, EQ, NE, LTE, LT, GT, GTE, ADD,
 		SUB, MUL, MOD, BWNOT, NOT, DIV
+	}
+	public static String getParamsToFunction(Tree leaf, SymbolTable table)
+	{
+		if (leaf.getChildCount()==0) return "";
+		String params = "" ;
+		FunctionSTValue fVal = (FunctionSTValue) table.lookup(leaf.getText());
+		ArrayList<DATA_TYPES> args = fVal.getArgs();
+		for (int i=1 ; i<leaf.getChildCount()-2; i++)
+		{
+			params += Utils.getReturnTypeOfFunction(args.get(i-1)) 
+					  + " " 
+					  + table.lookup(leaf.getChild(i).getText()).getLocationReg()
+					  + ", ";
+		}
+		
+		return params 
+			   + Utils.getReturnTypeOfFunction(args.get(leaf.getChildCount()-2)) 
+			   + " "
+			   + table.lookup(leaf.getChild(leaf.getChildCount()-2).getText())
+					.getLocationReg();
 	}
 }
