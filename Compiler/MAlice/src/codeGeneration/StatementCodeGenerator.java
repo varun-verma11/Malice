@@ -6,6 +6,9 @@ import java.util.Queue;
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.SymbolTable;
+import symbol_table.VariableSTValue;
+import symbol_table.DATA_TYPES;
+
 
 public class StatementCodeGenerator {
 
@@ -28,9 +31,31 @@ public class StatementCodeGenerator {
 //			break;
 
 		case WHAT: 
+			writeWHAT(arg1, node.getChild(0), table);
 			break;
 		}
 
+	}
+
+private static void writeWHAT(String arg1, Tree child, SymbolTable table) {
+		if (child.getChildCount() == 0){
+			VariableSTValue v = (VariableSTValue) table.lookup(arg1);
+			if (v.getType() == DATA_TYPES.NUMBER) {
+				String regId1 = CodeGenerator.getUniqueRegisterID();
+				CodeGenerator.addInstruction(regId1 + " = load i32* %" + arg1 + ", align 4");
+				String regId2 = CodeGenerator.getUniqueRegisterID();
+				CodeGenerator.addInstruction(regId2 + " = call i32 (i8*, ...)* @scanf(i8* getelementptr inbounds ([3 x i8]* @.str, i32 0, i32 0), i32 %1");
+			}
+			
+			if (v.getType() == DATA_TYPES.LETTER) {
+				
+			}
+			
+			if (v.getType() == DATA_TYPES.SENTENCE) {
+				
+			}
+		}
+		
 	}
 
 //	private static void writeHAD(String arg1, Tree exp, String arg3,
@@ -87,7 +112,10 @@ public class StatementCodeGenerator {
 			}
 			else if (arg2.equals("sentence")) {
 				if (!storable.equals(null) ){
-//					CodeGenerator.addInstruction("@.str = private unnamed_addr constant [4 x i8] c"abc\00", align 1");
+					CodeGenerator.addInstruction("@.at"+arg1+" = private unnamed_addr constant [4 x i8] c\""
+							+ storable.getText() +"\00\", align 1", 0);
+					CodeGenerator.addInstruction("@"+ arg1 +" = global i8* getelementptr inbounds ([4 x i8]* @.at"
+							+ arg1 +", i32 0, i32 0), align 8");
 				}
 				else {
 				CodeGenerator.addInstruction("@"+ arg1 +" = global i8* null, align 8");
@@ -110,15 +138,14 @@ public class StatementCodeGenerator {
 			}
 			else if (arg2.equals("sentence")) {
 				CodeGenerator.addInstruction("%" + arg1 + " = alloca i8*, align 8");
-//				if (!storable.equals(null) ){
-//					CodeGenerator.addInstruction("store i32" + storable.getText()
-//							+ ", i32* %"+ arg1 +", align 4");
+				if (!storable.equals(null) ){
+					CodeGenerator.addInstruction("@.at"+arg1+" = private unnamed_addr constant [4 x i8] c\""
+							+ storable.getText() +"\00\", align 1", 0);
 				}
 			}
 		}
+	}
 	
-
-
 	private static STATEMENT getKEY(String s){
 		if (s.contentEquals("was")) return STATEMENT.WAS;
 		if (s.contentEquals("had")) return STATEMENT.HAD;
