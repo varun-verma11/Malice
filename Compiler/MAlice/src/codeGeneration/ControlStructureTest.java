@@ -18,22 +18,44 @@ import symbol_table.VariableSTValue;
 
 public class ControlStructureTest
 {
+//	@Test
+//	public void testEither() throws RecognitionException
+//	{
+//		String either = "either (x<0 && x>43) so \n x became x+x-x+4*x. " +
+//				"\n or \n x became x+2*(~x)+x. " +
+//				"\n because Alice was unsure which";
+//		generateCodeForEither(either, TYPE.EITHER);
+//	}
+//
+//	@Test
+//	public void testEventually() throws RecognitionException
+//	{
+//		String eventually = "eventually (x<6) because " +
+//				"\n x became x+x-x+4*x. enough times";
+//		generateCodeForEither(eventually, TYPE.EVENTUALLY);
+//	}
+
 	@Test
-	public void testEither() throws RecognitionException
+	public void testPerhaaps() throws RecognitionException
 	{
-		String either = "either (x<0 && x>43) so \n x became x+x-x+4*x. \n or \n x became x+2*(~x)+x. \n because Alice was unsure which";
-		generateCodeForEither(either, TYPE.EITHER);
+		String perhaps = "perhaps (x<2) so \n" + "c spoke. \n"
+		+ "or maybe (x<1) so \n" + "y spoke. \n" 
+		+ "or maybe (x<1) so \n" + "y spoke. \n" + "or \n"
+		+ "c spoke. \n" + "because Alice was unsure which. \n";
+		generateCodeForEither(perhaps, TYPE.PERHAPS);
+		perhaps = "perhaps (x<2) so x spoke. because Alice was unsure which.";
+		generateCodeForEither(perhaps, TYPE.PERHAPS);
+		perhaps = "perhaps (x<2) so \n" + "c spoke. \n"
+		+ "or maybe (x<1) so \n" + "y spoke. \n"
+		+ "because Alice was unsure which. \n";
+		generateCodeForEither(perhaps, TYPE.PERHAPS);
 	}
-	
-	@Test
-	public void testEventually() throws RecognitionException
+
+	private enum TYPE
 	{
-		String eventually = "eventually (x<6) because \n x became x+x-x+4*x. enough times";
-		generateCodeForEither(eventually, TYPE.EVENTUALLY);
-	}
-	private enum TYPE {
 		EVENTUALLY, EITHER, PERHAPS;
 	}
+
 	private boolean generateCodeForEither(String statement, TYPE type)
 			throws RecognitionException
 	{
@@ -48,21 +70,22 @@ public class ControlStructureTest
 		if (!parser.failed())
 		{
 			Tree tree = (Tree) parser.control_structure().getTree();
-//			System.out.println(tree.toStringTree());
-			switch(type)
+			System.out.println(tree.toStringTree());
+			switch (type)
 			{
-				case EITHER :
+				case EITHER:
 					ControlStructure.writeEitherStatement(tree, table);
 					break;
 				case EVENTUALLY:
 					ControlStructure.writeEventuallyStatement(tree, table);
 					break;
 				case PERHAPS:
+					ControlStructure.writePerhapsStatements(tree, table);
 					break;
 			}
-			
+
 			CodeGenerator.printInstructions();
-//			CodeGenerator.emptyInstructions();
+			CodeGenerator.emptyInstructions();
 			return true;
 		}
 		return false;

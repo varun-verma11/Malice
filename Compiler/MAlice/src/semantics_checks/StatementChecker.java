@@ -1,5 +1,7 @@
 package semantics_checks;
 
+import malice_grammar.SemanticVerifier;
+
 import org.antlr.runtime.tree.Tree;
 
 import codeGeneration.StatementsCodeGeneratorMagda;
@@ -44,21 +46,21 @@ public class StatementChecker {
 		{
 			validateAteAndDrank(node, symbolTable);
 			if (node.getText().contentEquals("ate")) {
-				StatementsCodeGeneratorMagda.writeAteCode(node);
+				StatementsCodeGeneratorMagda.writeAteCode(node, symbolTable);
 			} else {
-				StatementsCodeGeneratorMagda.writeDrankCode(node);
+				StatementsCodeGeneratorMagda.writeDrankCode(node, symbolTable);
 			}
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
 			validateBecame(node, symbolTable);
-			StatementsCodeGeneratorMagda.writeBecameCode(node);
+			StatementsCodeGeneratorMagda.writeBecameCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("spoke")
 				|| node.getText().contentEquals("said"))
 		{
 			validatePrint(node, symbolTable);
-			StatementsCodeGeneratorMagda.writePrintStatementCode(node);
+			StatementsCodeGeneratorMagda.writePrintStatementCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("what"))
 		{
@@ -67,7 +69,7 @@ public class StatementChecker {
 		} else if (node.getText().contentEquals("found"))
 		{
 			validateFound(node.getChild(0), symbolTable);
-			StatementsCodeGeneratorMagda.writeFoundCode(node);
+			StatementsCodeGeneratorMagda.writeFoundCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("had"))
 		{
@@ -149,10 +151,12 @@ public class StatementChecker {
 		String var = node.getChild(0).getText();
 
 		if (symbolTable.checkItemIsInCurrentScopeLevel(var)) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine()
 					+ " Multiple declarations of " + node.getText());
 		} else if (SemanticsUtils.getValueType(node.getChild(1), symbolTable) != DATA_TYPES.NUMBER) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + " : Array length "
 					+ node.getChild(1).getText() + " is not a number.");
@@ -167,6 +171,7 @@ public class StatementChecker {
 	private static void validateWhat(Tree node, SymbolTable symbolTable) {
 		String var = node.getChild(0).getText();
 		if (!symbolTable.checkItemWasDeclaredBefore(var)) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": " + var
 					+ " out of scope");
@@ -177,6 +182,7 @@ public class StatementChecker {
 				((VariableSTValue) symbolTable.lookup(node.getChild(0)
 						.getText())).setInitialised(true);
 			} catch (ClassCastException e) {
+				SemanticVerifier.failed = true;
 				System.err.println("Line " + node.getLine() + ": "
 						+ node.getCharPositionInLine() + ": "
 						+ " Invalid variable for read statement.");
@@ -193,12 +199,14 @@ public class StatementChecker {
 		if (node.getChild(0).getText().contentEquals("piece")) {
 			ArrayElemCheck.checkArrayElem(node.getChild(0), symbolTable);
 		} else if (!symbolTable.checkItemWasDeclaredBefore(var)) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": " + var
 					+ " out of scope");
 		} else if ((symbolTable.lookup(node.getChild(0).getText())).getType() != SemanticsUtils
 				.getValueType(node.getChild(node.getChildCount() - 1),
 						symbolTable)) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": Types of " + var
 					+ " and the subcribed value don't match.");
@@ -213,15 +221,18 @@ public class StatementChecker {
 	private static void validateAteAndDrank(Tree node, SymbolTable symbolTable) {
 		String var = node.getChild(0).getText();
 		if (!symbolTable.checkItemWasDeclaredBefore(var)) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + " : " + var
 					+ " out of scope.");
 		} else if ((symbolTable.lookup(node.getChild(0).getText())).getType() != DATA_TYPES.NUMBER) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + " : " + var
 					+ " not a number.");
 		} else if (!((VariableSTValue) symbolTable.lookup(node.getChild(0)
 				.getText())).isInitialised()) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": " + var
 					+ " not initialised yet");
@@ -236,6 +247,7 @@ public class StatementChecker {
 		String var = node.getChild(0).getText();
 
 		if (symbolTable.checkItemIsInCurrentScopeLevel(var)) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine()
 					+ " Multiple declarations of " + var);
@@ -244,6 +256,7 @@ public class StatementChecker {
 		else if (node.getChildCount() == 3
 				&& (SemanticsUtils.getValueType(node.getChild(2), symbolTable) != (SemanticsUtils
 						.getReturnType(node.getChild(1))))) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + " : Data types of " + var
 					+ " and subscribed value don't match.");
@@ -262,6 +275,7 @@ public class StatementChecker {
 	private static void checkForBooleanExpression(Tree expr, SymbolTable table) {
 		DATA_TYPES expr_type = ExpressionChecker.getExpressionType(expr, table);
 		if (expr_type != DATA_TYPES.BOOLEAN) {
+			SemanticVerifier.failed = true;
 			System.err.println("Line: " + expr.getLine() + " :"
 					+ expr.getCharPositionInLine() + " Invalid Expression "
 					+ "for the statement. Expected BOOLEAN, Actual Type "

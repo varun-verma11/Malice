@@ -1,8 +1,12 @@
 package codeGeneration;
 
+
+import java.util.ArrayList;
+
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
+import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
 
 public class Expression
@@ -29,10 +33,16 @@ public class Expression
 		} catch (NumberFormatException e)
 		{ }
 		String uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		if(op==null)
+		{
+			String id = writeCodeForFunctionCall(node, table);
+			return id ;
+		}
 		switch(op)
 		{
 			case EQ: 
-				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "eq", arg1, arg2);
+				uniqueRegisterID = 
+					writeComparisonStatements(uniqueRegisterID, "eq", arg1, arg2);
 				break;
 			case ADD:
 				writeOperationExpressions(uniqueRegisterID, "add", arg1, arg2);
@@ -170,7 +180,7 @@ public class Expression
 		return uniqueRegisterID;
 	}
 	
-	private static void writeOperationExpressions(String uniqueRegisterID, 
+	static void writeOperationExpressions(String uniqueRegisterID, 
 			String operation, String arg1, String arg2)
 	{
 		CodeGenerator.addInstruction(uniqueRegisterID + " = " + operation + " nsw i32 " 
@@ -201,15 +211,7 @@ public class Expression
 	{
 		if (leaf.getChildCount()!=0)
 		{
-			String id = CodeGenerator.getUniqueRegisterID();
-			
-			CodeGenerator.addInstruction(id + " = call " 
-					+ getReturnTypeOfFunction(table.lookup
-							(leaf.getText()).getType()) 
-					+ " @" + leaf.getText() 
-					+ "(" 
-					+ getParamsToFunction(leaf, table)
-					+ ")" );
+			return writeCodeForFunctionCall(leaf, table);
 		}
 		if (table.checkItemWasDeclaredBefore(leaf.getText())) 
 		{
@@ -219,25 +221,21 @@ public class Expression
 		}
 		return leaf.getText();
 	}
+	private static String writeCodeForFunctionCall(Tree leaf, SymbolTable table)
+	{
+		String id = CodeGenerator.getUniqueRegisterID();
+		
+		String returnType = Utils.getReturnTypeOfFunction(table.lookup
+				(leaf.getText()).getType());
+		CodeGenerator.addInstruction(id + " = call " 
+				+ returnType + " "
+				+ table.lookup(leaf.getText()).getLocationReg() 
+				+ "(" 
+				+ Expression.getParamsToFunction(leaf, table)
+				+ ")" );
+		return id;
+	}
 	
-	private static String getParamsToFunction(Tree leaf, SymbolTable table)
-	{
-		return null;
-	}
-	private static String getReturnTypeOfFunction(DATA_TYPES type)
-	{
-		switch(type)
-		{
-			case NUMBER :
-				return "i32";
-				break;
-			case LETTER:
-				break;
-			case SENTENCE:
-				break;
-		}
-		return null;
-	}
 	private static OPERATOR getOperator(String op)
 	{
 		if (op.contentEquals("==")) return OPERATOR.EQ;
@@ -265,5 +263,25 @@ public class Expression
 	{
 		OR, AND, BWOR, BWXOR, BWAND, EQ, NE, LTE, LT, GT, GTE, ADD,
 		SUB, MUL, MOD, BWNOT, NOT, DIV
+	}
+	public static String getParamsToFunction(Tree leaf, SymbolTable table)
+	{
+		if (leaf.getChildCount()==0) return "";
+		String params = "" ;
+		FunctionSTValue fVal = (FunctionSTValue) table.lookup(leaf.getText());
+		ArrayList<DATA_TYPES> args = fVal.getArgs();
+		for (int i=1 ; i<leaf.getChildCount()-2; i++)
+		{
+			params += Utils.getReturnTypeOfFunction(args.get(i-1)) 
+					  + " " 
+					  + table.lookup(leaf.getChild(i).getText()).getLocationReg()
+					  + ", ";
+		}
+		
+		return params 
+			   + Utils.getReturnTypeOfFunction(args.get(leaf.getChildCount()-2)) 
+			   + " "
+			   + table.lookup(leaf.getChild(leaf.getChildCount()-2).getText())
+					.getLocationReg();
 	}
 }

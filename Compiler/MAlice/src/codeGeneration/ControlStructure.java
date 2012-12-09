@@ -1,5 +1,7 @@
 package codeGeneration;
 
+import java.util.ArrayList;
+
 import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.SemanticsUtils;
@@ -57,7 +59,8 @@ public class ControlStructure
 				.addInstruction(getBranchIns(lblEndIf), endIfLblInserts[1]);
 		CodeGenerator
 				.addInstruction(getBranchIns(lblEndIf), endIfLblInserts[0]);
-		CodeGenerator.addInstruction(getConditionalBranchIns(boolExp, lblThen, lblElse), brInsIndex);
+		CodeGenerator.addInstruction(getConditionalBranchIns(boolExp, lblThen,
+				lblElse), brInsIndex);
 	}
 
 	public static void writeEventuallyStatement(Tree node, SymbolTable table)
@@ -66,21 +69,80 @@ public class ControlStructure
 		CodeGenerator.addInstruction(getBranchIns(startLbl));
 		CodeGenerator.addInstruction(getLabel(startLbl));
 		String boolExp = Expression.getResultReg(node.getChild(0), table);
-//		try{
-//			int bool = Integer.parseInt(boolExp);
-//			if (bool==0) return;
-//		} catch (NumberFormatException e) { }
+		// try{
+		// int bool = Integer.parseInt(boolExp);
+		// if (bool==0) return;
+		// } catch (NumberFormatException e) { }
 		int brInsIndex = CodeGenerator.getNumberOfInstructions();
 		String loop = CodeGenerator.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(loop));
-		//DO ALL STATEMENTSS
-		@SuppressWarnings("unused")
-		String temp = Expression.getResultReg(node.getChild(1).getChild(1), table);
-		//DO ALL STATEMENTSS
+		// DO ALL STATEMENTSS
+		Expression.getResultReg(node.getChild(1).getChild(1), table);
+		// DO ALL STATEMENTSS
 		CodeGenerator.addInstruction(getBranchIns(startLbl));
 		String endLoop = CodeGenerator.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(endLoop));
-		CodeGenerator.addInstruction(getConditionalBranchIns(boolExp, loop,endLoop), brInsIndex);
+		CodeGenerator.addInstruction(getConditionalBranchIns(boolExp, loop,
+				endLoop), brInsIndex);
+	}
+
+	public static void writePerhapsStatements(Tree node, SymbolTable table)
+	{
+		String bool_exp = Expression.getResultReg(node.getChild(0), table);
+		ArrayList<Integer> endIfInserts = new ArrayList<Integer>();
+		int brInsert = CodeGenerator.getNumberOfInstructions();
+		String startLbl = CodeGenerator.getUniqueLabel();
+		CodeGenerator.addInstruction(getLabel(startLbl));
+		// DO ALL STATEMENTS
+		CodeGenerator.addInstruction("Statements being done here.");
+		// DO ALL STATEMENTS
+		endIfInserts.add(CodeGenerator.getNumberOfInstructions());
+		String endLbl = CodeGenerator.getUniqueLabel();
+		CodeGenerator.addInstruction(getLabel(endLbl));
+		// STATEMENT CHECK TO RETURN THE VALID CHILD
+		Tree current = node.getChild(2);
+		// ONLY CASE FOR TEST CASES
+		while (current != null && current.getText().contentEquals("maybe"))
+		{
+			CodeGenerator.addInstruction(getConditionalBranchIns(bool_exp,
+					startLbl, endLbl), brInsert);
+			current = SemanticsUtils.getNextChild(current);
+			bool_exp = Expression.getResultReg(current, table);
+			brInsert = CodeGenerator.getNumberOfInstructions();
+			startLbl = CodeGenerator.getUniqueLabel();
+			CodeGenerator.addInstruction(getLabel(startLbl));
+			// DO ALL STATEMENTS
+			CodeGenerator.addInstruction("Statements being done here.");
+			current = SemanticsUtils.getNextChild(SemanticsUtils
+					.getNextChild(current));
+			// DO ALL STATEMENTS
+			endIfInserts.add(CodeGenerator.getNumberOfInstructions());
+			endLbl = CodeGenerator.getUniqueLabel();
+			CodeGenerator.addInstruction(getLabel(endLbl));
+		}
+
+		CodeGenerator.addInstruction(getConditionalBranchIns(bool_exp,
+				startLbl, endLbl), brInsert);
+		String endIf;
+		if (current != null && current.getText().contentEquals("or"))
+		{
+			current = SemanticsUtils.getNextChild(current);
+			// DO ALL STATEMENTS
+			CodeGenerator.addInstruction("Statements being done here.");
+			// DO ALL STATEMENTS
+			endIf = CodeGenerator.getUniqueLabel();
+			CodeGenerator.addInstruction(getLabel(endIf));
+		} else
+		{
+			endIf = CodeGenerator.getUniqueLabel();
+			CodeGenerator.addInstruction(getLabel(endIf));
+		}
+		String endIfIns = getBranchIns(endIf);
+		for (int i = endIfInserts.size() - 1; i >= 0; i--)
+		{
+			CodeGenerator.addInstruction(endIfIns, endIfInserts.get(i) + 1);
+		}
+
 	}
 
 	private static String getConditionalBranchIns(String boolExp, String reg1,
@@ -88,12 +150,12 @@ public class ControlStructure
 	{
 		return "br il " + boolExp + ", label " + reg1 + ", label " + reg2;
 	}
-	
+
 	private static String getBranchIns(String lbl)
 	{
 		return "br label " + lbl;
 	}
-	
+
 	private static String getLabel(String lbl)
 	{
 		return ";<label>:" + lbl.substring(1);

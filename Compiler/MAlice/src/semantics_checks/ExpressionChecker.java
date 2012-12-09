@@ -3,6 +3,8 @@ package semantics_checks;
 import java.util.HashMap;
 import java.util.Map;
 
+import malice_grammar.SemanticVerifier;
+
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
@@ -87,6 +89,7 @@ public class ExpressionChecker
 			{
 				if (!symbol_table.checkItemWasDeclaredBefore(node.getText()))
 				{
+					SemanticVerifier.failed = true;
 					System.err.println("Line " + node.getLine() + ": "
 							+ node.getCharPositionInLine() + " Identifier "
 							+ node.getText() + " is not defined.");
@@ -132,6 +135,7 @@ public class ExpressionChecker
 
 	private static void printUndefinedFunction(Tree node)
 	{
+		SemanticVerifier.failed = true;
 		System.err.println("Line " + node.getLine() + ": "
 				+ node.getCharPositionInLine() + " (" + node.getText()
 				+ ") Undefined function call.");

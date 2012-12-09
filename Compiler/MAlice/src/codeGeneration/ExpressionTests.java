@@ -1,6 +1,9 @@
 package codeGeneration;
 
 import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+
 import malice_grammar.malice_grammarLexer;
 import malice_grammar.malice_grammarParser;
 
@@ -14,6 +17,7 @@ import org.junit.Test;
 
 import semantics_checks.ExpressionChecker;
 import symbol_table.DATA_TYPES;
+import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
 
@@ -53,13 +57,31 @@ public class ExpressionTests
 		assertTrue(generateCodeForExpression("x>2==1+2<3+2"));
 		assertTrue(generateCodeForExpression("3>2==1+2<3+2"));
 	}
+	
+	@Test
+	public void testForFunction() throws RecognitionException
+	{
+		assertTrue(generateCodeForExpression("function(x)"));
+		assertTrue(generateCodeForExpression("function(x)+2"));
+		assertTrue(generateCodeForExpression("function(x)+(x-3+y*function(y))"));
+	}
 	private boolean generateCodeForExpression(String expr)
 			throws RecognitionException
 	{
 		new ExpressionChecker();
 		SymbolTable table = new SymbolTable();
-		table.insert("x", new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true));
-		table.insert("y", new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true));
+		VariableSTValue value = new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true);
+		table.insert("x", value);
+		value.setLocationReg("%x");
+		VariableSTValue valueY = new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true);
+		valueY.setLocationReg("%y");
+		table.insert("y", valueY);
+		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
+		args.add(DATA_TYPES.NUMBER);
+		args.add(DATA_TYPES.NUMBER);
+		FunctionSTValue fVal = new FunctionSTValue(DATA_TYPES.NUMBER, table, args);
+		fVal.setLocationReg("@_function");
+		table.insert("function", fVal);
 		CharStream input = new ANTLRStringStream(expr); 
 		malice_grammarLexer lexer = new malice_grammarLexer(input );
 		TokenStream tokens = new CommonTokenStream(lexer);
@@ -68,9 +90,9 @@ public class ExpressionTests
 			Tree tree =  (Tree) parser.expr().getTree() ;
 			System.out.println(tree.toStringTree());
 			String reg = Expression.getResultReg(tree, table);
-			System.out.println("OUTPUT REG => " + reg);
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
+			System.out.println("OUTPUT REG => " + reg);
 			return true;
 		}
 		return false;
