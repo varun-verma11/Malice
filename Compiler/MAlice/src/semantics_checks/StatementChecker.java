@@ -44,21 +44,21 @@ public class StatementChecker {
 		{
 			validateAteAndDrank(node, symbolTable);
 			if (node.getText().contentEquals("ate")) {
-				StatementsCodeGeneratorMagda.writeAteCode(node);
+				StatementsCodeGeneratorMagda.writeAteCode(node, symbolTable);
 			} else {
-				StatementsCodeGeneratorMagda.writeDrankCode(node);
+				StatementsCodeGeneratorMagda.writeDrankCode(node, symbolTable);
 			}
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
 			validateBecame(node, symbolTable);
-			StatementsCodeGeneratorMagda.writeBecameCode(node);
+			StatementsCodeGeneratorMagda.writeBecameCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("spoke")
 				|| node.getText().contentEquals("said"))
 		{
 			validatePrint(node, symbolTable);
-			StatementsCodeGeneratorMagda.writePrintStatementCode(node);
+			StatementsCodeGeneratorMagda.writePrintStatementCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("what"))
 		{
@@ -67,7 +67,7 @@ public class StatementChecker {
 		} else if (node.getText().contentEquals("found"))
 		{
 			validateFound(node.getChild(0), symbolTable);
-			StatementsCodeGeneratorMagda.writeFoundCode(node);
+			StatementsCodeGeneratorMagda.writeFoundCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("had"))
 		{

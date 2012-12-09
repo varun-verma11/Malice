@@ -179,7 +179,7 @@ public class Expression
 		return uniqueRegisterID;
 	}
 	
-	private static void writeOperationExpressions(String uniqueRegisterID, 
+	static void writeOperationExpressions(String uniqueRegisterID, 
 			String operation, String arg1, String arg2)
 	{
 		CodeGenerator.addInstruction(uniqueRegisterID + " = " + operation + " nsw i32 " 
