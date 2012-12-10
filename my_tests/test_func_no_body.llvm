@@ -1,0 +1,10 @@
+define i32 @function (i32 %x, i32 %y) nounwind uwtable readnone {
+	STATEMENTS FOR FUNCTIONS
+	WOULD BE HERE
+	ret i32 0
+}
+define i32 @main () nounwind uwtable readnone {
+	STATEMENTS FOR FUNCTIONS
+	WOULD BE HERE
+	ret i32 0
+}

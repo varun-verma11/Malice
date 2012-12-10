@@ -7,8 +7,8 @@ import symbol_table.SymbolTable;
 
 public class StatementsCodeGeneratorMagda {
 
-	public static void writeAteCode(Tree node, SymbolTable table) {
-		String tempReg = CodeGenerator.getUniqueRegisterID();
+	public static void writeAteCode(Tree node, SymbolTable table, LabelGenerator gen) {
+		String tempReg = gen.getUniqueRegisterID();
 		String currReg = setGlobalorLocal(node.getChild(0), table);
 		Expression.writeOperationExpressions(tempReg, "add", currReg, "1");
 		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
@@ -16,15 +16,15 @@ public class StatementsCodeGeneratorMagda {
 
 	}
 
-	public static void writeDrankCode(Tree node, SymbolTable table) {
-		String tempReg = CodeGenerator.getUniqueRegisterID();
+	public static void writeDrankCode(Tree node, SymbolTable table, LabelGenerator gen) {
+		String tempReg = gen.getUniqueRegisterID();
 		String currReg = setGlobalorLocal(node.getChild(0), table);
 		Expression.writeOperationExpressions(tempReg, "sub", currReg, "1");
 		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
 				+ currReg + ", align 4");
 	}
 
-	public static void writeBecameCode(Tree node, SymbolTable table) {
+	public static void writeBecameCode(Tree node, SymbolTable table, LabelGenerator gen) {
 
 		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
 
@@ -44,7 +44,7 @@ public class StatementsCodeGeneratorMagda {
 			CodeGenerator.addInstruction("");
 		} else {
 			CodeGenerator.addInstruction("store i32 "
-					+ Expression.getResultReg(node.getChild(1), table)
+					+ Expression.getResultReg(node.getChild(1), table,gen)
 					+ ", i32* " + setGlobalorLocal(node.getChild(0), table)
 					+ ", align 4");
 		}
@@ -65,8 +65,9 @@ public class StatementsCodeGeneratorMagda {
 
 	// Question: x spoke tree looks like spoke --> x but not spoke --> 2 or
 	// spoke --> "string".. so i cant use type method here :/
-	public static void writePrintStatementCode(Tree node, SymbolTable table) {
-		String uniqueReg = CodeGenerator.getUniqueRegisterID();
+	public static void writePrintStatementCode(Tree node, SymbolTable table
+			, LabelGenerator gen) {
+		String uniqueReg = gen.getUniqueRegisterID();
 		String currentReg = setGlobalorLocal(node.getChild(0), table);
 		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
 		DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
@@ -97,7 +98,7 @@ public class StatementsCodeGeneratorMagda {
 					+ (int) node.getChild(1).getText().charAt(1) + " to i8*))");
 
 		} else {
-			currentReg = Expression.getResultReg(node.getChild(0), table);
+			currentReg = Expression.getResultReg(node.getChild(0), table,gen);
 			if (type == DATA_TYPES.SENTENCE) {
 				CodeGenerator.addInstruction(uniqueReg
 						+ " = getelementptr inbounds [" 
@@ -111,17 +112,17 @@ public class StatementsCodeGeneratorMagda {
 						+ getType(type) + " " + currentReg + ", align "
 						+ getAlignValue(type));
 				currentReg = uniqueReg;
-				uniqueReg = CodeGenerator.getUniqueRegisterID();
+				uniqueReg = gen.getUniqueRegisterID();
 				CodeGenerator.addInstruction(uniqueReg + " = sext "
 						+ getType(type) + " " + currentReg + "to i64");
 				currentReg = uniqueReg;
-				uniqueReg = CodeGenerator.getUniqueRegisterID();
+				uniqueReg = gen.getUniqueRegisterID();
 				CodeGenerator.addInstruction(uniqueReg + " = inttoptr i64 "
 						+ currentReg + "to i8*");
 			}
 
 			currentReg = uniqueReg;
-			uniqueReg = CodeGenerator.getUniqueRegisterID();
+			uniqueReg = gen.getUniqueRegisterID();
 			CodeGenerator
 					.addInstruction(uniqueReg
 							+ " = call i32 (i8*, ...)* @printf(i8* "
@@ -163,8 +164,8 @@ public class StatementsCodeGeneratorMagda {
 	 * 
 	 */
 
-	public static void writeFoundCode(Tree node, SymbolTable table) {
-		String uniqueReg = CodeGenerator.getUniqueRegisterID();
+	public static void writeFoundCode(Tree node, SymbolTable table, LabelGenerator gen) {
+		String uniqueReg = gen.getUniqueRegisterID();
 		String currentReg = setGlobalorLocal(node.getChild(0), table);
 		DATA_TYPES type = Utils.getValueType(node.getChild(0), table);
 

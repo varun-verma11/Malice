@@ -38,7 +38,7 @@ public class StatementsCodeGeneratorMagdaTest {
 		if (!parser.failed()) {
 			Tree tree = (Tree) parser.statement().getTree();
 			System.out.println(tree.toStringTree());
-			StatementsCodeGeneratorMagda.writeFoundCode(tree, table);
+			StatementsCodeGeneratorMagda.writeFoundCode(tree, table, new LabelGenerator());
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;
