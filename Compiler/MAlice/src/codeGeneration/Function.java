@@ -9,18 +9,18 @@ import symbol_table.SymbolTable;
 
 public class Function
 {
-	public static Tree writeCodeForFunctions(Tree node, SymbolTable table) 
+	public static Tree writeCodeForFunctions(Tree node, SymbolTable table, LabelGenerator gen) 
 	{
 		if (node.getText().contentEquals("looking"))
 		{
-			return writeCodeForProcedure(node, table);
+			return writeCodeForProcedure(node, table, gen);
 		} else if (node.getText().contentEquals("room")){
-			return writeCodeForFunction(node, table);
+			return writeCodeForFunction(node, table,gen);
 		}
 		return node;
 	}
 
-	private static Tree writeCodeForProcedure(Tree node, SymbolTable table)
+	private static Tree writeCodeForProcedure(Tree node, SymbolTable table,LabelGenerator gen )
 	{
 		Tree current = node.getChild(0);
 		FunctionSTValue fVal = 
@@ -35,14 +35,14 @@ public class Function
 		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
 		CodeGenerator.addInstruction("WOULD BE HERE");
 		//DO ALL STATEMENTS
-		current = writeNestedFunctions(table, current);
+		current = writeNestedFunctions(table, current,gen);
 		writeReturnStatement("i32", "0");
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}");
 		return current;
 	}
 	
-	private static Tree writeCodeForFunction(Tree node, SymbolTable table)
+	private static Tree writeCodeForFunction(Tree node, SymbolTable table,LabelGenerator gen)
 	{
 		Tree current = node.getChild(0);
 		FunctionSTValue fVal = 
@@ -62,20 +62,20 @@ public class Function
 		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
 		CodeGenerator.addInstruction("WOULD BE HERE");
 		//DO ALL STATEMENTS
-		current = writeNestedFunctions(table, current);
+		current = writeNestedFunctions(table, current,gen);
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}");
 		return current;
 	}
 
-	private static Tree writeNestedFunctions(SymbolTable table, Tree current)
+	private static Tree writeNestedFunctions(SymbolTable table, Tree current,LabelGenerator gen)
 	{
 		try
 		{
 			Tree temp = current;
 			while (true)
 			{
-				temp = writeCodeForFunction(current , table);
+				temp = writeCodeForFunction(current , table,gen);
 				if (temp == current)
 				{
 					break;

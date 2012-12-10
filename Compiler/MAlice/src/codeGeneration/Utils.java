@@ -30,6 +30,7 @@ public class Utils {
 
 	public static String getReturnTypeOfFunction(DATA_TYPES type)
 	{
+		
 		switch(type)
 		{
 			case NUMBER :

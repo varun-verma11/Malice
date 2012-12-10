@@ -74,13 +74,13 @@ public class ControlStructureTest
 			switch (type)
 			{
 				case EITHER:
-					ControlStructure.writeEitherStatement(tree, table);
+					ControlStructure.writeEitherStatement(tree, table, new LabelGenerator());
 					break;
 				case EVENTUALLY:
-					ControlStructure.writeEventuallyStatement(tree, table);
+					ControlStructure.writeEventuallyStatement(tree, table, new LabelGenerator());
 					break;
 				case PERHAPS:
-					ControlStructure.writePerhapsStatements(tree, table);
+					ControlStructure.writePerhapsStatements(tree, table, new LabelGenerator());
 					break;
 			}
 

@@ -22,7 +22,7 @@ public class CodeGenerator
 		//GENERATE CODE FOR ALL GLOBAL STATEMENTS
 		while(current!=null)
 		{
-			current = Function.writeCodeForFunctions(current, table);
+			current = Function.writeCodeForFunctions(current, table, new LabelGenerator());
 			current = SemanticsUtils.getNextChild(current);
 		}
 	}

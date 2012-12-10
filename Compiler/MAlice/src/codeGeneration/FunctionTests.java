@@ -82,7 +82,7 @@ public class FunctionTests
 		{
 			Tree tree = (Tree) parser.function().getTree();
 			System.out.println(tree.toStringTree());
-			Function.writeCodeForFunctions(tree, table);
+			Function.writeCodeForFunctions(tree, table, new LabelGenerator());
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;
