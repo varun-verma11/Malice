@@ -21,7 +21,7 @@ public class StatementsCodeGeneratorMagdaTest {
 
 	@Test
 	public void test() throws RecognitionException {
-		String st = "x drank";
+		String st = "Alice found x";
 		assertTrue(generateCodeForStatement(st));
 	}
 
@@ -29,7 +29,7 @@ public class StatementsCodeGeneratorMagdaTest {
 			throws RecognitionException {
 		new ExpressionChecker();
 		SymbolTable table = new SymbolTable();
-		table.insert("x", new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true));
+		table.insert("x", new VariableSTValue(DATA_TYPES.LETTER, true));
 		table.insert("y", new VariableSTValue(DATA_TYPES.ARRAY_NUMBER, true));
 		CharStream input = new ANTLRStringStream(expr);
 		malice_grammarLexer lexer = new malice_grammarLexer(input);
@@ -38,7 +38,7 @@ public class StatementsCodeGeneratorMagdaTest {
 		if (!parser.failed()) {
 			Tree tree = (Tree) parser.statement().getTree();
 			System.out.println(tree.toStringTree());
-			StatementsCodeGeneratorMagda.writeDrankCode(tree, table);
+			StatementsCodeGeneratorMagda.writeFoundCode(tree, table);
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;
