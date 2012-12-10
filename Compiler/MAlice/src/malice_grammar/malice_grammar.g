@@ -50,7 +50,8 @@ tokens
   AND = 'and';
   BUT = 'but';
   THEN = 'then';
-  IMPORT = 'import';
+  BRING = 'bring';
+  FROM = 'from';
 }
 
 @header 
@@ -166,6 +167,6 @@ function: THE! ( LOOKING^ '-'! GLASS! function_name lpar! parameters rpar!
           CLOSED!
           ;
           
-import_statement : IMPORT^ STRING;  
+import_statement : BRING^ ((function_name (','! function_name)*)? | '*') FROM! STRING;  
 global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.'!)* ;
 program : import_statement* global_declaration function+ EOF! ;

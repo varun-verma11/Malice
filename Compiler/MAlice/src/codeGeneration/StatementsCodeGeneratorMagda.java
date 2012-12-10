@@ -34,7 +34,7 @@ public class StatementsCodeGeneratorMagda {
 					+ setGlobalorLocal(node.getChild(0), table) + ", align 4");
 		} else if (type == DATA_TYPES.SENTENCE) {
 			int size = node.getChild(1).getText().length() + 1;
-			(table.lookup(node.getChild(0).getText())).setStringSize(size);//set string size, needed in print statements
+			table.lookup(node.getChild(0).getText()).setStringSize(size);//set string size, needed in print statements
 			// %2 = bitcast [8 x i8]* %hi to i8*
 			// call void @llvm.memcpy.p0i8.p0i8.i64(i8* %2, i8*
 			// getelementptr inbounds ([8 x i8]* @main.hi, i32 0, i32 0), i64 8,
