@@ -21,9 +21,12 @@ public class StatementsCodeGeneratorMagdaTest {
 
 	@Test
 	public void test() throws RecognitionException {
-		String st = "Alice found x";
+		String st = "x became 3";
 		assertTrue(generateCodeForStatement(st));
 	}
+
+	
+	
 
 	private boolean generateCodeForStatement(String expr)
 			throws RecognitionException {
@@ -38,7 +41,7 @@ public class StatementsCodeGeneratorMagdaTest {
 		if (!parser.failed()) {
 			Tree tree = (Tree) parser.statement().getTree();
 			System.out.println(tree.toStringTree());
-			StatementsCodeGeneratorMagda.writeFoundCode(tree, table, new LabelGenerator());
+			StatementsCodeGeneratorMagda.writeBecameCode(tree, table, new LabelGenerator());
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;

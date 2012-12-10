@@ -72,9 +72,7 @@ public class StatementsCodeGeneratorMagda {
 		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
 		DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
 
-		if (nodeType == DATA_TYPES.SENTENCE) { // this will be type ==
-												// DATA_TYPES.SENTENCE once i
-												// fix other conditions..
+		if (nodeType == DATA_TYPES.SENTENCE) { 
 			CodeGenerator
 					.addInstruction(currentReg
 							+ " = private unnamed_addr constant ["
@@ -84,14 +82,7 @@ public class StatementsCodeGeneratorMagda {
 					+ "@printf(i8* getemelentptr inbounds (["
 					+ (node.getText().length() + 1) + " x i8]* " + currentReg
 					+ ", i32 0, i32 0))");
-			CodeGenerator.addInstruction("declare i32 @printf(i8*, ...)",
-					CodeGenerator.getNumberOfInstructions() + 1); // do i need
-																	// +1 here?
-																	// depends
-																	// how size
-																	// works on
-																	// array
-																	// lists...
+			CodeGenerator.includePrint();
 		} else if (nodeType == DATA_TYPES.LETTER) {
 			CodeGenerator.addInstruction(uniqueReg
 					+ " = call i32 (i8*, ...)* @printf(i8* inttoptr (i64 "
@@ -104,8 +95,7 @@ public class StatementsCodeGeneratorMagda {
 						+ " = getelementptr inbounds [" 
 						+ (table.lookup(node.getChild(0).getText())).getStringSize()
 						+ " x i8]* " + currentReg + ", i32 0, i32 0");
-				CodeGenerator.addInstruction("declare i32 @printf(i8*, ...)",
-						CodeGenerator.getNumberOfInstructions() + 1); // do i need +1 here?
+				CodeGenerator.includePrint();
 
 			} else { // numbers and letters
 				CodeGenerator.addInstruction(uniqueReg + " = load "

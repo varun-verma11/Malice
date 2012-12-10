@@ -16,7 +16,7 @@ public class CodeGenerator
 	private static int identLevel = 0;
 	private static boolean includePrint = false;
 	private static boolean includeRead = false;
-	private static String printf  = "@printf";
+	private static String printf  = "declare i32 @printf(i8*, ...)";
 	private static String scanf  = "@scanf";
 	public static void generateCode(Tree tree, SymbolTable table)
 	{
