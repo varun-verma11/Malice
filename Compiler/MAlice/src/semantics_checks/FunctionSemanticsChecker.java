@@ -2,6 +2,8 @@ package semantics_checks;
 
 import java.util.ArrayList;
 
+import malice_grammar.SemanticVerifier;
+
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
@@ -60,12 +62,14 @@ public class FunctionSemanticsChecker
 		}
 		if (returnType==DATA_TYPES.ERROR)
 		{
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": The function " 
 					+ " has no return statement." );
 		}
 		if (expectedReturnType!=returnType)
 		{
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": The function's " 
 					+ " return type mismatch. (ACTUAL : " + returnType 
@@ -122,6 +126,7 @@ public class FunctionSemanticsChecker
 		}
 		if (returnType!=DATA_TYPES.ERROR)
 		{
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getLine() + ": "
 					+ node.getCharPositionInLine() + ": The procedure " 
 					+ node.getChild(0).getText()

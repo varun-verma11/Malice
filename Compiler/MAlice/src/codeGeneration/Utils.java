@@ -1,5 +1,6 @@
 package codeGeneration;
 
+
 import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.ArrayElemCheck;
@@ -25,6 +26,20 @@ public class Utils {
 		{
 			return DATA_TYPES.NUMBER;
 		}
+	}
+
+	public static String getReturnTypeOfFunction(DATA_TYPES type)
+	{
+		switch(type)
+		{
+			case NUMBER :
+				return "i32";
+			case LETTER:
+				return "i8";
+			case SENTENCE:
+				return "i8*";
+		}
+		return null;
 	}
 }
 

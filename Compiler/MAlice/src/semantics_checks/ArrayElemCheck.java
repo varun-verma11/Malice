@@ -1,5 +1,7 @@
 package semantics_checks;
 
+import malice_grammar.SemanticVerifier;
+
 import org.antlr.runtime.tree.Tree;
 
 import symbol_table.DATA_TYPES;
@@ -13,12 +15,14 @@ public class ArrayElemCheck
 		if (!symbol_table
 				.checkItemWasDeclaredBefore(node.getChild(0).getText()))
 		{
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getChild(1).getLine() + ": "
 					+ node.getChild(1).getCharPositionInLine() + ": Array "
 					+ node.getChild(1).getText() + " is not defined.");
 		}
 		if (ExpressionChecker.getExpressionType(node.getChild(1), symbol_table) != DATA_TYPES.NUMBER)
 		{
+			SemanticVerifier.failed = true;
 			System.err.println("Line " + node.getChild(1).getLine() + ": "
 					+ node.getChild(2).getCharPositionInLine() + ": Array's "
 					+ " index is not of type number.");
@@ -27,6 +31,7 @@ public class ArrayElemCheck
 		if (val != null)
 		{
 			if (!val.getType().toString().contains("ARRAY_")) {
+				SemanticVerifier.failed = true;
 				System.err.println("Line: " + node.getChild(0).getLine() + ": "
 						+ node.getChild(0).getCharPositionInLine() + ": Variable "
 						+ node.getChild(0).getText() + " is not an array.");
