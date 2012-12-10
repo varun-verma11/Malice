@@ -1,13 +1,10 @@
 package codeGeneration;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 import org.antlr.runtime.tree.Tree;
 
+import symbol_table.DATA_TYPES;
 import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
-import symbol_table.DATA_TYPES;
 
 
 public class StatementCodeGenerator {
