@@ -96,21 +96,20 @@ public class Statement
 		String arg1 = node.getChild(0).getText();
 		String arg2 = node.getChild(1).getText();
 		if (table.getCurrentScopeLevel() == 0){
-			CodeGenerator.addInstruction("Current scope is : " + table.getCurrentScopeLevel());
 			if (arg2.equals("number")) {
 				if (storable!=null){
-					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " + Expression.getResultReg(storable, table, gen) +", align 4");
+					CodeGenerator.addInstruction("@"+ arg1 + " = common global i32 " + Expression.getResultReg(storable, table, gen) +", align 4");
 				}
 				else {
-					CodeGenerator.addInstruction("@" + arg1 + " = global i32 0, align 4");
+					CodeGenerator.addInstruction("@" + arg1 + " = common global i32 0, align 4");
 				}
 			}
 			else if (arg2.equals("letter")) {
 				if (storable!=null){
-					CodeGenerator.addInstruction("@"+ arg1 +" = global i8 "+ (int) (storable.getText().charAt(1)) +", align 1");
+					CodeGenerator.addInstruction("@"+ arg1 +" = common global i8 "+ (int) (storable.getText().charAt(1)) +", align 1");
 				}
 				else {
-				CodeGenerator.addInstruction("@" + arg1 + " = global i8 0, align 1");
+				CodeGenerator.addInstruction("@" + arg1 + " = common global i8 0, align 1");
 				}
 			}
 			else if (arg2.equals("sentence")) {
@@ -125,8 +124,8 @@ public class Statement
 								"\", align 1"
 							, 0);
 					CodeGenerator.addInstruction(
-							"@"+ arg1 
-							+" = global i8* getelementptr inbounds (["
+							"@"+ arg1
+							+" = common global i8* getelementptr inbounds (["
 							+ strLen + " x i8]* @.at"
 							+ arg1+table.getCurrentScopeLevel() + ", i32 0, i32 0), align 8");
 				}
@@ -136,7 +135,6 @@ public class Statement
 			}
 		}
 		else {
-			CodeGenerator.addInstruction("Current scope is : " + table.getCurrentScopeLevel());
 			if (arg2.equals("number")) {
 				CodeGenerator.addInstruction("%" + arg1 + " = alloca i32, align 4");
 				if (storable!=null){
