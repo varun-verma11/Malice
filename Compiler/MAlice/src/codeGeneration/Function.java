@@ -49,7 +49,7 @@ public class Function
 			(FunctionSTValue) table.lookup(node.getChild(0).getText());
 		fVal.setLocationReg("@" + current);
 		current = SemanticsUtils.getNextChild(current);
-		String params = getParamsForFunctions(current,table);
+		String params = getParamsForFunctions(current,fVal.getTable());
 		current = SemanticsUtils.getNextChild(
 				SemanticsUtils.getNextChild(current));
 		writeFunctionHeader(
@@ -59,7 +59,7 @@ public class Function
 		
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		current = Statement.checkAllStatements(current, table, gen);
+		current = Statement.checkAllStatements(current, fVal.getTable(), gen);
 		//DO ALL STATEMENTS
 		//current = writeNestedFunctions(table, current,gen);
 		CodeGenerator.decrementIdentLevel();
