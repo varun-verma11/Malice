@@ -91,86 +91,58 @@ public class Statement
 		return true;
 	}
 
-	private static void writeWAS(Tree node, SymbolTable table,
-			LabelGenerator gen)
-	{
+	private static void writeWAS(Tree node, SymbolTable table, LabelGenerator gen) {
+		Tree storable = node.getChild(2);
 		String arg1 = node.getChild(0).getText();
-		Tree arg2 = node.getChild(1);
-		Tree arg3 = node.getChild(2);
-		if (table.getCurrentScopeLevel() == 0)
-		{
-			if (arg2.equals("number"))
-			{
-				if (!arg3.equals(null))
-				{
-					CodeGenerator.addInstruction("@" + arg1 + " = global i32 "
-							+ Expression.getResultReg(arg2, table, gen)
-							+ ", align 4");
-				} else
-				{
-					CodeGenerator.addInstruction("@" + arg1
-							+ " = global i32 0, align 4");
+		String arg2 = node.getChild(1).getText();
+		if (table.getCurrentScopeLevel() == 0){
+			if (arg2.equals("number")) {
+				if (storable!=null){
+					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " + Expression.getResultReg(storable, table, gen) +", align 4");
 				}
-			} else if (arg2.equals("letter"))
-			{
-				if (!arg3.equals(null))
-				{
-					CodeGenerator.addInstruction("@" + arg1 + " = global i8 "
-							+ (int) (arg3.getText().charAt(0)) + ", align 1");
-				} else
-				{
-					CodeGenerator.addInstruction("@" + arg1
-							+ " = global i8 0, align 1");
-				}
-			} else if (arg2.equals("sentence"))
-			{
-				if (!arg3.equals(null))
-				{
-					CodeGenerator.addInstruction("@.at" + arg1
-							+ " = private unnamed_addr constant [4 x i8] c\""
-							+ arg3.getText() + "\00\", align 1", 0);
-					CodeGenerator
-							.addInstruction("@"
-									+ arg1
-									+ " = global i8* getelementptr inbounds ([4 x i8]* @.at"
-									+ arg1 + ", i32 0, i32 0), align 8");
-				} else
-				{
-					CodeGenerator.addInstruction("@" + arg1
-							+ " = global i8* null, align 8");
+				else {
+					CodeGenerator.addInstruction("@" + arg1 + " = global i32 0, align 4");
 				}
 			}
-		} else
-		{
-			if (arg2.equals("number"))
-			{
-				CodeGenerator.addInstruction("%" + arg1
-						+ " = alloca i32, align 4");
-				if (!arg3.equals(null))
-				{
-					CodeGenerator.addInstruction("store i32"
-							+ Expression.getResultReg(arg3, table, gen)
-							+ ", i32* %" + arg1 + ", align 4");
+			else if (arg2.equals("letter")) {
+				if (storable!=null){
+					CodeGenerator.addInstruction("@"+ arg1 +" = global i8 "+ (int) (storable.getText().charAt(0)) +", align 1");
 				}
-			} else if (arg2.equals("letter"))
-			{
-				CodeGenerator.addInstruction("%" + arg1
-						+ " = alloca i8, align 1");
-				if (!arg3.equals(null))
-				{
-					CodeGenerator.addInstruction("store i8 "
-							+ (int) (node.getText().charAt(0)) + ", i8* %"
-							+ arg1 + ", align 1");
+				else {
+				CodeGenerator.addInstruction("@" + arg1 + " = global i8 0, align 1");
 				}
-			} else if (arg2.equals("sentence"))
-			{
-				CodeGenerator.addInstruction("%" + arg1
-						+ " = alloca i8*, align 8");
-				if (!arg3.equals(null))
-				{
-					CodeGenerator.addInstruction("@.at" + arg1
-							+ " = private unnamed_addr constant [4 x i8] c\""
-							+ arg3 + "\00\", align 1", 0);
+			}
+			else if (arg2.equals("sentence")) {
+				if (storable!=null){
+					CodeGenerator.addInstruction("@.at"+arg1+" = private unnamed_addr constant [4 x i8] c\""
+							+ storable.getText() +"\00\", align 1", 0);
+					CodeGenerator.addInstruction("@"+ arg1 +" = global i8* getelementptr inbounds ([4 x i8]* @.at"
+							+ arg1 +", i32 0, i32 0), align 8");
+				}
+				else {
+				CodeGenerator.addInstruction("@"+ arg1 +" = global i8* null, align 8");
+				}
+			}
+		}
+		else {
+			if (arg2.equals("number")) {
+				CodeGenerator.addInstruction("%" + arg1 + " = alloca i32, align 4");
+				if (storable!=null){
+					CodeGenerator.addInstruction("store i32" + Expression.getResultReg(storable, table, gen) 
+							+ ", i32* %"+ arg1 +", align 4");
+				}
+			}
+			else if (arg2.equals("letter")) {
+				CodeGenerator.addInstruction("%" + arg1 + " = alloca i8, align 1");
+				if (storable!=null){
+					CodeGenerator.addInstruction("store i8 " + (int) (storable.getText().charAt(0)) + ", i8* %" + arg1 + ", align 1");
+				}
+			}
+			else if (arg2.equals("sentence")) {
+				CodeGenerator.addInstruction("%" + arg1 + " = alloca i8*, align 8");
+				if (storable!=null){
+					CodeGenerator.addInstruction("@.at"+arg1+" = private unnamed_addr constant [4 x i8] c\""
+							+ storable.getText() +"\00\", align 1", 0);
 				}
 			}
 		}
