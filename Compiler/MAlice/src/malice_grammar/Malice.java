@@ -62,7 +62,7 @@ public class Malice
 					}
 				}
 				System.out.println(args[0] + " done");	
-			}
+			} 
 		} 
 		catch (IOException e) { System.out.println("The filepath is incorrect." +
 				" Please use a valid filepath");} 

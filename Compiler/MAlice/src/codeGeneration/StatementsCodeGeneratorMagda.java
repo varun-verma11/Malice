@@ -27,7 +27,6 @@ public class StatementsCodeGeneratorMagda {
 	}
 
 	public static void writeBecameCode(Tree node, SymbolTable table, LabelGenerator gen) {
-
 		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
 		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 
@@ -55,18 +54,6 @@ public class StatementsCodeGeneratorMagda {
 					+ ", i32* " + currReg + ", align 4");
 		}
 	}
-
-	/**
-	 * PROBLEM : '2 said Alice' or '2+2 said Alice dont work'. 
-	 * and if i do make them work, all the other things dont work.
-	 * i think if we changed Util.getValueType() so that the number case is NOT 
-	 * an else case (maybe have false for else..) because right now it thinks 
-	 * everything is a number :/ @Varun: if you want, you can uncomment the few 
-	 * commented lines below and run the test suite, thats what i tried and 
-	 * thats when it thinks everything is a number :/ 
-	 * 
-	 */
-	
 	
 	public static void writePrintStatementCode(Tree node, SymbolTable table
 			, LabelGenerator gen) {

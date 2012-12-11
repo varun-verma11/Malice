@@ -18,7 +18,6 @@ import org.antlr.runtime.tree.Tree;
 import org.junit.Test;
 
 import semantics_checks.ExpressionChecker;
-import semantics_checks.Imports;
 
 public class Tests
 {
