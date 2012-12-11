@@ -29,33 +29,36 @@ public class StatementsHarsh {
 //			writeHAD(arg1, node.getChild(1), arg3, table);
 //			break;
 
-//		case WHAT: 
+//		case WHAT:
 //			writeWHAT(arg1, node.getChild(0), table);
 //			break;
 		}
 
 	}
 
-//private static void writeWHAT(String arg1, Tree child, SymbolTable table) {
-//		if (child.getChildCount() == 0){
-//			VariableSTValue v = (VariableSTValue) table.lookup(arg1);
-//			if (v.getType() == DATA_TYPES.NUMBER) {
-//				String regId1 = CodeGenerator.getUniqueRegisterID();
-//				CodeGenerator.addInstruction(regId1 + " = load i32* %" + arg1 + ", align 4");
-//				String regId2 = CodeGenerator.getUniqueRegisterID();
-//				CodeGenerator.addInstruction(regId2 + " = call i32 (i8*, ...)* @scanf(i8* getelementptr inbounds ([3 x i8]* @.str, i32 0, i32 0), i32 %1");
-//			}
-//			
-//			if (v.getType() == DATA_TYPES.LETTER) {
-//				
-//			}
-//			
-//			if (v.getType() == DATA_TYPES.SENTENCE) {
-//				
-//			}
-//		}
-//		
-//	}
+
+	private static void writeWHAT(String arg1, Tree child, SymbolTable table, LabelGenerator gen) {
+		if (child.getChildCount() == 0){
+			
+			VariableSTValue v = (VariableSTValue) table.lookup(arg1);
+			
+			if (v.getType() == DATA_TYPES.NUMBER) {
+				String regId1 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(regId1 + " = load i32* %" + arg1 + ", align 4");
+				String regId2 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(regId2 + " = call i32 (i8*, ...)* @scanf(i8* getelementptr inbounds ([3 x i8]* @.str, i32 0, i32 0), i32 %1");
+			}
+			
+			else if (v.getType() == DATA_TYPES.LETTER) {
+				
+			}
+			
+			if (v.getType() == DATA_TYPES.SENTENCE) {
+				
+			}
+		}
+		
+	}
 
 //	private static void writeHAD(String arg1, Tree exp, String arg3,
 //			SymbolTable table) {
@@ -91,11 +94,11 @@ public class StatementsHarsh {
 //		}
 //	}
 
-	private static void writeWAS(String arg1, String arg2, Tree storable, SymbolTable table) {
+	private static void writeWAS(String arg1, String arg2, Tree storable, SymbolTable table, LabelGenerator gen) {
 		if (table.getCurrentScopeLevel() == 0){
 			if (arg2.equals("number")) {
 				if (storable!=null ){
-					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " + Expression.getResultReg(storable, table) +", align 4");
+					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " + Expression.getResultReg(storable, table, gen) + ", align 4");
 				}
 				else {
 					CodeGenerator.addInstruction("@" + arg1 + " = global i32 0, align 4");
