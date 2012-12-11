@@ -93,11 +93,11 @@ public class StatementsCodeGeneratorMagda {
 			CodeGenerator.addInstruction(uniqueReg
 					+ " = call i32 (i8*, ...)* @printf(i8* inttoptr (i64 "
 					+ (int) node.getChild(0).getText().charAt(1) + " to i8*))");
-//		} else if (nodeType == DATA_TYPES.NUMBER) {
-//			String currReg = Expression.getResultReg(node.getChild(0), table,gen);
-//			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
-//					+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
-//			
+		} else if (nodeType == DATA_TYPES.NUMBER) {
+			String currReg = Expression.getResultReg(node.getChild(0), table,gen);
+			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+					+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
+			
 		} else {
 			DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
 			String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();

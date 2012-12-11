@@ -214,6 +214,7 @@ public class Expression
 		{
 			return writeCodeForFunctionCall(leaf, table,gen);
 		}
+//		System.out.println(leaf);
 		if (table.checkItemWasDeclaredBefore(leaf.getText())) 
 		{
 			//THIS NEEDS TO BE THE NEW METHOD WHICH WOULD RETURN THE NAME OF 

@@ -20,8 +20,8 @@ public class CodeGenerator
 	private static String scanf  = "@scanf";
 	public static void generateCode(Tree tree, SymbolTable table)
 	{
-		Tree current = tree.getChild(0);
-		//GENERATE CODE FOR ALL GLOBAL STATEMENTS
+		Tree current = (tree.getText()==null)? tree.getChild(0) : tree ;;
+		current = Statement.checkAllStatements(current, table, new LabelGenerator());
 		while(current!=null)
 		{
 			Function.writeCodeForFunctions(current, table, new LabelGenerator());
