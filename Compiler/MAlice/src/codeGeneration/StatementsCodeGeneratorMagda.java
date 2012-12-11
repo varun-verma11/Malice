@@ -9,26 +9,32 @@ public class StatementsCodeGeneratorMagda {
 	
 	private static int count = 0;
 	
-	public static void writeAteCode(Tree node, SymbolTable table, LabelGenerator gen) {
+	public static void writeAteCode(Tree node, SymbolTable table, 
+			LabelGenerator gen) {
 		String tempReg = gen.getUniqueRegisterID();
-		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+		String currReg = 
+				(table.lookup(node.getChild(0).getText())).getLocationReg();
 		Expression.writeOperationExpressions(tempReg, "add", currReg, "1");
 		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
 				+ currReg + ", align 4");
 
 	}
 
-	public static void writeDrankCode(Tree node, SymbolTable table, LabelGenerator gen) {
+	public static void writeDrankCode(Tree node, SymbolTable table, 
+			LabelGenerator gen) {
 		String tempReg = gen.getUniqueRegisterID();
-		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+		String currReg = 
+				(table.lookup(node.getChild(0).getText())).getLocationReg();
 		Expression.writeOperationExpressions(tempReg, "sub", currReg, "1");
 		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
 				+ currReg + ", align 4");
 	}
 
-	public static void writeBecameCode(Tree node, SymbolTable table, LabelGenerator gen) {
+	public static void writeBecameCode(Tree node, SymbolTable table, 
+			LabelGenerator gen) {
 		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
-		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+		String currReg = 
+				(table.lookup(node.getChild(0).getText())).getLocationReg();
 
 		if (type == DATA_TYPES.LETTER) {
 			CodeGenerator.addInstruction("store i8 "
@@ -42,9 +48,9 @@ public class StatementsCodeGeneratorMagda {
 			(table.lookup(node.getChild(0).getText())).setStringSize(size);
 			String newLabel = "@." + node.getChild(0).getText() + "_" + count ;
 			count++;
-			CodeGenerator.addGlobalInstruction(newLabel + " = private unnamed_addr "
-					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
-					+ "align 1");
+			CodeGenerator.addGlobalInstruction(newLabel + " = private " 
+					+ "unnamed_addr constant [" + size + " x i8] c\"" + curr 
+					+ "\\00\", " + "align 1");
 			CodeGenerator.addInstruction("store i8* getelementptr inbounds ([" 
 					+ size + " x i8]* " + newLabel + ", i32 0, i32 0), i8** " 
 					+ currReg + ", align 8");
@@ -58,9 +64,7 @@ public class StatementsCodeGeneratorMagda {
 	public static void writePrintStatementCode(Tree node, SymbolTable table
 			, LabelGenerator gen) {
 		String uniqueReg = gen.getUniqueRegisterID();
-		//String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
-		//DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
 
 		if (nodeType == DATA_TYPES.SENTENCE) { 
 			String curr = node.getChild(0).getText();
@@ -68,7 +72,8 @@ public class StatementsCodeGeneratorMagda {
 			int size = curr.length() + 1;
 			String newLabel = "@.str_" + count ;
 			count++;
-			CodeGenerator.addGlobalInstruction(newLabel + " = private unnamed_addr "
+			CodeGenerator.addGlobalInstruction(newLabel + " = private " 
+					+ "unnamed_addr "
 					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
 					+ "align 1");
 			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
@@ -83,15 +88,17 @@ public class StatementsCodeGeneratorMagda {
 					+ (int) node.getChild(0).getText().charAt(1) + " to i8*))");
 			return;
 		} else if (table.lookup(node.getChild(0).getText())!=null){
-			DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
-			String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+			DATA_TYPES type = 
+					(table.lookup(node.getChild(0).getText())).getType();
+			String currentReg = 
+					(table.lookup(node.getChild(0).getText())).getLocationReg();
 
 			if (type == DATA_TYPES.SENTENCE) {
 				CodeGenerator.addInstruction(uniqueReg
-						+ " = load i8** " + currentReg + ", align 8");//is this right?
+						+ " = load i8** " + currentReg + ", align 8");
 				CodeGenerator.includePrint();
 
-			} else { // numbers and letters
+			} else { 
 
 				CodeGenerator.addInstruction(uniqueReg + " = load "
 						+ getType(type) + "* " + currentReg + ", align "
@@ -138,10 +145,13 @@ public class StatementsCodeGeneratorMagda {
 	}
 
 
-	public static void writeFoundCode(Tree node, SymbolTable table, LabelGenerator gen) {
+	public static void writeFoundCode(Tree node, SymbolTable table, 
+			LabelGenerator gen) {
 		String uniqueReg = gen.getUniqueRegisterID();
-		String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
-		DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
+		String currentReg = 
+				(table.lookup(node.getChild(0).getText())).getLocationReg();
+		DATA_TYPES type = 
+				(table.lookup(node.getChild(0).getText())).getType();
 
 		if (type == DATA_TYPES.LETTER) {
 			CodeGenerator.addInstruction(uniqueReg + " = load i8* "
