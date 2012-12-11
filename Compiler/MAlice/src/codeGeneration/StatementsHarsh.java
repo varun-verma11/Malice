@@ -106,7 +106,7 @@ public class StatementsHarsh {
 					CodeGenerator.addInstruction("@"+ arg1 +" = global i8 "+ (int) (storable.getText().charAt(1)) +", align 1");
 				}
 				else {
-				CodeGenerator.addInstruction("@" + arg1 + " = global i8 0, align 1");
+					CodeGenerator.addInstruction("@" + arg1 + " = global i8 0, align 1");
 				}
 			}
 			else if (arg2.equals("sentence")) {
@@ -128,7 +128,7 @@ public class StatementsHarsh {
 							+ arg1+table.getCurrentScopeLevel() + ", i64 0, i64 0), align 8");
 				}
 				else {
-				CodeGenerator.addInstruction("@"+ arg1 +" = global i8* null, align 8");
+				CodeGenerator.addInstruction("@"+ arg1 +" = common global i8* null, align 8");
 				}
 			}
 		}

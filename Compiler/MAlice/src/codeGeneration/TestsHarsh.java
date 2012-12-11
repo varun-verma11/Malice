@@ -21,10 +21,12 @@ public class TestsHarsh {
 
 	@Test
 	public void test() throws RecognitionException {
-		String st = "x was a sentence of \"I am\"";
+		String st = "x was a sentence";
 		assertTrue(generateCodeForStatement(st));
 	}
 
+	
+	
 	private boolean generateCodeForStatement(String expr)
 			throws RecognitionException {
 		SymbolTable table = new SymbolTable();
@@ -35,7 +37,7 @@ public class TestsHarsh {
 		if (!parser.failed()) {
 			Tree tree = (Tree) parser.declaration_statements().getTree();
 			System.out.println(tree.toStringTree());
-			StatementsHarsh.getStatement(tree, table);
+			Statement.checkAllStatements(tree, table, new LabelGenerator());
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;
