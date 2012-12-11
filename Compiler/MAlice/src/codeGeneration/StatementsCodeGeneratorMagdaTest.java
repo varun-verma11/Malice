@@ -86,6 +86,27 @@ public class StatementsCodeGeneratorMagdaTest {
 
 	}
 	
+	@Test
+	public void testSaidAndSpoke() throws RecognitionException {
+		System.out.println("\n\nSTART TESTING SPOKE...\n");
+
+		String st = "x said Alice";
+		String st1 = "y said Alice";
+		String st2 = "z said Alice";
+		String st3 = "fnX said Alice";
+		String st4 = "z2 said Alice";
+		String st5 = "2 + 2 said Alice";
+		String st6 = "\'a\' said Alice";
+		
+		assertTrue(generateCodeForStatement(st, STATS.SAID));
+		assertTrue(generateCodeForStatement(st1, STATS.SAID));		
+		assertTrue(generateCodeForStatement(st2, STATS.SAID));
+		assertTrue(generateCodeForStatement(st3, STATS.SAID));
+		assertTrue(generateCodeForStatement(st4, STATS.SAID));
+		assertTrue(generateCodeForStatement(st5, STATS.SAID));
+		assertTrue(generateCodeForStatement(st6, STATS.SAID));
+	}
+	
 	
 	
 	private SymbolTable initTable(SymbolTable table) {
@@ -142,8 +163,7 @@ public class StatementsCodeGeneratorMagdaTest {
 				case DRANK:StatementsCodeGeneratorMagda.writeDrankCode(tree, table, new LabelGenerator());break;
 				case BECAME:StatementsCodeGeneratorMagda.writeBecameCode(tree, table, new LabelGenerator());break;
 				case FOUND:StatementsCodeGeneratorMagda.writeFoundCode(tree, table, new LabelGenerator());break;
-				case SAID:
-				case SPOKE:StatementsCodeGeneratorMagda.writePrintStatementCode(tree, table, new LabelGenerator());break;
+				case SAID:StatementsCodeGeneratorMagda.writePrintStatementCode(tree, table, new LabelGenerator());break;
 			}
 
 			CodeGenerator.printInstructions();
@@ -154,7 +174,7 @@ public class StatementsCodeGeneratorMagdaTest {
 	}
 	
 	private enum STATS {
-		ATE, DRANK, BECAME, FOUND, SAID, SPOKE;
+		ATE, DRANK, BECAME, FOUND, SAID;
 	}
 	
 }
