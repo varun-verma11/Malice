@@ -11,7 +11,7 @@ public class StatementsCodeGeneratorMagda {
 	
 	public static void writeAteCode(Tree node, SymbolTable table, LabelGenerator gen) {
 		String tempReg = gen.getUniqueRegisterID();
-		String currReg = setGlobalorLocal(node.getChild(0), table);
+		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 		Expression.writeOperationExpressions(tempReg, "add", currReg, "1");
 		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
 				+ currReg + ", align 4");
@@ -20,7 +20,7 @@ public class StatementsCodeGeneratorMagda {
 
 	public static void writeDrankCode(Tree node, SymbolTable table, LabelGenerator gen) {
 		String tempReg = gen.getUniqueRegisterID();
-		String currReg = setGlobalorLocal(node.getChild(0), table);
+		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 		Expression.writeOperationExpressions(tempReg, "sub", currReg, "1");
 		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
 				+ currReg + ", align 4");
@@ -29,21 +29,22 @@ public class StatementsCodeGeneratorMagda {
 	public static void writeBecameCode(Tree node, SymbolTable table, LabelGenerator gen) {
 
 		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
-		String currReg = setGlobalorLocal(node.getChild(0), table);
+		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 
 		if (type == DATA_TYPES.LETTER) {
 			CodeGenerator.addInstruction("store i8 "
-					+ (int) node.getChild(1).getText().charAt(1) + ", i32* "
-					+ currReg + ", align 4");
+					+ (int) node.getChild(1).getText().charAt(1) + ", i8* "
+					+ currReg + ", align 1");
 		} else if (type == DATA_TYPES.SENTENCE) {
-			int size = node.getChild(1).getText().length() + 1;
+			String curr = node.getChild(1).getText();
+			curr = curr.substring(1, curr.length()-1);
+			int size = curr.length() + 1;
 			//set string size, needed in print statements
 			(table.lookup(node.getChild(0).getText())).setStringSize(size);
-			String curr = node.getChild(1).getText();
 			String newLabel = "@." + node.getChild(0).getText() + "_" + count ;
 			count++;
 			CodeGenerator.addInstruction(newLabel + " = private unnamed_addr "
-					+ "constant [" + size + " x i8] c\"" + curr + "+\\00\", "
+					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
 					+ "align 1",0);
 			CodeGenerator.addInstruction("store i8* getelementptr inbounds ([" 
 					+ size + " x i8]* " + newLabel + ", i32 0, i32 0), i8** " 
