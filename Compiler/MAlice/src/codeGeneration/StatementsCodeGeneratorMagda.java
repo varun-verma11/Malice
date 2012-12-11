@@ -56,6 +56,18 @@ public class StatementsCodeGeneratorMagda {
 		}
 	}
 
+	/**
+	 * PROBLEM : '2 said Alice' or '2+2 said Alice dont work'. 
+	 * and if i do make them work, all the other things dont work.
+	 * i think if we changed Util.getValueType() so that the number case is NOT 
+	 * an else case (maybe have false for else..) because right now it thinks 
+	 * everything is a number :/ @Varun: if you want, you can uncomment the few 
+	 * commented lines below and run the test suite, thats what i tried and 
+	 * thats when it thinks everything is a number :/ 
+	 * 
+	 */
+	
+	
 	public static void writePrintStatementCode(Tree node, SymbolTable table
 			, LabelGenerator gen) {
 		String uniqueReg = gen.getUniqueRegisterID();
@@ -81,10 +93,13 @@ public class StatementsCodeGeneratorMagda {
 			CodeGenerator.addInstruction(uniqueReg
 					+ " = call i32 (i8*, ...)* @printf(i8* inttoptr (i64 "
 					+ (int) node.getChild(0).getText().charAt(1) + " to i8*))");
-
+//		} else if (nodeType == DATA_TYPES.NUMBER) {
+//			String currReg = Expression.getResultReg(node.getChild(0), table,gen);
+//			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+//					+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
+//			
 		} else {
 			DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
-			//String currentReg = Expression.getResultReg(node.getChild(0), table,gen);
 			String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 
 			if (type == DATA_TYPES.SENTENCE) {
@@ -93,6 +108,7 @@ public class StatementsCodeGeneratorMagda {
 				CodeGenerator.includePrint();
 
 			} else { // numbers and letters
+
 				CodeGenerator.addInstruction(uniqueReg + " = load "
 						+ getType(type) + "* " + currentReg + ", align "
 						+ getAlignValue(type));
