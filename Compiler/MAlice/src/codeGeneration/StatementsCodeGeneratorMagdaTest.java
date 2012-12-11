@@ -90,21 +90,21 @@ public class StatementsCodeGeneratorMagdaTest {
 	public void testSaidAndSpoke() throws RecognitionException {
 		System.out.println("\n\nSTART TESTING SPOKE...\n");
 
-//		String st = "x said Alice";
-//		String st1 = "y said Alice";
-//		String st2 = "z said Alice";
-//		String st3 = "fnX said Alice";
-//		String st4 = "z2 said Alice";
-		String st5 = "2 + x-3*y && x<3 said Alice";
-//		String st6 = "\'a\' said Alice";
+		String st = "x said Alice";
+		String st1 = "y said Alice";
+		String st2 = "z said Alice";
+		String st3 = "fnX said Alice";
+		String st4 = "z2 said Alice";
+		String st5 = "(2+2) said Alice";
+		String st6 = "\'a\' said Alice";
 		
-//		assertTrue(generateCodeForStatement(st, STATS.SAID));
-//		assertTrue(generateCodeForStatement(st1, STATS.SAID));		
-//		assertTrue(generateCodeForStatement(st2, STATS.SAID));
-//		assertTrue(generateCodeForStatement(st3, STATS.SAID));
-//		assertTrue(generateCodeForStatement(st4, STATS.SAID));
+		assertTrue(generateCodeForStatement(st, STATS.SAID));
+		assertTrue(generateCodeForStatement(st1, STATS.SAID));		
+		assertTrue(generateCodeForStatement(st2, STATS.SAID));
+		assertTrue(generateCodeForStatement(st3, STATS.SAID));
+		assertTrue(generateCodeForStatement(st4, STATS.SAID));
 		assertTrue(generateCodeForStatement(st5, STATS.SAID));
-//		assertTrue(generateCodeForStatement(st6, STATS.SAID));
+		assertTrue(generateCodeForStatement(st6, STATS.SAID));
 	}
 	
 	

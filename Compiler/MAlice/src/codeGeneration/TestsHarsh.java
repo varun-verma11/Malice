@@ -1,6 +1,9 @@
 package codeGeneration;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import malice_grammar.malice_grammarLexer;
 import malice_grammar.malice_grammarParser;
 
@@ -14,6 +17,7 @@ import org.junit.Test;
 
 import semantics_checks.ExpressionChecker;
 import symbol_table.DATA_TYPES;
+import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
 import symbol_table.VariableSTValue;
 
@@ -21,21 +25,69 @@ public class TestsHarsh {
 
 	@Test
 	public void test() throws RecognitionException {
-		String st = "x was a sentence of \"I am\"";
+//		String st = "x1 was a sentence";
+//		assertTrue(generateCodeForStatement(st));
+//		String st = "bjsdkfksrdv was a sentence of \"abc\"";
+//		assertTrue(generateCodeForStatement(st));
+//		st = "x3 was a number of 256";
+//		assertTrue(generateCodeForStatement(st));
+//		st = "x4 was a number";
+				
+//		assertTrue(generateCodeForStatement(st));
+//		st = "x5 was a letter";
+//		assertTrue(generateCodeForStatement(st));
+		String st = "x6 was a letter of \'a\'";
 		assertTrue(generateCodeForStatement(st));
+		
+//		%x = alloca i8, align 1
+//	    store i8 98, i8* %x, align 1
 	}
 
+	
+	
 	private boolean generateCodeForStatement(String expr)
 			throws RecognitionException {
+		
 		SymbolTable table = new SymbolTable();
+		
+		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
+		VariableSTValue x = new VariableSTValue(DATA_TYPES.NUMBER, true);
+		VariableSTValue y = new VariableSTValue(DATA_TYPES.LETTER, true);
+		VariableSTValue z = new VariableSTValue(DATA_TYPES.SENTENCE, true);
+
+		
+		args.add(DATA_TYPES.NUMBER);
+		
+		FunctionSTValue fn = new FunctionSTValue(table,args);
+		VariableSTValue fnX = new VariableSTValue(DATA_TYPES.NUMBER, true);
+		VariableSTValue z2 = new VariableSTValue(DATA_TYPES.SENTENCE, true);
+
+		
+		x.setLocationReg("@x");
+		y.setLocationReg("@y");
+		z.setLocationReg("@z");
+		fn.setLocationReg("@fn");
+		fnX.setLocationReg("%fnX");
+		z2.setLocationReg("%z2");
+		
+		table.insert("x", x);
+		table.insert("y", y);
+		table.insert("z", z);
+		
+		table.insert("fn", fn);
+		table = fn.getTable();
+		table.insert("fnX",fnX);
+		table.insert("z2", z2);
+		
 		CharStream input = new ANTLRStringStream(expr);
+
 		malice_grammarLexer lexer = new malice_grammarLexer(input);
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens);
 		if (!parser.failed()) {
 			Tree tree = (Tree) parser.declaration_statements().getTree();
 			System.out.println(tree.toStringTree());
-			StatementsHarsh.getStatement(tree, table);
+			Statement.checkAllStatements(tree, table, new LabelGenerator());
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;

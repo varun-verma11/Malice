@@ -96,6 +96,7 @@ public class Statement
 		String arg1 = node.getChild(0).getText();
 		String arg2 = node.getChild(1).getText();
 		if (table.getCurrentScopeLevel() == 0){
+			CodeGenerator.addInstruction("Current scope is : " + table.getCurrentScopeLevel());
 			if (arg2.equals("number")) {
 				if (storable!=null){
 					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " + Expression.getResultReg(storable, table, gen) +", align 4");
@@ -106,7 +107,7 @@ public class Statement
 			}
 			else if (arg2.equals("letter")) {
 				if (storable!=null){
-					CodeGenerator.addInstruction("@"+ arg1 +" = global i8 "+ (int) (storable.getText().charAt(0)) +", align 1");
+					CodeGenerator.addInstruction("@"+ arg1 +" = global i8 "+ (int) (storable.getText().charAt(1)) +", align 1");
 				}
 				else {
 				CodeGenerator.addInstruction("@" + arg1 + " = global i8 0, align 1");
@@ -114,35 +115,60 @@ public class Statement
 			}
 			else if (arg2.equals("sentence")) {
 				if (storable!=null){
-					CodeGenerator.addInstruction("@.at"+arg1+" = private unnamed_addr constant [4 x i8] c\""
-							+ storable.getText() +"\00\", align 1", 0);
-					CodeGenerator.addInstruction("@"+ arg1 +" = global i8* getelementptr inbounds ([4 x i8]* @.at"
-							+ arg1 +", i32 0, i32 0), align 8");
+					int strLen = storable.getText().length() - 1;
+					String effective = storable.getText().substring(1, strLen);
+					CodeGenerator.addInstruction(
+								"@.at"+arg1+table.getCurrentScopeLevel()+
+								" = private unnamed_addr constant ["
+								+ strLen +" x i8] c\""
+								+ effective + '\\' + "00"+
+								"\", align 1"
+							, 0);
+					CodeGenerator.addInstruction(
+							"@"+ arg1 
+							+" = global i8* getelementptr inbounds (["
+							+ strLen + " x i8]* @.at"
+							+ arg1+table.getCurrentScopeLevel() + ", i32 0, i32 0), align 8");
 				}
 				else {
-				CodeGenerator.addInstruction("@"+ arg1 +" = global i8* null, align 8");
+				CodeGenerator.addInstruction("@"+ arg1 +" = common global i8* null, align 8");
 				}
 			}
 		}
 		else {
+			CodeGenerator.addInstruction("Current scope is : " + table.getCurrentScopeLevel());
 			if (arg2.equals("number")) {
 				CodeGenerator.addInstruction("%" + arg1 + " = alloca i32, align 4");
 				if (storable!=null){
-					CodeGenerator.addInstruction("store i32" + Expression.getResultReg(storable, table, gen) 
+					CodeGenerator.addInstruction("store i32 " + Expression.getResultReg(storable, table, gen) 
 							+ ", i32* %"+ arg1 +", align 4");
 				}
 			}
 			else if (arg2.equals("letter")) {
 				CodeGenerator.addInstruction("%" + arg1 + " = alloca i8, align 1");
 				if (storable!=null){
-					CodeGenerator.addInstruction("store i8 " + (int) (storable.getText().charAt(0)) + ", i8* %" + arg1 + ", align 1");
+					CodeGenerator.addInstruction("store i8 " + (int) (storable.getText().charAt(1)) + ", i8* %" + arg1 + ", align 1");
 				}
 			}
 			else if (arg2.equals("sentence")) {
 				CodeGenerator.addInstruction("%" + arg1 + " = alloca i8*, align 8");
 				if (storable!=null){
-					CodeGenerator.addInstruction("@.at"+arg1+" = private unnamed_addr constant [4 x i8] c\""
-							+ storable.getText() +"\00\", align 1", 0);
+					int strLen = storable.getText().length() - 1;
+					String effective = storable.getText().substring(1, strLen);
+					CodeGenerator.addInstruction(
+							"@.at"+arg1+table.getCurrentScopeLevel()+
+							" = private unnamed_addr constant ["
+							+ strLen +" x i8] c\""
+							+ effective + '\\' + "00"+
+							"\", align 1"
+						, 0);
+					CodeGenerator.addInstruction(
+							"store i8* getelementptr inbounds (["
+							+ strLen +" x i8]* @.at"+ arg1
+							+ table.getCurrentScopeLevel() 
+							+ ", i32 0, i32 0), i8** %"
+							+ arg1 +", align 8");
+					
 				}
 			}
 		}

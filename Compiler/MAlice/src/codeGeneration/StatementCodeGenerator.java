@@ -91,6 +91,7 @@ private static void writeWHAT(String arg1, Tree child, SymbolTable table) {
 
 	private static void writeWAS(String arg1, String arg2, Tree storable, SymbolTable table) {
 		if (table.getCurrentScopeLevel() == 0){
+			CodeGenerator.addInstruction("Current scope is : " + table.getCurrentScopeLevel());
 			if (arg2.equals("number")) {
 				if (!storable.equals(null) ){
 					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " + Expression.getResultReg(storable, table) +", align 4");
@@ -120,6 +121,7 @@ private static void writeWHAT(String arg1, Tree child, SymbolTable table) {
 			}
 		}
 		else {
+			CodeGenerator.addInstruction("Current scope is : " + table.getCurrentScopeLevel());
 			if (arg2.equals("number")) {
 				CodeGenerator.addInstruction("%" + arg1 + " = alloca i32, align 4");
 				if (!storable.equals(null) ){
