@@ -28,6 +28,11 @@ public class CodeGenerator
 			current = SemanticsUtils.getNextChild(current);
 		}
 	}
+	
+	public static void addGlobalInstruction(String ins)
+	{
+		instructions.add(0,ins);
+	}
 	public static void addInstruction(String ins)
 	{
 		instructions.add(getIdent() + ins);

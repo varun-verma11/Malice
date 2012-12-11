@@ -42,9 +42,9 @@ public class StatementsCodeGeneratorMagda {
 			(table.lookup(node.getChild(0).getText())).setStringSize(size);
 			String newLabel = "@." + node.getChild(0).getText() + "_" + count ;
 			count++;
-			CodeGenerator.addInstruction(newLabel + " = private unnamed_addr "
+			CodeGenerator.addGlobalInstruction(newLabel + " = private unnamed_addr "
 					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
-					+ "align 1",0);
+					+ "align 1");
 			CodeGenerator.addInstruction("store i8* getelementptr inbounds ([" 
 					+ size + " x i8]* " + newLabel + ", i32 0, i32 0), i8** " 
 					+ currReg + ", align 8");
@@ -68,11 +68,11 @@ public class StatementsCodeGeneratorMagda {
 			int size = curr.length() + 1;
 			String newLabel = "@.str_" + count ;
 			count++;
-			CodeGenerator.addInstruction(newLabel + " = private unnamed_addr "
+			CodeGenerator.addGlobalInstruction(newLabel + " = private unnamed_addr "
 					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
-					+ "align 1",0);
+					+ "align 1");
 			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
-					+ "@printf(i8* getemelentptr inbounds (["
+					+ "@printf(i8* getelementptr inbounds (["
 					+ size + " x i8]* " + newLabel
 					+ ", i32 0, i32 0))");
 			CodeGenerator.includePrint();

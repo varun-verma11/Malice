@@ -96,13 +96,15 @@ public class Statement
 		String arg1 = node.getChild(0).getText();
 		String arg2 = node.getChild(1).getText();
 		if (table.getCurrentScopeLevel() == 0){
-			CodeGenerator.addInstruction("Current scope is : " + table.getCurrentScopeLevel());
 			if (arg2.equals("number")) {
 				if (storable!=null){
-					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " + Expression.getResultReg(storable, table, gen) +", align 4");
+					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 " +
+							Expression.getResultReg(storable, table, gen) 
+							+", align 4");
 				}
 				else {
-					CodeGenerator.addInstruction("@" + arg1 + " = global i32 0, align 4");
+					CodeGenerator.addInstruction("@" + arg1 
+							+ " = global i32 0, align 4");
 				}
 			}
 			else if (arg2.equals("letter")) {
@@ -117,13 +119,13 @@ public class Statement
 				if (storable!=null){
 					int strLen = storable.getText().length() - 1;
 					String effective = storable.getText().substring(1, strLen);
-					CodeGenerator.addInstruction(
+					CodeGenerator.addGlobalInstruction(
 								"@.at"+arg1+table.getCurrentScopeLevel()+
 								" = private unnamed_addr constant ["
 								+ strLen +" x i8] c\""
 								+ effective + '\\' + "00"+
 								"\", align 1"
-							, 0);
+							);
 					CodeGenerator.addInstruction(
 							"@"+ arg1 
 							+" = global i8* getelementptr inbounds (["
@@ -155,13 +157,13 @@ public class Statement
 				if (storable!=null){
 					int strLen = storable.getText().length() - 1;
 					String effective = storable.getText().substring(1, strLen);
-					CodeGenerator.addInstruction(
+					CodeGenerator.addGlobalInstruction(
 							"@.at"+arg1+table.getCurrentScopeLevel()+
 							" = private unnamed_addr constant ["
 							+ strLen +" x i8] c\""
 							+ effective + '\\' + "00"+
 							"\", align 1"
-						, 0);
+						);
 					CodeGenerator.addInstruction(
 							"store i8* getelementptr inbounds (["
 							+ strLen +" x i8]* @.at"+ arg1
