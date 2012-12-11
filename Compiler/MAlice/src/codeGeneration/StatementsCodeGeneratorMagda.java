@@ -141,17 +141,25 @@ public class StatementsCodeGeneratorMagda {
 
 	public static void writeFoundCode(Tree node, SymbolTable table, LabelGenerator gen) {
 		String uniqueReg = gen.getUniqueRegisterID();
-		String currentReg = setGlobalorLocal(node.getChild(0), table);
-		DATA_TYPES type = Utils.getValueType(node.getChild(0), table);
+		String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+		DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
 
 		if (type == DATA_TYPES.LETTER) {
 			CodeGenerator.addInstruction(uniqueReg + " = load i8* "
 					+ currentReg + ", align 1");
-			CodeGenerator.addInstruction("ret i8 " + uniqueReg);
+			currentReg = uniqueReg;
+			uniqueReg = gen.getUniqueRegisterID();
+			CodeGenerator.addInstruction(uniqueReg + " = sext i8 " 
+					+ currentReg + " to i32");
+			CodeGenerator.addInstruction("ret i32 " + uniqueReg);
 		} else if (type == DATA_TYPES.SENTENCE) {
 			CodeGenerator.addInstruction(uniqueReg + " = load i8** "
 					+ currentReg + ", align 8");
-			CodeGenerator.addInstruction("ret i8* " + uniqueReg);
+			currentReg = uniqueReg;
+			uniqueReg = gen.getUniqueRegisterID();
+			CodeGenerator.addInstruction(uniqueReg + " = ptrtoint i8* " 
+					+ currentReg + " to i32");
+			CodeGenerator.addInstruction("ret i32 " + uniqueReg);
 		} else {
 			CodeGenerator.addInstruction(uniqueReg + " = load i32* "
 					+ currentReg + ", align 4");
