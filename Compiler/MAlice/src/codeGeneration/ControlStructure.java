@@ -9,9 +9,11 @@ import symbol_table.SymbolTable;
 
 public class ControlStructure
 {
-	public static void writeEitherStatement(Tree node, SymbolTable table)
+	public static void writeEitherStatement(Tree node, SymbolTable table,
+			LabelGenerator gen)
 	{
-		String boolExp = Expression.getResultReg(node.getChild(0), table);
+		Tree current = node.getChild(0);
+		String boolExp = Expression.getResultReg(current, table, gen);
 		try
 		{
 			int bool = Integer.parseInt(boolExp);
@@ -20,40 +22,37 @@ public class ControlStructure
 			{
 				// code for then case only
 				// Do all statements then skip to end of either
+				Statement.checkAllStatements(node, table, gen);
 				return;
 			} else
 			{
 				// code for else case only
-				Tree current = node;
-				while (current.getText().contentEquals("or"))
+				while (!current.getText().contentEquals("or"))
 				{
 					current = SemanticsUtils.getNextChild(current);
 				}
 				current = SemanticsUtils.getNextChild(current);
 				// Do all statements then skip to end of either
+				Statement.checkAllStatements(current, table, gen);
 				return;
 			}
 		} catch (NumberFormatException e)
 		{
 		}
 
-		String lblThen = CodeGenerator.getUniqueLabel();
+		String lblThen = gen.getUniqueLabel();
 		int brInsIndex = CodeGenerator.getNumberOfInstructions();
 		int[] endIfLblInserts = new int[2];
 		CodeGenerator.addInstruction(getLabel(lblThen));
-		// DO ALL STATEMENTS
-		@SuppressWarnings("unused")
-		String temp = Expression.getResultReg(node.getChild(1).getChild(1),
-				table);
-		// DO ALL STATEMENTS
+		current = SemanticsUtils.getNextChild(current);
+		current = Statement.checkAllStatements(current, table, gen);
 		endIfLblInserts[0] = CodeGenerator.getNumberOfInstructions();
-		String lblElse = CodeGenerator.getUniqueLabel();
+		String lblElse = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(lblElse));
-		// DO ALL STATEMENTS
-		temp = Expression.getResultReg(node.getChild(3).getChild(1), table);
-		// DO ALL STATEMENTS
+		current = SemanticsUtils.getNextChild(current);
+		Statement.checkAllStatements(current, table, gen);
 		endIfLblInserts[1] = CodeGenerator.getNumberOfInstructions();
-		String lblEndIf = CodeGenerator.getUniqueLabel();
+		String lblEndIf = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(lblEndIf));
 		CodeGenerator
 				.addInstruction(getBranchIns(lblEndIf), endIfLblInserts[1]);
@@ -63,61 +62,80 @@ public class ControlStructure
 				lblElse), brInsIndex);
 	}
 
-	public static void writeEventuallyStatement(Tree node, SymbolTable table)
+	public static void writeEventuallyStatement(Tree node, SymbolTable table,
+			LabelGenerator gen)
 	{
-		String startLbl = CodeGenerator.getUniqueLabel();
-		CodeGenerator.addInstruction(getBranchIns(startLbl));
-		CodeGenerator.addInstruction(getLabel(startLbl));
-		String boolExp = Expression.getResultReg(node.getChild(0), table);
-		// try{
-		// int bool = Integer.parseInt(boolExp);
-		// if (bool==0) return;
-		// } catch (NumberFormatException e) { }
+		String startLbl = gen.getUniqueLabel();
+		int startLblIndex = CodeGenerator.getNumberOfInstructions();
+		Tree current = node.getChild(0);
+		String boolExp = Expression.getResultReg(current, table, gen);
+		try
+		{
+			int bool = Integer.parseInt(boolExp);
+			if (bool == 0)
+				return;
+		} catch (NumberFormatException e){ }
+		CodeGenerator.addInstruction(getBranchIns(startLbl),startLblIndex);
+		CodeGenerator.addInstruction(getLabel(startLbl),startLblIndex+1);
 		int brInsIndex = CodeGenerator.getNumberOfInstructions();
-		String loop = CodeGenerator.getUniqueLabel();
+		String loop = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(loop));
-		// DO ALL STATEMENTSS
-		Expression.getResultReg(node.getChild(1).getChild(1), table);
-		// DO ALL STATEMENTSS
+		current = SemanticsUtils.getNextChild(current);
+		current = Statement.checkAllStatements(current, table, gen);
 		CodeGenerator.addInstruction(getBranchIns(startLbl));
-		String endLoop = CodeGenerator.getUniqueLabel();
+		String endLoop = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(endLoop));
 		CodeGenerator.addInstruction(getConditionalBranchIns(boolExp, loop,
 				endLoop), brInsIndex);
 	}
 
-	public static void writePerhapsStatements(Tree node, SymbolTable table)
+	public static void writePerhapsStatements(Tree node, SymbolTable table,
+			LabelGenerator gen)
 	{
-		String bool_exp = Expression.getResultReg(node.getChild(0), table);
+		String bool_exp = Expression.getResultReg(node.getChild(0), table, gen);
+		try
+		{
+			int bool = Integer.parseInt(bool_exp);
+			if (bool == 1)
+			{
+				Statement.checkAllStatements(node, table, gen);
+				return;
+			}
+		} catch (NumberFormatException e){ }
 		ArrayList<Integer> endIfInserts = new ArrayList<Integer>();
 		int brInsert = CodeGenerator.getNumberOfInstructions();
-		String startLbl = CodeGenerator.getUniqueLabel();
+		String startLbl = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(startLbl));
-		// DO ALL STATEMENTS
-		CodeGenerator.addInstruction("Statements being done here.");
-		// DO ALL STATEMENTS
+		Tree current = SemanticsUtils.getNextChild(node);
+		current = Statement.checkAllStatements(current, table, gen);
 		endIfInserts.add(CodeGenerator.getNumberOfInstructions());
-		String endLbl = CodeGenerator.getUniqueLabel();
+		String endLbl = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(endLbl));
-		// STATEMENT CHECK TO RETURN THE VALID CHILD
-		Tree current = node.getChild(2);
-		// ONLY CASE FOR TEST CASES
 		while (current != null && current.getText().contentEquals("maybe"))
 		{
 			CodeGenerator.addInstruction(getConditionalBranchIns(bool_exp,
 					startLbl, endLbl), brInsert);
 			current = SemanticsUtils.getNextChild(current);
-			bool_exp = Expression.getResultReg(current, table);
+			bool_exp = Expression.getResultReg(current, table, gen);
+			try
+			{
+				int bool = Integer.parseInt(bool_exp);
+				if (bool == 1)
+				{
+					// DO ALL STATEMENTS
+					current = Statement.checkAllStatements(node, table, gen);
+					// DO ALL STATEMENTS
+					return;
+				}
+			} catch (NumberFormatException e){ }
 			brInsert = CodeGenerator.getNumberOfInstructions();
-			startLbl = CodeGenerator.getUniqueLabel();
+			startLbl = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(startLbl));
 			// DO ALL STATEMENTS
-			CodeGenerator.addInstruction("Statements being done here.");
-			current = SemanticsUtils.getNextChild(SemanticsUtils
-					.getNextChild(current));
+			Statement.checkAllStatements(node, table, gen);
 			// DO ALL STATEMENTS
 			endIfInserts.add(CodeGenerator.getNumberOfInstructions());
-			endLbl = CodeGenerator.getUniqueLabel();
+			endLbl = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(endLbl));
 		}
 
@@ -128,13 +146,13 @@ public class ControlStructure
 		{
 			current = SemanticsUtils.getNextChild(current);
 			// DO ALL STATEMENTS
-			CodeGenerator.addInstruction("Statements being done here.");
+			Statement.checkAllStatements(node, table, gen);
 			// DO ALL STATEMENTS
-			endIf = CodeGenerator.getUniqueLabel();
+			endIf = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(endIf));
 		} else
 		{
-			endIf = CodeGenerator.getUniqueLabel();
+			endIf = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(endIf));
 		}
 		String endIfIns = getBranchIns(endIf);

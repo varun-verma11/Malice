@@ -9,18 +9,18 @@ import symbol_table.SymbolTable;
 
 public class Function
 {
-	public static Tree writeCodeForFunctions(Tree node, SymbolTable table) 
+	public static Tree writeCodeForFunctions(Tree node, SymbolTable table, LabelGenerator gen) 
 	{
 		if (node.getText().contentEquals("looking"))
 		{
-			return writeCodeForProcedure(node, table);
+			return writeCodeForProcedure(node, table, gen);
 		} else if (node.getText().contentEquals("room")){
-			return writeCodeForFunction(node, table);
+			return writeCodeForFunction(node, table,gen);
 		}
 		return node;
 	}
 
-	private static Tree writeCodeForProcedure(Tree node, SymbolTable table)
+	private static Tree writeCodeForProcedure(Tree node, SymbolTable table,LabelGenerator gen )
 	{
 		Tree current = node.getChild(0);
 		FunctionSTValue fVal = 
@@ -32,19 +32,19 @@ public class Function
 		writeFunctionHeader("i32", fVal.getLocationReg(), params);
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
-		CodeGenerator.addInstruction("WOULD BE HERE");
+		current = Statement.checkAllStatements(current, table, gen);
 		//DO ALL STATEMENTS
-		current = writeNestedFunctions(table, current);
+		//current = writeNestedFunctions(table, current,gen);
 		writeReturnStatement("i32", "0");
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}");
 		return current;
 	}
 	
-	private static Tree writeCodeForFunction(Tree node, SymbolTable table)
+	private static Tree writeCodeForFunction(Tree node, SymbolTable table,LabelGenerator gen)
 	{
 		Tree current = node.getChild(0);
+		System.out.println(node.getChild(0).getText());
 		FunctionSTValue fVal = 
 			(FunctionSTValue) table.lookup(node.getChild(0).getText());
 		fVal.setLocationReg("@" + current);
@@ -59,23 +59,22 @@ public class Function
 		
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
-		CodeGenerator.addInstruction("WOULD BE HERE");
+		current = Statement.checkAllStatements(current, table, gen);
 		//DO ALL STATEMENTS
-		current = writeNestedFunctions(table, current);
+		//current = writeNestedFunctions(table, current,gen);
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}");
 		return current;
 	}
 
-	private static Tree writeNestedFunctions(SymbolTable table, Tree current)
+	private static Tree writeNestedFunctions(SymbolTable table, Tree current,LabelGenerator gen)
 	{
 		try
 		{
 			Tree temp = current;
 			while (true)
 			{
-				temp = writeCodeForFunction(current , table);
+				temp = writeCodeForFunction(current , table,gen);
 				if (temp == current)
 				{
 					break;

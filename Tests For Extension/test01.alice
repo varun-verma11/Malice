@@ -1,0 +1,17 @@
+bring all from "test02"
+
+x was a number.
+y was a letter.
+
+The looking-glass other ()
+opened
+  y became 'a'.
+  y spoke.
+closed
+
+The looking-glass hatta () 
+opened 
+  x was a number of 10+1+1.
+  x said Alice and "\n" said Alice.
+  other().
+closed

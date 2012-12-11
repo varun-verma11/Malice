@@ -4,8 +4,6 @@ import malice_grammar.SemanticVerifier;
 
 import org.antlr.runtime.tree.Tree;
 
-import codeGeneration.StatementsCodeGeneratorMagda;
-
 import symbol_table.CodeBlockSTValue;
 import symbol_table.DATA_TYPES;
 import symbol_table.FunctionSTValue;
@@ -46,21 +44,19 @@ public class StatementChecker {
 		{
 			validateAteAndDrank(node, symbolTable);
 			if (node.getText().contentEquals("ate")) {
-				StatementsCodeGeneratorMagda.writeAteCode(node, symbolTable);
+				//StatementsCodeGeneratorMagda.writeAteCode(node, symbolTable);
 			} else {
-				StatementsCodeGeneratorMagda.writeDrankCode(node, symbolTable);
+				//StatementsCodeGeneratorMagda.writeDrankCode(node, symbolTable);
 			}
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
 			validateBecame(node, symbolTable);
-			StatementsCodeGeneratorMagda.writeBecameCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("spoke")
 				|| node.getText().contentEquals("said"))
 		{
 			validatePrint(node, symbolTable);
-			StatementsCodeGeneratorMagda.writePrintStatementCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("what"))
 		{
@@ -69,7 +65,6 @@ public class StatementChecker {
 		} else if (node.getText().contentEquals("found"))
 		{
 			validateFound(node.getChild(0), symbolTable);
-			StatementsCodeGeneratorMagda.writeFoundCode(node, symbolTable);
 			return false;
 		} else if (node.getText().contentEquals("had"))
 		{

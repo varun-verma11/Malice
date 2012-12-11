@@ -89,7 +89,7 @@ public class ExpressionTests
 		if (!parser.failed()) {
 			Tree tree =  (Tree) parser.expr().getTree() ;
 			System.out.println(tree.toStringTree());
-			String reg = Expression.getResultReg(tree, table);
+			String reg = Expression.getResultReg(tree, table,new LabelGenerator());
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			System.out.println("OUTPUT REG => " + reg);

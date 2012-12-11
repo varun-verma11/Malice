@@ -12,16 +12,16 @@ import symbol_table.SymbolTable;
 public class Expression
 {
 	
-	public static String getResultReg(Tree node, SymbolTable table)
+	public static String getResultReg(Tree node, SymbolTable table, LabelGenerator gen)
 	{
 		if (node==null) return null;
-		if (node.getChildCount()==0) return makeVar(node, table);
+		if (node.getChildCount()==0) return makeVar(node, table,gen);
 		//AFTER CHECKING FOR NO CHILD
 		OPERATOR op = getOperator(node.getText());
 		
 		//checking for single arity functions would be checked before this point
-		String arg1 = getResultReg(node.getChild(0), table);
-		String arg2 = getResultReg(node.getChild(1), table);
+		String arg1 = getResultReg(node.getChild(0), table, gen);
+		String arg2 = getResultReg(node.getChild(1), table, gen);
 
 		try{
 			int i = Integer.parseInt(arg1);
@@ -32,26 +32,26 @@ public class Expression
 			return calculateExpr(op, i, j) + "";
 		} catch (NumberFormatException e)
 		{ }
-		String uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		String uniqueRegisterID = gen.getUniqueRegisterID();
 		if(op==null)
 		{
-			String id = writeCodeForFunctionCall(node, table);
+			String id = writeCodeForFunctionCall(node, table,gen);
 			return id ;
 		}
 		switch(op)
 		{
 			case EQ: 
 				uniqueRegisterID = 
-					writeComparisonStatements(uniqueRegisterID, "eq", arg1, arg2);
+					writeComparisonStatements(uniqueRegisterID, "eq", arg1, arg2,gen);
 				break;
 			case ADD:
 				writeOperationExpressions(uniqueRegisterID, "add", arg1, arg2);
 				break;
 			case OR:
-				writeOrStatement(arg1, arg2, uniqueRegisterID);
+				writeOrStatement(arg1, arg2, uniqueRegisterID,gen);
 				break;
 			case AND:
-				uniqueRegisterID = writeAndStatement(arg1, arg2, uniqueRegisterID);
+				uniqueRegisterID = writeAndStatement(arg1, arg2, uniqueRegisterID, gen);
 				break;
 			case BWOR:
 				writeOperationExpressions(uniqueRegisterID, "or", arg1, arg2);
@@ -63,19 +63,19 @@ public class Expression
 				writeOperationExpressions(uniqueRegisterID, "and", arg1, arg2);
 				break;
 			case NE:
-				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "ne", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "ne", arg1, arg2, gen);
 				break;
 			case LTE:
-				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sle", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sle", arg1, arg2,gen);
 				break;
 			case LT:
-				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "slt", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "slt", arg1, arg2,gen);
 				break;
 			case GT:
-				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sgt", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sgt", arg1, arg2, gen);
 				break;
 			case GTE:
-				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sge", arg1, arg2);
+				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sge", arg1, arg2, gen);
 				break;
 			case SUB:
 				writeOperationExpressions(uniqueRegisterID, "sub", arg1, arg2);
@@ -93,7 +93,7 @@ public class Expression
 				writeOperationExpressions(uniqueRegisterID, "xor", arg1, "-1");
 				break;
 			case NOT:
-				uniqueRegisterID = writeNotStatement(uniqueRegisterID,arg1);
+				uniqueRegisterID = writeNotStatement(uniqueRegisterID,arg1, gen);
 				break;
 		}
 		return uniqueRegisterID;
@@ -144,38 +144,38 @@ public class Expression
 		}
 		return -1;
 	}
-	private static String writeNotStatement(String uniqueRegisterID, String arg1)
+	private static String writeNotStatement(String uniqueRegisterID, String arg1, LabelGenerator gen)
 	{
 		writeComparison(uniqueRegisterID, "eq", arg1, "0");
 		String prev = uniqueRegisterID;
-		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		uniqueRegisterID = gen.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
 	private static String writeOrStatement(String arg1, String arg2,
-			String uniqueRegisterID)
+			String uniqueRegisterID,LabelGenerator gen)
 	{
 		CodeGenerator.addInstruction(uniqueRegisterID + " = or i32 " + arg2 + ", " + arg1);
 		String prev = uniqueRegisterID;
-		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		uniqueRegisterID = gen.getUniqueRegisterID();
 		writeComparison(uniqueRegisterID, "ne", prev, "0");
 		prev = uniqueRegisterID;
-		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		uniqueRegisterID = gen.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
 	private static String writeAndStatement(String arg1, String arg2,
-			String uniqueRegisterID)
+			String uniqueRegisterID, LabelGenerator gen)
 	{
 		writeComparison(uniqueRegisterID, "ne", arg2, "0");
 		String a1 = uniqueRegisterID;
-		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		uniqueRegisterID = gen.getUniqueRegisterID();
 		writeComparison(uniqueRegisterID, "ne", arg1, "0");
 		String a2 = uniqueRegisterID;
-		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		uniqueRegisterID = gen.getUniqueRegisterID();
 		CodeGenerator.addInstruction(uniqueRegisterID + " = and il " + a1 + ", " + a2);
 		String ans = uniqueRegisterID;
-		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		uniqueRegisterID = gen.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, ans);
 		return uniqueRegisterID;
 	}
@@ -186,11 +186,12 @@ public class Expression
 		CodeGenerator.addInstruction(uniqueRegisterID + " = " + operation + " nsw i32 " 
 				+ arg1 + ", " + arg2);
 	}
-	private static String writeComparisonStatements(String uniqueRegisterID, String operation, String arg1, String arg2)
+	private static String writeComparisonStatements(String uniqueRegisterID, 
+			String operation, String arg1, String arg2, LabelGenerator gen)
 	{
 		writeComparison(uniqueRegisterID, operation, arg1, arg2);
 		String prev = uniqueRegisterID;
-		uniqueRegisterID = CodeGenerator.getUniqueRegisterID();
+		uniqueRegisterID = gen.getUniqueRegisterID();
 		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
@@ -207,12 +208,13 @@ public class Expression
 	}
 	
 	
-	private static String makeVar(Tree leaf, SymbolTable table)
+	private static String makeVar(Tree leaf, SymbolTable table, LabelGenerator gen)
 	{
 		if (leaf.getChildCount()!=0)
 		{
-			return writeCodeForFunctionCall(leaf, table);
+			return writeCodeForFunctionCall(leaf, table,gen);
 		}
+//		System.out.println(leaf);
 		if (table.checkItemWasDeclaredBefore(leaf.getText())) 
 		{
 			//THIS NEEDS TO BE THE NEW METHOD WHICH WOULD RETURN THE NAME OF 
@@ -221,9 +223,9 @@ public class Expression
 		}
 		return leaf.getText();
 	}
-	private static String writeCodeForFunctionCall(Tree leaf, SymbolTable table)
+	private static String writeCodeForFunctionCall(Tree leaf, SymbolTable table,LabelGenerator gen)
 	{
-		String id = CodeGenerator.getUniqueRegisterID();
+		String id = gen.getUniqueRegisterID();
 		
 		String returnType = Utils.getReturnTypeOfFunction(table.lookup
 				(leaf.getText()).getType());

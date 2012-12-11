@@ -6,105 +6,176 @@ import symbol_table.DATA_TYPES;
 import symbol_table.SymbolTable;
 
 public class StatementsCodeGeneratorMagda {
-
 	
-	public static void writeAteCode(Tree node, SymbolTable table ) {
-		String tempReg = CodeGenerator.getUniqueRegisterID();
-		String currReg = setGlobalorLocal(node.getChild(0), table);
+	private static int count = 0;
+	
+	public static void writeAteCode(Tree node, SymbolTable table, LabelGenerator gen) {
+		String tempReg = gen.getUniqueRegisterID();
+		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 		Expression.writeOperationExpressions(tempReg, "add", currReg, "1");
-		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* " + currReg + ", align 4");
+		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
+				+ currReg + ", align 4");
 
 	}
 
-	public static void writeDrankCode(Tree node, SymbolTable table) {
-		String tempReg = CodeGenerator.getUniqueRegisterID();
-		String currReg = setGlobalorLocal(node.getChild(0), table);
+	public static void writeDrankCode(Tree node, SymbolTable table, LabelGenerator gen) {
+		String tempReg = gen.getUniqueRegisterID();
+		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 		Expression.writeOperationExpressions(tempReg, "sub", currReg, "1");
-		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* " + currReg + ", align 4");
+		CodeGenerator.addInstruction("store i32 " + tempReg + ", i32* "
+				+ currReg + ", align 4");
 	}
 
-	public static void writeBecameCode(Tree node, SymbolTable table) {
-		
-		DATA_TYPES typef = Utils.getValueType(node.getChild(1), table);
-		String type = node.getChild(1).getText();
-		
-		if(type.contentEquals("letter")) {
-			CodeGenerator.addInstruction("store i8 " + (int) node.getChild(1).getText().charAt(1) + ", i32* " + setGlobalorLocal(node.getChild(0), table) + ", align 4");
-		} else if(type.contentEquals("number")||type.contentEquals("expr")) {
-			CodeGenerator.addInstruction("store i32 " + Expression.getResultReg(node.getChild(1), table) 
-					+ ", i32* " + setGlobalorLocal(node.getChild(0), table) + ", align 4");
-		} else if (type.contentEquals("sentence")) {//%2 = bitcast [8 x i8]* %hi to i8*
-//			  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %2, i8* getelementptr inbounds ([8 x i8]* @main.hi, i32 0, i32 0), i64 8, i32 1, i1 false)
-//a potem: declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture, i8* nocapture, i64, i32, i1) nounwind
-			CodeGenerator.addInstruction("");
-		}
-	}
+	public static void writeBecameCode(Tree node, SymbolTable table, LabelGenerator gen) {
 
-	//get num of insrt and add to the bottom
-	//add at index 0 for global
-	
-	//this should be fine as statementChecker wont allow uninitialised vars.
-	private static String setGlobalorLocal(Tree node, SymbolTable table) {
-		int currentScope = table.getCurrentScopeLevel();
+		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
+		String currReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 
-		if(currentScope == 0) {
-			return "@" + node.getText();
+		if (type == DATA_TYPES.LETTER) {
+			CodeGenerator.addInstruction("store i8 "
+					+ (int) node.getChild(1).getText().charAt(1) + ", i8* "
+					+ currReg + ", align 1");
+		} else if (type == DATA_TYPES.SENTENCE) {
+			String curr = node.getChild(1).getText();
+			curr = curr.substring(1, curr.length()-1);
+			int size = curr.length() + 1;
+			//set string size, needed in print statements
+			(table.lookup(node.getChild(0).getText())).setStringSize(size);
+			String newLabel = "@." + node.getChild(0).getText() + "_" + count ;
+			count++;
+			CodeGenerator.addInstruction(newLabel + " = private unnamed_addr "
+					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
+					+ "align 1",0);
+			CodeGenerator.addInstruction("store i8* getelementptr inbounds ([" 
+					+ size + " x i8]* " + newLabel + ", i32 0, i32 0), i8** " 
+					+ currReg + ", align 8");
 		} else {
-			return "%" + node.getText();
+			CodeGenerator.addInstruction("store i32 "
+					+ Expression.getResultReg(node.getChild(1), table,gen)
+					+ ", i32* " + currReg + ", align 4");
 		}
-	}	
-	
-//		if (table.checkItemIsInCurrentScopeLevel(node.getText()) && currentScope != 0) {
-//			return "@" + node.getText();
-//		} 
-//		while (currentScope > 0) {
-//			curr.finalizeCurrentScopeLevelTable();
-//			currentScope--;
-//		}
-//		if(table.checkItemIsInCurrentScopeLevel(node.getText())) {
-//			return "%" + node.getText();
-//		}
-		
-
-
-	public static void writePrintStatementCode(Tree node, SymbolTable table) {
-		String str = node.getChild(0).getText();
-		//eg x said Alice or k spoke
-		//this is for string, need cases for letter, exp, number
-		CodeGenerator.addInstruction("@" + CodeGenerator.getUniqueLabel() + " = internal constant [" + str.length() //not sure if getUniqueLbl is the right approach
-					+ " x i8] c\"" + str + "\0A\00" );//make sure this is added at global lvl!! +do the method for local
-		//at currentscopeLevel we say:
-		CodeGenerator.addInstruction("%" + CodeGenerator.getUniqueRegisterID() + " = call i32 @printf( i8* getelementptr ([" + str.length() + " x i8]* @." + CodeGenerator.getUniqueLabel() + ", i32 0,i32 0))");
-	}//This is if we print a var btw, not the actual string/val!!
-
-
-
-
-	
-	public static void writeFoundCode(Tree node, SymbolTable table) {
-		CodeGenerator.addInstruction("ret " + generateType(node.getChild(0)) + setGlobalorLocal(node.getChild(0), table));
 	}
 
-	private static String generateType(Tree child) {
-		
-		//TO_DO: implemet this, need this for writeFoundCode!!!
-		
-		
+	/**
+	 * PROBLEM : '2 said Alice' or '2+2 said Alice dont work'. 
+	 * and if i do make them work, all the other things dont work.
+	 * i think if we changed Util.getValueType() so that the number case is NOT 
+	 * an else case (maybe have false for else..) because right now it thinks 
+	 * everything is a number :/ @Varun: if you want, you can uncomment the few 
+	 * commented lines below and run the test suite, thats what i tried and 
+	 * thats when it thinks everything is a number :/ 
+	 * 
+	 */
+	
+	
+	public static void writePrintStatementCode(Tree node, SymbolTable table
+			, LabelGenerator gen) {
+		String uniqueReg = gen.getUniqueRegisterID();
+		//String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
+		//DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
+
+		if (nodeType == DATA_TYPES.SENTENCE) { 
+			String curr = node.getChild(0).getText();
+			curr = curr.substring(1, curr.length()-1);
+			int size = curr.length() + 1;
+			String newLabel = "@.str_" + count ;
+			count++;
+			CodeGenerator.addInstruction(newLabel + " = private unnamed_addr "
+					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
+					+ "align 1",0);
+			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
+					+ "@printf(i8* getemelentptr inbounds (["
+					+ size + " x i8]* " + newLabel
+					+ ", i32 0, i32 0))");
+			CodeGenerator.includePrint();
+		} else if (nodeType == DATA_TYPES.LETTER) {
+			CodeGenerator.addInstruction(uniqueReg
+					+ " = call i32 (i8*, ...)* @printf(i8* inttoptr (i64 "
+					+ (int) node.getChild(0).getText().charAt(1) + " to i8*))");
+		} else if (nodeType == DATA_TYPES.NUMBER) {
+			String currReg = Expression.getResultReg(node.getChild(0), table,gen);
+			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+					+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
+			
+		} else {
+			DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
+			String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+
+			if (type == DATA_TYPES.SENTENCE) {
+				CodeGenerator.addInstruction(uniqueReg
+						+ " = load i8** " + currentReg + ", align 8");//is this right?
+				CodeGenerator.includePrint();
+
+			} else { // numbers and letters
+
+				CodeGenerator.addInstruction(uniqueReg + " = load "
+						+ getType(type) + "* " + currentReg + ", align "
+						+ getAlignValue(type));
+				currentReg = uniqueReg;
+				uniqueReg = gen.getUniqueRegisterID();
+				CodeGenerator.addInstruction(uniqueReg + " = sext "
+						+ getType(type) + " " + currentReg + " to i64");
+				currentReg = uniqueReg;
+				uniqueReg = gen.getUniqueRegisterID();
+				CodeGenerator.addInstruction(uniqueReg + " = inttoptr i64 "
+						+ currentReg + " to i8*");
+			}
+
+			currentReg = uniqueReg;
+			uniqueReg = gen.getUniqueRegisterID();
+			CodeGenerator.addInstruction(uniqueReg
+						+ " = call i32 (i8*, ...)* @printf(i8* "
+						+ currentReg + ")");
+		}
+
+	}
+
+	private static String getAlignValue(DATA_TYPES type) {
+		if (type == DATA_TYPES.LETTER) {
+			return "1";
+		} else if (type == DATA_TYPES.NUMBER) {
+			return "4";
+		}
+		return null;
+	}
+
+	private static String getType(DATA_TYPES type) {
+		if (type == DATA_TYPES.LETTER) {
+			return "i8";
+		} else if (type == DATA_TYPES.NUMBER) {
+			return "i32";
+		}
 		return null;
 	}
 
 
+	public static void writeFoundCode(Tree node, SymbolTable table, LabelGenerator gen) {
+		String uniqueReg = gen.getUniqueRegisterID();
+		String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
+		DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
 
-	//the other checks
-	/**
-	 * so in statementChecker in the if statements after the code have fn like
-	 * StatementCodeGenertor.generateForAte(node); where generateForAte will be the fn that prints out the LLVM code
-	 * for the ate fn.
-	 */
-	
+		if (type == DATA_TYPES.LETTER) {
+			CodeGenerator.addInstruction(uniqueReg + " = load i8* "
+					+ currentReg + ", align 1");
+			currentReg = uniqueReg;
+			uniqueReg = gen.getUniqueRegisterID();
+			CodeGenerator.addInstruction(uniqueReg + " = sext i8 " 
+					+ currentReg + " to i32");
+			CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+		} else if (type == DATA_TYPES.SENTENCE) {
+			CodeGenerator.addInstruction(uniqueReg + " = load i8** "
+					+ currentReg + ", align 8");
+			currentReg = uniqueReg;
+			uniqueReg = gen.getUniqueRegisterID();
+			CodeGenerator.addInstruction(uniqueReg + " = ptrtoint i8* " 
+					+ currentReg + " to i32");
+			CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+		} else {
+			CodeGenerator.addInstruction(uniqueReg + " = load i32* "
+					+ currentReg + ", align 4");
+			CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+		}
+	}
 
-	
-	
-	
-	
 }

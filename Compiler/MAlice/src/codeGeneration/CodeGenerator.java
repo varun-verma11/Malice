@@ -13,16 +13,18 @@ import symbol_table.SymbolTable;
 public class CodeGenerator
 {
 	private static ArrayList<String> instructions = new ArrayList<String>();
-	private static int regNumber = 0;
 	private static int identLevel = 0;
-
+	private static boolean includePrint = false;
+	private static boolean includeRead = false;
+	private static String printf  = "declare i32 @printf(i8*, ...)";
+	private static String scanf  = "@scanf";
 	public static void generateCode(Tree tree, SymbolTable table)
 	{
-		Tree current = tree;
-		//GENERATE CODE FOR ALL GLOBAL STATEMENTS
+		Tree current = (tree.getText()==null)? tree.getChild(0) : tree ;;
+		current = Statement.checkAllStatements(current, table, new LabelGenerator());
 		while(current!=null)
 		{
-			current = Function.writeCodeForFunctions(current, table);
+			Function.writeCodeForFunctions(current, table, new LabelGenerator());
 			current = SemanticsUtils.getNextChild(current);
 		}
 	}
@@ -65,22 +67,6 @@ public class CodeGenerator
 	public static void emptyInstructions()
 	{
 		instructions.clear();
-		regNumber = 0;
-	}
-
-	public static String getUniqueLabel()
-	{
-		++regNumber;
-		return "%"+regNumber;
-	}
-	public static String getUniqueRegisterID()
-	{
-		++regNumber;
-		return "%"+regNumber;
-	}
-	public static String getLocalRegisterID(int reg)
-	{
-		return "%" + reg;
 	}
 
 	public static void saveToFile(String filepath)
@@ -90,11 +76,22 @@ public class CodeGenerator
 			BufferedWriter out = new BufferedWriter(fstream);
 			for (String line : instructions)
 			{
-				out.write(line);	
+				out.write(line + "\n");	
+			}
+			if (includePrint)
+			{
+				out.write(printf + "\n");
+			}
+			if (includeRead)
+			{
+				out.write(scanf+ "\n");
 			}
 			out.close();
 		}catch (IOException e){
 			System.err.println("Error: " + e.getMessage());
 		}
 	}
+	
+	public static void includePrint() { includePrint=true;}
+	public static void includeRead() { includeRead=true;}
 }
