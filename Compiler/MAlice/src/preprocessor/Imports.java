@@ -1,4 +1,4 @@
-package semantics_checks;
+package preprocessor;
 
 import java.io.IOException;
 
@@ -11,6 +11,8 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.Tree;
+
+import semantics_checks.SemanticsUtils;
 
 public class Imports
 {
@@ -94,20 +96,20 @@ public class Imports
 			Tree toInsert)
 	{
 		int insIndex = childIndex;
-		Tree curr = node.getChild(childIndex);
-		int numberOfChilds = node.getChildCount();
-		childIndex++;
-		Tree next = node.getChild(childIndex);
-		while(childIndex<numberOfChilds)
-		{
-			node.freshenParentAndChildIndexes();
-			node.setChild(childIndex, curr);
-			curr = next;
-			next = node.getChild(childIndex);
-			childIndex++;
-		}
+//		Tree curr = node.getChild(childIndex);
+//		int numberOfChilds = node.getChildCount();
+//		childIndex++;
+//		Tree next = node.getChild(childIndex);
+//		while(childIndex<numberOfChilds)
+//		{
+//			node.freshenParentAndChildIndexes();
+//			node.setChild(childIndex, curr);
+//			curr = next;
+//			next = node.getChild(childIndex);
+//			childIndex++;
+//		}
 		node.setChild(insIndex, toInsert);
 		node.freshenParentAndChildIndexes();
-		node.addChild(curr);
+//		node.addChild(curr);
 	}
 }
