@@ -89,16 +89,13 @@ public class StatementsCodeGeneratorMagda {
 					+ size + " x i8]* " + newLabel
 					+ ", i32 0, i32 0))");
 			CodeGenerator.includePrint();
+			return;
 		} else if (nodeType == DATA_TYPES.LETTER) {
 			CodeGenerator.addInstruction(uniqueReg
 					+ " = call i32 (i8*, ...)* @printf(i8* inttoptr (i64 "
 					+ (int) node.getChild(0).getText().charAt(1) + " to i8*))");
-//		} else if (nodeType == DATA_TYPES.NUMBER) {
-//			String currReg = Expression.getResultReg(node.getChild(0), table,gen);
-//			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
-//					+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
-//			
-		} else {
+			return;
+		} else if (table.lookup(node.getChild(0).getText())!=null){
 			DATA_TYPES type = (table.lookup(node.getChild(0).getText())).getType();
 			String currentReg = (table.lookup(node.getChild(0).getText())).getLocationReg();
 
@@ -127,7 +124,11 @@ public class StatementsCodeGeneratorMagda {
 			CodeGenerator.addInstruction(uniqueReg
 						+ " = call i32 (i8*, ...)* @printf(i8* "
 						+ currentReg + ")");
+			return;
 		}
+		String currReg = Expression.getResultReg(node.getChild(0), table,gen);
+		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+				+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
 
 	}
 
