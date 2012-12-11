@@ -23,69 +23,69 @@ import symbol_table.VariableSTValue;
 
 public class StatementsCodeGeneratorMagdaTest {
 
-	@Test
-	public void testAteAndDrank() throws RecognitionException {
-		System.out.println("\nSTART TESTING ATE AND DRANK...\n");
-		String st = "x ate";
-		String st1 = "y ate";
-		String st2 = "z ate";
-		String st3 = "x drank";
-		String st4 = "y drank";
-		String st5 = "fnX drank";
-		
-		assertTrue(generateCodeForStatement(st, STATS.ATE));
-		assertTrue(generateCodeForStatement(st1, STATS.ATE));
-		assertTrue(generateCodeForStatement(st2, STATS.ATE));
-		assertTrue(generateCodeForStatement(st3, STATS.DRANK));
-		assertTrue(generateCodeForStatement(st4, STATS.DRANK));
-		assertTrue(generateCodeForStatement(st5, STATS.DRANK));
-		
-		//prints out stuff for letters and sentences but thats fine as 
-		//the statement checker will take care of it
+//	@Test
+//	public void testAteAndDrank() throws RecognitionException {
+//		System.out.println("\nSTART TESTING ATE AND DRANK...\n");
+//		String st = "x ate";
+//		String st1 = "y ate";
+//		String st2 = "z ate";
+//		String st3 = "x drank";
+//		String st4 = "y drank";
+//		String st5 = "fnX drank";
+//		
+//		assertTrue(generateCodeForStatement(st, STATS.ATE));
+//		assertTrue(generateCodeForStatement(st1, STATS.ATE));
+//		assertTrue(generateCodeForStatement(st2, STATS.ATE));
+//		assertTrue(generateCodeForStatement(st3, STATS.DRANK));
+//		assertTrue(generateCodeForStatement(st4, STATS.DRANK));
+//		assertTrue(generateCodeForStatement(st5, STATS.DRANK));
+//		
+//		//prints out stuff for letters and sentences but thats fine as 
+//		//the statement checker will take care of it
+//	
+//	}
 	
-	}
+//	@Test
+//	public void testBecame() throws RecognitionException {
+//		
+//		System.out.println("\n\nSTART TESTING BECAME...\n");
+//		String st = "x became 2";
+//		String st1 = "y became 'a'";
+//		String st2 = "z became \"\"";
+//		String st3 = "x became 2 + 3";
+//		String st4 = "y became '0'";//should give error
+//		String st5 = "fnX became 3";
+//		String st6 = "z2 became \"rawwr\"";
+//		
+//		assertTrue(generateCodeForStatement(st, STATS.BECAME));
+//		assertTrue(generateCodeForStatement(st1, STATS.BECAME));		
+//		assertTrue(generateCodeForStatement(st2, STATS.BECAME));		
+//		assertTrue(generateCodeForStatement(st3, STATS.BECAME));
+//		assertTrue(generateCodeForStatement(st4, STATS.BECAME));
+//		assertTrue(generateCodeForStatement(st5, STATS.BECAME));
+//		assertTrue(generateCodeForStatement(st6, STATS.BECAME));
+//		
+//		
+//	}
 	
-	@Test
-	public void testBecame() throws RecognitionException {
-		
-		System.out.println("\n\nSTART TESTING BECAME...\n");
-		String st = "x became 2";
-		String st1 = "y became 'a'";
-		String st2 = "z became \"\"";
-		String st3 = "x became 2 + 3";
-		String st4 = "y became '0'";//should give error
-		String st5 = "fnX became 3";
-		String st6 = "z2 became \"rawwr\"";
-		
-		assertTrue(generateCodeForStatement(st, STATS.BECAME));
-		assertTrue(generateCodeForStatement(st1, STATS.BECAME));		
-		assertTrue(generateCodeForStatement(st2, STATS.BECAME));		
-		assertTrue(generateCodeForStatement(st3, STATS.BECAME));
-		assertTrue(generateCodeForStatement(st4, STATS.BECAME));
-		assertTrue(generateCodeForStatement(st5, STATS.BECAME));
-		assertTrue(generateCodeForStatement(st6, STATS.BECAME));
-		
-		
-	}
-	
-	@Test
-	public void testFound() throws RecognitionException {
-		System.out.println("\n\nSTART TESTING FOUND...\n");
-
-		String st = "Alice found x";
-		String st1 = "Alice found y";
-		String st2 = "Alice found z";
-		String st3 = "Alice found fnX";
-		String st4 = "Alice found z2";
-		
-		assertTrue(generateCodeForStatement(st, STATS.FOUND));
-		assertTrue(generateCodeForStatement(st1, STATS.FOUND));
-		assertTrue(generateCodeForStatement(st2, STATS.FOUND));
-		assertTrue(generateCodeForStatement(st3, STATS.FOUND));
-		assertTrue(generateCodeForStatement(st4, STATS.FOUND));
-
-	}
-	
+//	@Test
+//	public void testFound() throws RecognitionException {
+//		System.out.println("\n\nSTART TESTING FOUND...\n");
+//
+//		String st = "Alice found x";
+//		String st1 = "Alice found y";
+//		String st2 = "Alice found z";
+//		String st3 = "Alice found fnX";
+//		String st4 = "Alice found z2";
+//		
+//		assertTrue(generateCodeForStatement(st, STATS.FOUND));
+//		assertTrue(generateCodeForStatement(st1, STATS.FOUND));
+//		assertTrue(generateCodeForStatement(st2, STATS.FOUND));
+//		assertTrue(generateCodeForStatement(st3, STATS.FOUND));
+//		assertTrue(generateCodeForStatement(st4, STATS.FOUND));
+//
+//	}
+//	
 	@Test
 	public void testSaidAndSpoke() throws RecognitionException {
 		System.out.println("\n\nSTART TESTING SPOKE...\n");

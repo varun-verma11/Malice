@@ -32,10 +32,9 @@ public class Function
 		writeFunctionHeader("i32", fVal.getLocationReg(), params);
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
-		CodeGenerator.addInstruction("WOULD BE HERE");
+		current = Statement.checkAllStatements(current, table, gen);
 		//DO ALL STATEMENTS
-		current = writeNestedFunctions(table, current,gen);
+		//current = writeNestedFunctions(table, current,gen);
 		writeReturnStatement("i32", "0");
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}");
@@ -45,11 +44,12 @@ public class Function
 	private static Tree writeCodeForFunction(Tree node, SymbolTable table,LabelGenerator gen)
 	{
 		Tree current = node.getChild(0);
+		System.out.println(node.getChild(0).getText());
 		FunctionSTValue fVal = 
 			(FunctionSTValue) table.lookup(node.getChild(0).getText());
 		fVal.setLocationReg("@" + current);
 		current = SemanticsUtils.getNextChild(current);
-		String params = getParamsForFunctions(current,table);
+		String params = getParamsForFunctions(current,fVal.getTable());
 		current = SemanticsUtils.getNextChild(
 				SemanticsUtils.getNextChild(current));
 		writeFunctionHeader(
@@ -59,10 +59,9 @@ public class Function
 		
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		CodeGenerator.addInstruction("STATEMENTS FOR FUNCTIONS");
-		CodeGenerator.addInstruction("WOULD BE HERE");
+		current = Statement.checkAllStatements(current, fVal.getTable(), gen);
 		//DO ALL STATEMENTS
-		current = writeNestedFunctions(table, current,gen);
+		//current = writeNestedFunctions(table, current,gen);
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}");
 		return current;
