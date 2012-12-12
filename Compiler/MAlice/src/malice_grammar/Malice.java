@@ -9,6 +9,8 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.Tree;
 
+import preprocessor.Imports;
+
 import codeGeneration.CodeGenerator;
 
 import semantics_checks.ExpressionChecker;
@@ -54,6 +56,7 @@ public class Malice
 				if (!parser.failed()) {
 					Tree tree =  (Tree) parser.program().getTree() ;
 					System.out.println(tree.toStringTree());
+					Imports.checkImports(tree);
 					SemanticVerifier.checkProgramSemantics(tree, table);
 					if (!SemanticVerifier.failed) 
 					{

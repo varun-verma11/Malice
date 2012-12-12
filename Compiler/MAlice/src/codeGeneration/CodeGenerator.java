@@ -22,13 +22,35 @@ public class CodeGenerator
 	{
 		Tree current = (tree.getText()==null)? tree.getChild(0) : tree ;;
 		current = Statement.checkAllStatements(current, table, new LabelGenerator());
+		moveHattaToEnd(tree);
+		System.out.println(tree.toStringTree());
 		while(current!=null)
 		{
 			Function.writeCodeForFunctions(current, table, new LabelGenerator());
+			current = Statement.checkAllStatements(current, table, new LabelGenerator());
 			current = SemanticsUtils.getNextChild(current);
 		}
 	}
 	
+	/**
+	 * Currently need to check with LIAM and JOSE how to delete the child in 
+	 * antlr tree. Since it seems to be giving troubles and once thats sorted
+	 * import should work like a charm :D
+	 * @param tree
+	 */
+	private static void moveHattaToEnd(Tree tree)
+	{
+		Tree curr = (tree.getText()==null)? tree.getChild(0) : tree ;;
+		while(!curr.getChild(0).getText().contentEquals("hatta"))
+		{
+			curr = SemanticsUtils.getNextChild(curr);
+		}
+		tree.addChild(curr);
+		tree.freshenParentAndChildIndexes();
+		tree.deleteChild(curr.getChildIndex());
+		tree.freshenParentAndChildIndexes();
+	}
+
 	public static void addGlobalInstruction(String ins)
 	{
 		instructions.add(0,ins);

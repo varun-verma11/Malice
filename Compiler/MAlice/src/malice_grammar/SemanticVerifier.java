@@ -17,9 +17,11 @@ public class SemanticVerifier
 		new ExpressionChecker();
 		Tree current = (node.getText()==null)? node.getChild(0) : node ;
 		current = StatementChecker.checkAllStatements(current, table);
+		current = SemanticsUtils.skipImports(current);
 		while(current != null)
 		{
 			current = FunctionSemanticsChecker.checkFunction(current, table);
+			current = StatementChecker.checkAllStatements(current, table);
 			current = SemanticsUtils.getNextChild(current);
 		}
 		if (table.checkItemIsInCurrentScopeLevel("hatta"))
