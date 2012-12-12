@@ -42,7 +42,7 @@ public class Tests
 			program_return prog = parser.program();
 			if (parser.getNumberOfSyntaxErrors()==0) {
 				Tree tree =  (Tree) prog.getTree() ;
-				Imports.checkImports(tree.getChild(0));
+				Imports.checkImports(tree);
 				System.out.println(tree.toStringTree());
 			}
 		}
