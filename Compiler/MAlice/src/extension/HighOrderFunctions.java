@@ -10,6 +10,7 @@ import semantics_checks.SemanticsUtils;
 import symbol_table.DATA_TYPES;
 import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
+import symbol_table.VariableSTValue;
 
 public class HighOrderFunctions
 {
@@ -77,15 +78,27 @@ public class HighOrderFunctions
 			return func.getType();
 		} catch (ClassCastException e)
 		{
-			printMessage(node,"Function " + node.getText() + " is not defined");
+			printMessage(node, "Function " + node.getText() + " is not defined");
 		}
 		return null;
 	}
 
 	public static void swapMapWithWhile(Tree node, SymbolTable table)
 	{
-		
+		VariableSTValue val = (VariableSTValue) table.lookup(node.getChild(1)
+				.getText());
+		String func_name = node.getChild(1).getText();
+		String in = node.getChild(2).getText();
+		String out = node.getChild(3).getText();
+		String map = "i was a number of " + val.getArraySize() + "\n" 
+					+ "eventually (i==0) because \n"
+					+ out + "'s piece became "
+					+ func_name + "(" + in + "'s i piece"
+					+ "enough times"
+					;
+				
 	}
+
 	private static void printMessage(Tree node, String msg)
 	{
 		System.err.println("Line " + node.getLine() + ": "
