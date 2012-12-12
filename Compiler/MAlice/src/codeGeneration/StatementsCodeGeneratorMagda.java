@@ -125,6 +125,33 @@ public class StatementsCodeGeneratorMagda {
 				+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
 
 	}
+//	
+//	***************************************************************************
+//	@c = global i8 109, align 1
+//			@.str = private unnamed_addr constant [3 x i8] c"%c\00", align 1
+//
+//			define i32 @main() nounwind uwtable {
+//			  %1 = alloca i32, align 4
+//			  store i32 0, i32* %1
+//			  %2 = load i8* @c, align 1
+//			  %3 = sext i8 %2 to i32
+//			  %4 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.str, i32 0, i32 0), i32 %3)
+//			  %5 = load i32* %1
+//			  ret i32 %5
+//			}
+//
+//			declare i32 @printf(i8*, ...)
+//
+//	***************************************************************************
+//	
+//	
+//	
+	
+	
+	
+	
+	
+	
 
 	private static String getAlignValue(DATA_TYPES type) {
 		if (type == DATA_TYPES.LETTER) {

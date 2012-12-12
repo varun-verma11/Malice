@@ -25,22 +25,30 @@ public class TestsHarsh {
 
 	@Test
 	public void test() throws RecognitionException {
-//		String st = "x1 was a sentence";
+//		String st = "what was x?";
 //		assertTrue(generateCodeForStatement(st));
-//		String st = "bjsdkfksrdv was a sentence of \"abc\"";
+//		
+//		st = "what was y?";
 //		assertTrue(generateCodeForStatement(st));
-//		st = "x3 was a number of 256";
+//		
+//		st = "what was z?";
 //		assertTrue(generateCodeForStatement(st));
-//		st = "x4 was a number";
+
+		String st = "bjsdkfksrdv was a sentence of \"abc\"";
+		assertTrue(generateCodeForStatement(st));
+		st = "x3 was a number of 256";
+		assertTrue(generateCodeForStatement(st));
+		st = "x4 was a number";
 				
 //		assertTrue(generateCodeForStatement(st));
 //		st = "x5 was a letter";
 //		assertTrue(generateCodeForStatement(st));
-		String st = "x6 was a letter of \'a\'";
-		assertTrue(generateCodeForStatement(st));
+//		String st = "x6 was a letter of \'a\'";
+//		assertTrue(generateCodeForStatement(st));
 		
-//		%x = alloca i8, align 1
-//	    store i8 98, i8* %x, align 1
+		
+		
+		
 	}
 
 	
@@ -85,7 +93,7 @@ public class TestsHarsh {
 		TokenStream tokens = new CommonTokenStream(lexer);
 		malice_grammarParser parser = new malice_grammarParser(tokens);
 		if (!parser.failed()) {
-			Tree tree = (Tree) parser.declaration_statements().getTree();
+			Tree tree = (Tree) parser.read_statement().getTree();
 			System.out.println(tree.toStringTree());
 			Statement.checkAllStatements(tree, table, new LabelGenerator());
 			CodeGenerator.printInstructions();
