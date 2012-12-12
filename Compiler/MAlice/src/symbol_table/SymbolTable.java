@@ -57,7 +57,7 @@ public class SymbolTable implements SymbolTableInterface<String, SymbolTableValu
 	@Override	
 	public void insert(String name, SymbolTableValue value) 
 	{
-		assert(!checkItemWasDeclaredBefore(name));
+		assert(!checkItemIsInCurrentScopeLevel(name));
 		table.put(name, value);
 
 	}

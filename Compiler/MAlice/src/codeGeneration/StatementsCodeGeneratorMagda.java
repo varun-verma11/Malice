@@ -73,9 +73,8 @@ public class StatementsCodeGeneratorMagda {
 			String newLabel = "@.str_" + count ;
 			count++;
 			CodeGenerator.addGlobalInstruction(newLabel + " = private " 
-					+ "unnamed_addr "
-					+ "constant [" + size + " x i8] c\"" + curr + "\\00\", "
-					+ "align 1");
+					+ "unnamed_addr constant [" + size + " x i8] c\"" 
+					+ curr + "\\00\", align 1");
 			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
 					+ "@printf(i8* getelementptr inbounds (["
 					+ size + " x i8]* " + newLabel
@@ -96,63 +95,47 @@ public class StatementsCodeGeneratorMagda {
 			if (type == DATA_TYPES.SENTENCE) {
 				CodeGenerator.addInstruction(uniqueReg
 						+ " = load i8** " + currentReg + ", align 8");
+				currentReg = uniqueReg;
+				uniqueReg = gen.getUniqueRegisterID();
+				CodeGenerator.addInstruction(uniqueReg
+						+ " = call i32 (i8*, ...)* @printf(i8* getelementptr " 
+						+ "inbounds ([3 x i8]* @.readString, i32 0, i32 0), i8* "
+						+ currentReg + ")");
 				CodeGenerator.includePrint();
+				CodeGenerator.includeReadString();
 
 			} else { 
-
 				CodeGenerator.addInstruction(uniqueReg + " = load "
 						+ getType(type) + "* " + currentReg + ", align "
 						+ getAlignValue(type));
 				currentReg = uniqueReg;
 				uniqueReg = gen.getUniqueRegisterID();
-				CodeGenerator.addInstruction(uniqueReg + " = sext "
-						+ getType(type) + " " + currentReg + " to i64");
-				currentReg = uniqueReg;
-				uniqueReg = gen.getUniqueRegisterID();
-				CodeGenerator.addInstruction(uniqueReg + " = inttoptr i64 "
-						+ currentReg + " to i8*");
+				if(type == DATA_TYPES.LETTER){
+					CodeGenerator.addInstruction(uniqueReg + " = sext i8 "
+						+ currentReg + " to i32");
+					currentReg = uniqueReg;
+					uniqueReg = gen.getUniqueRegisterID();
+					CodeGenerator.addInstruction(uniqueReg
+							+ " = call i32 (i8*, ...)* @printf(i8* getelementptr " 
+							+ "inbounds ([3 x i8]* @.readChar, i32 0, i32 0), i32 "
+							+ currentReg + ")");
+					CodeGenerator.includeReadChar();
+				} else {
+					CodeGenerator.addInstruction(uniqueReg
+							+ " = call i32 (i8*, ...)* @printf(i8* getelementptr " 
+							+ "inbounds ([3 x i8]* @.readInt, i32 0, i32 0), i32 "
+							+ currentReg + ")");
+					CodeGenerator.includeReadInt();
+				}
 			}
-
-			currentReg = uniqueReg;
-			uniqueReg = gen.getUniqueRegisterID();
-			CodeGenerator.addInstruction(uniqueReg
-						+ " = call i32 (i8*, ...)* @printf(i8* "
-						+ currentReg + ")");
 			return;
 		}
 		String currReg = Expression.getResultReg(node.getChild(0), table,gen);
 		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
 				+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
-
 	}
-//	
-//	***************************************************************************
-//	@c = global i8 109, align 1
-//			@.str = private unnamed_addr constant [3 x i8] c"%c\00", align 1
-//
-//			define i32 @main() nounwind uwtable {
-//			  %1 = alloca i32, align 4
-//			  store i32 0, i32* %1
-//			  %2 = load i8* @c, align 1
-//			  %3 = sext i8 %2 to i32
-//			  %4 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.str, i32 0, i32 0), i32 %3)
-//			  %5 = load i32* %1
-//			  ret i32 %5
-//			}
-//
-//			declare i32 @printf(i8*, ...)
-//
-//	***************************************************************************
-//	
-//	
-//	
-	
-	
-	
-	
-	
-	
 
+		
 	private static String getAlignValue(DATA_TYPES type) {
 		if (type == DATA_TYPES.LETTER) {
 			return "1";

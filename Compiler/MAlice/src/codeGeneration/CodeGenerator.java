@@ -121,36 +121,41 @@ public class CodeGenerator
 		try{
 			FileWriter fstream = new FileWriter(filepath);
 			BufferedWriter out = new BufferedWriter(fstream);
-			
-			if (includeReadIntTop)
-			{
-				out.write(readIntf + "\n");
-			}
-			if (includeReadCharTop)
-			{
-				out.write(readCharf + "\n");				
-			}
-			if (includeReadStringTop)
-			{
-				out.write(readStringf + "\n");				
-			}
-			
+			writeHeaders(out);
 			for (String line : instructions)
 			{
 				out.write(line + "\n");	
 			}
-			if (includePrint)
-			{
-				out.write(printf + "\n");
-			}
-			if (includeRead)
-			{
-				out.write(scanf+ "\n");
-			}
-			
+			writeFooter(out);
 			out.close();
 		}catch (IOException e){
 			System.err.println("Error: " + e.getMessage());
+		}
+	}
+
+	private static void writeFooter(BufferedWriter out) throws IOException {
+		if (includePrint)
+		{
+			out.write(printf + "\n");
+		}
+		if (includeRead)
+		{
+			out.write(scanf+ "\n");
+		}
+	}
+
+	private static void writeHeaders(BufferedWriter out) throws IOException {
+		if (includeReadIntTop)
+		{
+			out.write(readIntf + "\n");
+		}
+		if (includeReadCharTop)
+		{
+			out.write(readCharf + "\n");				
+		}
+		if (includeReadStringTop)
+		{
+			out.write(readStringf + "\n");				
 		}
 	}
 	
