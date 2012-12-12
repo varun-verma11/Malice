@@ -63,8 +63,16 @@ public class Imports
 					"c:/Users/varun/Documents/Malice/"
 							+ "malice_new_clone/Tests For Extension"
 							+ "/"
-							+ current.getChild(1).getText().substring(1,
-									current.getChild(1).getText().length() - 1)
+							+ current
+									.getChild(current.getChildCount() - 1)
+									.getText()
+									.substring(
+											1,
+											current
+													.getChild(
+															current
+																	.getChildCount() - 1)
+													.getText().length() - 1)
 							+ ".alice");
 			malice_grammarLexer lexer = new malice_grammarLexer(input);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -81,10 +89,48 @@ public class Imports
 			{
 				attachAllFunctionToTree(node.getParent(), checkImports(tree));
 				current = SemanticsUtils.getNextChild(current);
+			} else
+			{
+				Set<String> func_to_import = getFunctionsToImport(current);
+				importGivenFunctions(func_to_import, node.getParent(), tree);
+				current = SemanticsUtils.getNextChild(current);
 			}
 		}
 
 		return current;
+	}
+
+	private static void importGivenFunctions(Set<String> funcToImport,
+			Tree parent, Tree toAttach)
+	{
+		int number_of_childs = toAttach.getChildCount();
+		int curr_child = 0;
+		while (!funcToImport.isEmpty() && number_of_childs != curr_child)
+		{
+			if (toAttach.getChild(curr_child).getText()
+					.contentEquals("looking")
+					|| toAttach.getChild(curr_child).getText().contentEquals(
+							"room"))
+			{
+				if (funcToImport.contains(toAttach.getChild(curr_child).getChild(0)
+						.getText()))
+				{
+					parent.addChild(toAttach.getChild(curr_child));
+					parent.freshenParentAndChildIndexes();
+				}
+			}
+			curr_child++;
+		}
+	}
+
+	private static Set<String> getFunctionsToImport(Tree current)
+	{
+		Set<String> funcs = new HashSet<String>();
+		for (int i = 0; i < current.getChildCount() - 1; i++)
+		{
+			funcs.add(current.getChild(i).getText());
+		}
+		return funcs;
 	}
 
 	private static void attachAllFunctionToTree(Tree node, Tree toAttach)
