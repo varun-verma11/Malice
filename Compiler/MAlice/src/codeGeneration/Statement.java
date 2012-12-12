@@ -115,9 +115,9 @@ public class Statement
 				}
 			} else if (arg2.equals("letter"))
 			{
+				table.lookup(arg1).setLocationReg("@" + arg1);
 				if (storable != null)
 				{
-					table.lookup(arg1).setLocationReg("@" + arg1);
 					CodeGenerator.addInstruction("@" + arg1 + " = global i8 "
 							+ (int) (storable.getText().charAt(1))
 							+ ", align 1");
@@ -127,7 +127,7 @@ public class Statement
 							+ " = global i8 0, align 1");
 				}
 			} else if (arg2.equals("sentence"))
-			{
+			{ 
 				table.lookup(arg1).setLocationReg("@" + arg1);
 				if (storable != null)
 				{

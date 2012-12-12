@@ -135,11 +135,6 @@ public class Function
 				);
 	}
 	
-	public static Set<String> freeVariableAnalysis(Tree node, SymbolTable table)
-	{
-		Set<String> freeVars = new HashSet<String>();
-		return null;
-	}
 	private static void writeReturnStatement(String ret_type, String val)
 	{
 		CodeGenerator.addInstruction("ret " + ret_type + " " + val);

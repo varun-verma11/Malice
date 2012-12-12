@@ -9,9 +9,9 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.Tree;
 
-import preprocessor.Imports;
 
 import codeGeneration.CodeGenerator;
+import extension.Imports;
 
 import semantics_checks.ExpressionChecker;
 import symbol_table.SymbolTable;
