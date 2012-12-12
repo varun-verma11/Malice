@@ -3,7 +3,9 @@ package codeGeneration;
 import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.SemanticsUtils;
+import symbol_table.DATA_TYPES;
 import symbol_table.SymbolTable;
+import symbol_table.VariableSTValue;
 
 public class Statement
 {
@@ -57,6 +59,7 @@ public class Statement
 			return false;
 		} else if (node.getText().contentEquals("what"))
 		{
+			writeWHAT(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("found"))
 		{
@@ -91,6 +94,51 @@ public class Statement
 		return true;
 	}
 
+	private static void writeWHAT(Tree node, SymbolTable table, LabelGenerator gen) {
+		if (node.getChild(0).getChildCount() == 0){
+			
+			String arg1 = node.getChild(0).getText();
+			VariableSTValue v = (VariableSTValue) table.lookup(arg1);
+			DATA_TYPES type = v.getType();
+			
+			if ( type == DATA_TYPES.NUMBER) {
+				String regId1 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(regId1 + " = load i32* %" + arg1 + ", align 4");
+				String regId2 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(regId2 + " = call i32 (i8*, ...)* @scanf" +
+						"(i8* getelementptr inbounds ([3 x i8]* @.readInt, i32 0, i32 0), i32 "+ regId1);
+				CodeGenerator.includeRead();
+				CodeGenerator.includeReadInt();
+				}
+			
+			else if (type == DATA_TYPES.LETTER) {
+				String regId1 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction( regId1 + " = load i8* %" + arg1 + ", align 1");
+				String regId2 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction( regId2 + " = sext i8 "+ regId1+" to i32");
+				String regId3 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction( regId3 + " = call i32 (i8*, ...)* @__isoc99_scanf(i8* " +
+						"getelementptr inbounds ([3 x i8]* @.readChar, i32 0, i32 0), i32 "+ regId2 +")");
+				CodeGenerator.includeRead();
+				CodeGenerator.includeReadChar();
+				
+			}
+			
+			if ( type == DATA_TYPES.SENTENCE) {
+				String regId1 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction( regId1 + " = load i8** %" + arg1 + ", align 8");
+				String regId2 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction( regId2 + " = call i32 (i8*, ...)* @__isoc99_scanf" +
+						"(i8* getelementptr inbounds ([3 x i8]* @.readString, i32 0, i32 0), i8* "
+						+ regId1 +")");
+				CodeGenerator.includeRead();
+				CodeGenerator.includeReadChar();
+			}
+		}
+		
+	}
+
+	
 	private static void writeWAS(Tree node, SymbolTable table, LabelGenerator gen) {
 		Tree storable = node.getChild(2);
 		String arg1 = node.getChild(0).getText();

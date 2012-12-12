@@ -47,10 +47,13 @@ public class StatementsHarsh {
 				CodeGenerator.addInstruction(regId1 + " = load i32* %" + arg1 + ", align 4");
 				String regId2 = gen.getUniqueLabel();
 				CodeGenerator.addInstruction(regId2 + " = call i32 (i8*, ...)* @scanf(i8* getelementptr inbounds ([3 x i8]* @.str, i32 0, i32 0), i32 %1");
+				CodeGenerator.includeRead();
 			}
 			
 			else if (v.getType() == DATA_TYPES.LETTER) {
-				
+				String regId1 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(regId1 + " = load i32* %" + arg1 + ", align 4");
+				 
 			}
 			
 			if (v.getType() == DATA_TYPES.SENTENCE) {
