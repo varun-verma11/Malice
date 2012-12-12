@@ -42,5 +42,11 @@ public class Utils {
 		}
 		return null;
 	}
+	
+	public static String getVarReg(Tree node, SymbolTable table)
+	{
+		
+		return null;
+	}
 }
 
