@@ -53,7 +53,6 @@ public class Malice
 				malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 				if (!parser.failed()) {
 					Tree tree =  (Tree) parser.program().getTree() ;
-					System.out.println(tree.toStringTree());
 					Imports.checkImports(tree);
 					SemanticVerifier.checkProgramSemantics(tree, table);
 					if (!SemanticVerifier.failed) 
