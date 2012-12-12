@@ -25,20 +25,20 @@ public class TestsHarsh {
 
 	@Test
 	public void test() throws RecognitionException {
-		String st = "what was x?";
-		assertTrue(generateCodeForStatement(st));
-		
-		st = "what was y?";
-		assertTrue(generateCodeForStatement(st));
-		
-		st = "what was z?";
-		assertTrue(generateCodeForStatement(st));
+//		String st = "what was x?";
+//		assertTrue(generateCodeForStatement(st));
+//		
+//		st = "what was y?";
+//		assertTrue(generateCodeForStatement(st));
+//		
+//		st = "what was z?";
+//		assertTrue(generateCodeForStatement(st));
 
-//		String st = "bjsdkfksrdv was a sentence of \"abc\"";
-//		assertTrue(generateCodeForStatement(st));
-//		st = "x3 was a number of 256";
-//		assertTrue(generateCodeForStatement(st));
-//		st = "x4 was a number";
+		String st = "bjsdkfksrdv was a sentence of \"abc\"";
+		assertTrue(generateCodeForStatement(st));
+		st = "x3 was a number of 256";
+		assertTrue(generateCodeForStatement(st));
+		st = "x4 was a number";
 				
 //		assertTrue(generateCodeForStatement(st));
 //		st = "x5 was a letter";

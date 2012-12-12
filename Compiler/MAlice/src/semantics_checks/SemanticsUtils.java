@@ -96,4 +96,14 @@ public class SemanticsUtils {
 			return ExpressionChecker.getExpressionType(node, symbolTable);
 		}
 	}
+
+	public static Tree skipImports(Tree node)
+	{
+		Tree curr = node;
+		while(curr.getText().contentEquals("bring"))
+		{
+			curr = getNextChild(curr);
+		}
+		return curr;
+	}
 }

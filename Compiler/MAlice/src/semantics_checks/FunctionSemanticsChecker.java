@@ -26,17 +26,18 @@ public class FunctionSemanticsChecker
 		return node;
 	}
 
-	private static void checkRoomFunction(Tree node, SymbolTable table)
+	private static void checkRoomFunction(Tree node, SymbolTable enclosing_table)
 	{
-		if(table.checkItemIsInCurrentScopeLevel(node.getText()))
+		if(enclosing_table.checkItemIsInCurrentScopeLevel(node.getText()))
 		{
 			SemanticsUtils.printMultipleDefinitionsOfFunctions(node);
 		}
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
 		DATA_TYPES expectedReturnType = getReturnType(node);
 		FunctionSTValue func_val = new FunctionSTValue(expectedReturnType,
-				table, args);
-		table.insert(node.getText(), func_val);
+				enclosing_table, args);
+		SymbolTable table = func_val.getTable();
+		enclosing_table.insert(node.getText(), func_val);
 		Tree curr = node;
 		table = func_val.getTable();
 		curr = checkParametersToFunction(table, SemanticsUtils.getNextChild(curr), args);
@@ -76,7 +77,6 @@ public class FunctionSemanticsChecker
 					+ ", EXPECTED: " + expectedReturnType  );
 		}
 		returnType = DATA_TYPES.ERROR;
-		table = table.finalizeCurrentScopeLevelTable();
 	}
 
 	private static DATA_TYPES getReturnType(Tree node)
@@ -94,15 +94,16 @@ public class FunctionSemanticsChecker
 	}
 
 	// check with magdiee about the construct of Val
-	private static void checkLookingFunction(Tree node, SymbolTable table)
+	private static void checkLookingFunction(Tree node, SymbolTable enclosing_table)
 	{
-		if(table.checkItemIsInCurrentScopeLevel(node.getText()))
+		if(enclosing_table.checkItemIsInCurrentScopeLevel(node.getText()))
 		{
 			SemanticsUtils.printMultipleDefinitionsOfFunctions(node);
 		}
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
-		FunctionSTValue func_val = new FunctionSTValue(table, args);
-		table.insert(node.getText(), func_val);
+		FunctionSTValue func_val = new FunctionSTValue(enclosing_table, args);
+		SymbolTable table = func_val.getTable();
+		enclosing_table.insert(node.getText(), func_val);
 		Tree curr = node;
 		table = func_val.getTable();
 		curr = SemanticsUtils.getNextChild(curr);
@@ -133,7 +134,6 @@ public class FunctionSemanticsChecker
 					+ " has a return statement." );
 		}
 		returnType = DATA_TYPES.ERROR;
-		table.finalizeCurrentScopeLevelTable();
 	}
 
 	private static Tree checkParametersToFunction(SymbolTable table, Tree node,

@@ -52,6 +52,9 @@ tokens
   THEN = 'then';
   BRING = 'bring';
   FROM = 'from';
+  ME = 'me';
+  SAYS = 'says';
+  EVERYTHING = 'everything';
 }
 
 @header 
@@ -167,6 +170,6 @@ function: THE! ( LOOKING^ '-'! GLASS! function_name lpar! parameters rpar!
           CLOSED!
           ;
           
-import_statement : BRING^ ((function_name (','! function_name)*)? | '*') FROM! STRING;  
+import_statement : ALICE! SAYS! BRING^ ME!((function_name (','! function_name)*)? | EVERYTHING) FROM! STRING;  
 global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.'!)* ;
 program : import_statement* global_declaration function+ EOF! ;

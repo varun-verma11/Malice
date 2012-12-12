@@ -28,11 +28,11 @@ public class Function
 		fVal.setLocationReg(current.getText().contentEquals("hatta")? 
 				"@main" : "@" + current);
 		current = SemanticsUtils.getNextChild(current);
-		String params = getParamsForFunctions(current,table);
+		String params = getParamsForFunctions(current,fVal.getTable());
 		writeFunctionHeader("i32", fVal.getLocationReg(), params);
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		current = Statement.checkAllStatements(current, table, gen);
+		current = Statement.checkAllStatements(current, fVal.getTable(), gen);
 		//DO ALL STATEMENTS
 		//current = writeNestedFunctions(table, current,gen);
 		writeReturnStatement("i32", "0");
