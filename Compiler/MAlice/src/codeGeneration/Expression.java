@@ -225,8 +225,8 @@ public class Expression
 	}
 	private static String writeCodeForFunctionCall(Tree leaf, SymbolTable table,LabelGenerator gen)
 	{
-		String id = gen.getUniqueRegisterID();
 		
+		String id = gen.getUniqueRegisterID();
 		String returnType = Utils.getReturnTypeOfFunction(table.lookup
 				(leaf.getText()).getType());
 		CodeGenerator.addInstruction(id + " = call " 

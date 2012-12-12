@@ -1,4 +1,4 @@
-package preprocessor;
+package extension;
 
 import java.io.IOException;
 import java.util.HashSet;

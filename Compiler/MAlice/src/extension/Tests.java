@@ -1,4 +1,4 @@
-package preprocessor;
+package extension;
 
 import static org.junit.Assert.assertTrue;
 

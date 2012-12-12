@@ -1,4 +1,4 @@
-package preprocessor;
+package extension;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -112,8 +112,8 @@ public class Imports
 					|| toAttach.getChild(curr_child).getText().contentEquals(
 							"room"))
 			{
-				if (funcToImport.contains(toAttach.getChild(curr_child).getChild(0)
-						.getText()))
+				if (funcToImport.contains(toAttach.getChild(curr_child)
+						.getChild(0).getText()))
 				{
 					parent.addChild(toAttach.getChild(curr_child));
 					parent.freshenParentAndChildIndexes();
@@ -137,11 +137,6 @@ public class Imports
 	{
 		if (toAttach == null)
 			return;
-		// Tree temp = (node.getText() == null) ? node.getChild(0) : node;
-		// while (temp != null && !temp.getText().contentEquals("bring"))
-		// {
-		// temp = SemanticsUtils.getNextChild(temp);
-		// }
 		int curr_child = 0;
 		int number_of_children = node.getChildCount();
 		while (curr_child != number_of_children)
@@ -156,24 +151,4 @@ public class Imports
 			node.freshenParentAndChildIndexes();
 		}
 	}
-
-	// private static void insertChildInIndex(Tree node,Tree toInsert)
-	// {
-	// // Tree curr = node.getChild(childIndex);
-	// // int numberOfChilds = node.getChildCount();
-	// // childIndex++;
-	// // Tree next = node.getChild(childIndex);
-	// // while(childIndex<numberOfChilds)
-	// // {
-	// // node.freshenParentAndChildIndexes();
-	// // node.setChild(childIndex, curr);
-	// // curr = next;
-	// // next = node.getChild(childIndex);
-	// // childIndex++;
-	// // }
-	//
-	// node.addChild(toInsert);
-	// node.freshenParentAndChildIndexes();
-	// // node.addChild(curr);
-	// }
 }

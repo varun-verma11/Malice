@@ -1,5 +1,8 @@
 package codeGeneration;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.SemanticsUtils;
@@ -121,6 +124,7 @@ public class Function
 		} 
 		return null;
 	}
+	
 	private static void writeFunctionHeader(String ret_type, String name, String params)
 	{
 		CodeGenerator.addInstruction(

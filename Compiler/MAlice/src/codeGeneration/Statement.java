@@ -150,20 +150,21 @@ public class Statement
 					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 "
 					+ Expression.getResultReg(storable, table, gen) +", align 4");
 				}
-				else {
-					CodeGenerator.addInstruction("@" + arg1 + " = common global i32 0, align 4");
-				}
-			}
-			else if (arg2.equals("letter")) {
+			} else if (arg2.equals("letter"))
+			{
 				table.lookup(arg1).setLocationReg("@" + arg1);
-				if (storable!=null){
-					CodeGenerator.addInstruction("@"+ arg1 +" = global i8 "+ (int) (storable.getText().charAt(1)) +", align 1");
+				if (storable != null)
+				{
+					CodeGenerator.addInstruction("@" + arg1 + " = global i8 "
+							+ (int) (storable.getText().charAt(1))
+							+ ", align 1");
+				} else
+				{
+					CodeGenerator.addInstruction("@" + arg1
+							+ " = global i8 0, align 1");
 				}
-				else {
-					CodeGenerator.addInstruction("@" + arg1 + " = common global i8 0, align 1");
-				}
-			}
-			else if (arg2.equals("sentence")) {
+			} else if (arg2.equals("sentence"))
+			{ 
 				table.lookup(arg1).setLocationReg("@" + arg1);
 				if (storable!=null){
 					int strLen = storable.getText().length() - 1;
