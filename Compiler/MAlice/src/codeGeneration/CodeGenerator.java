@@ -73,6 +73,9 @@ public class CodeGenerator
 
 	public static void addGlobalInstruction(String ins)
 	{
+		ins = ins.replace("\\n", " \\0A");
+		ins = ins.replace("\\t", " \\09");
+		ins = ins.replace("\\r", " \\0D");
 		instructions.add(0,ins);
 	}
 	public static void addInstruction(String ins)
