@@ -43,7 +43,6 @@ public class CodeGenerator
 		Tree current = (tree.getText()==null)? tree.getChild(0) : tree ;;
 		current = Statement.checkAllStatements(current, table, new LabelGenerator());
 		moveHattaToEnd(tree);
-		System.out.println(tree.toStringTree());
 		while(current!=null)
 		{
 			Function.writeCodeForFunctions(current, table, new LabelGenerator());

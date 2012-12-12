@@ -10,6 +10,7 @@ package symbol_table;
 public class VariableSTValue extends SymbolTableValue
 {
 	private boolean initialised;
+	int arr_size=-1;
 	
 	public VariableSTValue(DATA_TYPES type, boolean initialised)
 	{
@@ -25,5 +26,14 @@ public class VariableSTValue extends SymbolTableValue
 	public boolean isInitialised() 
 	{
 		return initialised ;
+	}
+	
+	public void setArraySize(int size)
+	{
+		arr_size = size;
+	}
+	public int getArraySize()
+	{
+		return arr_size;
 	}
 }
