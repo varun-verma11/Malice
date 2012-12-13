@@ -110,13 +110,23 @@ public class Statement
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
 				addLoadIOFileIns(regId2);
-				writeCallFGetsIns(gen, regId1, regId2);
-				
+				buff = writeCallFGetsIns(gen, regId1, regId2);
+				regId1 = gen.getUniqueLabel();
+				addGetElementPtrIns(buff, regId1);
+				regId2 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(regId2 
+						+ " = call i32 @atoi(i8* " 
+						+ regId1
+						+ ") nounwind readonly");
+				CodeGenerator.addInstruction("store i32 " + regId2 + ", i32* "
+						+ v.getLocationReg() + ", align 4");	
 				CodeGenerator.includeATOI();
 				CodeGenerator.includeRead();
-			}
-
-			else if (type == DATA_TYPES.LETTER) {
+			} else if (type == DATA_TYPES.LETTER) {
+				/**
+				 * This is exactly same as the number case only difference
+				 * is the size of the buffer.
+				 */
 				String regId1 = gen.getUniqueLabel();
 				CodeGenerator.addInstruction( regId1 + " = load i8* %" + arg1 + ", align 1");
 				String regId2 = gen.getUniqueLabel();
@@ -135,6 +145,8 @@ public class Statement
 				CodeGenerator.includeRead();
 			}
 		}
+		
+		
 
 	}
 
