@@ -10,6 +10,7 @@ import symbol_table.VariableSTValue;
 public class Statement
 {
 	private static final int BUFF_SIZE = 100;
+
 	public static Tree checkAllStatements(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -87,7 +88,7 @@ public class Statement
 		} else if (node.getChildCount() > 2
 				&& node.getChild(0).getText().contentEquals("(")
 				&& node.getChild(node.getChildCount() - 1).getText()
-				.contentEquals(")"))
+						.contentEquals(")"))
 		{
 			// DEAL WITH FUNCTION CALL
 			return false;
@@ -95,17 +96,28 @@ public class Statement
 		return true;
 	}
 
-	private static void writeWHAT(Tree node, SymbolTable table, LabelGenerator gen) {
-		if (node.getChild(0).getChildCount() == 0){
+	/**
+	 * This function
+	 * 
+	 * @param node
+	 * @param table
+	 * @param gen
+	 */
+	private static void writeWHAT(Tree node, SymbolTable table,
+			LabelGenerator gen)
+	{
+		if (node.getChild(0).getChildCount() == 0)
+		{
 
 			String arg1 = node.getChild(0).getText();
 			VariableSTValue v = (VariableSTValue) table.lookup(arg1);
 			DATA_TYPES type = v.getType();
 
-			if ( type == DATA_TYPES.NUMBER) {
+			if (type == DATA_TYPES.NUMBER)
+			{
 				String buff = gen.getUniqueLabel();
-				CodeGenerator.addInstruction(buff 
-						+ " = alloca [" + BUFF_SIZE + " x i8], align 16");
+				CodeGenerator.addInstruction(buff + " = alloca [" + BUFF_SIZE
+						+ " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
@@ -114,29 +126,34 @@ public class Statement
 				regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				regId2 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction(regId2 
-						+ " = call i32 @atoi(i8* " 
-						+ regId1
-						+ ") nounwind readonly");
+				CodeGenerator.addInstruction(regId2 + " = call i32 @atoi(i8* "
+						+ regId1 + ") nounwind readonly");
 				CodeGenerator.addInstruction("store i32 " + regId2 + ", i32* "
-						+ v.getLocationReg() + ", align 4");	
+						+ v.getLocationReg() + ", align 4");
 				CodeGenerator.includeATOI();
 				CodeGenerator.includeRead();
-			} else if (type == DATA_TYPES.LETTER) {
-				/**
-				 * This is exactly same as the number case only difference
-				 * is the size of the buffer.
-				 */
+			} else if (type == DATA_TYPES.LETTER)
+			{
+				String buff = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(buff + " = alloca [" + BUFF_SIZE
+						+ " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction( regId1 + " = load i8* %" + arg1 + ", align 1");
+				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction( regId2 + " = sext i8 "+ regId1+" to i32");
-				String regId3 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction( regId3 + " = call i32 (i8*, ...)* @__isoc99_scanf(i8* " +
-						"getelementptr inbounds ([3 x i8]* @.readChar, i32 0, i32 0), i32 "+ regId2 +")");
+				addLoadIOFileIns(regId2);
+				buff = writeCallFGetsIns(gen, regId1, regId2);
+				regId1 = gen.getUniqueLabel();
+				addGetElementPtrIns(buff, regId1);
+				regId2 = gen.getUniqueLabel();
+				CodeGenerator.addInstruction( regId2 + " = load i8* " 
+						+ regId1 + ", align 1");
+				CodeGenerator.addInstruction("store i8 " + regId2 
+						+ ", i8* " + v.getLocationReg()
+						+ ", align 1");
 				CodeGenerator.includeRead();
 
-			} else if ( type == DATA_TYPES.SENTENCE) {
+			} else if (type == DATA_TYPES.SENTENCE)
+			{
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(v.getLocationReg(), regId1);
 				String regId2 = gen.getUniqueLabel();
@@ -145,8 +162,6 @@ public class Statement
 				CodeGenerator.includeRead();
 			}
 		}
-		
-		
 
 	}
 
@@ -154,36 +169,40 @@ public class Statement
 			String regId2)
 	{
 		String uniqueLabel = gen.getUniqueLabel();
-		CodeGenerator.addInstruction(uniqueLabel +
-				" = call i8* @fgets(i8* " + regId1 + ", i32 " 
-				+ BUFF_SIZE + ", %struct._IO_FILE* " + regId2);
+		CodeGenerator.addInstruction(uniqueLabel + " = call i8* @fgets(i8* "
+				+ regId1 + ", i32 " + BUFF_SIZE + ", %struct._IO_FILE* "
+				+ regId2);
 		return uniqueLabel;
 	}
 
 	private static void addGetElementPtrIns(String location, String regId1)
 	{
-		CodeGenerator.addInstruction( regId1 
-				+ " = getelementptr inbounds ["+ BUFF_SIZE +" x i8]*" 
-				+ location + ", i32 0, i32 0 ");
+		CodeGenerator.addInstruction(regId1 + " = getelementptr inbounds ["
+				+ BUFF_SIZE + " x i8]*" + location + ", i32 0, i32 0 ");
 	}
 
 	private static void addLoadIOFileIns(String regId2)
 	{
-		CodeGenerator.addInstruction( regId2 + 
-				" = load %struct._IO_FILE** @stdin, align 8");
+		CodeGenerator.addInstruction(regId2
+				+ " = load %struct._IO_FILE** @stdin, align 8");
 	}
 
-
-	private static void writeWAS(Tree node, SymbolTable table, LabelGenerator gen) {
+	private static void writeWAS(Tree node, SymbolTable table,
+			LabelGenerator gen)
+	{
 		Tree storable = node.getChild(2);
 		String arg1 = node.getChild(0).getText();
 		String arg2 = node.getChild(1).getText();
-		if (table.getCurrentScopeLevel() == 0){
-			if (arg2.equals("number")) {
+		if (table.getCurrentScopeLevel() == 0)
+		{
+			if (arg2.equals("number"))
+			{
 				table.lookup(arg1).setLocationReg("@" + arg1);
-				if (storable!=null){
-					CodeGenerator.addInstruction("@"+ arg1 + " = global i32 "
-					+ Expression.getResultReg(storable, table, gen) +", align 4");
+				if (storable != null)
+				{
+					CodeGenerator.addInstruction("@" + arg1 + " = global i32 "
+							+ Expression.getResultReg(storable, table, gen)
+							+ ", align 4");
 				}
 			} else if (arg2.equals("letter"))
 			{
@@ -199,64 +218,75 @@ public class Statement
 							+ " = global i8 0, align 1");
 				}
 			} else if (arg2.equals("sentence"))
-			{ 
+			{
 				table.lookup(arg1).setLocationReg("@" + arg1);
-				if (storable!=null){
+				if (storable != null)
+				{
 					int strLen = storable.getText().length() - 1;
 					String effective = storable.getText().substring(1, strLen);
-					CodeGenerator.addInstruction(
-							"@.at"+arg1+table.getCurrentScopeLevel()+
-							" = private unnamed_addr constant ["
-							+ strLen +" x i8] c\""
-							+ effective + '\\' + "00"+
-							"\", align 1"
-							, 0);
-					CodeGenerator.addInstruction(
-							"@"+ arg1
-							+" = global i8* getelementptr inbounds (["
-							+ strLen + " x i8]* @.at"
-							+ arg1+table.getCurrentScopeLevel() + ", i32 0, i32 0), align 8");
-				}
-				else {
-					CodeGenerator.addInstruction("@"+ arg1 +" = common global i8* null, align 8");
-				}
-			}
-		}
-		else {
-			if (arg2.equals("number")) {
-				table.lookup(arg1).setLocationReg("%" + arg1);
-				CodeGenerator.addInstruction("%" + arg1 + " = alloca i32, align 4");
-				if (storable!=null){
-					CodeGenerator.addInstruction("store i32 " + Expression.getResultReg(storable, table, gen) 
-							+ ", i32* %"+ arg1 +", align 4");
+					CodeGenerator.addInstruction("@.at" + arg1
+							+ table.getCurrentScopeLevel()
+							+ " = private unnamed_addr constant [" + strLen
+							+ " x i8] c\"" + effective + '\\' + "00"
+							+ "\", align 1", 0);
+					CodeGenerator.addInstruction("@" + arg1
+							+ " = global i8* getelementptr inbounds (["
+							+ strLen + " x i8]* @.at" + arg1
+							+ table.getCurrentScopeLevel()
+							+ ", i32 0, i32 0), align 8");
+				} else
+				{
+					CodeGenerator.addInstruction("@" + arg1
+							+ " = common global i8* null, align 8");
 				}
 			}
-			else if (arg2.equals("letter")) {
+		} else
+		{
+			if (arg2.equals("number"))
+			{
 				table.lookup(arg1).setLocationReg("%" + arg1);
-				CodeGenerator.addInstruction("%" + arg1 + " = alloca i8, align 1");
-				if (storable!=null){
-					CodeGenerator.addInstruction("store i8 " + (int) (storable.getText().charAt(1)) + ", i8* %" + arg1 + ", align 1");
+				CodeGenerator.addInstruction("%" + arg1
+						+ " = alloca i32, align 4");
+				if (storable != null)
+				{
+					CodeGenerator.addInstruction("store i32 "
+							+ Expression.getResultReg(storable, table, gen)
+							+ ", i32* %" + arg1 + ", align 4");
 				}
-			}
-			else if (arg2.equals("sentence")) {
+			} else if (arg2.equals("letter"))
+			{
 				table.lookup(arg1).setLocationReg("%" + arg1);
-				CodeGenerator.addInstruction("%" + arg1 + " = alloca i8*, align 8");
-				if (storable!=null){
+				CodeGenerator.addInstruction("%" + arg1
+						+ " = alloca i8, align 1");
+				if (storable != null)
+				{
+					CodeGenerator.addInstruction("store i8 "
+							+ (int) (storable.getText().charAt(1)) + ", i8* %"
+							+ arg1 + ", align 1");
+				}
+			} else if (arg2.equals("sentence"))
+			{
+				table.lookup(arg1).setLocationReg("%" + arg1);
+				CodeGenerator.addInstruction("%" + arg1
+						+ " = alloca i8*, align 8");
+				if (storable != null)
+				{
 					int strLen = storable.getText().length() - 1;
 					String effective = storable.getText().substring(1, strLen);
-					CodeGenerator.addInstruction(
-							"@.at"+arg1+table.getCurrentScopeLevel()+
-							" = private unnamed_addr constant ["
-							+ strLen +" x i8] c\""
-							+ effective + '\\' + "00"+
-							"\", align 1"
-							, 0);
-					CodeGenerator.addInstruction(
-							"store i8* getelementptr inbounds (["
-									+ strLen +" x i8]* @.at"+ arg1
-									+ table.getCurrentScopeLevel() 
+					CodeGenerator.addInstruction("@.at" + arg1
+							+ table.getCurrentScopeLevel()
+							+ " = private unnamed_addr constant [" + strLen
+							+ " x i8] c\"" + effective + '\\' + "00"
+							+ "\", align 1", 0);
+					CodeGenerator
+							.addInstruction("store i8* getelementptr inbounds (["
+									+ strLen
+									+ " x i8]* @.at"
+									+ arg1
+									+ table.getCurrentScopeLevel()
 									+ ", i32 0, i32 0), i8** %"
-									+ arg1 +", align 8");
+									+ arg1
+									+ ", align 8");
 
 				}
 			}

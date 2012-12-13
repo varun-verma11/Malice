@@ -78,7 +78,7 @@ public class Expression
 				uniqueRegisterID = writeComparisonStatements(uniqueRegisterID, "sge", arg1, arg2, gen);
 				break;
 			case SUB:
-				writeOperationExpressions(uniqueRegisterID, "sub", arg1, arg2);
+				writeOperationExpressions(uniqueRegisterID, "sub", (arg2==null)? "0" : arg2 , arg1);
 				break;
 			case MUL:
 				writeOperationExpressions(uniqueRegisterID, "mul", arg1, arg2);
@@ -147,9 +147,9 @@ public class Expression
 	private static String writeNotStatement(String uniqueRegisterID, String arg1, LabelGenerator gen)
 	{
 		writeComparison(uniqueRegisterID, "eq", arg1, "0");
-		String prev = uniqueRegisterID;
-		uniqueRegisterID = gen.getUniqueRegisterID();
-		writeExtensionIns(uniqueRegisterID, prev);
+//		String prev = uniqueRegisterID;
+//		uniqueRegisterID = gen.getUniqueRegisterID();
+//		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
 	private static String writeOrStatement(String arg1, String arg2,
@@ -159,9 +159,9 @@ public class Expression
 		String prev = uniqueRegisterID;
 		uniqueRegisterID = gen.getUniqueRegisterID();
 		writeComparison(uniqueRegisterID, "ne", prev, "0");
-		prev = uniqueRegisterID;
-		uniqueRegisterID = gen.getUniqueRegisterID();
-		writeExtensionIns(uniqueRegisterID, prev);
+//		prev = uniqueRegisterID;
+//		uniqueRegisterID = gen.getUniqueRegisterID();
+//		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
 	private static String writeAndStatement(String arg1, String arg2,
@@ -174,9 +174,9 @@ public class Expression
 		String a2 = uniqueRegisterID;
 		uniqueRegisterID = gen.getUniqueRegisterID();
 		CodeGenerator.addInstruction(uniqueRegisterID + " = and il " + a1 + ", " + a2);
-		String ans = uniqueRegisterID;
-		uniqueRegisterID = gen.getUniqueRegisterID();
-		writeExtensionIns(uniqueRegisterID, ans);
+//		String ans = uniqueRegisterID;
+//		uniqueRegisterID = gen.getUniqueRegisterID();
+//		writeExtensionIns(uniqueRegisterID, ans);
 		return uniqueRegisterID;
 	}
 	
@@ -190,9 +190,9 @@ public class Expression
 			String operation, String arg1, String arg2, LabelGenerator gen)
 	{
 		writeComparison(uniqueRegisterID, operation, arg1, arg2);
-		String prev = uniqueRegisterID;
-		uniqueRegisterID = gen.getUniqueRegisterID();
-		writeExtensionIns(uniqueRegisterID, prev);
+//		String prev = uniqueRegisterID;
+//		uniqueRegisterID = gen.getUniqueRegisterID();
+//		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
 	private static void writeComparison(String uniqueRegisterID,
@@ -201,11 +201,11 @@ public class Expression
 		CodeGenerator.addInstruction(uniqueRegisterID + " = " + "icmp " + operation + " i32 " 
 				+ arg1 + ", " + arg2);
 	}
-	private static void writeExtensionIns(String uniqueRegisterID, String reg)
-	{
-		CodeGenerator.addInstruction(uniqueRegisterID + " = zest il " + reg 
-				+ " to i32");
-	}
+//	private static void writeExtensionIns(String uniqueRegisterID, String reg)
+//	{
+//		CodeGenerator.addInstruction(uniqueRegisterID + " = zest il " + reg 
+//				+ " to i32");
+//	}
 	
 	
 	private static String makeVar(Tree leaf, SymbolTable table, LabelGenerator gen)
@@ -219,7 +219,7 @@ public class Expression
 		{
 			//THIS NEEDS TO BE THE NEW METHOD WHICH WOULD RETURN THE NAME OF 
 			//THE EXPRESSIONS
-			return "@." + leaf.getText();
+			return table.lookup(leaf.getText()).getLocationReg();
 		}
 		return leaf.getText();
 	}

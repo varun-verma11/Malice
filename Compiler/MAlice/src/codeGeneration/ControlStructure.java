@@ -106,7 +106,7 @@ public class ControlStructure
 		int brInsert = CodeGenerator.getNumberOfInstructions();
 		String startLbl = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(startLbl));
-		Tree current = SemanticsUtils.getNextChild(node);
+		Tree current = node.getChild(1);
 		current = Statement.checkAllStatements(current, table, gen);
 		endIfInserts.add(CodeGenerator.getNumberOfInstructions());
 		String endLbl = gen.getUniqueLabel();
@@ -123,7 +123,7 @@ public class ControlStructure
 				if (bool == 1)
 				{
 					// DO ALL STATEMENTS
-					current = Statement.checkAllStatements(node, table, gen);
+					current = Statement.checkAllStatements(current, table, gen);
 					// DO ALL STATEMENTS
 					return;
 				}
@@ -132,11 +132,12 @@ public class ControlStructure
 			startLbl = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(startLbl));
 			// DO ALL STATEMENTS
-			Statement.checkAllStatements(node, table, gen);
+			Statement.checkAllStatements(current, table, gen);
 			// DO ALL STATEMENTS
 			endIfInserts.add(CodeGenerator.getNumberOfInstructions());
 			endLbl = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(endLbl));
+			current = SemanticsUtils.getNextChild(current);
 		}
 
 		CodeGenerator.addInstruction(getConditionalBranchIns(bool_exp,
@@ -146,7 +147,7 @@ public class ControlStructure
 		{
 			current = SemanticsUtils.getNextChild(current);
 			// DO ALL STATEMENTS
-			Statement.checkAllStatements(node, table, gen);
+			Statement.checkAllStatements(current, table, gen);
 			// DO ALL STATEMENTS
 			endIf = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(endIf));
@@ -166,7 +167,7 @@ public class ControlStructure
 	private static String getConditionalBranchIns(String boolExp, String reg1,
 			String reg2)
 	{
-		return "br il " + boolExp + ", label " + reg1 + ", label " + reg2;
+		return "br i1 " + boolExp + ", label " + reg1 + ", label " + reg2;
 	}
 
 	private static String getBranchIns(String lbl)
