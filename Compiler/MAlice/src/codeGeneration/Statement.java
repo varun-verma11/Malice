@@ -171,14 +171,14 @@ public class Statement
 		String uniqueLabel = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(uniqueLabel + " = call i8* @fgets(i8* "
 				+ regId1 + ", i32 " + BUFF_SIZE + ", %struct._IO_FILE* "
-				+ regId2);
+				+ regId2 + ")");
 		return uniqueLabel;
 	}
 
 	private static void addGetElementPtrIns(String location, String regId1)
 	{
 		CodeGenerator.addInstruction(regId1 + " = getelementptr inbounds ["
-				+ BUFF_SIZE + " x i8]*" + location + ", i32 0, i32 0 ");
+				+ BUFF_SIZE + " x i8]* " + location + ", i32 0, i32 0 ");
 	}
 
 	private static void addLoadIOFileIns(String regId2)
