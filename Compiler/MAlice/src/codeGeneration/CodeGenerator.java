@@ -142,10 +142,7 @@ public class CodeGenerator
 
 	private static void writeHeaders(BufferedWriter out) throws IOException
 	{
-		if (includePrint)
-		{
-			out.write(printf + "\n");
-		}
+
 		if (includePrintIntTop) 
 		{
 			out.write(printIntHeader + "\n");
@@ -176,8 +173,8 @@ public class CodeGenerator
 	}
 	public static void includePrint() { includePrint=true;}
 	public static void includeRead() { includeRead=true;}
-	public static void includeReadInt() { includePrintIntTop = true;}
-	public static void includeReadChar() { includePrintCharTop = true;}
-	public static void includeReadString() { includePrintStringTop = true;}
+	public static void includePrintInt() { includePrintIntTop = true;}
+	public static void includePrintChar() { includePrintCharTop = true;}
+	public static void includePrintString() { includePrintStringTop = true;}
 	public static void includeATOI() { includeATOI=true;}
 }

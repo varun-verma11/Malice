@@ -2,7 +2,6 @@ package codeGeneration;
 
 import org.antlr.runtime.tree.Tree;
 
-import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
 
 import codeGeneration.Utils;
 import symbol_table.DATA_TYPES;
@@ -64,7 +63,7 @@ public class StatementsCodeGeneratorMagda {
 			CodeGenerator.addInstruction("store i8* getelementptr inbounds ([" 
 					+ size + " x i8]* " + newLabel + ", i32 0, i32 0), i8** " 
 					+ currReg + ", align 8");
-		} else {
+		} else {///need to change this
 			CodeGenerator.addInstruction("store i32 "
 					+ Expression.getResultReg(node.getChild(1), table,gen)
 					+ ", i32* " + currReg + ", align 4");
@@ -76,14 +75,26 @@ public class StatementsCodeGeneratorMagda {
 		CodeGenerator.includePrint();
 		String uniqueReg = gen.getUniqueRegisterID();
 		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
-
+		
 		if (nodeType == DATA_TYPES.SENTENCE) { 
 			sentenceAtNode(node, uniqueReg, "print");
 			return;
-		} else if (nodeType == DATA_TYPES.LETTER) {
-			CodeGenerator.addInstruction(uniqueReg
-					+ " = call i32 (i8*, ...)* @printf(i8* inttoptr (i64 "
-					+ (int) node.getChild(0).getText().charAt(1) + " to i8*))");
+		} else if (nodeType == DATA_TYPES.LETTER) {System.out.println("1: " + uniqueReg);
+			String charToPrint = "" + node.getChild(0).getText().charAt(1);
+			System.out.println(charToPrint);
+			CodeGenerator.includePrintString();
+			String newLabel = "@.str_" + count ;
+			count++;
+			CodeGenerator.addGlobalInstruction(newLabel + " = private " 
+					+ "unnamed_addr constant [2 x i8] c\"" 
+					+ charToPrint + "\\00\", align 1");
+			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+					+ "@printf(i8* getelementptr inbounds ([3 x i8]* " 
+					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds " 
+					+ "([2 x i8]* " + newLabel + ", i32 0, i32 0))");
+			System.out.println("2: " + uniqueReg);
+			System.out.println(charToPrint);
+
 			return;
 		} else if (table.lookup(node.getChild(0).getText())!=null){
 			DATA_TYPES type = 
@@ -98,9 +109,9 @@ public class StatementsCodeGeneratorMagda {
 				uniqueReg = gen.getUniqueRegisterID();
 				CodeGenerator.addInstruction(uniqueReg
 						+ " = call i32 (i8*, ...)* @printf(i8* getelementptr " 
-						+ "inbounds ([3 x i8]* @.readString, i32 0, i32 0), i8* "
+						+ "inbounds ([3 x i8]* @.printString, i32 0, i32 0), i8* "
 						+ currentReg + ")");
-				CodeGenerator.includeReadString();
+				CodeGenerator.includePrintString();
 
 			} else { 
 				CodeGenerator.addInstruction(uniqueReg + " = load "
@@ -115,15 +126,15 @@ public class StatementsCodeGeneratorMagda {
 					uniqueReg = gen.getUniqueRegisterID();
 					CodeGenerator.addInstruction(uniqueReg
 							+ " = call i32 (i8*, ...)* @printf(i8* getelementptr " 
-							+ "inbounds ([3 x i8]* @.readChar, i32 0, i32 0), i32 "
+							+ "inbounds ([3 x i8]* @.printChar, i32 0, i32 0), i32 "
 							+ currentReg + ")");
-					CodeGenerator.includeReadChar();
+					CodeGenerator.includePrintChar();
 				} else {
 					CodeGenerator.addInstruction(uniqueReg
 							+ " = call i32 (i8*, ...)* @printf(i8* getelementptr " 
-							+ "inbounds ([3 x i8]* @.readInt, i32 0, i32 0), i32 "
+							+ "inbounds ([3 x i8]* @.printInt, i32 0, i32 0), i32 "
 							+ currentReg + ")");
-					CodeGenerator.includeReadInt();
+					CodeGenerator.includePrintInt();
 				}
 			}
 			return;
@@ -147,10 +158,16 @@ public class StatementsCodeGeneratorMagda {
 					+ "@printf(i8* getelementptr inbounds (["
 					+ size + " x i8]* " + newLabel
 					+ ", i32 0, i32 0))");
-		} else {
+		} else {//if(ident.equals("found")){
 			CodeGenerator.addInstruction("ret i8* getelementptr inbounds ([" 
 					+ size + " x i8*]* " + newLabel + ", i32 0, i32 0");
 		}
+//		} else {
+//			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+//					+ "@printf(i8* getelementptr inbounds ([3 x i8]* " 
+//					+ "@.printChar, i32 0, i32 0), i8* getelementptr inbounds " 
+//					+ "(["+ size +" x i8]* " + newLabel + ", i32 0, i32 0))");
+//		}
 	}
 
 		
