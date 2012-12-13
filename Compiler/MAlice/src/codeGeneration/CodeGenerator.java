@@ -16,26 +16,20 @@ public class CodeGenerator
 	private static int identLevel = 0;
 	private static boolean includePrint = false;
 	private static boolean includeRead = false;
-
-	private static boolean includeReadIntTop = false;
-	private static boolean includeReadCharTop = false;
-	private static boolean includeReadStringTop = false;
-
-	
+	private static boolean includeATOI = false;
+	private static String read = "%struct._IO_FILE = type { i32, i8*, i8*, " +
+			"i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, %struct._IO_marker*" +
+			", %struct._IO_FILE*, i32, i32, i64, i16, i8, [1 x i8], i8*, i64," +
+			" i8*, i8*, i8*, i8*, i64, i32, [20 x i8] } \n " +
+			"%struct._IO_marker = type { %struct._IO_marker*, %struct._IO_FILE*," +
+			" i32 } \n " +
+			"declare i8* @fgets(i8*, i32, %struct._IO_FILE*)";
 	private static String printf  = "declare i32 @printf(i8*, ...)";
-	private static String scanf  = "declare i32 @scanf(i8*,...)";
+	private static String atoi = "declare i32 @atoi(i8*) nounwind readonly";
 	
 //	@.str = private unnamed_addr constant [3 x i8] c"%i\00", align 1
 //	@.str1 = private unnamed_addr constant [3 x i8] c"%c\00", align 1
 //	@.str2 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-	
-	private static String readIntf = "@.readInt = private unnamed_addr " +
-			"constant [3 x i8] c\"%i" + '\\' + "00" + "\", align 1";
-	private static String readCharf = "@.readChar = private unnamed_addr " +
-			"constant [3 x i8] c\"%c" + '\\' + "00" + "\", align 1";
-	private static String readStringf = "@.readString = private unnamed_addr " +
-			"constant [3 x i8] c\"%s" + '\\' + "00" + "\", align 1";
-
 	
 	public static void generateCode(Tree tree, SymbolTable table)	
 	
@@ -135,36 +129,25 @@ public class CodeGenerator
 		}
 	}
 
+	private static void writeHeaders(BufferedWriter out) throws IOException
+	{
+		if (includeRead)
+		{
+			out.write(read+ "\n");
+		}
+		if ( includeATOI)
+		{
+			out.write(atoi  + "\n");
+		}
+	}
+
 	private static void writeFooter(BufferedWriter out) throws IOException {
 		if (includePrint)
 		{
 			out.write(printf + "\n");
 		}
-		if (includeRead)
-		{
-			out.write(scanf+ "\n");
-		}
 	}
-
-	private static void writeHeaders(BufferedWriter out) throws IOException {
-		if (includeReadIntTop)
-		{
-			out.write(readIntf + "\n");
-		}
-		if (includeReadCharTop)
-		{
-			out.write(readCharf + "\n");				
-		}
-		if (includeReadStringTop)
-		{
-			out.write(readStringf + "\n");				
-		}
-	}
-	
 	public static void includePrint() { includePrint=true;}
 	public static void includeRead() { includeRead=true;}
-	
-	public static void includeReadInt() { includeReadIntTop = true;}
-	public static void includeReadChar() { includeReadCharTop = true;}
-	public static void includeReadString() { includeReadStringTop = true;}
+	public static void includeATOI() { includeATOI=true;}
 }

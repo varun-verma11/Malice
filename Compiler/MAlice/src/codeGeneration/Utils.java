@@ -54,10 +54,12 @@ public class Utils
 				String res = 
 					Expression.getResultReg(node.getChild(1), table, gen);
 				int index = Integer.parseInt(res);
-				return "getelementptr inbounds [" + val.getArraySize() + " x "
+				String uniqueId = gen.getUniqueLabel();
+				CodeGenerator.addInstruction( uniqueId + " = getelementptr inbounds [" + val.getArraySize() + " x "
 						+ getArrayTypeSize(val.getType()) + "]* "
 						+ val.getLocationReg() + ", "
-						+ getArrayTypeSize(val.getType()) + " 0, i64 " + index;
+						+ getArrayTypeSize(val.getType()) + " 0, i64 " + index);
+				return uniqueId;
 			} catch (NumberFormatException e)
 			{	}
 			String uniqueId = gen.getUniqueLabel();

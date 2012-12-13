@@ -25,7 +25,7 @@ public class Imports
 			RecognitionException
 	{
 		Tree current = node.getChild(0);
-		if (current.getText().contentEquals("bring"))
+		if (current.getText().contentEquals("wants"))
 		{
 			if (imports.contains(current.getChild(current.getChildCount() - 1)
 					.getText()))
@@ -55,7 +55,7 @@ public class Imports
 			return null;
 		Tree current = node;
 
-		while (current != null && current.getText().contentEquals("bring"))
+		while (current != null && current.getText().contentEquals("wants"))
 		{
 			Tree tree = null;
 			CharStream input = new ANTLRFileStream(
@@ -141,7 +141,7 @@ public class Imports
 		int number_of_children = node.getChildCount();
 		while (curr_child != number_of_children)
 		{
-			if (!node.getChild(curr_child).getText().contentEquals("bring"))
+			if (!node.getChild(curr_child).getText().contentEquals("wants"))
 			{
 				// insertChildInIndex(node, temp.getChildIndex(), current);
 				// insertChildInIndex(node, current);

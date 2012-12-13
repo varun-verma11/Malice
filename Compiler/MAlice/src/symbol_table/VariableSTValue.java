@@ -32,6 +32,7 @@ public class VariableSTValue extends SymbolTableValue
 	{
 		arr_size = size;
 	}
+	
 	public int getArraySize()
 	{
 		return arr_size;
