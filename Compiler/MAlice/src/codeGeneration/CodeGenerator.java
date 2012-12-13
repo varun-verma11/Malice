@@ -17,6 +17,10 @@ public class CodeGenerator
 	private static boolean includePrint = false;
 	private static boolean includeRead = false;
 	private static boolean includeATOI = false;
+	private static boolean includePrintIntTop = false;
+	private static boolean includePrintCharTop = false;
+	private static boolean includePrintStringTop = false;
+	
 	private static String read = "%struct._IO_FILE = type { i32, i8*, i8*, " +
 			"i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, %struct._IO_marker*" +
 			", %struct._IO_FILE*, i32, i32, i64, i16, i8, [1 x i8], i8*, i64," +
@@ -26,6 +30,13 @@ public class CodeGenerator
 			"declare i8* @fgets(i8*, i32, %struct._IO_FILE*)";
 	private static String printf  = "declare i32 @printf(i8*, ...)";
 	private static String atoi = "declare i32 @atoi(i8*) nounwind readonly";
+	
+	private static String printIntHeader = "@.printInt = private unnamed_addr " +
+			"constant [3 x i8] c\"%i" + '\\' + "00" + "\", align 1";
+	private static String printCharHeader = "@.printChar = private unnamed_addr " +
+			"constant [3 x i8] c\"%c" + '\\' + "00" + "\", align 1";
+	private static String printStringHeader = "@.printString = private unnamed_addr " +
+			"constant [3 x i8] c\"%s" + '\\' + "00" + "\", align 1";
 	
 //	@.str = private unnamed_addr constant [3 x i8] c"%i\00", align 1
 //	@.str1 = private unnamed_addr constant [3 x i8] c"%c\00", align 1
@@ -131,6 +142,22 @@ public class CodeGenerator
 
 	private static void writeHeaders(BufferedWriter out) throws IOException
 	{
+		if (includePrint)
+		{
+			out.write(printf + "\n");
+		}
+		if (includePrintIntTop) 
+		{
+			out.write(printIntHeader + "\n");
+		}
+		if (includePrintCharTop) 
+		{
+			out.write(printCharHeader + "\n");
+		}
+		if (includePrintStringTop) 
+		{
+			out.write(printStringHeader + "\n");
+		}
 		if (includeRead)
 		{
 			out.write(read+ "\n");
@@ -149,5 +176,8 @@ public class CodeGenerator
 	}
 	public static void includePrint() { includePrint=true;}
 	public static void includeRead() { includeRead=true;}
+	public static void includeReadInt() { includePrintIntTop = true;}
+	public static void includeReadChar() { includePrintCharTop = true;}
+	public static void includeReadString() { includePrintStringTop = true;}
 	public static void includeATOI() { includeATOI=true;}
 }
