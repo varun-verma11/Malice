@@ -78,7 +78,7 @@ public class StatementsCodeGeneratorMagda {
 		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
 
 		if (nodeType == DATA_TYPES.SENTENCE) { 
-			sentenceAtNode(node, gen, "print");
+			sentenceAtNode(node, uniqueReg, "print");
 			return;
 		} else if (nodeType == DATA_TYPES.LETTER) {
 			CodeGenerator.addInstruction(uniqueReg
@@ -133,8 +133,7 @@ public class StatementsCodeGeneratorMagda {
 				+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
 	}
 	
-	private static void sentenceAtNode(Tree node, LabelGenerator gen, String ident) {
-		String uniqueReg = gen.getUniqueRegisterID();
+	private static void sentenceAtNode(Tree node,String uniqueReg, String ident) {
 		String curr = node.getChild(0).getText();
 		curr = curr.substring(1, curr.length()-1);
 		int size = curr.length() + 1;
@@ -179,7 +178,7 @@ public class StatementsCodeGeneratorMagda {
 		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
 
 		if(nodeType == DATA_TYPES.SENTENCE) {
-			sentenceAtNode(node, gen, "ret");
+			sentenceAtNode(node, gen.getUniqueRegisterID(), "ret");
 
 			return;
 		} else if (nodeType == DATA_TYPES.LETTER) {
