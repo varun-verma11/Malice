@@ -1,8 +1,5 @@
 package codeGeneration;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.SemanticsUtils;
@@ -28,33 +25,42 @@ public class Function
 		Tree current = node.getChild(0);
 		FunctionSTValue fVal = 
 			(FunctionSTValue) table.lookup(node.getChild(0).getText());
-		fVal.setLocationReg(current.getText().contentEquals("hatta")? 
-				"@main" : "@" + current);
+		fVal.setLocationReg(current.getText().contentEquals("main")? 
+				"@_main" : "@" + current);
 		current = SemanticsUtils.getNextChild(current);
 		String params = getParamsForFunctions(current,fVal.getTable());
-		writeFunctionHeader("i32", fVal.getLocationReg(), params);
+		writeFunctionHeader("void", fVal.getLocationReg(), params);
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
 		current = Statement.checkAllStatements(current, fVal.getTable(), gen);
 		//DO ALL STATEMENTS
 		//current = writeNestedFunctions(table, current,gen);
-		writeReturnStatement("i32", "0");
+		writeReturnStatement("void", "");
 		CodeGenerator.decrementIdentLevel();
-		CodeGenerator.addInstruction("}");
+		CodeGenerator.addInstruction("}\n");
 		return current;
 	}
 	
+	public static void writeCodeForStartFunction()
+	{
+		writeFunctionHeader("i32", "@main", "()");
+		
+		CodeGenerator.incrementIdentLevel();
+		CodeGenerator.addInstruction("call void @hatta");
+		writeReturnStatement("i32", "0");
+		CodeGenerator.decrementIdentLevel();
+		CodeGenerator.addInstruction("}\n");
+	}
 	private static Tree writeCodeForFunction(Tree node, SymbolTable table,LabelGenerator gen)
 	{
 		Tree current = node.getChild(0);
-		System.out.println(node.getChild(0).getText());
 		FunctionSTValue fVal = 
 			(FunctionSTValue) table.lookup(node.getChild(0).getText());
 		fVal.setLocationReg("@" + current);
 		current = SemanticsUtils.getNextChild(current);
 		String params = getParamsForFunctions(current,fVal.getTable());
-		current = SemanticsUtils.getNextChild(
-				SemanticsUtils.getNextChild(current));
+		current = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(
+				SemanticsUtils.getNextChild(current)));
 		writeFunctionHeader(
 				Utils.getReturnTypeOfFunction(fVal.getType())
 				, fVal.getLocationReg()
@@ -66,7 +72,7 @@ public class Function
 		//DO ALL STATEMENTS
 		//current = writeNestedFunctions(table, current,gen);
 		CodeGenerator.decrementIdentLevel();
-		CodeGenerator.addInstruction("}");
+		CodeGenerator.addInstruction("}\n");
 		return current;
 	}
 
@@ -105,6 +111,7 @@ public class Function
 			params += Utils.getReturnTypeOfFunction(type) + " "
 			+ "%" + current.getChild(0).getText()
 			+ ", ";
+			table.lookup(current.getChild(0).getText()).setLocationReg("%" + current.getChild(0).getText());
 			current = SemanticsUtils.getNextChild(current);
 		}
 		return (params.length()!=0)? "(" + params.substring(0, params.length()-2) + ")" : "()";
@@ -131,7 +138,7 @@ public class Function
 				"define " + 
 				ret_type + " " +
 				name + " " + params + " " +
-				"nounwind uwtable readnone {"
+				"nounwind uwtable {"
 				);
 	}
 	

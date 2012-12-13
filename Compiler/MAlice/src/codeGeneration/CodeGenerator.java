@@ -54,6 +54,7 @@ public class CodeGenerator
 			current = Statement.checkAllStatements(current, table, new LabelGenerator());
 			current = SemanticsUtils.getNextChild(current);
 		}
+		Function.writeCodeForStartFunction();
 	}
 	
 	/**
