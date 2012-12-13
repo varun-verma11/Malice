@@ -68,24 +68,24 @@ public class StatementsCodeGeneratorMagdaTest {
 //		
 //	}
 	
-//	@Test
-//	public void testFound() throws RecognitionException {
-//		System.out.println("\n\nSTART TESTING FOUND...\n");
-//
-//		String st = "Alice found x";
-//		String st1 = "Alice found y";
-//		String st2 = "Alice found z";
-//		String st3 = "Alice found fnX";
-//		String st4 = "Alice found z2";
-//		
-//		assertTrue(generateCodeForStatement(st, STATS.FOUND));
-//		assertTrue(generateCodeForStatement(st1, STATS.FOUND));
-//		assertTrue(generateCodeForStatement(st2, STATS.FOUND));
-//		assertTrue(generateCodeForStatement(st3, STATS.FOUND));
-//		assertTrue(generateCodeForStatement(st4, STATS.FOUND));
-//
-//	}
-//	
+	@Test
+	public void testFound() throws RecognitionException {
+		System.out.println("\n\nSTART TESTING FOUND...\n");
+
+		String st = "Alice found x";
+		String st1 = "Alice found y";
+		String st2 = "Alice found z";
+		String st3 = "Alice found fnX";
+		String st4 = "Alice found z2";
+		
+		assertTrue(generateCodeForStatement(st, STATS.FOUND));
+		assertTrue(generateCodeForStatement(st1, STATS.FOUND));
+		assertTrue(generateCodeForStatement(st2, STATS.FOUND));
+		assertTrue(generateCodeForStatement(st3, STATS.FOUND));
+		assertTrue(generateCodeForStatement(st4, STATS.FOUND));
+
+	}
+	
 	@Test
 	public void testSaidAndSpoke() throws RecognitionException {
 		System.out.println("\n\nSTART TESTING SPOKE...\n");
