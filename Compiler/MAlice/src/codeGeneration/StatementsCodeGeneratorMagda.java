@@ -134,9 +134,18 @@ public class StatementsCodeGeneratorMagda {
 			}
 			return;
 		}
-		String currReg = Expression.getResultReg(node.getChild(0), table,gen);
+		CodeGenerator.includePrintString();
+		String currReg = Expression.getResultReg(node.getChild(0), table, gen);
+		System.out.println(currReg.length() + 1);
+		String newLabel = "@.str_" + count ;
+		count++;
+		CodeGenerator.addGlobalInstruction(newLabel + " = private " 
+				+ "unnamed_addr constant [" + (currReg.length() + 1) + " x i8] c\"" 
+				+ currReg + "\\00\", align 1");
 		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
-				+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
+				+ "@printf(i8* getelementptr inbounds ([3 x i8]* " 
+				+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds " 
+				+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel + ", i32 0, i32 0))");
 	}
 	
 	private static void sentenceAtNode(Tree node,String uniqueReg, String ident) {
