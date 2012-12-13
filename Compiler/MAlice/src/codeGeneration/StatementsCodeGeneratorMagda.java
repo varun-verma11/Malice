@@ -36,9 +36,7 @@ public class StatementsCodeGeneratorMagda {
 				+ currReg + ", align 4");
 	}
 
-
-
-
+	
 	public static void writeBecameCode(Tree node, SymbolTable table, 
 			LabelGenerator gen) {
 		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
@@ -79,9 +77,8 @@ public class StatementsCodeGeneratorMagda {
 		if (nodeType == DATA_TYPES.SENTENCE) { 
 			sentenceAtNode(node, uniqueReg, "print");
 			return;
-		} else if (nodeType == DATA_TYPES.LETTER) {System.out.println("1: " + uniqueReg);
+		} else if (nodeType == DATA_TYPES.LETTER) {
 			String charToPrint = "" + node.getChild(0).getText().charAt(1);
-			System.out.println(charToPrint);
 			CodeGenerator.includePrintString();
 			String newLabel = "@.str_" + count ;
 			count++;
@@ -92,8 +89,6 @@ public class StatementsCodeGeneratorMagda {
 					+ "@printf(i8* getelementptr inbounds ([3 x i8]* " 
 					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds " 
 					+ "([2 x i8]* " + newLabel + ", i32 0, i32 0))");
-			System.out.println("2: " + uniqueReg);
-			System.out.println(charToPrint);
 
 			return;
 		} else if (table.lookup(node.getChild(0).getText())!=null){
