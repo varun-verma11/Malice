@@ -9,6 +9,7 @@ import symbol_table.VariableSTValue;
 
 public class Statement
 {
+	private static final int BUFF_SIZE = 100;
 	public static Tree checkAllStatements(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -102,13 +103,17 @@ public class Statement
 			DATA_TYPES type = v.getType();
 
 			if ( type == DATA_TYPES.NUMBER) {
+				String buff = gen.getUniqueLabel();
+				CodeGenerator.addInstruction(buff 
+						+ " = alloca [" + BUFF_SIZE + " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction(regId1 + " = load i32* %" + arg1 + ", align 4");
+				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction(regId2 + " = call i32 (i8*, ...)* @scanf" +
-						"(i8* getelementptr inbounds ([3 x i8]* @.readInt, i32 0, i32 0), i32 "+ regId1);
+				addLoadIOFileIns(regId2);
+				writeCallFGetsIns(gen, regId1, regId2);
+				
+				CodeGenerator.includeATOI();
 				CodeGenerator.includeRead();
-				CodeGenerator.includeReadInt();
 			}
 
 			else if (type == DATA_TYPES.LETTER) {
@@ -120,22 +125,40 @@ public class Statement
 				CodeGenerator.addInstruction( regId3 + " = call i32 (i8*, ...)* @__isoc99_scanf(i8* " +
 						"getelementptr inbounds ([3 x i8]* @.readChar, i32 0, i32 0), i32 "+ regId2 +")");
 				CodeGenerator.includeRead();
-				CodeGenerator.includeReadChar();
 
-			}
-
-			if ( type == DATA_TYPES.SENTENCE) {
+			} else if ( type == DATA_TYPES.SENTENCE) {
 				String regId1 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction( regId1 + " = load i8** %" + arg1 + ", align 8");
+				addGetElementPtrIns(v.getLocationReg(), regId1);
 				String regId2 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction( regId2 + " = call i32 (i8*, ...)* @__isoc99_scanf" +
-						"(i8* getelementptr inbounds ([3 x i8]* @.readString, i32 0, i32 0), i8* "
-						+ regId1 +")");
+				addLoadIOFileIns(regId2);
+				writeCallFGetsIns(gen, regId1, regId2);
 				CodeGenerator.includeRead();
-				CodeGenerator.includeReadChar();
 			}
 		}
 
+	}
+
+	private static String writeCallFGetsIns(LabelGenerator gen, String regId1,
+			String regId2)
+	{
+		String uniqueLabel = gen.getUniqueLabel();
+		CodeGenerator.addInstruction(uniqueLabel +
+				" = call i8* @fgets(i8* " + regId1 + ", i32 " 
+				+ BUFF_SIZE + ", %struct._IO_FILE* " + regId2);
+		return uniqueLabel;
+	}
+
+	private static void addGetElementPtrIns(String location, String regId1)
+	{
+		CodeGenerator.addInstruction( regId1 
+				+ " = getelementptr inbounds ["+ BUFF_SIZE +" x i8]*" 
+				+ location + ", i32 0, i32 0 ");
+	}
+
+	private static void addLoadIOFileIns(String regId2)
+	{
+		CodeGenerator.addInstruction( regId2 + 
+				" = load %struct._IO_FILE** @stdin, align 8");
 	}
 
 
