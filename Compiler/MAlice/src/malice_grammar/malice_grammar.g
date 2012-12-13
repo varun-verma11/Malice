@@ -168,6 +168,7 @@ function: THE! ( LOOKING^ '-'! GLASS! function_name lpar! parameters rpar!
           CLOSED!
           ;
           
+map_test : global_declaration control_structure;
 import_statement : ALICE! WANTS^ ((function_name (','! function_name)*)? | EVERYTHING) FROM! STRING;  
 global_declaration : (declaration_statements (statement_conjunctions declaration_statements)* '.'!)* ;
 program : import_statement* global_declaration function+ EOF! ;
