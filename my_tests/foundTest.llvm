@@ -1,11 +1,12 @@
-@.printInt = private unnamed_addr constant [3 x i8] c"%i\00", align 1
+@.printString = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str_0 = private unnamed_addr constant [3 x i8] c"%1\00", align 1
 define i32 @getY () nounwind uwtable {
 	ret i32 234
 }
 
 define void @hatta () nounwind uwtable {
-	%1 = load i32* @getY, align 4
-	%2 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.printInt, i32 0, i32 0), i32 %1)
+	%1 = call i32 @getY()
+	%2 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.printString, i32 0, i32 0), i8* getelementptr inbounds ([3 x i8]* @.str_0, i32 0, i32 0))
 	ret void 
 }
 
