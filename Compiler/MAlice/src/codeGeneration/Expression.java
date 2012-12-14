@@ -280,7 +280,7 @@ public class Expression
 		}
 		
 		return params 
-			   + Utils.getReturnTypeOfFunction(args.get(leaf.getChildCount()-2)) 
+			   + Utils.getReturnTypeOfFunction(args.get(leaf.getChildCount()-3)) 
 			   + " "
 			   + table.lookup(leaf.getChild(leaf.getChildCount()-2).getText())
 					.getLocationReg();
