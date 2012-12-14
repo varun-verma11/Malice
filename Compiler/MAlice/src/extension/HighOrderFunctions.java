@@ -98,11 +98,11 @@ public class HighOrderFunctions
 		String func_name = node.getChild(1).getText();
 		String in = node.getChild(2).getText();
 		String out = node.getChild(3).getText();
-		String map = "i was a number of " + val.getArraySize() + ".\n" 
+		String map = "opened i was a number of " + val.getArraySize() + ".\n" 
 					+ "eventually (i==0) because \n"
 					+ out + "'s i piece became "
 					+ func_name + "(" + in + "'s i piece" + ")."
-					+ "\nenough times"
+					+ "\nenough times closed"
 					;
 		System.out.println(map);
 		CharStream input = new ANTLRStringStream(map);

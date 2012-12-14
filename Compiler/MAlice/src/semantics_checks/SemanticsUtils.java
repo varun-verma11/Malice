@@ -100,7 +100,7 @@ public class SemanticsUtils {
 	public static Tree skipImports(Tree node)
 	{
 		Tree curr = node;
-		while(curr.getText().contentEquals("bring"))
+		while(curr.getText().contentEquals("wants"))
 		{
 			curr = getNextChild(curr);
 		}

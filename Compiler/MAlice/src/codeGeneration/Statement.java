@@ -10,17 +10,21 @@ import symbol_table.VariableSTValue;
 public class Statement
 {
 	/**
-	 * @field BUFF_SIZE User-defined buffer size to limit input 
+	 * @field BUFF_SIZE User-defined buffer size to limit input
 	 */
 	private static final int BUFF_SIZE = 100;
 
 	/**
-	 * Checks statements and passes arguments to generateStatementCode to convert it to LLVM code
+	 * Checks statements and passes arguments to generateStatementCode to
+	 * convert it to LLVM code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current Symbol-Table
-	 * @param gen		Current LabelGenerator
-	 * @return			returns last node
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current Symbol-Table
+	 * @param gen
+	 *            Current LabelGenerator
+	 * @return returns last node
 	 */
 	public static Tree checkAllStatements(Tree node, SymbolTable table,
 			LabelGenerator gen)
@@ -39,14 +43,17 @@ public class Statement
 		return current;
 
 	}
-	
+
 	/**
 	 * Calls Helper method converting the MAlice code to LLVM code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current SymbolTable
-	 * @param gen		Current LabelGenerator
-	 * @return			'true' if end of all statements, else 'true'
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current SymbolTable
+	 * @param gen
+	 *            Current LabelGenerator
+	 * @return 'true' if end of all statements, else 'true'
 	 */
 	private static boolean generateStatementCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
@@ -63,7 +70,8 @@ public class Statement
 		} else if (node.getText().contentEquals("ate")
 				|| node.getText().contentEquals("drank"))
 		{
-			StatementsCodeGeneratorMagda.writeAteAndDrankCode(node, table, gen, (node.getText().contentEquals("ate")? "add" : "sub"));
+			StatementsCodeGeneratorMagda.writeAteAndDrankCode(node, table, gen,
+					(node.getText().contentEquals("ate") ? "add" : "sub"));
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
@@ -101,12 +109,15 @@ public class Statement
 		} else if (node.getText().contentEquals("opened"))
 		{
 			return false;
-		} else if (node.getChildCount() > 2
+		} else if (node.getChildCount() >= 2
 				&& node.getChild(0).getText().contentEquals("(")
-				&& node.getChild(node.getChildCount() - 1).getText()
-						.contentEquals(")"))
+				&& node.getChild(node.getChildCount() - 1).getText().contentEquals(")"))
 		{
-			Expression.getResultReg(node, table, gen);
+
+			CodeGenerator.addInstruction("call void "
+					+ table.lookup(node.getText()).getLocationReg() + "("
+					+ Expression.getParamsToFunction(node, table) + ")");
+
 			return false;
 		}
 		return true;
@@ -115,9 +126,12 @@ public class Statement
 	/**
 	 * Translates WHAT read-statement to LLVM assembly code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current SymbolTable
-	 * @param gen		Current LabelGenerator
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current SymbolTable
+	 * @param gen
+	 *            Current LabelGenerator
 	 */
 	private static void writeWHAT(Tree node, SymbolTable table,
 			LabelGenerator gen)
@@ -133,8 +147,8 @@ public class Statement
 			{
 				String tempReg = gen.getUniqueLabel();
 				String buff = tempReg;
-				CodeGenerator.addInstruction(tempReg + " = alloca [" + BUFF_SIZE
-						+ " x i8], align 16");
+				CodeGenerator.addInstruction(tempReg + " = alloca ["
+						+ BUFF_SIZE + " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
@@ -153,8 +167,8 @@ public class Statement
 			{
 				String tempReg = gen.getUniqueLabel();
 				String buff = tempReg;
-				CodeGenerator.addInstruction(tempReg + " = alloca [" + BUFF_SIZE
-						+ " x i8], align 16");
+				CodeGenerator.addInstruction(tempReg + " = alloca ["
+						+ BUFF_SIZE + " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
@@ -163,20 +177,18 @@ public class Statement
 				regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				regId2 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction( regId2 + " = load i8* " 
-						+ regId1 + ", align 1");
-				CodeGenerator.addInstruction("store i8 " + regId2 
-						+ ", i8* " + v.getLocationReg()
+				CodeGenerator.addInstruction(regId2 + " = load i8* " + regId1
 						+ ", align 1");
+				CodeGenerator.addInstruction("store i8 " + regId2 + ", i8* "
+						+ v.getLocationReg() + ", align 1");
 				CodeGenerator.includeRead();
 
 			} else if (type == DATA_TYPES.SENTENCE)
 			{
-				
 				String regId1 = gen.getUniqueLabel();
 				String buff = regId1;
-				CodeGenerator.addInstruction(regId1 
-						+ " = alloca [100 x i8], align 16");				
+				CodeGenerator.addInstruction(regId1
+						+ " = alloca [100 x i8], align 16");
 				String regId2 = gen.getUniqueLabel();
 				addGetElementPtrIns(regId1, regId2);
 				regId1 = gen.getUniqueLabel();
@@ -184,9 +196,9 @@ public class Statement
 				regId1 = writeCallFGetsIns(gen, regId2, regId1);
 				regId2 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId2);
-				CodeGenerator.addInstruction("store i8* " + regId2 
-						+ ", i8** " + v.getLocationReg() + ", align 8");
-				
+				CodeGenerator.addInstruction("store i8* " + regId2 + ", i8** "
+						+ v.getLocationReg() + ", align 8");
+
 				CodeGenerator.includeRead();
 			}
 		}
@@ -218,9 +230,12 @@ public class Statement
 	/**
 	 * Translates WAS declaration-statement to LLVM assembly code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current SymbolTable
-	 * @param gen		Current LabelGenerator
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current SymbolTable
+	 * @param gen
+	 *            Current LabelGenerator
 	 */
 	private static void writeWAS(Tree node, SymbolTable table,
 			LabelGenerator gen)

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.antlr.runtime.tree.Tree;
 
+import extension.Imports;
+
 import semantics_checks.SemanticsUtils;
 import symbol_table.SymbolTable;
 
@@ -47,9 +49,9 @@ public class CodeGenerator
 	public static void generateCode(Tree tree, SymbolTable table)	
 	
 	{
-		Tree current = (tree.getText()==null)? tree.getChild(0) : tree ;;
+		Tree current = (tree.getText()==null)? tree.getChild(0) : tree ;
+		current = SemanticsUtils.skipImports(current);
 		current = Statement.checkAllStatements(current, table, new LabelGenerator());
-		moveHattaToEnd(tree);
 		while(current!=null)
 		{
 			Function.writeCodeForFunctions(current, table, new LabelGenerator());
@@ -59,12 +61,6 @@ public class CodeGenerator
 		Function.writeCodeForStartFunction();
 	}
 	
-	/**
-	 * Currently need to check with LIAM and JOSE how to delete the child in 
-	 * antlr tree. Since it seems to be giving troubles and once thats sorted
-	 * import should work like a charm :D
-	 * @param tree
-	 */
 	private static void moveHattaToEnd(Tree tree)
 	{
 		Tree curr = (tree.getText()==null)? tree.getChild(0) : tree ;;
