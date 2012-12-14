@@ -18,31 +18,20 @@ import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.SemanticsUtils;
 
+
 public class Imports
 {
 	/**
-<<<<<<< HEAD
 	 * 	String containing filenames to be imported
-=======
 	 * @field imports : This keeps a track of the files which have been imported
->>>>>>> 476aceb68230efa72bf1fafd408c66dbd30d18b2
 	 */
+
 	private static Set<String> imports = new HashSet<String>();
 
 	/**
-<<<<<<< HEAD
-	 * Checks whether all the imports are valid
-	 * 
-	 * @param node			current node
-	 * @return				modified tree
-	 * @throws IOException
-	 * @throws RecognitionException
-	 */
-	public static Tree checkImports(Tree node) throws IOException,
-			RecognitionException
-=======
 	 * This function checks for errors which could be in import statements, such
 	 * as if user wants to import a file which does not exists. Also it
+
 	 * manipulates the AST in order to add the imported functions.
 	 * 
 	 * @param node
@@ -52,7 +41,6 @@ public class Imports
 	 *             : Thrown if the imported file is not valid
 	 */
 	public static Tree checkImports(Tree node) throws RecognitionException
->>>>>>> 476aceb68230efa72bf1fafd408c66dbd30d18b2
 	{
 		Tree current = node.getChild(0);
 		if (current.getText().contentEquals("wants"))
