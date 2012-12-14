@@ -24,7 +24,7 @@ public class Function
 	{
 		Tree current = node.getChild(0);
 		FunctionSTValue fVal = 
-			(FunctionSTValue) table.lookup(node.getChild(0).getText());
+			(FunctionSTValue) table.lookup(current.getText());
 		fVal.setLocationReg(current.getText().contentEquals("main")? 
 				"@_main" : "@" + current);
 		current = SemanticsUtils.getNextChild(current);
