@@ -13,10 +13,14 @@ public class Expression
 	/**
 	 * Returns Value of the expression or the register where it is stored
 	 * 
-	 * @param node		Current node
-	 * @param table		Current SymbolTable
-	 * @param gen		Current LabelGenerator
-	 * @return			Expression Value or the register id in which the expression value is stored
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current SymbolTable
+	 * @param gen
+	 *            Current LabelGenerator
+	 * @return Expression Value or the register id in which the expression value
+	 *         is stored
 	 */
 
 	public static String getResultReg(Tree node, SymbolTable table,
@@ -130,14 +134,17 @@ public class Expression
 		}
 		return uniqueRegisterID;
 	}
-	
+
 	/**
 	 * Calculates the binary operation recursively
 	 * 
-	 * @param op	Operator
-	 * @param i		First operand
-	 * @param j		Second operand
-	 * @return		Calulation in integer form
+	 * @param op
+	 *            Operator
+	 * @param i
+	 *            First operand
+	 * @param j
+	 *            Second operand
+	 * @return Calulation in integer form
 	 */
 	private static int calculateExpr(OPERATOR op, int i, int j)
 	{
@@ -178,9 +185,11 @@ public class Expression
 	/**
 	 * Calculates unary operations
 	 * 
-	 * @param op	Operator
-	 * @param i		Operand
-	 * @return		Result of operation
+	 * @param op
+	 *            Operator
+	 * @param i
+	 *            Operand
+	 * @return Result of operation
 	 */
 	private static int calculateUanary(OPERATOR op, int i)
 	{
@@ -193,14 +202,17 @@ public class Expression
 		}
 		return -1;
 	}
-	
+
 	/**
 	 * Translates NOT statement to LLVM assembly
 	 * 
-	 * @param uniqueRegisterID		current registerID
-	 * @param arg1					current argument
-	 * @param gen					current LabelGenerator
-	 * @return						resultant registerID
+	 * @param uniqueRegisterID
+	 *            current registerID
+	 * @param arg1
+	 *            current argument
+	 * @param gen
+	 *            current LabelGenerator
+	 * @return resultant registerID
 	 */
 	private static String writeNotStatement(String uniqueRegisterID,
 			String arg1, LabelGenerator gen)
@@ -211,15 +223,19 @@ public class Expression
 		// writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
-	
+
 	/**
 	 * Translates OR statement to LLVM assembly
 	 * 
-	 * @param arg1					First argument
-	 * @param arg2					Second argument
-	 * @param uniqueRegisterID		current registerID
-	 * @param gen					current LabelGenerator
-	 * @return						resultant registerID
+	 * @param arg1
+	 *            First argument
+	 * @param arg2
+	 *            Second argument
+	 * @param uniqueRegisterID
+	 *            current registerID
+	 * @param gen
+	 *            current LabelGenerator
+	 * @return resultant registerID
 	 */
 	private static String writeOrStatement(String arg1, String arg2,
 			String uniqueRegisterID, LabelGenerator gen)
@@ -234,15 +250,19 @@ public class Expression
 		// writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
-	
+
 	/**
 	 * Translates AND statement to LLVM assembly
 	 * 
-	 * @param arg1					First argument
-	 * @param arg2					Second argument
-	 * @param uniqueRegisterID		current registerID
-	 * @param gen					current LabelGenerator
-	 * @return						resultant registerID
+	 * @param arg1
+	 *            First argument
+	 * @param arg2
+	 *            Second argument
+	 * @param uniqueRegisterID
+	 *            current registerID
+	 * @param gen
+	 *            current LabelGenerator
+	 * @return resultant registerID
 	 */
 	private static String writeAndStatement(String arg1, String arg2,
 			String uniqueRegisterID, LabelGenerator gen)
@@ -278,7 +298,7 @@ public class Expression
 	private static String writeComparisonStatements(String operation,
 			String arg1, String arg2, LabelGenerator gen)
 	{
-		
+
 		String a1 = gen.getUniqueRegisterID();
 		CodeGenerator.addInstruction(a1 + " = load i32* " + arg1 + ", align 4");
 		String a2 = gen.getUniqueRegisterID();
@@ -380,13 +400,14 @@ public class Expression
 		return null;
 
 	}
-	
+
 	private enum OPERATOR
 	{
 		OR, AND, BWOR, BWXOR, BWAND, EQ, NE, LTE, LT, GT, GTE, ADD, SUB, MUL, MOD, BWNOT, NOT, DIV
 	}
 
-	public static String getParamsToFunction(Tree leaf, SymbolTable table, LabelGenerator gen)
+	public static String getParamsToFunction(Tree leaf, SymbolTable table,
+			LabelGenerator gen)
 	{
 		if (leaf.getChildCount() == 0)
 			return "";
@@ -398,13 +419,34 @@ public class Expression
 		for (int i = 1; i < leaf.getChildCount() - 2; i++)
 		{
 			params += Utils.getReturnTypeOfFunction(args.get(i - 1)) + " "
-					+ table.lookup(leaf.getChild(i).getText()).getLocationReg()
-					+ ", ";
+					+ getParam(leaf, table, i) + ", ";
 		}
-		return params 
-			   + Utils.getReturnTypeOfFunction(args.get(leaf.getChildCount()-3)) 
-			   + " "
-			   + table.lookup(leaf.getChild(leaf.getChildCount()-2).getText())
-					.getLocationReg();
+		return params
+				+ Utils.getReturnTypeOfFunction(args
+						.get(leaf.getChildCount() - 3)) + " "
+				+ getParam(leaf, table, leaf.getChildCount() - 2);
+	}
+
+	private static String getParam(Tree leaf, SymbolTable table, int i)
+	{
+		String text = leaf.getChild(i).getText();
+		DATA_TYPES type = Utils.getValueType(leaf.getChild(i), table);
+		if (type == DATA_TYPES.NUMBER)
+		{
+			return table.lookup(text).getLocationReg();
+		} else if (type == DATA_TYPES.SENTENCE)
+		{
+			CodeGenerator.addGlobalInstruction("@.str" + Statement.count
+					+ " = private unnamed_addr constant [" + text.length()
+					+ " x i8] c" + text.substring(0, text.length() - 2)
+					+ "\\00\", align 1");
+			Statement.count++;
+			return "@.str" + (Statement.count-1);
+		} else if (type == DATA_TYPES.LETTER)
+		{
+			return "i8 signext " + (int)text.charAt(1);			
+		}
+
+		return null;
 	}
 }
