@@ -106,6 +106,15 @@ public class Expression
 		}
 		return uniqueRegisterID;
 	}
+	
+	/**
+	 * Calculates the binary operation recursively
+	 * 
+	 * @param op	Operator
+	 * @param i		First operand
+	 * @param j		Second operand
+	 * @return		Calulation in integer form
+	 */
 	private static int calculateExpr(OPERATOR op, int i, int j)
 	{
 		switch(op)
@@ -141,6 +150,14 @@ public class Expression
 		}
 		return -1;
 	}
+
+	/**
+	 * Calculates unary operations
+	 * 
+	 * @param op	Operator
+	 * @param i		Operand
+	 * @return		Result of operation
+	 */
 	private static int calculateUanary(OPERATOR op, int i)
 	{
 		switch(op)
@@ -152,6 +169,15 @@ public class Expression
 		}
 		return -1;
 	}
+	
+	/**
+	 * Translates NOT statement to LLVM assembly
+	 * 
+	 * @param uniqueRegisterID		current registerID
+	 * @param arg1					current argument
+	 * @param gen					current LabelGenerator
+	 * @return						resultant registerID
+	 */
 	private static String writeNotStatement(String uniqueRegisterID, String arg1, LabelGenerator gen)
 	{
 		writeComparison(uniqueRegisterID, "eq", arg1, "0");
@@ -160,6 +186,16 @@ public class Expression
 //		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
+	
+	/**
+	 * Translates OR statement to LLVM assembly
+	 * 
+	 * @param arg1					First argument
+	 * @param arg2					Second argument
+	 * @param uniqueRegisterID		current registerID
+	 * @param gen					current LabelGenerator
+	 * @return						resultant registerID
+	 */
 	private static String writeOrStatement(String arg1, String arg2,
 			String uniqueRegisterID,LabelGenerator gen)
 	{
@@ -172,6 +208,16 @@ public class Expression
 //		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
+	
+	/**
+	 * Translates AND statement to LLVM assembly
+	 * 
+	 * @param arg1					First argument
+	 * @param arg2					Second argument
+	 * @param uniqueRegisterID		current registerID
+	 * @param gen					current LabelGenerator
+	 * @return						resultant registerID
+	 */
 	private static String writeAndStatement(String arg1, String arg2,
 			String uniqueRegisterID, LabelGenerator gen)
 	{
@@ -187,13 +233,16 @@ public class Expression
 //		writeExtensionIns(uniqueRegisterID, ans);
 		return uniqueRegisterID;
 	}
-	
+
+
 	static void writeOperationExpressions(String uniqueRegisterID, 
 			String operation, String arg1, String arg2)
 	{
 		CodeGenerator.addInstruction(uniqueRegisterID + " = " + operation + " nsw i32 " 
 				+ arg1 + ", " + arg2);
 	}
+	
+	
 	private static String writeComparisonStatements(String uniqueRegisterID, 
 			String operation, String arg1, String arg2, LabelGenerator gen)
 	{
@@ -203,6 +252,14 @@ public class Expression
 //		writeExtensionIns(uniqueRegisterID, prev);
 		return uniqueRegisterID;
 	}
+	
+	/**
+	 * 
+	 * @param uniqueRegisterID
+	 * @param operation
+	 * @param arg1
+	 * @param arg2
+	 */
 	private static void writeComparison(String uniqueRegisterID,
 			String operation, String arg1, String arg2)
 	{
@@ -267,11 +324,13 @@ public class Expression
 		return null;
 			
 	}
+	
 	private enum OPERATOR
 	{
 		OR, AND, BWOR, BWXOR, BWAND, EQ, NE, LTE, LT, GT, GTE, ADD,
 		SUB, MUL, MOD, BWNOT, NOT, DIV
 	}
+
 	public static String getParamsToFunction(Tree leaf, SymbolTable table)
 	{
 		if (leaf.getChildCount()==0) return "";

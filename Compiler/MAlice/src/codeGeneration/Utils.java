@@ -9,7 +9,13 @@ import symbol_table.VariableSTValue;
 
 public class Utils
 {
-
+	/**
+	 * Returns Data Type associated with the node and it's contents
+	 * 
+	 * @param node			current node
+	 * @param symbolTable	current SymbolTable
+	 * @return				DATA_TYPE as NUMBER, LETTER OR SENTENCE
+	 */
 	public static DATA_TYPES getValueType(Tree node, SymbolTable symbolTable)
 	{
 		char firstChar = node.getText().charAt(0);
@@ -28,6 +34,12 @@ public class Utils
 		}
 	}
 
+	/**
+	 * Returns the corresponding llvm string for functions
+	 * 
+	 * @param type		DATA_TYPE associated with function
+	 * @return			LLVM string for output
+	 */
 	public static String getReturnTypeOfFunction(DATA_TYPES type)
 	{
 
@@ -43,6 +55,15 @@ public class Utils
 		return null;
 	}
 
+	/**
+	 * Returns either a string representing the current register (if the given node contains a variable)
+	 * or a String containing the LLVM code for dealing with array elements
+	 * 
+	 * @param node		current node
+	 * @param table		current symbol-table
+	 * @param gen		current LabelGenerator
+	 * @return			corresponding String for array or non-array variable
+	 */
 	public static String getVarReg(Tree node, SymbolTable table, LabelGenerator gen)
 	{
 		if (node.getText().contentEquals("piece"))
@@ -90,6 +111,12 @@ public class Utils
 		return table.lookup(node.getText()).getLocationReg();
 	}
 
+	/**
+	 * Returns type-size indicator to be written in llvm code for a given array type
+	 * 
+	 * @param type	Array data-type
+	 * @return		Corresponding llvm string
+	 */
 	private static String getArrayTypeSize(DATA_TYPES type)
 	{
 		switch (type)

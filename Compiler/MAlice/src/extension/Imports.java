@@ -19,8 +19,19 @@ import semantics_checks.SemanticsUtils;
 
 public class Imports
 {
+	/**
+	 * 	String containing filenames to be imported
+	 */
 	private static Set<String> imports = new HashSet<String>();
 
+	/**
+	 * Checks whether all the imports are valid
+	 * 
+	 * @param node			current node
+	 * @return				modified tree
+	 * @throws IOException
+	 * @throws RecognitionException
+	 */
 	public static Tree checkImports(Tree node) throws IOException,
 			RecognitionException
 	{
@@ -97,6 +108,7 @@ public class Imports
 			}
 		}
 
+		
 		return current;
 	}
 

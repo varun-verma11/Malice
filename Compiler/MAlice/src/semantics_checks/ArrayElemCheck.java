@@ -10,6 +10,13 @@ import symbol_table.SymbolTableValue;
 
 public class ArrayElemCheck
 {
+	/**
+	 * Checks semantics errors in array declaration and initialisation
+	 * 
+	 * @param node				Current node
+	 * @param symbol_table		Current Symbol-Table
+	 * @return					
+	 */
 	public static DATA_TYPES checkArrayElem(Tree node, SymbolTable symbol_table)
 	{
 		if (!symbol_table
