@@ -62,7 +62,7 @@ public class Malice
 					{
 						CodeGenerator.generateCode(tree, table);
 						CodeGenerator.saveToFile(filepath);
-						System.out.println("====DONE====");
+						System.out.println("====RUNNING====");
 					}
 				}
 					
