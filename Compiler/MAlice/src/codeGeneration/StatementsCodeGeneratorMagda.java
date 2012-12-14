@@ -7,6 +7,11 @@ import codeGeneration.Utils;
 import symbol_table.DATA_TYPES;
 import symbol_table.SymbolTable;
 
+/**
+ * This class 
+ * 
+ *
+ */
 public class StatementsCodeGeneratorMagda {
 	
 	private static int count = 0;
@@ -26,8 +31,8 @@ public class StatementsCodeGeneratorMagda {
 			LabelGenerator gen, String action) {
 		String uniqueReg = gen.getUniqueRegisterID();
 		String currReg = Utils.getVarReg(node.getChild(0), table, gen);
-				//(table.lookup(node.getChild(0).getText())).getLocationReg();
-		CodeGenerator.addInstruction(uniqueReg + " = load i32* " + currReg + ", align 4");
+		CodeGenerator.addInstruction(uniqueReg + " = load i32* " + currReg 
+				+ ", align 4");
 		currReg = uniqueReg;
 		uniqueReg = gen.getUniqueRegisterID();
 		Expression.writeOperationExpressions(uniqueReg, action, currReg, "1");
@@ -36,9 +41,7 @@ public class StatementsCodeGeneratorMagda {
 				+ currReg + ", align 4");
 	}
 
-
-
-
+	
 	public static void writeBecameCode(Tree node, SymbolTable table, 
 			LabelGenerator gen) {
 		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
@@ -79,9 +82,8 @@ public class StatementsCodeGeneratorMagda {
 		if (nodeType == DATA_TYPES.SENTENCE) { 
 			sentenceAtNode(node, uniqueReg, "print");
 			return;
-		} else if (nodeType == DATA_TYPES.LETTER) {System.out.println("1: " + uniqueReg);
+		} else if (nodeType == DATA_TYPES.LETTER) {
 			String charToPrint = "" + node.getChild(0).getText().charAt(1);
-			System.out.println(charToPrint);
 			CodeGenerator.includePrintString();
 			String newLabel = "@.str_" + count ;
 			count++;
@@ -92,8 +94,6 @@ public class StatementsCodeGeneratorMagda {
 					+ "@printf(i8* getelementptr inbounds ([3 x i8]* " 
 					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds " 
 					+ "([2 x i8]* " + newLabel + ", i32 0, i32 0))");
-			System.out.println("2: " + uniqueReg);
-			System.out.println(charToPrint);
 
 			return;
 		} else if (table.lookup(node.getChild(0).getText())!=null){
@@ -139,9 +139,18 @@ public class StatementsCodeGeneratorMagda {
 			}
 			return;
 		}
-		String currReg = Expression.getResultReg(node.getChild(0), table,gen);
+		CodeGenerator.includePrintString();
+		String currReg = Expression.getResultReg(node.getChild(0), table, gen);
+		System.out.println(currReg.length() + 1);
+		String newLabel = "@.str_" + count ;
+		count++;
+		CodeGenerator.addGlobalInstruction(newLabel + " = private " 
+				+ "unnamed_addr constant [" + (currReg.length() + 1) + " x i8] c\"" 
+				+ currReg + "\\00\", align 1");
 		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
-				+ "@printf(i8* inttoptr (i64 " + currReg + " to i8*))");
+				+ "@printf(i8* getelementptr inbounds ([3 x i8]* " 
+				+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds " 
+				+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel + ", i32 0, i32 0))");
 	}
 	
 	private static void sentenceAtNode(Tree node,String uniqueReg, String ident) {
@@ -162,12 +171,6 @@ public class StatementsCodeGeneratorMagda {
 			CodeGenerator.addInstruction("ret i8* getelementptr inbounds ([" 
 					+ size + " x i8*]* " + newLabel + ", i32 0, i32 0");
 		}
-//		} else {
-//			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
-//					+ "@printf(i8* getelementptr inbounds ([3 x i8]* " 
-//					+ "@.printChar, i32 0, i32 0), i8* getelementptr inbounds " 
-//					+ "(["+ size +" x i8]* " + newLabel + ", i32 0, i32 0))");
-//		}
 	}
 
 		
@@ -205,8 +208,8 @@ public class StatementsCodeGeneratorMagda {
 		} else if(table.lookup(node.getChild(0).getText())!=null) {
 		
 			String uniqueReg = gen.getUniqueRegisterID();
-			String currentReg = //Utils.getVarReg(node.getChild(0), table, gen); 
-					(table.lookup(node.getChild(0).getText())).getLocationReg();
+			String currentReg = Utils.getVarReg(node.getChild(0), table, gen); 
+					//(table.lookup(node.getChild(0).getText())).getLocationReg();
 			DATA_TYPES type = 
 					(table.lookup(node.getChild(0).getText())).getType();
 	
@@ -235,6 +238,7 @@ public class StatementsCodeGeneratorMagda {
 		}
 		
 		String currentReg = Expression.getResultReg(node.getChild(0), table,gen);
+		System.out.println(node.getChild(0));
 		CodeGenerator.addInstruction("ret i32 " + currentReg);
 		
 	}
