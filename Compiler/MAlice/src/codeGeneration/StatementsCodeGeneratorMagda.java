@@ -37,8 +37,7 @@ public class StatementsCodeGeneratorMagda
 		CodeGenerator.addInstruction(uniqueReg + " = load i32* " + currReg
 				+ ", align 4");
 		currReg = uniqueReg;
-		uniqueReg = gen.getUniqueRegisterID();
-		Expression.writeOperationExpressions(uniqueReg, action, currReg, "1");
+		Expression.writeOperationExpressions(gen, action, currReg, "1");
 		currReg = Utils.getVarReg(node.getChild(0), table, gen);
 		CodeGenerator.addInstruction("store i32 " + uniqueReg + ", i32* "
 				+ currReg + ", align 4");

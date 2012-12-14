@@ -346,22 +346,11 @@ public class Expression
 					+ table.lookup(leaf.getChild(i).getText()).getLocationReg()
 					+ ", ";
 		}
-<<<<<<< HEAD
-
-		return params
-				+ Utils.getReturnTypeOfFunction(args
-						.get(leaf.getChildCount() - 2))
-				+ " "
-				+ table.lookup(
-						leaf.getChild(leaf.getChildCount() - 2).getText())
-						.getLocationReg();
-=======
-		
+	
 		return params 
 			   + Utils.getReturnTypeOfFunction(args.get(leaf.getChildCount()-3)) 
 			   + " "
 			   + table.lookup(leaf.getChild(leaf.getChildCount()-2).getText())
 					.getLocationReg();
->>>>>>> 0bb09cc8d7d32e37f522c6b237c3a473496a9a43
 	}
 }
