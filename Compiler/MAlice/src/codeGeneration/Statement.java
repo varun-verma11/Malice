@@ -122,23 +122,24 @@ public class Statement
 	private static void writeWHAT(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
+		CodeGenerator.includeStdin();
 		if (node.getChild(0).getChildCount() == 0)
 		{
-
 			String arg1 = node.getChild(0).getText();
 			VariableSTValue v = (VariableSTValue) table.lookup(arg1);
 			DATA_TYPES type = v.getType();
 
 			if (type == DATA_TYPES.NUMBER)
 			{
-				String buff = gen.getUniqueLabel();
-				CodeGenerator.addInstruction(buff + " = alloca [" + BUFF_SIZE
+				String tempReg = gen.getUniqueLabel();
+				String buff = tempReg;
+				CodeGenerator.addInstruction(tempReg + " = alloca [" + BUFF_SIZE
 						+ " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
 				addLoadIOFileIns(regId2);
-				buff = writeCallFGetsIns(gen, regId1, regId2);
+				tempReg = writeCallFGetsIns(gen, regId1, regId2);
 				regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				regId2 = gen.getUniqueLabel();
@@ -150,14 +151,15 @@ public class Statement
 				CodeGenerator.includeRead();
 			} else if (type == DATA_TYPES.LETTER)
 			{
-				String buff = gen.getUniqueLabel();
-				CodeGenerator.addInstruction(buff + " = alloca [" + BUFF_SIZE
+				String tempReg = gen.getUniqueLabel();
+				String buff = tempReg;
+				CodeGenerator.addInstruction(tempReg + " = alloca [" + BUFF_SIZE
 						+ " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
 				addLoadIOFileIns(regId2);
-				buff = writeCallFGetsIns(gen, regId1, regId2);
+				tempReg = writeCallFGetsIns(gen, regId1, regId2);
 				regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				regId2 = gen.getUniqueLabel();
@@ -170,11 +172,21 @@ public class Statement
 
 			} else if (type == DATA_TYPES.SENTENCE)
 			{
+				
 				String regId1 = gen.getUniqueLabel();
-				addGetElementPtrIns(v.getLocationReg(), regId1);
+				String buff = regId1;
+				CodeGenerator.addInstruction(regId1 
+						+ " = alloca [100 x i8], align 16");				
 				String regId2 = gen.getUniqueLabel();
-				addLoadIOFileIns(regId2);
-				writeCallFGetsIns(gen, regId1, regId2);
+				addGetElementPtrIns(regId1, regId2);
+				regId1 = gen.getUniqueLabel();
+				addLoadIOFileIns(regId1);
+				regId1 = writeCallFGetsIns(gen, regId2, regId1);
+				regId2 = gen.getUniqueLabel();
+				addGetElementPtrIns(buff, regId2);
+				CodeGenerator.addInstruction("store i8* " + regId2 
+						+ ", i8** " + v.getLocationReg() + ", align 8");
+				
 				CodeGenerator.includeRead();
 			}
 		}
