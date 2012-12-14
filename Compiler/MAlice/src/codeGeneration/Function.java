@@ -46,7 +46,7 @@ public class Function
 		writeFunctionHeader("i32", "@main", "()");
 		
 		CodeGenerator.incrementIdentLevel();
-		CodeGenerator.addInstruction("call void @hatta");
+		CodeGenerator.addInstruction("call void @hatta()");
 		writeReturnStatement("i32", "0");
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}\n");

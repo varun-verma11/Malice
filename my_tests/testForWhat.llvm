@@ -1,0 +1,21 @@
+declare i32 @printf(i8*, ...)
+@.printString = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+%struct._IO_FILE = type { i32, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, %struct._IO_marker*, %struct._IO_FILE*, i32, i32, i64, i16, i8, [1 x i8], i8*, i64, i8*, i8*, i8*, i8*, i64, i32, [20 x i8] } 
+ %struct._IO_marker = type { %struct._IO_marker*, %struct._IO_FILE*, i32 } 
+ declare i8* @fgets(i8*, i32, %struct._IO_FILE*)
+define void @hatta () nounwind uwtable {
+	%x = alloca i8*, align 8
+	%1 = getelementptr inbounds [100 x i8]* %x, i32 0, i32 0 
+	%2 = load %struct._IO_FILE** @stdin, align 8
+	%3 = call i8* @fgets(i8* %1, i32 100, %struct._IO_FILE* %2)
+	%4 = load i8** %x, align 8
+	%5 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.readString, i32 0, i32 0), i8* %4)
+	ret void 
+}
+
+define i32 @main () nounwind uwtable {
+	call void @hatta
+	ret i32 0
+}
+
+declare i32 @printf(i8*, ...)

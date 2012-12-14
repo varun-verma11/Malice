@@ -77,12 +77,17 @@ public class StatementsCodeGeneratorMagdaTest {
 		String st2 = "Alice found z";
 		String st3 = "Alice found fnX";
 		String st4 = "Alice found z2";
+		String st5 = "Alice found \"hi\"";
+		String st6 = "Alice found 2";
 		
 		assertTrue(generateCodeForStatement(st, STATS.FOUND));
 		assertTrue(generateCodeForStatement(st1, STATS.FOUND));
 		assertTrue(generateCodeForStatement(st2, STATS.FOUND));
 		assertTrue(generateCodeForStatement(st3, STATS.FOUND));
 		assertTrue(generateCodeForStatement(st4, STATS.FOUND));
+		assertTrue(generateCodeForStatement(st5, STATS.FOUND));
+		assertTrue(generateCodeForStatement(st6, STATS.FOUND));
+
 
 	}
 	
