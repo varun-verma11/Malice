@@ -52,6 +52,11 @@ public class ControlStructureChecks
 		
 	}
 
+	/**
+	 * Checks for semantic errors in 
+	 * @param expr
+	 * @param table
+	 */
 	private static void checkForBooleanExpression(Tree expr, SymbolTable table)
 	{
 		DATA_TYPES expr_type = 

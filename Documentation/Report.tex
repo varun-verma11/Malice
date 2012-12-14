@@ -44,57 +44,39 @@
 		This compiler currently supports all the statements from the MAlice language specification. It provides
 		the support for loops, conditional statements, functions, procedures and mathematical operations. Currently, there are some bugs
 		occurring in array processing, nested functions and code blocks. The problems which we encountered while working on 
-		nested functions and code blocks are because free variable analysis is required to perform Lambda Lifting. This is not currently supported by our compiler. Another performance issue which came to our notice is that the nodes of the Abstract Syntax Tree (AST) are represented by Strings, which means that String comparison has to be performed in order to analyse the nodes. This has a significant effect on the performance, as String comparison is highly resource-expensive in terms of processing and memory.
-		If we built the tree nodes were self-built then tokens, which would be an enumerated type would be used.
+		nested functions and code blocks are because free variable analysis is required to perform Lambda Lifting. This is not currently supported by our compiler. Another performance issue which came to our notice is that the nodes of the Abstract Syntax Tree (AST) are represented by Strings, which means that String comparison has to be performed in order to analyse the nodes. This has a significant effect on the performance, as String comparison is highly resource-expensive in terms of processing and memory. Instead, building our own tree nodes would've allowed us to use enumerated types to represent tokens. This would have also significantly improved the performance of parser.
 	
 	\subsection{Optimisations}
 		Malice compiler supports following optimisations:
 		\begin{itemize}
-			\item Evaluation of constant expression
+			\item Evaluation of a constant expression
 			\item Elimination of unreachable code
 		\end{itemize} 
-		Optimisation for constant expressions evaluation is done by evaluating the values for each of the argument for a given operator in a function
-		and then if they evaluate to an integer then the operator is applied and the evaluated result is returned. The optimisation
-		for elimination of dead code is done by a similar approach to the evaluation of the constant expressions. Currently 
-		the internal representation of the compiler treats an integer value 1 as true and 0 to be false. The type of expression has
-		previously been checked in the semantics analysis part which ensure that if a given expression returns 1 then it is not 
-		evaluated integer value 1.
+		For constant expressions, we took the approach of evaluating values of each of the arguments for a given operator in a function. In the cases where all the operands evaluate to some integers, the operator is applied on those values and it's result is returned. Elimination of dead code is done similarly. When an argument can't be evaluated, it's corresponding code is declared dead. Currently the internal representation of our compiler treats an integer value 1 as true and 0 to be false. The type of expression is first checked in during Semantic Analysis. This ensures that if a given expression returns 1 then it means true and not the evaluated integer value 1.
 	
 		
 \section{Design}
-	The design uses a module structure to allow each individual component only carrying out one task which makes it easier to carry out
-	component level testing. Most of the component which have been written have their own test suite which uses JUnit4 for the 
-	environment to run the test suites. The design is very well structured, different packages for different parts of the 
-	compilers are used. It can be easily seen what replacing any class with a new or different version of that component would require
-	minimal modifications.
+	The design uses modular structure to allow each component to only carry out one task at a time which simplifies componenet-level testing. Most of them have their own test suites, which make use of JUnit4 environment to run the tests. The design is structured so that different packages are used for various parts of the compiler. Because of this, replacing any class with a new or different version of it would require minimal modifications.
 	\\
 	\\
-	Testing has been a major part of the development of the compiler since it has been able to direct in the correct direction
-	for existence of a bug. It allowed the development part to produce more robust and reliable product.
+	Extensive testing of all major classes enabled us to find the bugs quickly and efficiently and allowed us to produce more robust and reliable product.
 
 \section{Extensions}
-	Malice compiler has been implemented with three extensions which have been tested. Some of these are still not working for all cases 
-	and would require some more of testing and development in order to reach a stable working version. These extensions vary vastly from
-	modifying grammar to changing the generated abstract syntax tree using the current supported functionality but with easier syntax for 
-	the user.
+	MAlice compiler has been implemented with three extensions. Some of these are still not working for all cases and would require more testing and development in order to reach a stable working version. These extensions vary vastly from modifying grammar to changing the generated abstract syntax tree using the current supported functionality but with easier syntax for the user.
 	\begin{itemize}
 		\item Import Statements
 		\item Higher Order Function Map
-		\item Mathematical library
+		\item Mathematical Library
 	\end{itemize}
 
 	\subsection{Import Statement}
-		Malice supports imports statements in the following format:
+		Malice supports Import statements in the following format:
 		\begin{verbatim}
 		    Alice wants <function names> from <filename>.
 		    Alice wants everything from "filename".
 		    Alice wants function1, function2 from <filename>.
 		\end{verbatim}
-		The first statement describes the basic structure of the import statement. The import statements can only be added as an header for a 
-		Malice file. Keyword "everything" can be used which imports all the global declarations and functions from the given file. 
-		Currently to import any global declarations from a Malice file can only be done using the keyword "everything". Only functions can be
-		imported individually and the user would have to make sure that any global statements which might be required are either added to the 
-		file otherwise the program would not pass the semantics check. 
+		The first statement describes the basic structure of an Import statement. The keyword "everything" can be used to import all global declarations and functions from the given file. Currently, this is the only way to import any global declarations from a MAlice file. Functions can be imported individually and the user would have to make sure that any global statements which might be required are either added to the file otherwise the program would not pass the semantics check. Import statements can only be added as an header for a Malice file.
 		\\
 		\\
 		Malice compiler checks for cyclic dependencies by using a depth first search implementation. The file which has been imported is stored
