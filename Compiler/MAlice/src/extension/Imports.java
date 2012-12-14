@@ -21,11 +21,16 @@ import semantics_checks.SemanticsUtils;
 public class Imports
 {
 	/**
+<<<<<<< HEAD
 	 * 	String containing filenames to be imported
+=======
+	 * @field imports : This keeps a track of the files which have been imported
+>>>>>>> 476aceb68230efa72bf1fafd408c66dbd30d18b2
 	 */
 	private static Set<String> imports = new HashSet<String>();
 
 	/**
+<<<<<<< HEAD
 	 * Checks whether all the imports are valid
 	 * 
 	 * @param node			current node
@@ -35,6 +40,19 @@ public class Imports
 	 */
 	public static Tree checkImports(Tree node) throws IOException,
 			RecognitionException
+=======
+	 * This function checks for errors which could be in import statements, such
+	 * as if user wants to import a file which does not exists. Also it
+	 * manipulates the AST in order to add the imported functions.
+	 * 
+	 * @param node
+	 *            : specifies the node of the tree of whole program.
+	 * @return : returns a reference to the manipulated tree.
+	 * @throws RecognitionException
+	 *             : Thrown if the imported file is not valid
+	 */
+	public static Tree checkImports(Tree node) throws RecognitionException
+>>>>>>> 476aceb68230efa72bf1fafd408c66dbd30d18b2
 	{
 		Tree current = node.getChild(0);
 		if (current.getText().contentEquals("wants"))
@@ -45,9 +63,9 @@ public class Imports
 							current.getChild(current.getChildCount() - 1)
 									.getText().length() - 2)).exists())
 			{
-				/***********
-				 * FILE NOT FOUND CASE 
-				 */
+				System.err.println("ERROR: Incorrect import. ("
+						+ current.getChild(current.getChildCount() - 1)
+						+ ") does not exists");
 			}
 			if (imports.contains(current.getChild(current.getChildCount() - 1)
 					.getText()))
@@ -70,8 +88,15 @@ public class Imports
 		return node;
 	}
 
-	private static Tree importFunctions(Tree node) throws IOException,
-			RecognitionException
+	/**
+	 * This function imports the functions which are specified in the import
+	 * 
+	 * @param node
+	 *            : specifies the node to attach the imported functions
+	 * @return : returns a reference to manipulated tree
+	 * @throws RecognitionException
+	 */
+	private static Tree importFunctions(Tree node) throws RecognitionException
 	{
 		if (node == null)
 			return null;
@@ -80,42 +105,44 @@ public class Imports
 		while (current != null && current.getText().contentEquals("wants"))
 		{
 			Tree tree = null;
-			CharStream input = new ANTLRFileStream(
-			// new java.io.File( "." ).getCanonicalPath() + "/"
-					"c:/Users/varun/Documents/Malice/"
-							+ "malice_new_clone/Tests For Extension"
-							+ "/"
-							+ current
-									.getChild(current.getChildCount() - 1)
-									.getText()
-									.substring(
-											1,
-											current
-													.getChild(
-															current
-																	.getChildCount() - 1)
-													.getText().length() - 1)
-							+ ".alice");
-			malice_grammarLexer lexer = new malice_grammarLexer(input);
-			CommonTokenStream tokens = new CommonTokenStream(lexer);
-			if (lexer.getNumberOfSyntaxErrors() == 0)
+			try
 			{
-				malice_grammarParser parser = new malice_grammarParser(tokens);
-				program_return prog = parser.program();
-				if (parser.getNumberOfSyntaxErrors() == 0)
+				CharStream input = new ANTLRFileStream(new java.io.File(".")
+						.getCanonicalPath()
+						+ "/"
+						+ current.getChild(current.getChildCount() - 1)
+								.getText().substring(
+										1,
+										current.getChild(
+												current.getChildCount() - 1)
+												.getText().length() - 1)
+						+ ".alice");
+				malice_grammarLexer lexer = new malice_grammarLexer(input);
+				CommonTokenStream tokens = new CommonTokenStream(lexer);
+				if (lexer.getNumberOfSyntaxErrors() == 0)
 				{
-					tree = (Tree) prog.getTree();
+					malice_grammarParser parser = new malice_grammarParser(
+							tokens);
+					program_return prog = parser.program();
+					if (parser.getNumberOfSyntaxErrors() == 0)
+					{
+						tree = (Tree) prog.getTree();
+					}
 				}
-			}
-			if (current.getChild(0).getText().contentEquals("everything"))
+				if (current.getChild(0).getText().contentEquals("everything"))
+				{
+					attachAllFunctionToTree(node.getParent(),
+							checkImports(tree));
+					current = SemanticsUtils.getNextChild(current);
+				} else
+				{
+					Set<String> func_to_import = getFunctionsToImport(current);
+					importGivenFunctions(func_to_import, node.getParent(), tree);
+					current = SemanticsUtils.getNextChild(current);
+				}
+			} catch (IOException e)
 			{
-				attachAllFunctionToTree(node.getParent(), checkImports(tree));
-				current = SemanticsUtils.getNextChild(current);
-			} else
-			{
-				Set<String> func_to_import = getFunctionsToImport(current);
-				importGivenFunctions(func_to_import, node.getParent(), tree);
-				current = SemanticsUtils.getNextChild(current);
+
 			}
 		}
 
@@ -123,6 +150,18 @@ public class Imports
 		return current;
 	}
 
+	/**
+	 * This function imports the given function and adds them to the given tree
+	 * 
+	 * @param funcToImport
+	 *            : specifies the list of functions to be imported
+	 * @param parent
+	 *            : specifies the node on which the improted functions are to be
+	 *            added
+	 * @param toAttach
+	 *            : specifies the tree of the imported file from which certain
+	 *            functions are required
+	 */
 	private static void importGivenFunctions(Set<String> funcToImport,
 			Tree parent, Tree toAttach)
 	{
@@ -146,6 +185,14 @@ public class Imports
 		}
 	}
 
+	/**
+	 * This functions generates a list of the functions which are to be imported
+	 * 
+	 * @param current
+	 *            : specifies the node of the tree which represent the import
+	 *            statement
+	 * @return
+	 */
 	private static Set<String> getFunctionsToImport(Tree current)
 	{
 		Set<String> funcs = new HashSet<String>();
@@ -156,6 +203,16 @@ public class Imports
 		return funcs;
 	}
 
+	/**
+	 * This function attaches all the children of the imported tree into the
+	 * specified tree
+	 * 
+	 * @param node
+	 *            : specifies the tree to which the functions are to be added
+	 * @param toAttach
+	 *            : specifies the tree which has been generated from the file to
+	 *            be imported
+	 */
 	private static void attachAllFunctionToTree(Tree node, Tree toAttach)
 	{
 		if (toAttach == null)

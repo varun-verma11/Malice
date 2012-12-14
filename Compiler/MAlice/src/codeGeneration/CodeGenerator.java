@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 import org.antlr.runtime.tree.Tree;
 
-import extension.Imports;
-
 import semantics_checks.SemanticsUtils;
 import symbol_table.SymbolTable;
 
@@ -61,18 +59,18 @@ public class CodeGenerator
 		Function.writeCodeForStartFunction();
 	}
 	
-	private static void moveHattaToEnd(Tree tree)
-	{
-		Tree curr = (tree.getText()==null)? tree.getChild(0) : tree ;;
-		while(!curr.getChild(0).getText().contentEquals("hatta"))
-		{
-			curr = SemanticsUtils.getNextChild(curr);
-		}
-		tree.addChild(curr);
-		tree.freshenParentAndChildIndexes();
-		tree.deleteChild(curr.getChildIndex());
-		tree.freshenParentAndChildIndexes();
-	}
+//	private static void moveHattaToEnd(Tree tree)
+//	{
+//		Tree curr = (tree.getText()==null)? tree.getChild(0) : tree ;;
+//		while(!curr.getChild(0).getText().contentEquals("hatta"))
+//		{
+//			curr = SemanticsUtils.getNextChild(curr);
+//		}
+//		tree.addChild(curr);
+//		tree.freshenParentAndChildIndexes();
+//		tree.deleteChild(curr.getChildIndex());
+//		tree.freshenParentAndChildIndexes();
+//	}
 
 	public static void addGlobalInstruction(String ins)
 	{
