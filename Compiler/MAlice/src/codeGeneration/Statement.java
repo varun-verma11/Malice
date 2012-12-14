@@ -116,7 +116,6 @@ public class Statement
 				&& node.getChild(0).getText().contentEquals("(")
 				&& node.getChild(node.getChildCount() - 1).getText().contentEquals(")"))
 		{
-System.out.println(node.toStringTree());
 			CodeGenerator.addInstruction("call void "
 					+ table.lookup(node.getText()).getLocationReg() + "("
 					+ Expression.getParamsToFunction(node, table, gen) + ")");

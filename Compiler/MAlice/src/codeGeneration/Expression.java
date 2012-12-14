@@ -437,7 +437,7 @@ public class Expression
 		} else if (type == DATA_TYPES.SENTENCE)
 		{
 			CodeGenerator.addGlobalInstruction("@.str" + Statement.count
-					+ " = private unnamed_addr constant [" + text.length()
+					+ " = private unnamed_addr constant [" + (text.length() -1)
 					+ " x i8] c" + text.substring(0, text.length() - 2)
 					+ "\\00\", align 1");
 			Statement.count++;
