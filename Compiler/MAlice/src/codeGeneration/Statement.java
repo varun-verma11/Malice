@@ -73,17 +73,17 @@ public class Statement
 		} else if (node.getText().contentEquals("ate")
 				|| node.getText().contentEquals("drank"))
 		{
-			StatementsCodeGeneratorMagda.writeAteAndDrankCode(node, table, gen,
+			writeAteAndDrankCode(node, table, gen,
 					(node.getText().contentEquals("ate") ? "add" : "sub"));
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
-			StatementsCodeGeneratorMagda.writeBecameCode(node, table, gen);
+			writeBecameCode(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("spoke")
 				|| node.getText().contentEquals("said"))
 		{
-			StatementsCodeGeneratorMagda.writePrintStatementCode(node, table,
+			writePrintStatementCode(node, table,
 					gen);
 			return false;
 		} else if (node.getText().contentEquals("what"))
@@ -92,7 +92,7 @@ public class Statement
 			return false;
 		} else if (node.getText().contentEquals("found"))
 		{
-			StatementsCodeGeneratorMagda.writeFoundCode(node, table, gen);
+			writeFoundCode(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("had"))
 		{
@@ -119,7 +119,7 @@ public class Statement
 
 			CodeGenerator.addInstruction("call void "
 					+ table.lookup(node.getText()).getLocationReg() + "("
-					+ Expression.getParamsToFunction(node, table) + ")");
+					+ Expression.getParamsToFunction(node, table, gen) + ")");
 
 			return false;
 		}
@@ -373,6 +373,14 @@ public class Statement
 				+ currReg + ", align 4");
 	}
 
+	
+	/**
+	 * Generates LLVM code for Became statements.
+	 * 
+	 * @param node	Current Tree node.
+	 * @param table Current symbol table.
+	 * @param gen	Current label generator.
+	 */
 	public static void writeBecameCode(Tree node, SymbolTable table, 
 			LabelGenerator gen) {
 
@@ -408,6 +416,13 @@ public class Statement
 		}
 	}
 
+	/**
+	 * Generates print statements for 'said Alice' and 'spoke' statements.
+	 * 
+	 * @param node	Current Tree node.
+	 * @param table Current symbol table
+	 * @param gen	Current label generator
+	 */
 	public static void writePrintStatementCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -466,7 +481,7 @@ public class Statement
 				} else
 				{
 					CodeGenerator.addInstruction(uniqueReg + " = load "
-							+ getType(type) + "* " + currentReg + ", align "
+							+ getBits(type) + "* " + currentReg + ", align "
 							+ getAlignValue(type));
 					currentReg = uniqueReg;
 					uniqueReg = gen.getUniqueRegisterID();
@@ -522,6 +537,18 @@ public class Statement
 				+ " i32 0, i32 0), i32 " + currReg + ")");
 	}
 
+	/**
+	 * Generates LLVM code for 'said Alice', 'spoke' and 'Alice found' 
+	 * statements, depending on an enum value passed in the parameter. This 
+	 * function is only to be used if the child node of the Tree passed in the 
+	 * method is a sentence (as opposed to a variable, letter, number or 
+	 * expression.) 
+	 * 
+	 * @param node		Current Tree node.
+	 * @param uniqueReg String representing the current unique register. 
+	 * @param action	Enum value indicating if we want a code for print or
+	 * 					return statements.
+	 */
 	private static void sentenceAtNode(Tree node, String uniqueReg,
 			ACTION action)
 	{
@@ -545,6 +572,12 @@ public class Statement
 		}
 	}
 
+	/**
+	 * Returns the number of bytes showing how they are aligned in the memory.
+	 * 
+	 * @param type	The data type for which we need to find the align value.
+	 * @return		The align value.
+	 */
 	private static String getAlignValue(DATA_TYPES type)
 	{
 		if (type == DATA_TYPES.LETTER)
@@ -557,7 +590,14 @@ public class Statement
 		return null;
 	}
 
-	private static String getType(DATA_TYPES type)
+	/**
+	 * Returns a String representing the number of bits in the type.
+	 * 
+	 * @param type 	Data type for which we want to find the number of bits.
+	 * @return		The number of bits corresponding to the given type, 
+	 * 				preceded by the letter 'i'.
+	 */
+	private static String getBits(DATA_TYPES type)
 	{
 		if (type == DATA_TYPES.LETTER)
 		{
@@ -569,6 +609,13 @@ public class Statement
 		return null;
 	}
 
+	/**
+	 * Generates the LLVM code for 'Alice found' statements.
+	 * 
+	 * @param node	Current Tree node.
+	 * @param table Current symbol table.
+	 * @param gen	Current label generator.
+	 */
 	public static void writeFoundCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -590,7 +637,6 @@ public class Statement
 			 ****************************************/
 		} else if (table.lookup(node.getChild(0).getText()) != null)
 		{
-
 			String uniqueReg = gen.getUniqueRegisterID();
 			String currentReg = Utils.getVarReg(node.getChild(0), table, gen);
 			// (table.lookup(node.getChild(0).getText())).getLocationReg();
@@ -623,13 +669,14 @@ public class Statement
 			}
 			return;
 		}
-
-
 		String currentReg = Expression.getResultReg(node.getChild(0), table,
 				gen);
 		CodeGenerator.addInstruction("ret i32 " + currentReg);
 	}
 
+	/**
+	 * Enum representing which action we are currently undertaking.
+	 */
 	private enum ACTION
 	{
 		PRINT, RETURN;

@@ -62,6 +62,7 @@ public class Function
 		current = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(
 				SemanticsUtils.getNextChild(current)));
 		writeFunctionHeader(
+				
 				Utils.getReturnTypeOfFunction(fVal.getType())
 				, fVal.getLocationReg()
 				, params);
