@@ -9,6 +9,8 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.Tree;
 
+import preprocessor.MathLibrary;
+
 import semantics_checks.ExpressionChecker;
 import symbol_table.SymbolTable;
 import codeGeneration.CodeGenerator;
@@ -52,6 +54,7 @@ public class Malice
 			{
 				malice_grammarParser parser = new malice_grammarParser(tokens ) ;
 				if (!parser.failed()) {
+					MathLibrary.addFunctionsToSymbolTable(table);
 					Tree tree =  (Tree) parser.program().getTree() ;
 					Imports.checkImports(tree);
 					System.out.println(tree.toStringTree());

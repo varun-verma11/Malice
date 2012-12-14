@@ -332,15 +332,10 @@ public class Statement
 							+ " x i8] c\"" + effective + '\\' + "00"
 							+ "\", align 1", 0);
 					CodeGenerator
-							.addInstruction("store i8* getelementptr inbounds (["
-									+ strLen
-									+ " x i8]* @.at"
-									+ arg1
-									+ table.getCurrentScopeLevel()
-									+ ", i32 0, i32 0), i8** %"
-									+ arg1
-									+ ", align 8");
-
+							.addInstruction("store i8* getelementptr inbounds" 
+									+ " (["	+ strLen + " x i8]* @.at" + arg1
+									+ table.getCurrentScopeLevel() + ", i32 0," 
+									+ " i32 0), i8** %" + arg1 + ", align 8");
 				}
 			}
 		}
@@ -366,8 +361,7 @@ public class Statement
 		CodeGenerator.addInstruction(uniqueReg + " = load i32* " + currReg
 				+ ", align 4");
 		currReg = uniqueReg;
-		uniqueReg = gen.getUniqueRegisterID();
-		Expression.writeOperationExpressions(uniqueReg, action, currReg, "1");
+		Expression.writeOperationExpressions(gen, action, currReg, "1");
 		currReg = Utils.getVarReg(node.getChild(0), table, gen);
 		CodeGenerator.addInstruction("store i32 " + uniqueReg + ", i32* "
 				+ currReg + ", align 4");
@@ -449,14 +443,16 @@ public class Statement
 					.addInstruction(uniqueReg
 							+ " = call i32 (i8*, ...)* "
 							+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
-							+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
-							+ "([2 x i8]* " + newLabel + ", i32 0, i32 0))");
+							+ "@.printString, i32 0, i32 0), i8* getelementptr" 
+							+ " inbounds ([2 x i8]* " + newLabel + ", i32 0," 
+							+ " i32 0))");
 
 			return;
 		}
 		try
 		{
-			if ((VariableSTValue) table.lookup(node.getChild(0).getText()) != null)
+			if ((VariableSTValue) 
+					table.lookup(node.getChild(0).getText()) != null)
 			{
 				uniqueReg = gen.getUniqueRegisterID();
 				DATA_TYPES type = (table.lookup(node.getChild(0).getText()))
@@ -473,8 +469,9 @@ public class Statement
 					uniqueReg = gen.getUniqueRegisterID();
 					CodeGenerator
 							.addInstruction(uniqueReg
-									+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
-									+ "inbounds ([3 x i8]* @.printString, i32 0, i32 0), i8* "
+									+ " = call i32 (i8*, ...)* @printf(i8*" 
+									+ " getelementptr inbounds ([3 x i8]*" 
+									+ " @.printString, i32 0, i32 0), i8* "
 									+ currentReg + ")");
 					CodeGenerator.includePrintString();
 
@@ -493,16 +490,18 @@ public class Statement
 						uniqueReg = gen.getUniqueRegisterID();
 						CodeGenerator
 								.addInstruction(uniqueReg
-										+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
-										+ "inbounds ([3 x i8]* @.printChar, i32 0, i32 0), i32 "
+										+ " = call i32 (i8*, ...)* @printf(i8*" 
+										+ " getelementptr inbounds ([3 x i8]*" 
+										+ " @.printChar, i32 0, i32 0), i32 "
 										+ currentReg + ")");
 						CodeGenerator.includePrintChar();
 					} else
 					{
 						CodeGenerator
 								.addInstruction(uniqueReg
-										+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
-										+ "inbounds ([3 x i8]* @.printInt, i32 0, i32 0), i32 "
+										+ " = call i32 (i8*, ...)* @printf(i8* " 
+										+ "getelementptr inbounds ([3 x i8]* " 
+										+ "@.printInt, i32 0, i32 0), i32 "
 										+ currentReg + ")");
 						CodeGenerator.includePrintInt();
 					}
@@ -525,8 +524,8 @@ public class Statement
 					+ " x i8] c\"" + i + "\\00\", align 1");
 			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
 					+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
-					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
-					+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel
+					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds"
+					+ " ([" + (currReg.length() + 1) + " x i8]* " + newLabel
 					+ ", i32 0, i32 0))");
 		} catch (NumberFormatException e)
 		{

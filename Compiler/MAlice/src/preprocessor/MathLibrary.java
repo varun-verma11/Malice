@@ -25,7 +25,7 @@ public class MathLibrary {
 	/**
 	 * 	@field math_func			A HashSet made of func_names list-entries
 	 */
-	private Set<String> math_func = new HashSet<String>(Arrays.asList(func_names));
+	private static Set<String> math_func = new HashSet<String>(Arrays.asList(func_names));
 
 	
 	/**
@@ -33,7 +33,7 @@ public class MathLibrary {
 	 * 
 	 * @param table					Current symbol-table 
 	 */
-	public void addFunctionsToSymbolTable(SymbolTable table) {
+	public static void addFunctionsToSymbolTable(SymbolTable table) {
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
 		args.add(DATA_TYPES.NUMBER);
 		table.insert("sin", new FunctionSTValue(DATA_TYPES.NUMBER, table, args));
@@ -58,7 +58,7 @@ public class MathLibrary {
 	 * @param table				Current symbol-table
 	 * @param gen				Current LabelGenerator
 	 */
-	public void writeMathFunc(Tree node, SymbolTable table, LabelGenerator gen) {
+	public static void writeMathFunc(Tree node, SymbolTable table, LabelGenerator gen) {
 		String func = node.getText();
 		if (math_func.contains(func)) {
 			if (func.equals("sin")) {

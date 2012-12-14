@@ -25,33 +25,27 @@
 		the specification for the language malice. The tools which have been used in development for this compiler are LLVM and ANTLR.
 		The scope of these tools have been described further in there respective sections.
 		\subsubsection{ANTLR (ANother Tool for Language Recognition )}
-			ANTLR has been used to perform syntactic and semantic analysis. It allows the user to define the grammar in a 
-			specific syntax and then generates Lexer and Parser classes for the given grammar in the specified output language.
-			ANTLR uses Top-Down LR parsing. Due to this backtracking option has to be enabled which 
-			compromises with the performance issues. This is the most straight forward way for parsing but at the same
-			time it also slows down the performance. When the backtracking option is enabled, if the parsing fails in the middle
-			of any defined rule in the grammar, the parser has to track back to the previous node and see if there are
-			any other viable routes which could be taken to parse the given input. ANTLR was not the most suitable tool for this
-			project because of the method of parsing which it uses which is not most suited to the grammar. 
-			On the other hand ANTLR does provides very user-friendly graphical tools in order to verify the grammar but there are 
-			a lot of disadvantages to it.
+			We used ANTLR to perform syntactic and semantic analysis. It allows the user to define the grammar in a 
+			specific syntax and generates Lexer and Parser classes for this grammar in a specified output language.
+			ANTLR uses Top-Down LR parsing. Due to this, backtracking option has to be enabled. This 
+			compromises with the performance. This is the most straightforward way for parsing but at the same
+			time it also slows down the performance. When the backtracking option is enabled and the parsing fails during
+			the execution of a defined rule in the grammar, the parser has to track back to the previous node and check if there are
+			any other viable routes which could be taken to parse the given input. Because of the way ANTLR parses the grammar, it was not the most suitable tool for this project.
+			On the other hand ANTLR does provide some user-friendly graphical tools to verify the grammar, but they are not always accurate.
 			
 		\subsubsection{LLVM (Low Level Virtual Machine)}
-			LLVM has been used as the target language for the MAlice compiler. This is a widely used compiler's back-end tool which
-			allows user to be able to output to various different architectures, such as ARM and x86. LLVM provides the user
-			with three different optimisation levels which can be used if the user requires to use them. This tool has been used because
-			it is widely-used and has a very active development group which would allow the user to be able to use the optimisations and
-			output architectures if any new architectures are introduced in future as long as LLVM supports backwards compatibility.
+			We used LLVM as the target language for the MAlice compiler. This is a widely used compiler's back-end tool which
+			allows the user to output to various different architectures, such as ARM and x86. LLVM provides the user
+			with three different optimisation levels. We opted for this tool because
+			it is widely-used and has a very active development group. Which is why LLVM would be able to support new architectures as long as they have backwards compatibility. This means that our compiler will be able to operate on x86 and various other machines.
 		
 	\subsection{Functionality}			
-		Malice compiler currently supports all the statements which are specified in the language specification for Malice. It provides
-		the support for loops, conditional statements, functions, procedures and mathematical operations. Currently there are some bugs
-		beings experienced in the array processing, nested functions and code blocks. The problem which has been encountered for 
-		nested functions and code blocks are because it requires Lambda Lifting which requires a free variable analysis. This is currently
-		not been supported by the compiler. Another performance issue which has been noticed is due to string comparison for the tokens in
-		the nodes of the Abstract Syntax Tree (AST). The tree which ANTLR produces stores the nodes with a text field for the token.
-		This affects significantly on the performance due to string comparison being highly resource expensive in terms of processing and memory.
-		If the tree node were self-built then tokens, which would be an enumerated type would be used.
+		This compiler currently supports all the statements from the MAlice language specification. It provides
+		the support for loops, conditional statements, functions, procedures and mathematical operations. Currently, there are some bugs
+		occurring in array processing, nested functions and code blocks. The problems which we encountered while working on 
+		nested functions and code blocks are because free variable analysis is required to perform Lambda Lifting. This is not currently supported by our compiler. Another performance issue which came to our notice is that the nodes of the Abstract Syntax Tree (AST) are represented by Strings, which means that String comparison has to be performed in order to analyse the nodes. This has a significant effect on the performance, as String comparison is highly resource-expensive in terms of processing and memory.
+		If we built the tree nodes were self-built then tokens, which would be an enumerated type would be used.
 	
 	\subsection{Optimisations}
 		Malice compiler supports following optimisations:

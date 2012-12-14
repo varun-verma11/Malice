@@ -76,29 +76,29 @@ public class Function
 		return current;
 	}
 
-	private static Tree writeNestedFunctions(SymbolTable table, Tree current,LabelGenerator gen)
-	{
-		try
-		{
-			Tree temp = current;
-			while (true)
-			{
-				temp = writeCodeForFunction(current , table,gen);
-				if (temp == current)
-				{
-					break;
-				}
-				//current = StatementChecker.checkAllStatements(curr, table);
-				//THIS HAS TO BE WRITE CODE FOR ALL STATEMENTS
-				current = temp;
-				//THIS HAS TO BE WRITE CODE FOR ALL STATEMENTS
-				
-			}
-		} catch (NullPointerException e)
-		{
-		}
-		return current;
-	}
+//	private static Tree writeNestedFunctions(SymbolTable table, Tree current,LabelGenerator gen)
+//	{
+//		try
+//		{
+//			Tree temp = current;
+//			while (true)
+//			{
+//				temp = writeCodeForFunction(current , table,gen);
+//				if (temp == current)
+//				{
+//					break;
+//				}
+//				//current = StatementChecker.checkAllStatements(curr, table);
+//				//THIS HAS TO BE WRITE CODE FOR ALL STATEMENTS
+//				current = temp;
+//				//THIS HAS TO BE WRITE CODE FOR ALL STATEMENTS
+//				
+//			}
+//		} catch (NullPointerException e)
+//		{
+//		}
+//		return current;
+//	}
 
 	private static String getParamsForFunctions(Tree child, SymbolTable table)
 	{
