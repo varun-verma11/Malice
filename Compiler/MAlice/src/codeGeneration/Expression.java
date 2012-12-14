@@ -11,7 +11,14 @@ import symbol_table.SymbolTable;
 
 public class Expression
 {
-	
+	/**
+	 * Returns Value of the expression or the register where it is stored
+	 * 
+	 * @param node		Current node
+	 * @param table		Current SymbolTable
+	 * @param gen		Current LabelGenerator
+	 * @return			Expression Value or the register id in which the expression value is stored
+	 */
 	public static String getResultReg(Tree node, SymbolTable table, LabelGenerator gen)
 	{
 		if (node==null) return null;
@@ -32,12 +39,13 @@ public class Expression
 			return calculateExpr(op, i, j) + "";
 		} catch (NumberFormatException e)
 		{ }
+		String uniqueRegisterID = gen.getUniqueRegisterID();
 		if(op==null)
 		{
+			System.out.println("in func");
 			String id = writeCodeForFunctionCall(node, table,gen);
 			return id ;
 		}
-		String uniqueRegisterID = gen.getUniqueRegisterID();
 		switch(op)
 		{
 			case EQ: 
@@ -270,7 +278,6 @@ public class Expression
 		String params = "" ;
 		FunctionSTValue fVal = (FunctionSTValue) table.lookup(leaf.getText());
 		ArrayList<DATA_TYPES> args = fVal.getArgs();
-		if (args.size()==0) return "";
 		for (int i=1 ; i<leaf.getChildCount()-2; i++)
 		{
 			params += Utils.getReturnTypeOfFunction(args.get(i-1)) 
