@@ -44,7 +44,7 @@ public class Malice
 		try {
 			new ExpressionChecker();
 			SymbolTable table = new SymbolTable();
-			System.out.println(args[0] + " started");
+			System.out.println("====ANALYSING " + args[0] + "====");
 			CharStream input = new ANTLRFileStream(args[0]); 
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
@@ -59,9 +59,10 @@ public class Malice
 					{
 						CodeGenerator.generateCode(tree, table);
 						CodeGenerator.saveToFile(filepath);
+						System.out.println("====DONE====");
 					}
 				}
-				System.out.println(args[0] + " done");	
+					
 			} 
 		} 
 		catch (IOException e) { System.out.println("The filepath is incorrect." +
