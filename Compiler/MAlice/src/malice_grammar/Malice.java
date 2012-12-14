@@ -57,7 +57,6 @@ public class Malice
 					MathLibrary.addFunctionsToSymbolTable(table);
 					Tree tree =  (Tree) parser.program().getTree() ;
 					Imports.checkImports(tree);
-					System.out.println(tree.toStringTree());
 					SemanticVerifier.checkProgramSemantics(tree, table);
 					if (!SemanticVerifier.failed) 
 					{
