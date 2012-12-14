@@ -20,22 +20,24 @@ public class CodeGenerator
 	private static boolean includePrintIntTop = false;
 	private static boolean includePrintCharTop = false;
 	private static boolean includePrintStringTop = false;
+	private static boolean includeStdin = false;
 	
-	private static String read = "%struct._IO_FILE = type { i32, i8*, i8*, " +
+	private static final String read = "%struct._IO_FILE = type { i32, i8*, i8*, " +
 			"i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, %struct._IO_marker*" +
 			", %struct._IO_FILE*, i32, i32, i64, i16, i8, [1 x i8], i8*, i64," +
-			" i8*, i8*, i8*, i8*, i64, i32, [20 x i8] } \n " +
+			" i8*, i8*, i8*, i8*, i64, i32, [20 x i8] } \n\n " +
 			"%struct._IO_marker = type { %struct._IO_marker*, %struct._IO_FILE*," +
 			" i32 } \n " +
 			"declare i8* @fgets(i8*, i32, %struct._IO_FILE*)";
-	private static String printf  = "declare i32 @printf(i8*, ...)";
-	private static String atoi = "declare i32 @atoi(i8*) nounwind readonly";
+	private static final String printf  = "declare i32 @printf(i8*, ...)";
+	private static final String atoi = "declare i32 @atoi(i8*) nounwind readonly";
+	private static final String stdin = "@stdin = external global %struct._IO_FILE*";
 	
-	private static String printIntHeader = "@.printInt = private unnamed_addr " +
+	private static final String printIntHeader = "@.printInt = private unnamed_addr " +
 			"constant [3 x i8] c\"%i" + '\\' + "00" + "\", align 1";
-	private static String printCharHeader = "@.printChar = private unnamed_addr " +
+	private static final String printCharHeader = "@.printChar = private unnamed_addr " +
 			"constant [3 x i8] c\"%c" + '\\' + "00" + "\", align 1";
-	private static String printStringHeader = "@.printString = private unnamed_addr " +
+	private static final String printStringHeader = "@.printString = private unnamed_addr " +
 			"constant [3 x i8] c\"%s" + '\\' + "00" + "\", align 1";
 	
 //	@.str = private unnamed_addr constant [3 x i8] c"%i\00", align 1
@@ -146,23 +148,27 @@ public class CodeGenerator
 
 		if (includePrintIntTop) 
 		{
-			out.write(printIntHeader + "\n");
+			out.write(printIntHeader + "\n\n");
 		}
 		if (includePrintCharTop) 
 		{
-			out.write(printCharHeader + "\n");
+			out.write(printCharHeader + "\n\n");
 		}
 		if (includePrintStringTop) 
 		{
-			out.write(printStringHeader + "\n");
+			out.write(printStringHeader + "\n\n");
 		}
 		if (includeRead)
 		{
-			out.write(read+ "\n");
+			out.write(read+ "\n \n");
 		}
 		if ( includeATOI)
 		{
-			out.write(atoi  + "\n");
+			out.write(atoi  + "\n \n");
+		}
+		if (includeStdin)
+		{
+			out.write(stdin + "\n \n");
 		}
 	}
 
@@ -172,6 +178,7 @@ public class CodeGenerator
 			out.write(printf + "\n");
 		}
 	}
+	public static void includeStdin() { includeStdin=true;}
 	public static void includePrint() { includePrint=true;}
 	public static void includeRead() { includeRead=true;}
 	public static void includePrintInt() { includePrintIntTop = true;}
