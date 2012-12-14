@@ -1,0 +1,24 @@
+@x = common global i32 0, align 4
+@y = common global i8 0, align 1
+@.str = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+
+define void @other() nounwind uwtable {
+	store i8 97, i8* @y, align 1
+	%1 = call i32 (i8*,...)* @printf(i8* @y)
+	ret void
+}
+
+define i32 @main() nounwind uwtable {
+	%x = alloca i32 , align 4
+	store i32 10, i32* %x
+	%1 = load i32* %x, align 4
+	%2 = sext i32 %1 to i64
+	%3 = inttoptr i64 %2 to i8*
+	%4 = tail call i32 (i8*, ...)* @printf(i8* %3) nounwind
+	%5 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([2 x i8]* @.str, i32 0, i32 0))
+	call void @other(
+	ret i32 0
+}
+
+
+declare i32 @printf(i8*, ...)
