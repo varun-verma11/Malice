@@ -1,3 +1,6 @@
 for item in "$@"; do
   java -jar compiler.jar $item
+	if [ -e "${item%.alice}.llvm" ]; then
+		lli-3.0 "${item%.alice}.llvm"
+	fi
 done

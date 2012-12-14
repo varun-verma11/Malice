@@ -321,8 +321,7 @@ public class Expression
 		}
 		if (table.checkItemWasDeclaredBefore(leaf.getText()))
 		{
-			// THIS NEEDS TO BE THE NEW METHOD WHICH WOULD RETURN THE NAME OF
-			// THE EXPRESSIONS
+
 			return table.lookup(leaf.getText()).getLocationReg();
 		}
 		return leaf.getText();
@@ -336,7 +335,7 @@ public class Expression
 				leaf.getText()).getType());
 		CodeGenerator.addInstruction(id + " = call " + returnType + " "
 				+ table.lookup(leaf.getText()).getLocationReg() + "("
-				+ Expression.getParamsToFunction(leaf, table) + ")");
+				+ Expression.getParamsToFunction(leaf, table, gen) + ")");
 		return id;
 	}
 
@@ -381,12 +380,13 @@ public class Expression
 		return null;
 
 	}
+	
 	private enum OPERATOR
 	{
 		OR, AND, BWOR, BWXOR, BWAND, EQ, NE, LTE, LT, GT, GTE, ADD, SUB, MUL, MOD, BWNOT, NOT, DIV
 	}
 
-	public static String getParamsToFunction(Tree leaf, SymbolTable table)
+	public static String getParamsToFunction(Tree leaf, SymbolTable table, LabelGenerator gen)
 	{
 		if (leaf.getChildCount() == 0)
 			return "";
@@ -401,7 +401,6 @@ public class Expression
 					+ table.lookup(leaf.getChild(i).getText()).getLocationReg()
 					+ ", ";
 		}
-	
 		return params 
 			   + Utils.getReturnTypeOfFunction(args.get(leaf.getChildCount()-3)) 
 			   + " "

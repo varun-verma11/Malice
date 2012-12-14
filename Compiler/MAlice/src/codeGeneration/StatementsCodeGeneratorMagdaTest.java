@@ -164,11 +164,11 @@ public class StatementsCodeGeneratorMagdaTest {
 			System.out.println(tree.toStringTree());
 			
 			switch(statement) {
-				case ATE:StatementsCodeGeneratorMagda.writeAteAndDrankCode(tree, table, new LabelGenerator(), "add");break;
-				case DRANK:StatementsCodeGeneratorMagda.writeAteAndDrankCode(tree, table, new LabelGenerator(), "sub");break;
-				case BECAME:StatementsCodeGeneratorMagda.writeBecameCode(tree, table, new LabelGenerator());break;
-				case FOUND:StatementsCodeGeneratorMagda.writeFoundCode(tree, table, new LabelGenerator());break;
-				case SAID:StatementsCodeGeneratorMagda.writePrintStatementCode(tree, table, new LabelGenerator());break;
+				case ATE:Statement.writeAteAndDrankCode(tree, table, new LabelGenerator(), "add");break;
+				case DRANK:Statement.writeAteAndDrankCode(tree, table, new LabelGenerator(), "sub");break;
+				case BECAME:Statement.writeBecameCode(tree, table, new LabelGenerator());break;
+				case FOUND:Statement.writeFoundCode(tree, table, new LabelGenerator());break;
+				case SAID:Statement.writePrintStatementCode(tree, table, new LabelGenerator());break;
 			}
 
 			CodeGenerator.printInstructions();
