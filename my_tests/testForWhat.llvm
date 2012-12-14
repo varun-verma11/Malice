@@ -1,14 +1,24 @@
-@.printString = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.printChar = private unnamed_addr constant [3 x i8] c"%c\00", align 1
+
 %struct._IO_FILE = type { i32, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, %struct._IO_marker*, %struct._IO_FILE*, i32, i32, i64, i16, i8, [1 x i8], i8*, i64, i8*, i8*, i8*, i8*, i64, i32, [20 x i8] } 
+
  %struct._IO_marker = type { %struct._IO_marker*, %struct._IO_FILE*, i32 } 
  declare i8* @fgets(i8*, i32, %struct._IO_FILE*)
+ 
+@stdin = external global %struct._IO_FILE*
+ 
 define void @hatta () nounwind uwtable {
-	%x = alloca i8*, align 8
-	%1 = getelementptr inbounds [100 x i8]* %x, i32 0, i32 0 
-	%2 = load %struct._IO_FILE** @stdin, align 8
-	%3 = call i8* @fgets(i8* %1, i32 100, %struct._IO_FILE* %2)
-	%4 = load i8** %x, align 8
-	%5 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.printString, i32 0, i32 0), i8* %4)
+	%x = alloca i8, align 1
+	%1 = alloca [100 x i8], align 16
+	%2 = getelementptr inbounds [100 x i8]* %1, i32 0, i32 0 
+	%3 = load %struct._IO_FILE** @stdin, align 8
+	%4 = call i8* @fgets(i8* %2, i32 100, %struct._IO_FILE* %3)
+	%5 = getelementptr inbounds [100 x i8]* %1, i32 0, i32 0 
+	%6 = load i8* %5, align 1
+	store i8 %6, i8* %x, align 1
+	%7 = load i8* %x, align 1
+	%8 = sext i8 %7 to i32
+	%9 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.printChar, i32 0, i32 0), i32 %8)
 	ret void 
 }
 
