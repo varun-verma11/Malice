@@ -13,6 +13,12 @@ import symbol_table.VariableSTValue;
 
 public class StatementChecker {
 
+	/**
+	 * Checks a collection of statements passed as a symbol-table tree for Syntax errors.
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	public static Tree checkAllStatements(Tree node, SymbolTable table) {
 		Tree current = node;
 		boolean end_of_statements = false;
@@ -28,6 +34,12 @@ public class StatementChecker {
 
 	}
 
+	/**
+	 * Checks a single statement passed as a symbol-table tree for Syntax errors.
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	public static boolean checkStatement(Tree node, SymbolTable symbolTable)
 	{
 		if (node.getText() == null || node.getChildCount() == 0)
@@ -101,11 +113,23 @@ public class StatementChecker {
 		return true;
 	}
 
+	/**
+	 * Validating Found
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateFound(Tree node, SymbolTable symbolTable) {
 		FunctionSemanticsChecker.returnType = SemanticsUtils.getValueType(node,
 				symbolTable);
 	}
 
+	/**
+	 * Opened and closed blocks
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateCodeBlock(Tree node, SymbolTable symbolTable) {
 		CodeBlockSTValue codeVal = new CodeBlockSTValue(symbolTable);
 		symbolTable.insert(
@@ -116,6 +140,12 @@ public class StatementChecker {
 		symbolTable = symbolTable.finalizeCurrentScopeLevelTable();
 	}
 
+	/**
+	 * Validating Either
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateEither(Tree node, SymbolTable symbolTable) {
 		node = node.getChild(0);
 		checkForBooleanExpression(node, symbolTable);
@@ -127,6 +157,12 @@ public class StatementChecker {
 		}
 	}
 
+	/**
+	 * Validating Perhaps
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validatePerhaps(Tree current, SymbolTable symbolTable) {
 		checkForBooleanExpression(current, symbolTable);
 		current = SemanticsUtils.getNextChild(current);
@@ -142,6 +178,12 @@ public class StatementChecker {
 		}
 	}
 
+	/**
+	 * Validating Had
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateHad(Tree node, SymbolTable symbolTable) {
 		String var = node.getChild(0).getText();
 
@@ -163,6 +205,12 @@ public class StatementChecker {
 		}
 	}
 
+	/**
+	 * Validating What
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateWhat(Tree node, SymbolTable symbolTable) {
 		String var = node.getChild(0).getText();
 		if (!symbolTable.checkItemWasDeclaredBefore(var)) {
@@ -185,10 +233,22 @@ public class StatementChecker {
 		}
 	}
 
+	/**
+	 * Validating Print
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validatePrint(Tree node, SymbolTable symbolTable) {
 		SemanticsUtils.getValueType(node.getChild(0), symbolTable);
 	}
 
+	/**
+	 * Validating Became
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateBecame(Tree node, SymbolTable symbolTable) {
 		String var = node.getChild(0).getText();
 		if (node.getChild(0).getText().contentEquals("piece")) {
@@ -213,6 +273,12 @@ public class StatementChecker {
 		}
 	}
 
+	/**
+	 * Validating Ate and Drank statements
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateAteAndDrank(Tree node, SymbolTable symbolTable) {
 		String var = node.getChild(0).getText();
 		if (!symbolTable.checkItemWasDeclaredBefore(var)) {
@@ -238,6 +304,12 @@ public class StatementChecker {
 		//System.out.println(out);
 	}
 
+	/**
+	 * Validating Was
+	 * 
+	 * @param node    Starting point on the tree.
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void validateWasStatement(Tree node, SymbolTable symbolTable) {
 		String var = node.getChild(0).getText();
 
@@ -267,6 +339,13 @@ public class StatementChecker {
 		}
 	}
 
+	
+	/**
+	 * Checks the boolean expression for syntax errors
+	 * 
+	 * @param expr    Input boolean expression
+	 * @param table   Symbol-Table tree.
+	 */
 	private static void checkForBooleanExpression(Tree expr, SymbolTable table) {
 		DATA_TYPES expr_type = ExpressionChecker.getExpressionType(expr, table);
 		if (expr_type != DATA_TYPES.BOOLEAN) {

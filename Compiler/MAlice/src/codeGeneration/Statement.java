@@ -9,8 +9,19 @@ import symbol_table.VariableSTValue;
 
 public class Statement
 {
+	/**
+	 * @field BUFF_SIZE User-defined buffer size to limit input 
+	 */
 	private static final int BUFF_SIZE = 100;
 
+	/**
+	 * Checks statements and passes arguments to generateStatementCode to convert it to LLVM code
+	 * 
+	 * @param node		Current node
+	 * @param table		Current Symbol-Table
+	 * @param gen		Current LabelGenerator
+	 * @return			returns last node
+	 */
 	public static Tree checkAllStatements(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -28,7 +39,15 @@ public class Statement
 		return current;
 
 	}
-
+	
+	/**
+	 * Calls Helper method converting the MAlice code to LLVM code
+	 * 
+	 * @param node		Current node
+	 * @param table		Current SymbolTable
+	 * @param gen		Current LabelGenerator
+	 * @return			'true' if end of all statements, else 'true'
+	 */
 	private static boolean generateStatementCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -97,11 +116,11 @@ public class Statement
 	}
 
 	/**
-	 * This function
+	 * Translates WHAT read-statement to LLVM assembly code
 	 * 
-	 * @param node
-	 * @param table
-	 * @param gen
+	 * @param node		Current node
+	 * @param table		Current SymbolTable
+	 * @param gen		Current LabelGenerator
 	 */
 	private static void writeWHAT(Tree node, SymbolTable table,
 			LabelGenerator gen)
@@ -187,6 +206,13 @@ public class Statement
 				+ " = load %struct._IO_FILE** @stdin, align 8");
 	}
 
+	/**
+	 * Translates WAS declaration-statement to LLVM assembly code
+	 * 
+	 * @param node		Current node
+	 * @param table		Current SymbolTable
+	 * @param gen		Current LabelGenerator
+	 */
 	private static void writeWAS(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
