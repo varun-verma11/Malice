@@ -7,7 +7,12 @@ import symbol_table.SymbolTable;
 
 public class ControlStructureChecks
 {
-
+	/**
+	 * Checks semantics errors in for control structure statements
+	 * 
+	 * @param n			current node
+	 * @param table		current symbol table
+	 */
 	public static void checkForControlStructures(Tree n, SymbolTable table)
 	{
 		Tree node = n.getChild(0);

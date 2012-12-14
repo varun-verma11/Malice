@@ -4,8 +4,7 @@
 package symbol_table;
 
 /**
- * @author varun
- *
+ * 
  */
 public class VariableSTValue extends SymbolTableValue
 {

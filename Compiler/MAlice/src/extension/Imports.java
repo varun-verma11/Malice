@@ -18,16 +18,20 @@ import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.SemanticsUtils;
 
+
 public class Imports
 {
 	/**
+	 * 	String containing filenames to be imported
 	 * @field imports : This keeps a track of the files which have been imported
 	 */
+
 	private static Set<String> imports = new HashSet<String>();
 
 	/**
 	 * This function checks for errors which could be in import statements, such
 	 * as if user wants to import a file which does not exists. Also it
+
 	 * manipulates the AST in order to add the imported functions.
 	 * 
 	 * @param node
@@ -130,6 +134,7 @@ public class Imports
 			}
 		}
 
+		
 		return current;
 	}
 
