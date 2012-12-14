@@ -15,7 +15,7 @@ public class Statement
 	 * 					strings.
 	 */
 	private static final int BUFF_SIZE = 100;
-	private static int count = 0;
+	public static int count = 0;
 
 	/**
 	 * Checks statements and passes arguments to generateStatementCode to
@@ -116,7 +116,6 @@ public class Statement
 				&& node.getChild(0).getText().contentEquals("(")
 				&& node.getChild(node.getChildCount() - 1).getText().contentEquals(")"))
 		{
-
 			CodeGenerator.addInstruction("call void "
 					+ table.lookup(node.getText()).getLocationReg() + "("
 					+ Expression.getParamsToFunction(node, table, gen) + ")");

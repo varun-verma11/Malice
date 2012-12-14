@@ -50,19 +50,19 @@ public class Malice
 			CharStream input = new ANTLRFileStream(args[0]); 
 			malice_grammarLexer lexer = new malice_grammarLexer(input );
 			TokenStream tokens = new CommonTokenStream(lexer);
-			if (!lexer.failed())
+			if (lexer.getNumberOfSyntaxErrors()==0)
 			{
 				malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-				if (!parser.failed()) {
+				Tree tree =  (Tree) parser.program().getTree() ;
+				if (parser.getNumberOfSyntaxErrors()==0) {
 					MathLibrary.addFunctionsToSymbolTable(table);
-					Tree tree =  (Tree) parser.program().getTree() ;
 					Imports.checkImports(tree);
 					SemanticVerifier.checkProgramSemantics(tree, table);
 					if (!SemanticVerifier.failed) 
 					{
 						CodeGenerator.generateCode(tree, table);
 						CodeGenerator.saveToFile(filepath);
-						System.out.println("====DONE====");
+						System.out.println("====RUNNING====");
 					}
 				}
 					
@@ -71,7 +71,6 @@ public class Malice
 		catch (IOException e) { System.out.println("The filepath is incorrect." +
 				" Please use a valid filepath");} 
 		catch (RecognitionException e) { e.printStackTrace(); }
-
 	}
 
 }
