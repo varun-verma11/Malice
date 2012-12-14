@@ -59,8 +59,8 @@ public class Function
 		fVal.setLocationReg("@" + current);
 		current = SemanticsUtils.getNextChild(current);
 		String params = getParamsForFunctions(current,fVal.getTable());
-		current = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(
-				SemanticsUtils.getNextChild(current)));
+		current = SemanticsUtils.getNextChild(
+				SemanticsUtils.getNextChild(current));
 		writeFunctionHeader(
 				Utils.getReturnTypeOfFunction(fVal.getType())
 				, fVal.getLocationReg()
