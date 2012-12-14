@@ -106,7 +106,7 @@ public class Statement
 				&& node.getChild(node.getChildCount() - 1).getText()
 						.contentEquals(")"))
 		{
-			// DEAL WITH FUNCTION CALL
+			Expression.getResultReg(node, table, gen);
 			return false;
 		}
 		return true;

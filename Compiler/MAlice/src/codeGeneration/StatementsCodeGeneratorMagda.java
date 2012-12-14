@@ -72,7 +72,7 @@ public class StatementsCodeGeneratorMagda
 					+ size + " x i8]* " + newLabel + ", i32 0, i32 0), i8** "
 					+ currReg + ", align 8");
 		} else
-		{// /need to change this <--why??? old comment maybe..
+		{
 			CodeGenerator.addInstruction("store i32 "
 					+ Expression.getResultReg(node.getChild(1), table, gen)
 					+ ", i32* " + currReg + ", align 4");
@@ -187,14 +187,10 @@ public class StatementsCodeGeneratorMagda
 		} catch (NumberFormatException e)
 		{
 		}
-//		CodeGenerator.addGlobalInstruction(newLabel + " = private "
-//				+ "unnamed_addr constant [" + (currReg.length() + 1)
-//				+ " x i8] c\"" + currReg + "\\00\", align 1");
-//		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
-//				+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
-//				+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
-//				+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel
-//				+ ", i32 0, i32 0))");
+		CodeGenerator.includePrintInt();
+		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+				+ "@printf(i8* getelementptr inbounds ([3 x i8]* @.printInt," 
+				+ " i32 0, i32 0), i32 " + currReg + ")");
 	}
 
 	private static void sentenceAtNode(Tree node, String uniqueReg,
