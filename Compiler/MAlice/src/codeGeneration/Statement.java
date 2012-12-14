@@ -41,13 +41,10 @@ public class Statement
 		{
 			writeWAS(node, table, gen);
 			return false;
-		} else if (node.getText().contentEquals("ate"))
+		} else if (node.getText().contentEquals("ate")
+				|| node.getText().contentEquals("drank"))
 		{
-			StatementsCodeGeneratorMagda.writeAteCode(node, table, gen);
-			return false;
-		} else if (node.getText().contentEquals("drank"))
-		{
-			StatementsCodeGeneratorMagda.writeDrankCode(node, table, gen);
+			StatementsCodeGeneratorMagda.writeAteAndDrankCode(node, table, gen, (node.getText().contentEquals("ate")? "add" : "sub"));
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{

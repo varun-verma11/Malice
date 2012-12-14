@@ -43,11 +43,6 @@ public class StatementChecker {
 				|| node.getText().contentEquals("drank"))
 		{
 			validateAteAndDrank(node, symbolTable);
-			if (node.getText().contentEquals("ate")) {
-				//StatementsCodeGeneratorMagda.writeAteCode(node, symbolTable);
-			} else {
-				//StatementsCodeGeneratorMagda.writeDrankCode(node, symbolTable);
-			}
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
