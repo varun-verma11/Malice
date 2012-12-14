@@ -109,14 +109,13 @@ public class Statement
 		} else if (node.getText().contentEquals("opened"))
 		{
 			return false;
-		} else if (node.getChildCount() > 2
+		} else if (node.getChildCount() >= 2
 				&& node.getChild(0).getText().contentEquals("(")
-				&& node.getChild(node.getChildCount() - 1).getText()
-						.contentEquals(")"))
+				&& node.getChild(node.getChildCount() - 1).getText().contentEquals(")"))
 		{
 			CodeGenerator.addInstruction("call void "
-					+ table.lookup(node.getText()).getLocationReg()
-					+ Expression.getParamsToFunction(node, table));
+					+ table.lookup(node.getText()).getLocationReg() + "("
+					+ Expression.getParamsToFunction(node, table) + ")");
 			return false;
 		}
 		return true;
