@@ -73,17 +73,17 @@ public class Statement
 		} else if (node.getText().contentEquals("ate")
 				|| node.getText().contentEquals("drank"))
 		{
-			StatementsCodeGeneratorMagda.writeAteAndDrankCode(node, table, gen,
+			writeAteAndDrankCode(node, table, gen,
 					(node.getText().contentEquals("ate") ? "add" : "sub"));
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
-			StatementsCodeGeneratorMagda.writeBecameCode(node, table, gen);
+			writeBecameCode(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("spoke")
 				|| node.getText().contentEquals("said"))
 		{
-			StatementsCodeGeneratorMagda.writePrintStatementCode(node, table,
+			writePrintStatementCode(node, table,
 					gen);
 			return false;
 		} else if (node.getText().contentEquals("what"))
@@ -92,7 +92,7 @@ public class Statement
 			return false;
 		} else if (node.getText().contentEquals("found"))
 		{
-			StatementsCodeGeneratorMagda.writeFoundCode(node, table, gen);
+			writeFoundCode(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("had"))
 		{
@@ -119,7 +119,7 @@ public class Statement
 
 			CodeGenerator.addInstruction("call void "
 					+ table.lookup(node.getText()).getLocationReg() + "("
-					+ Expression.getParamsToFunction(node, table) + ")");
+					+ Expression.getParamsToFunction(node, table, gen) + ")");
 
 			return false;
 		}
@@ -332,15 +332,10 @@ public class Statement
 							+ " x i8] c\"" + effective + '\\' + "00"
 							+ "\", align 1", 0);
 					CodeGenerator
-							.addInstruction("store i8* getelementptr inbounds (["
-									+ strLen
-									+ " x i8]* @.at"
-									+ arg1
-									+ table.getCurrentScopeLevel()
-									+ ", i32 0, i32 0), i8** %"
-									+ arg1
-									+ ", align 8");
-
+							.addInstruction("store i8* getelementptr inbounds" 
+									+ " (["	+ strLen + " x i8]* @.at" + arg1
+									+ table.getCurrentScopeLevel() + ", i32 0," 
+									+ " i32 0), i8** %" + arg1 + ", align 8");
 				}
 			}
 		}
@@ -372,6 +367,14 @@ public class Statement
 				+ currReg + ", align 4");
 	}
 
+	
+	/**
+	 * Generates LLVM code for Became statements.
+	 * 
+	 * @param node	Current Tree node.
+	 * @param table Current symbol table.
+	 * @param gen	Current label generator.
+	 */
 	public static void writeBecameCode(Tree node, SymbolTable table, 
 			LabelGenerator gen) {
 
@@ -407,6 +410,13 @@ public class Statement
 		}
 	}
 
+	/**
+	 * Generates print statements for 'said Alice' and 'spoke' statements.
+	 * 
+	 * @param node	Current Tree node.
+	 * @param table Current symbol table
+	 * @param gen	Current label generator
+	 */
 	public static void writePrintStatementCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -433,14 +443,16 @@ public class Statement
 					.addInstruction(uniqueReg
 							+ " = call i32 (i8*, ...)* "
 							+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
-							+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
-							+ "([2 x i8]* " + newLabel + ", i32 0, i32 0))");
+							+ "@.printString, i32 0, i32 0), i8* getelementptr" 
+							+ " inbounds ([2 x i8]* " + newLabel + ", i32 0," 
+							+ " i32 0))");
 
 			return;
 		}
 		try
 		{
-			if ((VariableSTValue) table.lookup(node.getChild(0).getText()) != null)
+			if ((VariableSTValue) 
+					table.lookup(node.getChild(0).getText()) != null)
 			{
 				uniqueReg = gen.getUniqueRegisterID();
 				DATA_TYPES type = (table.lookup(node.getChild(0).getText()))
@@ -457,15 +469,16 @@ public class Statement
 					uniqueReg = gen.getUniqueRegisterID();
 					CodeGenerator
 							.addInstruction(uniqueReg
-									+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
-									+ "inbounds ([3 x i8]* @.printString, i32 0, i32 0), i8* "
+									+ " = call i32 (i8*, ...)* @printf(i8*" 
+									+ " getelementptr inbounds ([3 x i8]*" 
+									+ " @.printString, i32 0, i32 0), i8* "
 									+ currentReg + ")");
 					CodeGenerator.includePrintString();
 
 				} else
 				{
 					CodeGenerator.addInstruction(uniqueReg + " = load "
-							+ getType(type) + "* " + currentReg + ", align "
+							+ getBits(type) + "* " + currentReg + ", align "
 							+ getAlignValue(type));
 					currentReg = uniqueReg;
 					uniqueReg = gen.getUniqueRegisterID();
@@ -477,16 +490,18 @@ public class Statement
 						uniqueReg = gen.getUniqueRegisterID();
 						CodeGenerator
 								.addInstruction(uniqueReg
-										+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
-										+ "inbounds ([3 x i8]* @.printChar, i32 0, i32 0), i32 "
+										+ " = call i32 (i8*, ...)* @printf(i8*" 
+										+ " getelementptr inbounds ([3 x i8]*" 
+										+ " @.printChar, i32 0, i32 0), i32 "
 										+ currentReg + ")");
 						CodeGenerator.includePrintChar();
 					} else
 					{
 						CodeGenerator
 								.addInstruction(uniqueReg
-										+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
-										+ "inbounds ([3 x i8]* @.printInt, i32 0, i32 0), i32 "
+										+ " = call i32 (i8*, ...)* @printf(i8* " 
+										+ "getelementptr inbounds ([3 x i8]* " 
+										+ "@.printInt, i32 0, i32 0), i32 "
 										+ currentReg + ")");
 						CodeGenerator.includePrintInt();
 					}
@@ -509,8 +524,8 @@ public class Statement
 					+ " x i8] c\"" + i + "\\00\", align 1");
 			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
 					+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
-					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
-					+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel
+					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds"
+					+ " ([" + (currReg.length() + 1) + " x i8]* " + newLabel
 					+ ", i32 0, i32 0))");
 		} catch (NumberFormatException e)
 		{
@@ -521,6 +536,18 @@ public class Statement
 				+ " i32 0, i32 0), i32 " + currReg + ")");
 	}
 
+	/**
+	 * Generates LLVM code for 'said Alice', 'spoke' and 'Alice found' 
+	 * statements, depending on an enum value passed in the parameter. This 
+	 * function is only to be used if the child node of the Tree passed in the 
+	 * method is a sentence (as opposed to a variable, letter, number or 
+	 * expression.) 
+	 * 
+	 * @param node		Current Tree node.
+	 * @param uniqueReg String representing the current unique register. 
+	 * @param action	Enum value indicating if we want a code for print or
+	 * 					return statements.
+	 */
 	private static void sentenceAtNode(Tree node, String uniqueReg,
 			ACTION action)
 	{
@@ -544,6 +571,12 @@ public class Statement
 		}
 	}
 
+	/**
+	 * Returns the number of bytes showing how they are aligned in the memory.
+	 * 
+	 * @param type	The data type for which we need to find the align value.
+	 * @return		The align value.
+	 */
 	private static String getAlignValue(DATA_TYPES type)
 	{
 		if (type == DATA_TYPES.LETTER)
@@ -556,7 +589,14 @@ public class Statement
 		return null;
 	}
 
-	private static String getType(DATA_TYPES type)
+	/**
+	 * Returns a String representing the number of bits in the type.
+	 * 
+	 * @param type 	Data type for which we want to find the number of bits.
+	 * @return		The number of bits corresponding to the given type, 
+	 * 				preceded by the letter 'i'.
+	 */
+	private static String getBits(DATA_TYPES type)
 	{
 		if (type == DATA_TYPES.LETTER)
 		{
@@ -568,6 +608,13 @@ public class Statement
 		return null;
 	}
 
+	/**
+	 * Generates the LLVM code for 'Alice found' statements.
+	 * 
+	 * @param node	Current Tree node.
+	 * @param table Current symbol table.
+	 * @param gen	Current label generator.
+	 */
 	public static void writeFoundCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
@@ -589,7 +636,6 @@ public class Statement
 			 ****************************************/
 		} else if (table.lookup(node.getChild(0).getText()) != null)
 		{
-
 			String uniqueReg = gen.getUniqueRegisterID();
 			String currentReg = Utils.getVarReg(node.getChild(0), table, gen);
 			// (table.lookup(node.getChild(0).getText())).getLocationReg();
@@ -622,13 +668,14 @@ public class Statement
 			}
 			return;
 		}
-
-
 		String currentReg = Expression.getResultReg(node.getChild(0), table,
 				gen);
 		CodeGenerator.addInstruction("ret i32 " + currentReg);
 	}
 
+	/**
+	 * Enum representing which action we are currently undertaking.
+	 */
 	private enum ACTION
 	{
 		PRINT, RETURN;
