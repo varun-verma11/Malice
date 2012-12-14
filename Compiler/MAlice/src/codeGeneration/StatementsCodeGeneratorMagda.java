@@ -174,14 +174,27 @@ public class StatementsCodeGeneratorMagda
 		uniqueReg = gen.getUniqueRegisterID();
 		String newLabel = "@.str_" + count;
 		count++;
-		CodeGenerator.addGlobalInstruction(newLabel + " = private "
-				+ "unnamed_addr constant [" + (currReg.length() + 1)
-				+ " x i8] c\"" + currReg + "\\00\", align 1");
-		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
-				+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
-				+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
-				+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel
-				+ ", i32 0, i32 0))");
+		try {
+			int i = Integer.parseInt(currReg);
+			CodeGenerator.addGlobalInstruction(newLabel + " = private "
+					+ "unnamed_addr constant [" + (currReg.length() + 1)
+					+ " x i8] c\"" + i + "\\00\", align 1");
+			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
+					+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
+					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
+					+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel
+					+ ", i32 0, i32 0))");
+		} catch (NumberFormatException e)
+		{
+		}
+//		CodeGenerator.addGlobalInstruction(newLabel + " = private "
+//				+ "unnamed_addr constant [" + (currReg.length() + 1)
+//				+ " x i8] c\"" + currReg + "\\00\", align 1");
+//		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
+//				+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
+//				+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
+//				+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel
+//				+ ", i32 0, i32 0))");
 	}
 
 	private static void sentenceAtNode(Tree node, String uniqueReg,
