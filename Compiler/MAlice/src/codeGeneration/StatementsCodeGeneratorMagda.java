@@ -39,7 +39,6 @@ public class StatementsCodeGeneratorMagda {
 				+ currReg + ", align 4");
 	}
 
-	
 	public static void writeBecameCode(Tree node, SymbolTable table, 
 			LabelGenerator gen) {
 		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
@@ -232,10 +231,8 @@ public class StatementsCodeGeneratorMagda {
 			}
 			return;
 		}
-		
 		String currentReg = Expression.getResultReg(node.getChild(0), table,gen);
 		CodeGenerator.addInstruction("ret i32 " + currentReg);
-		
 	}
 	
 	private enum ACTION
