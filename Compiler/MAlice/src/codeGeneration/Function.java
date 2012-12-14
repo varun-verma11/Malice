@@ -24,7 +24,7 @@ public class Function
 	{
 		Tree current = node.getChild(0);
 		FunctionSTValue fVal = 
-			(FunctionSTValue) table.lookup(node.getChild(0).getText());
+			(FunctionSTValue) table.lookup(current.getText());
 		fVal.setLocationReg(current.getText().contentEquals("main")? 
 				"@_main" : "@" + current);
 		current = SemanticsUtils.getNextChild(current);
@@ -59,13 +59,12 @@ public class Function
 		fVal.setLocationReg("@" + current);
 		current = SemanticsUtils.getNextChild(current);
 		String params = getParamsForFunctions(current,fVal.getTable());
-		current = SemanticsUtils.getNextChild(
-				SemanticsUtils.getNextChild(current));
+		current = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(
+				SemanticsUtils.getNextChild(current)));
 		writeFunctionHeader(
 				Utils.getReturnTypeOfFunction(fVal.getType())
 				, fVal.getLocationReg()
 				, params);
-		
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
 		current = Statement.checkAllStatements(current, fVal.getTable(), gen);

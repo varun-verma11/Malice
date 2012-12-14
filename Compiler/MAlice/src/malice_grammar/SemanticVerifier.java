@@ -16,8 +16,8 @@ public class SemanticVerifier
 	{
 		new ExpressionChecker();
 		Tree current = (node.getText()==null)? node.getChild(0) : node ;
-		current = StatementChecker.checkAllStatements(current, table);
 		current = SemanticsUtils.skipImports(current);
+		current = StatementChecker.checkAllStatements(current, table);
 		while(current != null)
 		{
 			current = FunctionSemanticsChecker.checkFunction(current, table);

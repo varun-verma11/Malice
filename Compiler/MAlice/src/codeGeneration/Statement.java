@@ -10,17 +10,24 @@ import symbol_table.VariableSTValue;
 public class Statement
 {
 	/**
-	 * @field BUFF_SIZE User-defined buffer size to limit input 
+	 * @field BUFF_SIZE User-defined buffer size to limit input
+	 * @field count		This field is used to create unique labels for printing 
+	 * 					strings.
 	 */
 	private static final int BUFF_SIZE = 100;
+	private static int count = 0;
 
 	/**
-	 * Checks statements and passes arguments to generateStatementCode to convert it to LLVM code
+	 * Checks statements and passes arguments to generateStatementCode to
+	 * convert it to LLVM code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current Symbol-Table
-	 * @param gen		Current LabelGenerator
-	 * @return			returns last node
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current Symbol-Table
+	 * @param gen
+	 *            Current LabelGenerator
+	 * @return returns last node
 	 */
 	public static Tree checkAllStatements(Tree node, SymbolTable table,
 			LabelGenerator gen)
@@ -39,14 +46,17 @@ public class Statement
 		return current;
 
 	}
-	
+
 	/**
 	 * Calls Helper method converting the MAlice code to LLVM code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current SymbolTable
-	 * @param gen		Current LabelGenerator
-	 * @return			'true' if end of all statements, else 'true'
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current SymbolTable
+	 * @param gen
+	 *            Current LabelGenerator
+	 * @return 'true' if end of all statements, else 'true'
 	 */
 	private static boolean generateStatementCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
@@ -58,12 +68,13 @@ public class Statement
 
 		if (node.getText().contentEquals("was"))
 		{
-			writeWAS(node, table, gen);
+			writeWasCode(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("ate")
 				|| node.getText().contentEquals("drank"))
 		{
-			StatementsCodeGeneratorMagda.writeAteAndDrankCode(node, table, gen, (node.getText().contentEquals("ate")? "add" : "sub"));
+			StatementsCodeGeneratorMagda.writeAteAndDrankCode(node, table, gen,
+					(node.getText().contentEquals("ate") ? "add" : "sub"));
 			return false;
 		} else if (node.getText().contentEquals("became"))
 		{
@@ -77,7 +88,7 @@ public class Statement
 			return false;
 		} else if (node.getText().contentEquals("what"))
 		{
-			writeWHAT(node, table, gen);
+			writeWhatCode(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("found"))
 		{
@@ -101,12 +112,15 @@ public class Statement
 		} else if (node.getText().contentEquals("opened"))
 		{
 			return false;
-		} else if (node.getChildCount() > 2
+		} else if (node.getChildCount() >= 2
 				&& node.getChild(0).getText().contentEquals("(")
-				&& node.getChild(node.getChildCount() - 1).getText()
-						.contentEquals(")"))
+				&& node.getChild(node.getChildCount() - 1).getText().contentEquals(")"))
 		{
-			// DEAL WITH FUNCTION CALL
+
+			CodeGenerator.addInstruction("call void "
+					+ table.lookup(node.getText()).getLocationReg() + "("
+					+ Expression.getParamsToFunction(node, table) + ")");
+
 			return false;
 		}
 		return true;
@@ -115,11 +129,14 @@ public class Statement
 	/**
 	 * Translates WHAT read-statement to LLVM assembly code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current SymbolTable
-	 * @param gen		Current LabelGenerator
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current SymbolTable
+	 * @param gen
+	 *            Current LabelGenerator
 	 */
-	private static void writeWHAT(Tree node, SymbolTable table,
+	private static void writeWhatCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
 		CodeGenerator.includeStdin();
@@ -133,8 +150,8 @@ public class Statement
 			{
 				String tempReg = gen.getUniqueLabel();
 				String buff = tempReg;
-				CodeGenerator.addInstruction(tempReg + " = alloca [" + BUFF_SIZE
-						+ " x i8], align 16");
+				CodeGenerator.addInstruction(tempReg + " = alloca ["
+						+ BUFF_SIZE + " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
@@ -153,8 +170,8 @@ public class Statement
 			{
 				String tempReg = gen.getUniqueLabel();
 				String buff = tempReg;
-				CodeGenerator.addInstruction(tempReg + " = alloca [" + BUFF_SIZE
-						+ " x i8], align 16");
+				CodeGenerator.addInstruction(tempReg + " = alloca ["
+						+ BUFF_SIZE + " x i8], align 16");
 				String regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				String regId2 = gen.getUniqueLabel();
@@ -163,20 +180,18 @@ public class Statement
 				regId1 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId1);
 				regId2 = gen.getUniqueLabel();
-				CodeGenerator.addInstruction( regId2 + " = load i8* " 
-						+ regId1 + ", align 1");
-				CodeGenerator.addInstruction("store i8 " + regId2 
-						+ ", i8* " + v.getLocationReg()
+				CodeGenerator.addInstruction(regId2 + " = load i8* " + regId1
 						+ ", align 1");
+				CodeGenerator.addInstruction("store i8 " + regId2 + ", i8* "
+						+ v.getLocationReg() + ", align 1");
 				CodeGenerator.includeRead();
 
 			} else if (type == DATA_TYPES.SENTENCE)
 			{
-				
 				String regId1 = gen.getUniqueLabel();
 				String buff = regId1;
-				CodeGenerator.addInstruction(regId1 
-						+ " = alloca [100 x i8], align 16");				
+				CodeGenerator.addInstruction(regId1
+						+ " = alloca [100 x i8], align 16");
 				String regId2 = gen.getUniqueLabel();
 				addGetElementPtrIns(regId1, regId2);
 				regId1 = gen.getUniqueLabel();
@@ -184,9 +199,9 @@ public class Statement
 				regId1 = writeCallFGetsIns(gen, regId2, regId1);
 				regId2 = gen.getUniqueLabel();
 				addGetElementPtrIns(buff, regId2);
-				CodeGenerator.addInstruction("store i8* " + regId2 
-						+ ", i8** " + v.getLocationReg() + ", align 8");
-				
+				CodeGenerator.addInstruction("store i8* " + regId2 + ", i8** "
+						+ v.getLocationReg() + ", align 8");
+
 				CodeGenerator.includeRead();
 			}
 		}
@@ -218,11 +233,14 @@ public class Statement
 	/**
 	 * Translates WAS declaration-statement to LLVM assembly code
 	 * 
-	 * @param node		Current node
-	 * @param table		Current SymbolTable
-	 * @param gen		Current LabelGenerator
+	 * @param node
+	 *            Current node
+	 * @param table
+	 *            Current SymbolTable
+	 * @param gen
+	 *            Current LabelGenerator
 	 */
-	private static void writeWAS(Tree node, SymbolTable table,
+	private static void writeWasCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
 		Tree storable = node.getChild(2);
@@ -326,5 +344,294 @@ public class Statement
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Generates LLVM code for ate and drank statements.
+	 * 
+	 * @param node
+	 *            Current Tree node.
+	 * @param table
+	 *            Current symbol table.
+	 * @param gen
+	 *            Current label generator.
+	 * @param action
+	 *            Either "add" or "sub"
+	 */
+	public static void writeAteAndDrankCode(Tree node, SymbolTable table,
+			LabelGenerator gen, String action)
+	{
+		String uniqueReg = gen.getUniqueRegisterID();
+		String currReg = Utils.getVarReg(node.getChild(0), table, gen);
+		CodeGenerator.addInstruction(uniqueReg + " = load i32* " + currReg
+				+ ", align 4");
+		currReg = uniqueReg;
+		uniqueReg = gen.getUniqueRegisterID();
+		Expression.writeOperationExpressions(uniqueReg, action, currReg, "1");
+		currReg = Utils.getVarReg(node.getChild(0), table, gen);
+		CodeGenerator.addInstruction("store i32 " + uniqueReg + ", i32* "
+				+ currReg + ", align 4");
+	}
+
+	public static void writeBecameCode(Tree node, SymbolTable table, 
+			LabelGenerator gen) {
+
+		DATA_TYPES type = Utils.getValueType(node.getChild(1), table);
+		String currReg = Utils.getVarReg(node.getChild(0), table, gen);
+
+		if (type == DATA_TYPES.LETTER || type == DATA_TYPES.ARRAY_LETTER)
+		{
+			CodeGenerator.addInstruction("store i8 "
+					+ (int) node.getChild(1).getText().charAt(1) + ", i8* "
+					+ currReg + ", align 1");
+		} else if (type == DATA_TYPES.SENTENCE
+				|| type == DATA_TYPES.ARRAY_SENTENCE)
+		{
+			String curr = node.getChild(1).getText();
+			curr = curr.substring(1, curr.length() - 1);
+			int size = curr.length() + 1;
+
+			(table.lookup(node.getChild(0).getText())).setStringSize(size);
+			String newLabel = "@." + node.getChild(0).getText() + "_" + count;
+			count++;
+			CodeGenerator.addGlobalInstruction(newLabel + " = private "
+					+ "unnamed_addr constant [" + size + " x i8] c\"" + curr
+					+ "\\00\", " + "align 1");
+			CodeGenerator.addInstruction("store i8* getelementptr inbounds (["
+					+ size + " x i8]* " + newLabel + ", i32 0, i32 0), i8** "
+					+ currReg + ", align 8");
+		} else
+		{
+			CodeGenerator.addInstruction("store i32 "
+					+ Expression.getResultReg(node.getChild(1), table, gen)
+					+ ", i32* " + currReg + ", align 4");
+		}
+	}
+
+	public static void writePrintStatementCode(Tree node, SymbolTable table,
+			LabelGenerator gen)
+	{
+		CodeGenerator.includePrint();
+		String uniqueReg;
+		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
+
+		if (nodeType == DATA_TYPES.SENTENCE)
+		{
+			uniqueReg = gen.getUniqueRegisterID();
+			sentenceAtNode(node, uniqueReg, ACTION.PRINT);
+			return;
+		} else if (nodeType == DATA_TYPES.LETTER)
+		{
+			uniqueReg = gen.getUniqueRegisterID();
+			String charToPrint = "" + node.getChild(0).getText().charAt(1);
+			CodeGenerator.includePrintString();
+			String newLabel = "@.str_" + count;
+			count++;
+			CodeGenerator.addGlobalInstruction(newLabel + " = private "
+					+ "unnamed_addr constant [2 x i8] c\"" + charToPrint
+					+ "\\00\", align 1");
+			CodeGenerator
+					.addInstruction(uniqueReg
+							+ " = call i32 (i8*, ...)* "
+							+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
+							+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
+							+ "([2 x i8]* " + newLabel + ", i32 0, i32 0))");
+
+			return;
+		}
+		try
+		{
+			if ((VariableSTValue) table.lookup(node.getChild(0).getText()) != null)
+			{
+				uniqueReg = gen.getUniqueRegisterID();
+				DATA_TYPES type = (table.lookup(node.getChild(0).getText()))
+						.getType();
+				String currentReg = Utils.getVarReg(node.getChild(0), table,
+						gen);
+				// (table.lookup(node.getChild(0).getText())).getLocationReg();
+
+				if (type == DATA_TYPES.SENTENCE)
+				{
+					CodeGenerator.addInstruction(uniqueReg + " = load i8** "
+							+ currentReg + ", align 8");
+					currentReg = uniqueReg;
+					uniqueReg = gen.getUniqueRegisterID();
+					CodeGenerator
+							.addInstruction(uniqueReg
+									+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
+									+ "inbounds ([3 x i8]* @.printString, i32 0, i32 0), i8* "
+									+ currentReg + ")");
+					CodeGenerator.includePrintString();
+
+				} else
+				{
+					CodeGenerator.addInstruction(uniqueReg + " = load "
+							+ getType(type) + "* " + currentReg + ", align "
+							+ getAlignValue(type));
+					currentReg = uniqueReg;
+					uniqueReg = gen.getUniqueRegisterID();
+					if (type == DATA_TYPES.LETTER)
+					{
+						CodeGenerator.addInstruction(uniqueReg + " = sext i8 "
+								+ currentReg + " to i32");
+						currentReg = uniqueReg;
+						uniqueReg = gen.getUniqueRegisterID();
+						CodeGenerator
+								.addInstruction(uniqueReg
+										+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
+										+ "inbounds ([3 x i8]* @.printChar, i32 0, i32 0), i32 "
+										+ currentReg + ")");
+						CodeGenerator.includePrintChar();
+					} else
+					{
+						CodeGenerator
+								.addInstruction(uniqueReg
+										+ " = call i32 (i8*, ...)* @printf(i8* getelementptr "
+										+ "inbounds ([3 x i8]* @.printInt, i32 0, i32 0), i32 "
+										+ currentReg + ")");
+						CodeGenerator.includePrintInt();
+					}
+				}
+				return;
+			}
+		} catch (ClassCastException e)
+		{
+		}
+
+		CodeGenerator.includePrintString();
+		String currReg = Expression.getResultReg(node.getChild(0), table, gen);
+		uniqueReg = gen.getUniqueRegisterID();
+		String newLabel = "@.str_" + count;
+		count++;
+		try {
+			int i = Integer.parseInt(currReg);
+			CodeGenerator.addGlobalInstruction(newLabel + " = private "
+					+ "unnamed_addr constant [" + (currReg.length() + 1)
+					+ " x i8] c\"" + i + "\\00\", align 1");
+			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
+					+ "@printf(i8* getelementptr inbounds ([3 x i8]* "
+					+ "@.printString, i32 0, i32 0), i8* getelementptr inbounds "
+					+ "([" + (currReg.length() + 1) + " x i8]* " + newLabel
+					+ ", i32 0, i32 0))");
+		} catch (NumberFormatException e)
+		{
+		}
+		CodeGenerator.includePrintInt();
+		CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* " 
+				+ "@printf(i8* getelementptr inbounds ([3 x i8]* @.printInt," 
+				+ " i32 0, i32 0), i32 " + currReg + ")");
+	}
+
+	private static void sentenceAtNode(Tree node, String uniqueReg,
+			ACTION action)
+	{
+		String curr = node.getChild(0).getText();
+		curr = curr.substring(1, curr.length() - 1);
+		int size = curr.length() + 1;
+		String newLabel = "@.str_" + count;
+		count++;
+		CodeGenerator.addGlobalInstruction(newLabel + " = private "
+				+ "unnamed_addr constant [" + size + " x i8] c\"" + curr
+				+ "\\00\", align 1");
+		if (action == ACTION.PRINT)
+		{
+			CodeGenerator.addInstruction(uniqueReg + " = call i32 (i8*, ...)* "
+					+ "@printf(i8* getelementptr inbounds ([" + size
+					+ " x i8]* " + newLabel + ", i32 0, i32 0))");
+		} else
+		{
+			CodeGenerator.addInstruction("ret i8* getelementptr inbounds (["
+					+ size + " x i8*]* " + newLabel + ", i32 0, i32 0");
+		}
+	}
+
+	private static String getAlignValue(DATA_TYPES type)
+	{
+		if (type == DATA_TYPES.LETTER)
+		{
+			return "1";
+		} else if (type == DATA_TYPES.NUMBER)
+		{
+			return "4";
+		}
+		return null;
+	}
+
+	private static String getType(DATA_TYPES type)
+	{
+		if (type == DATA_TYPES.LETTER)
+		{
+			return "i8";
+		} else if (type == DATA_TYPES.NUMBER)
+		{
+			return "i32";
+		}
+		return null;
+	}
+
+	public static void writeFoundCode(Tree node, SymbolTable table,
+			LabelGenerator gen)
+	{
+		DATA_TYPES nodeType = Utils.getValueType(node.getChild(0), table);
+
+		if (nodeType == DATA_TYPES.SENTENCE)
+		{
+			sentenceAtNode(node, gen.getUniqueRegisterID(), ACTION.RETURN);
+
+			return;
+		} else if (nodeType == DATA_TYPES.LETTER)
+		{
+			CodeGenerator.addInstruction("ret i8 "
+					+ (int) node.getChild(0).getText().charAt(1));
+			return;
+			/****************************************
+			 * MIGHT NEED TO INCLUDE A DOWN CAST AND TRY AND CATCH FOR
+			 * CLASSCASTEXCEPTION
+			 ****************************************/
+		} else if (table.lookup(node.getChild(0).getText()) != null)
+		{
+
+			String uniqueReg = gen.getUniqueRegisterID();
+			String currentReg = Utils.getVarReg(node.getChild(0), table, gen);
+			// (table.lookup(node.getChild(0).getText())).getLocationReg();
+			DATA_TYPES type = (table.lookup(node.getChild(0).getText()))
+					.getType();
+
+			if (type == DATA_TYPES.LETTER)
+			{
+				CodeGenerator.addInstruction(uniqueReg + " = load i8* "
+						+ currentReg + ", align 1");
+				currentReg = uniqueReg;
+				uniqueReg = gen.getUniqueRegisterID();
+				CodeGenerator.addInstruction(uniqueReg + " = sext i8 "
+						+ currentReg + " to i32");
+				CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+			} else if (type == DATA_TYPES.SENTENCE)
+			{
+				CodeGenerator.addInstruction(uniqueReg + " = load i8** "
+						+ currentReg + ", align 8");
+				currentReg = uniqueReg;
+				uniqueReg = gen.getUniqueRegisterID();
+				CodeGenerator.addInstruction(uniqueReg + " = ptrtoint i8* "
+						+ currentReg + " to i32");
+				CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+			} else
+			{
+				CodeGenerator.addInstruction(uniqueReg + " = load i32* "
+						+ currentReg + ", align 4");
+				CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+			}
+			return;
+		}
+
+
+		String currentReg = Expression.getResultReg(node.getChild(0), table,
+				gen);
+		CodeGenerator.addInstruction("ret i32 " + currentReg);
+	}
+
+	private enum ACTION
+	{
+		PRINT, RETURN;
 	}
 }

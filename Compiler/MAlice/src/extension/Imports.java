@@ -1,5 +1,6 @@
 package extension;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -38,6 +39,16 @@ public class Imports
 		Tree current = node.getChild(0);
 		if (current.getText().contentEquals("wants"))
 		{
+			if (!new File(current.getChild(current.getChildCount() - 1)
+					.getText().substring(
+							0,
+							current.getChild(current.getChildCount() - 1)
+									.getText().length() - 2)).exists())
+			{
+				/***********
+				 * FILE NOT FOUND CASE 
+				 */
+			}
 			if (imports.contains(current.getChild(current.getChildCount() - 1)
 					.getText()))
 			{
@@ -155,9 +166,8 @@ public class Imports
 		{
 			if (!node.getChild(curr_child).getText().contentEquals("wants"))
 			{
-				// insertChildInIndex(node, temp.getChildIndex(), current);
-				// insertChildInIndex(node, current);
 				node.addChild(node.getChild(curr_child));
+				node.freshenParentAndChildIndexes();
 			}
 			curr_child++;
 			node.freshenParentAndChildIndexes();

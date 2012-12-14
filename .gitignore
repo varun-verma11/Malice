@@ -3,7 +3,11 @@
 #ignore temp files
 *~
 
+<<<<<<< HEAD
+#ignore bin files
+=======
 #ignore the bin files
+>>>>>>> 89050ed17f20147e8742fab791cd49998e4c4221
 *.class
 
 #ignore junk files from latex output

@@ -54,6 +54,7 @@ public class Malice
 				if (!parser.failed()) {
 					Tree tree =  (Tree) parser.program().getTree() ;
 					Imports.checkImports(tree);
+					System.out.println(tree.toStringTree());
 					SemanticVerifier.checkProgramSemantics(tree, table);
 					if (!SemanticVerifier.failed) 
 					{
