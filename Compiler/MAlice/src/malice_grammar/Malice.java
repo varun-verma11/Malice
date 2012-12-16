@@ -60,6 +60,7 @@ public class Malice
 					SemanticVerifier.checkProgramSemantics(tree, table);
 					if (!SemanticVerifier.failed) 
 					{
+						System.out.println(tree.toStringTree());
 						CodeGenerator.generateCode(tree, table);
 						CodeGenerator.saveToFile(filepath);
 						System.out.println("====RUNNING====");
@@ -68,7 +69,7 @@ public class Malice
 					
 			} 
 		} 
-		catch (IOException e) { System.out.println("The filepath is incorrect." +
+		catch (IOException e) { System.err.println("The filepath is incorrect." +
 				" Please use a valid filepath");} 
 		catch (RecognitionException e) { e.printStackTrace(); }
 	}

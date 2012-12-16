@@ -53,7 +53,7 @@ public class CodeGenerator
 		while(current!=null)
 		{
 			Function.writeCodeForFunctions(current, table, new LabelGenerator());
-			current = Statement.checkAllStatements(current, table, new LabelGenerator());
+			//current = Statement.checkAllStatements(current, table, new LabelGenerator());
 			current = SemanticsUtils.getNextChild(current);
 		}
 		Function.writeCodeForStartFunction();

@@ -21,7 +21,7 @@ public class SemanticVerifier
 		while(current != null)
 		{
 			current = FunctionSemanticsChecker.checkFunction(current, table);
-			current = StatementChecker.checkAllStatements(current, table);
+			//current = StatementChecker.checkAllStatements(current, table);
 			current = SemanticsUtils.getNextChild(current);
 		}
 		if (table.checkItemIsInCurrentScopeLevel("hatta"))

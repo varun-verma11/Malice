@@ -18,11 +18,11 @@ import org.antlr.runtime.tree.Tree;
 
 import semantics_checks.SemanticsUtils;
 
-
 public class Imports
 {
 	/**
-	 * 	String containing filenames to be imported
+	 * String containing filenames to be imported
+	 * 
 	 * @field imports : This keeps a track of the files which have been imported
 	 */
 
@@ -31,7 +31,7 @@ public class Imports
 	/**
 	 * This function checks for errors which could be in import statements, such
 	 * as if user wants to import a file which does not exists. Also it
-
+	 * 
 	 * manipulates the AST in order to add the imported functions.
 	 * 
 	 * @param node
@@ -39,21 +39,29 @@ public class Imports
 	 * @return : returns a reference to the manipulated tree.
 	 * @throws RecognitionException
 	 *             : Thrown if the imported file is not valid
+	 * @throws IOException
 	 */
-	public static Tree checkImports(Tree node) throws RecognitionException
+	public static Tree checkImports(Tree node) throws RecognitionException,
+			IOException
 	{
 		Tree current = node.getChild(0);
 		if (current.getText().contentEquals("wants"))
 		{
-			if (!new File(current.getChild(current.getChildCount() - 1)
-					.getText().substring(
-							0,
-							current.getChild(current.getChildCount() - 1)
-									.getText().length() - 2)).exists())
+			if (!new File(new java.io.File(".").getCanonicalPath()
+					+ "\\"
+					+ current.getChild(current.getChildCount() - 1).getText()
+							.substring(
+									1,
+									current.getChild(
+											current.getChildCount() - 1)
+											.getText().length() - 1) + ".alice")
+					.exists())
 			{
 				System.err.println("ERROR: Incorrect import. ("
 						+ current.getChild(current.getChildCount() - 1)
 						+ ") does not exists");
+				SemanticVerifier.failed = true;
+				return null;
 			}
 			if (imports.contains(current.getChild(current.getChildCount() - 1)
 					.getText()))
@@ -134,7 +142,6 @@ public class Imports
 			}
 		}
 
-		
 		return current;
 	}
 
@@ -206,16 +213,17 @@ public class Imports
 		if (toAttach == null)
 			return;
 		int curr_child = 0;
-		int number_of_children = node.getChildCount();
+		int number_of_children = toAttach.getChildCount();
 		while (curr_child != number_of_children)
 		{
-			if (!node.getChild(curr_child).getText().contentEquals("wants"))
+			if (toAttach.getChild(curr_child).getText().contentEquals("looking")
+					|| toAttach.getChild(curr_child).getText()
+							.contentEquals("room"))
 			{
-				node.addChild(node.getChild(curr_child));
+				node.addChild(toAttach.getChild(curr_child));
 				node.freshenParentAndChildIndexes();
 			}
 			curr_child++;
-			node.freshenParentAndChildIndexes();
 		}
 	}
 }

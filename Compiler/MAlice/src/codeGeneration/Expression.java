@@ -331,9 +331,13 @@ public class Expression
 			String uniqueId = gen.getUniqueRegisterID();
 			CodeGenerator.addInstruction(uniqueId + " = alloca i32, align 4");
 			CodeGenerator.addInstruction("store i32 "
-					+ table.lookup(leaf.getText()).getLocationReg()
-					+ ", i32* " + uniqueId + ", align 4");
-
+					+ table.lookup(leaf.getText()).getLocationReg() + ", i32* "
+					+ uniqueId + ", align 4");
+			String prev = uniqueId;
+			uniqueId = gen.getUniqueRegisterID();
+			CodeGenerator.addInstruction(uniqueId + " = load i32* " + prev
+					+ ", align 4");
+			System.out.println("outside the var => " + leaf );
 			return uniqueId;
 		}
 		return leaf.getText();
