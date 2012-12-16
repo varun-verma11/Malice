@@ -132,6 +132,7 @@ public class Expression
 						gen);
 				break;
 		}
+
 		return uniqueRegisterID;
 	}
 
@@ -284,27 +285,17 @@ public class Expression
 	static String writeOperationExpressions(LabelGenerator gen,
 			String operation, String arg1, String arg2)
 	{
-
-		String a1 = gen.getUniqueRegisterID();
-		CodeGenerator.addInstruction(a1 + " = load i32* " + arg1 + ", align 4");
-		String a2 = gen.getUniqueRegisterID();
-		CodeGenerator.addInstruction(a2 + " = load i32* " + arg2 + ", align 4");
 		String uniqueRegisterID = gen.getUniqueRegisterID();
 		CodeGenerator.addInstruction(uniqueRegisterID + " = " + operation
-				+ " nsw i32 " + a1 + ", " + a2);
+				+ " nsw i32 " + arg1 + ", " + arg2);
 		return uniqueRegisterID;
 	}
 
 	private static String writeComparisonStatements(String operation,
 			String arg1, String arg2, LabelGenerator gen)
 	{
-
-		String a1 = gen.getUniqueRegisterID();
-		CodeGenerator.addInstruction(a1 + " = load i32* " + arg1 + ", align 4");
-		String a2 = gen.getUniqueRegisterID();
-		CodeGenerator.addInstruction(a2 + " = load i32* " + arg2 + ", align 4");
 		String uniqueRegisterID = gen.getUniqueRegisterID();
-		writeComparison(uniqueRegisterID, operation, a1, a2);
+		writeComparison(uniqueRegisterID, operation, arg1, arg2);
 		// String prev = uniqueRegisterID;
 		// uniqueRegisterID = gen.getUniqueRegisterID();
 		// writeExtensionIns(uniqueRegisterID, prev);
@@ -335,14 +326,15 @@ public class Expression
 	private static String makeVar(Tree leaf, SymbolTable table,
 			LabelGenerator gen)
 	{
-		if (leaf.getChildCount() != 0)
-		{
-			return writeCodeForFunctionCall(leaf, table, gen);
-		}
 		if (table.checkItemWasDeclaredBefore(leaf.getText()))
 		{
+			String uniqueId = gen.getUniqueRegisterID();
+			CodeGenerator.addInstruction(uniqueId + " = alloca i32, align 4");
+			CodeGenerator.addInstruction("store i32 "
+					+ table.lookup(leaf.getText()).getLocationReg()
+					+ ", i32* " + uniqueId + ", align 4");
 
-			return table.lookup(leaf.getText()).getLocationReg();
+			return uniqueId;
 		}
 		return leaf.getText();
 	}
@@ -437,14 +429,14 @@ public class Expression
 		} else if (type == DATA_TYPES.SENTENCE)
 		{
 			CodeGenerator.addGlobalInstruction("@.str" + Statement.count
-					+ " = private unnamed_addr constant [" + (text.length() -1)
-					+ " x i8] c" + text.substring(0, text.length() - 2)
-					+ "\\00\", align 1");
+					+ " = private unnamed_addr constant ["
+					+ (text.length() - 1) + " x i8] c"
+					+ text.substring(0, text.length() - 2) + "\\00\", align 1");
 			Statement.count++;
-			return "@.str" + (Statement.count-1);
+			return "@.str" + (Statement.count - 1);
 		} else if (type == DATA_TYPES.LETTER)
 		{
-			return "i8 signext " + (int)text.charAt(1);			
+			return "i8 signext " + (int) text.charAt(1);
 		}
 
 		return null;
