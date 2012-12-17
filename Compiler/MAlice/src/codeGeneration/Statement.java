@@ -622,7 +622,6 @@ public class Statement
 		if (nodeType == DATA_TYPES.SENTENCE)
 		{
 			sentenceAtNode(node, gen.getUniqueRegisterID(), ACTION.RETURN);
-
 			return;
 		} else if (nodeType == DATA_TYPES.LETTER)
 		{
@@ -635,36 +634,38 @@ public class Statement
 			 ****************************************/
 		} else if (table.lookup(node.getChild(0).getText()) != null)
 		{
-			String uniqueReg = gen.getUniqueRegisterID();
-			String currentReg = Utils.getVarReg(node.getChild(0), table, gen);
-			// (table.lookup(node.getChild(0).getText())).getLocationReg();
-			DATA_TYPES type = (table.lookup(node.getChild(0).getText()))
-					.getType();
-
-			if (type == DATA_TYPES.LETTER)
-			{
-				CodeGenerator.addInstruction(uniqueReg + " = load i8* "
-						+ currentReg + ", align 1");
-				currentReg = uniqueReg;
-				uniqueReg = gen.getUniqueRegisterID();
-				CodeGenerator.addInstruction(uniqueReg + " = sext i8 "
-						+ currentReg + " to i32");
-				CodeGenerator.addInstruction("store i32 " + uniqueReg+ ", i32* %1");
-			} else if (type == DATA_TYPES.SENTENCE)
-			{
-				CodeGenerator.addInstruction(uniqueReg + " = load i8** "
-						+ currentReg + ", align 8");
-				currentReg = uniqueReg;
-				uniqueReg = gen.getUniqueRegisterID();
-				CodeGenerator.addInstruction(uniqueReg + " = ptrtoint i8* "
-						+ currentReg + " to i32");
-				CodeGenerator.addInstruction("store i32 " + uniqueReg+ ", i32* %1");
-			} else
-			{
-				CodeGenerator.addInstruction(uniqueReg + " = load i32* "
-						+ currentReg + ", align 4");
-				CodeGenerator.addInstruction("store i32 " + uniqueReg + ", i32* %1");
-			}
+//			String uniqueReg = gen.getUniqueRegisterID();
+//			String currentReg = Utils.getVarReg(node.getChild(0), table, gen);
+//			// (table.lookup(node.getChild(0).getText())).getLocationReg();
+//			DATA_TYPES type = (table.lookup(node.getChild(0).getText()))
+//					.getType();
+//
+//			if (type == DATA_TYPES.LETTER)
+//			{
+//				CodeGenerator.addInstruction(uniqueReg + " = load i8* "
+//						+ currentReg + ", align 1");
+//				currentReg = uniqueReg;
+//				uniqueReg = gen.getUniqueRegisterID();
+//				CodeGenerator.addInstruction(uniqueReg + " = sext i8 "
+//						+ currentReg + " to i32");
+//				CodeGenerator.addInstruction("store i32 " + uniqueReg+ ", i32* %1");
+//			} else if (type == DATA_TYPES.SENTENCE)
+//			{
+//				CodeGenerator.addInstruction(uniqueReg + " = load i8** "
+//						+ currentReg + ", align 8");
+//				currentReg = uniqueReg;
+//				uniqueReg = gen.getUniqueRegisterID();
+//				CodeGenerator.addInstruction(uniqueReg + " = ptrtoint i8* "
+//						+ currentReg + " to i32");
+//				CodeGenerator.addInstruction("store i32 " + uniqueReg+ ", i32* %1");
+//			} else
+//			{
+//				CodeGenerator.addInstruction(uniqueReg + " = load i32* "
+//						+ currentReg + ", align 4");
+//				CodeGenerator.addInstruction("store i32 " + uniqueReg + ", i32* %1");
+//			}
+			String ret = Expression.getResultReg(node.getChild(0), table, gen);
+			CodeGenerator.addInstruction("store i32 " + ret + ", i32* %1");
 			return;
 		}
 		String currentReg = Expression.getResultReg(node.getChild(0), table,
