@@ -514,10 +514,10 @@ public class Statement
 		CodeGenerator.includePrintString();
 		String currReg = Expression.getResultReg(node.getChild(0), table, gen);
 		uniqueReg = gen.getUniqueRegisterID();
-		String newLabel = "@.str_" + count;
-		count++;
 		try {
 			int i = Integer.parseInt(currReg);
+			String newLabel = "@.str_" + count;
+			count++;
 			CodeGenerator.addGlobalInstruction(newLabel + " = private "
 					+ "unnamed_addr constant [" + (currReg.length() + 1)
 					+ " x i8] c\"" + i + "\\00\", align 1");

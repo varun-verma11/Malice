@@ -35,11 +35,16 @@ public class Expression
 		// AFTER CHECKING FOR NO CHILD
 		OPERATOR op = getOperator(node.getText());
 
+		if (op == null)
+		{
+			String id = writeCodeForFunctionCall(node, table, gen);
+			return id;
+		}
 		// checking for single arity functions would be checked before this
 		// point
 		String arg1 = getResultReg(node.getChild(0), table, gen);
 		String arg2 = getResultReg(node.getChild(1), table, gen);
-
+		
 		try
 		{
 			int i = Integer.parseInt(arg1);
@@ -51,11 +56,6 @@ public class Expression
 			return calculateExpr(op, i, j) + "";
 		} catch (NumberFormatException e)
 		{
-		}
-		if (op == null)
-		{
-			String id = writeCodeForFunctionCall(node, table, gen);
-			return id;
 		}
 		String uniqueRegisterID = "";
 		switch (op)
@@ -349,12 +349,13 @@ public class Expression
 	{
 		if (!MathLibrary.checkIfMathFunction(leaf.getText()))
 		{
+			String params = getParamsToFunction(leaf, table, gen);
 			String id = gen.getUniqueRegisterID();
 			String returnType = Utils.getReturnTypeOfFunction(table.lookup(
 					leaf.getText()).getType());
 			CodeGenerator.addInstruction(id + " = call " + returnType + " "
 					+ table.lookup(leaf.getText()).getLocationReg() + "("
-					+ Expression.getParamsToFunction(leaf, table, gen) + ")");
+					+ params + ")");
 			return id;
 		}
 		return MathLibrary.writeMathFunc(leaf, table, gen);
@@ -428,14 +429,21 @@ public class Expression
 				+ getParam(leaf, table, leaf.getChildCount() - 2, gen);
 	}
 
-	private static String getParam(Tree leaf, SymbolTable table, int i, LabelGenerator gen)
+	private static String getParam(Tree leaf, SymbolTable table, int i,
+			LabelGenerator gen)
 	{
 		String text = leaf.getChild(i).getText();
 		DATA_TYPES type = Utils.getValueType(leaf.getChild(i), table);
 		if (type == DATA_TYPES.NUMBER)
 		{
-//			return getResultReg(leaf, table, gen);
-			return table.lookup(text).getLocationReg();
+			if (table.checkItemWasDeclaredBefore(text))
+			{
+				String id = gen.getUniqueRegisterID();
+				CodeGenerator.addInstruction(id + " = load i32* "
+						+ table.lookup(text).getLocationReg() + ", align 4");
+				return id;
+			}
+			return text;
 		} else if (type == DATA_TYPES.SENTENCE)
 		{
 			CodeGenerator.addGlobalInstruction("@.str" + Statement.count
