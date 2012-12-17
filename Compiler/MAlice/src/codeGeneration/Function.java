@@ -58,16 +58,21 @@ public class Function
 		String params = getParamsForFunctions(current,fVal.getTable());
 		current = SemanticsUtils.getNextChild(SemanticsUtils.getNextChild(
 				SemanticsUtils.getNextChild(current)));
+		String retType = Utils.getReturnTypeOfFunction(fVal.getType());
 		writeFunctionHeader(
-				
-				Utils.getReturnTypeOfFunction(fVal.getType())
+				retType
 				, fVal.getLocationReg()
 				, params);
 		CodeGenerator.incrementIdentLevel();
+		String id = gen.getUniqueRegisterID();
+		CodeGenerator.addInstruction(id + " = alloca i32, align 4");
 		//DO ALL STATEMENTS
 		current = Statement.generateAllStatementCode(current, fVal.getTable(), gen);
 		//DO ALL STATEMENTS
 		//current = writeNestedFunctions(table, current,gen);
+		String ret = gen.getUniqueRegisterID();
+		CodeGenerator.addInstruction(ret + " = load i32* " + id);
+		CodeGenerator.addInstruction("ret " + retType + " " + ret);
 		CodeGenerator.decrementIdentLevel();
 		CodeGenerator.addInstruction("}\n");
 		return current;

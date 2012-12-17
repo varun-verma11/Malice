@@ -149,6 +149,7 @@ public class ControlStructure
 			// DO ALL STATEMENTS
 			Statement.generateAllStatementCode(current, table, gen);
 			// DO ALL STATEMENTS
+			endIfInserts.add(CodeGenerator.getNumberOfInstructions() - 1);
 			endIf = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(endIf));
 		} else

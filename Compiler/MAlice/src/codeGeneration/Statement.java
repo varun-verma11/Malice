@@ -649,7 +649,7 @@ public class Statement
 				uniqueReg = gen.getUniqueRegisterID();
 				CodeGenerator.addInstruction(uniqueReg + " = sext i8 "
 						+ currentReg + " to i32");
-				CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+				CodeGenerator.addInstruction("store i32 " + uniqueReg+ ", i32* %1");
 			} else if (type == DATA_TYPES.SENTENCE)
 			{
 				CodeGenerator.addInstruction(uniqueReg + " = load i8** "
@@ -658,18 +658,18 @@ public class Statement
 				uniqueReg = gen.getUniqueRegisterID();
 				CodeGenerator.addInstruction(uniqueReg + " = ptrtoint i8* "
 						+ currentReg + " to i32");
-				CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+				CodeGenerator.addInstruction("store i32 " + uniqueReg+ ", i32* %1");
 			} else
 			{
 				CodeGenerator.addInstruction(uniqueReg + " = load i32* "
 						+ currentReg + ", align 4");
-				CodeGenerator.addInstruction("ret i32 " + uniqueReg);
+				CodeGenerator.addInstruction("store i32 " + uniqueReg + ", i32* %1");
 			}
 			return;
 		}
 		String currentReg = Expression.getResultReg(node.getChild(0), table,
 				gen);
-		CodeGenerator.addInstruction("ret i32 " + currentReg);
+		CodeGenerator.addInstruction("store i32 " + currentReg+ ", i32* %1");
 	}
 
 	/**
