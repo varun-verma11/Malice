@@ -1,0 +1,17 @@
+@.printInt = private unnamed_addr constant [3 x i8] c"%i\00", align 1
+
+@.printString = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+
+define void @hatta () nounwind uwtable {
+	%1 = call double @sin(double 1.0) nounwind readnone
+	%2 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.printInt, i32 0, i32 0), i32 %1)
+	ret void 
+}
+
+define i32 @main () nounwind uwtable {
+	call void @hatta()
+	ret i32 0
+}
+
+declare double @sin(double) nounwind readnone
+declare i32 @printf(i8*, ...)
