@@ -337,7 +337,6 @@ public class Expression
 			uniqueId = gen.getUniqueRegisterID();
 			CodeGenerator.addInstruction(uniqueId + " = load i32* " + prev
 					+ ", align 4");
-			System.out.println("outside the var => " + leaf );
 			return uniqueId;
 		}
 		return leaf.getText();

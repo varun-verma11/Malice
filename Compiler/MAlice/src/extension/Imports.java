@@ -212,6 +212,11 @@ public class Imports
 	{
 		if (toAttach == null)
 			return;
+		if (toAttach.getText()!=null)
+		{
+			node.addChild(toAttach);
+			node.freshenParentAndChildIndexes();
+		}
 		int curr_child = 0;
 		int number_of_children = toAttach.getChildCount();
 		while (curr_child != number_of_children)
