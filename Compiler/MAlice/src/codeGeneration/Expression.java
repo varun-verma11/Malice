@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.antlr.runtime.tree.Tree;
 
+import extension.MathLibrary;
+
 import symbol_table.DATA_TYPES;
 import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
@@ -345,13 +347,17 @@ public class Expression
 	private static String writeCodeForFunctionCall(Tree leaf,
 			SymbolTable table, LabelGenerator gen)
 	{
-		String id = gen.getUniqueRegisterID();
-		String returnType = Utils.getReturnTypeOfFunction(table.lookup(
-				leaf.getText()).getType());
-		CodeGenerator.addInstruction(id + " = call " + returnType + " "
-				+ table.lookup(leaf.getText()).getLocationReg() + "("
-				+ Expression.getParamsToFunction(leaf, table, gen) + ")");
-		return id;
+		if (!MathLibrary.checkIfMathFunction(leaf.getText()))
+		{
+			String id = gen.getUniqueRegisterID();
+			String returnType = Utils.getReturnTypeOfFunction(table.lookup(
+					leaf.getText()).getType());
+			CodeGenerator.addInstruction(id + " = call " + returnType + " "
+					+ table.lookup(leaf.getText()).getLocationReg() + "("
+					+ Expression.getParamsToFunction(leaf, table, gen) + ")");
+			return id;
+		}
+		return MathLibrary.writeMathFunc(leaf, table, gen);
 	}
 
 	private static OPERATOR getOperator(String op)
