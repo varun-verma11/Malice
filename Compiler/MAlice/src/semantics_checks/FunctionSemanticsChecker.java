@@ -19,6 +19,7 @@ public class FunctionSemanticsChecker
 		if (node.getText().contentEquals("room"))
 		{
 			checkRoomFunction(node.getChild(0), table);
+			
 		} else if (node.getText().contentEquals("looking"))
 		{
 			checkLookingFunction(node.getChild(0), table);
@@ -37,6 +38,8 @@ public class FunctionSemanticsChecker
 		FunctionSTValue func_val = new FunctionSTValue(expectedReturnType,
 				enclosing_table, args);
 		SymbolTable table = func_val.getTable();
+		func_val.setLocationReg(node.getText().contentEquals("main")? 
+				"@_main" : "@" + node);
 		enclosing_table.insert(node.getText(), func_val);
 		Tree curr = node;
 		table = func_val.getTable();
@@ -103,6 +106,8 @@ public class FunctionSemanticsChecker
 		ArrayList<DATA_TYPES> args = new ArrayList<DATA_TYPES>();
 		FunctionSTValue func_val = new FunctionSTValue(enclosing_table, args);
 		SymbolTable table = func_val.getTable();
+		func_val.setLocationReg(node.getText().contentEquals("main")? 
+				"@_main" : "@" + node);
 		enclosing_table.insert(node.getText(), func_val);
 		Tree curr = node;
 		table = func_val.getTable();

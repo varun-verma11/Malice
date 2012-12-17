@@ -1,10 +1,6 @@
 The room abs (number x) contained a number
 opened
-  perhaps (x < 0) so
-    Alice found -x.
-  or
-    Alice found x.
-  because Alice was unsure which
+  Alice found 0.
 closed
 
 The looking-glass main()
