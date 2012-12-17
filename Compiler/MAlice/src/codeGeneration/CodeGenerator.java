@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.antlr.runtime.tree.Tree;
 
+import extension.MathLibrary;
+
 import semantics_checks.SemanticsUtils;
 import symbol_table.SymbolTable;
 
@@ -122,6 +124,7 @@ public class CodeGenerator
 
 	public static void saveToFile(String filepath)
 	{
+		MathLibrary.addMathsDeclarations();
 		try{
 			FileWriter fstream = new FileWriter(filepath);
 			BufferedWriter out = new BufferedWriter(fstream);
