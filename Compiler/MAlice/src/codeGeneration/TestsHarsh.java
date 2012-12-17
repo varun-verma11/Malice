@@ -1,6 +1,6 @@
 package codeGeneration;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,6 @@ import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.Tree;
 import org.junit.Test;
 
-import semantics_checks.ExpressionChecker;
 import symbol_table.DATA_TYPES;
 import symbol_table.FunctionSTValue;
 import symbol_table.SymbolTable;
@@ -95,7 +94,7 @@ public class TestsHarsh {
 		if (!parser.failed()) {
 			Tree tree = (Tree) parser.read_statement().getTree();
 			System.out.println(tree.toStringTree());
-			Statement.checkAllStatements(tree, table, new LabelGenerator());
+			Statement.generateAllStatementCode(tree, table, new LabelGenerator());
 			CodeGenerator.printInstructions();
 			CodeGenerator.emptyInstructions();
 			return true;

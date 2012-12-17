@@ -29,7 +29,7 @@ public class Statement
 	 *            Current LabelGenerator
 	 * @return returns last node
 	 */
-	public static Tree checkAllStatements(Tree node, SymbolTable table,
+	public static Tree generateAllStatementCode(Tree node, SymbolTable table,
 			LabelGenerator gen)
 	{
 		Tree current = node;

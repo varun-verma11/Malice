@@ -49,7 +49,7 @@ public class CodeGenerator
 	{
 		Tree current = (tree.getText()==null)? tree.getChild(0) : tree ;
 		current = SemanticsUtils.skipImports(current);
-		current = Statement.checkAllStatements(current, table, new LabelGenerator());
+		current = Statement.generateAllStatementCode(current, table, new LabelGenerator());
 		while(current!=null)
 		{
 			Function.writeCodeForFunctions(current, table, new LabelGenerator());

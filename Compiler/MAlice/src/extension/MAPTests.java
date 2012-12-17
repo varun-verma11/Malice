@@ -46,7 +46,6 @@ public class MAPTests
 			function_call_return prog = parser.function_call();
 			if (parser.getNumberOfSyntaxErrors()==0) {
 				Tree tree =  (Tree) prog.getTree() ;
-				System.out.println(tree.toStringTree());
 				HighOrderFunctions.checkMapFunction(tree, table);
 				HighOrderFunctions.swapMapWithWhile(tree, table);
 				CodeGenerator.printInstructions();

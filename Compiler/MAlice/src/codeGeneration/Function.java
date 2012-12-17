@@ -30,7 +30,7 @@ public class Function
 		writeFunctionHeader("void", fVal.getLocationReg(), params);
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		current = Statement.checkAllStatements(current, fVal.getTable(), gen);
+		current = Statement.generateAllStatementCode(current, fVal.getTable(), gen);
 		//DO ALL STATEMENTS
 		//current = writeNestedFunctions(table, current,gen);
 		writeReturnStatement("void", "");
@@ -65,7 +65,7 @@ public class Function
 				, params);
 		CodeGenerator.incrementIdentLevel();
 		//DO ALL STATEMENTS
-		current = Statement.checkAllStatements(current, fVal.getTable(), gen);
+		current = Statement.generateAllStatementCode(current, fVal.getTable(), gen);
 		//DO ALL STATEMENTS
 		//current = writeNestedFunctions(table, current,gen);
 		CodeGenerator.decrementIdentLevel();

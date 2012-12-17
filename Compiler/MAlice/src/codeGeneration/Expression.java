@@ -420,20 +420,21 @@ public class Expression
 		for (int i = 1; i < leaf.getChildCount() - 2; i++)
 		{
 			params += Utils.getReturnTypeOfFunction(args.get(i - 1)) + " "
-					+ getParam(leaf, table, i) + ", ";
+					+ getParam(leaf, table, i, gen) + ", ";
 		}
 		return params
 				+ Utils.getReturnTypeOfFunction(args
 						.get(leaf.getChildCount() - 3)) + " "
-				+ getParam(leaf, table, leaf.getChildCount() - 2);
+				+ getParam(leaf, table, leaf.getChildCount() - 2, gen);
 	}
 
-	private static String getParam(Tree leaf, SymbolTable table, int i)
+	private static String getParam(Tree leaf, SymbolTable table, int i, LabelGenerator gen)
 	{
 		String text = leaf.getChild(i).getText();
 		DATA_TYPES type = Utils.getValueType(leaf.getChild(i), table);
 		if (type == DATA_TYPES.NUMBER)
 		{
+//			return getResultReg(leaf, table, gen);
 			return table.lookup(text).getLocationReg();
 		} else if (type == DATA_TYPES.SENTENCE)
 		{

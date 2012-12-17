@@ -60,7 +60,6 @@ public class Malice
 					SemanticVerifier.checkProgramSemantics(tree, table);
 					if (!SemanticVerifier.failed) 
 					{
-						System.out.println(tree.toStringTree());
 						CodeGenerator.generateCode(tree, table);
 						CodeGenerator.saveToFile(filepath);
 						System.out.println("====RUNNING====");

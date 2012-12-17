@@ -1,0 +1,11 @@
+The room getOne(number x) contained a number
+opened 
+ 	Alice found x+1.
+closed
+
+The looking-glass hatta()
+opened
+	in had 10 number.
+	out had 10 number.
+	map(getOne, in, out).
+closed

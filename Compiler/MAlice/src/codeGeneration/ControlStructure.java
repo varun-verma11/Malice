@@ -22,7 +22,7 @@ public class ControlStructure
 			{
 				// code for then case only
 				// Do all statements then skip to end of either
-				Statement.checkAllStatements(node, table, gen);
+				Statement.generateAllStatementCode(node, table, gen);
 				return;
 			} else
 			{
@@ -33,7 +33,7 @@ public class ControlStructure
 				}
 				current = SemanticsUtils.getNextChild(current);
 				// Do all statements then skip to end of either
-				Statement.checkAllStatements(current, table, gen);
+				Statement.generateAllStatementCode(current, table, gen);
 				return;
 			}
 		} catch (NumberFormatException e)
@@ -45,12 +45,12 @@ public class ControlStructure
 		int[] endIfLblInserts = new int[2];
 		CodeGenerator.addInstruction(getLabel(lblThen));
 		current = SemanticsUtils.getNextChild(current);
-		current = Statement.checkAllStatements(current, table, gen);
+		current = Statement.generateAllStatementCode(current, table, gen);
 		endIfLblInserts[0] = CodeGenerator.getNumberOfInstructions();
 		String lblElse = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(lblElse));
 		current = SemanticsUtils.getNextChild(current);
-		Statement.checkAllStatements(current, table, gen);
+		Statement.generateAllStatementCode(current, table, gen);
 		endIfLblInserts[1] = CodeGenerator.getNumberOfInstructions();
 		String lblEndIf = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(lblEndIf));
@@ -81,7 +81,7 @@ public class ControlStructure
 		String loop = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(loop));
 		current = SemanticsUtils.getNextChild(current);
-		current = Statement.checkAllStatements(current, table, gen);
+		current = Statement.generateAllStatementCode(current, table, gen);
 		CodeGenerator.addInstruction(getBranchIns(startLbl));
 		String endLoop = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(endLoop));
@@ -98,7 +98,7 @@ public class ControlStructure
 			int bool = Integer.parseInt(bool_exp);
 			if (bool == 1)
 			{
-				Statement.checkAllStatements(node, table, gen);
+				Statement.generateAllStatementCode(node, table, gen);
 				return;
 			}
 		} catch (NumberFormatException e){ }
@@ -107,7 +107,7 @@ public class ControlStructure
 		String startLbl = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(startLbl));
 		Tree current = node.getChild(1);
-		current = Statement.checkAllStatements(current, table, gen);
+		current = Statement.generateAllStatementCode(current, table, gen);
 		endIfInserts.add(CodeGenerator.getNumberOfInstructions());
 		String endLbl = gen.getUniqueLabel();
 		CodeGenerator.addInstruction(getLabel(endLbl));
@@ -123,7 +123,7 @@ public class ControlStructure
 				if (bool == 1)
 				{
 					// DO ALL STATEMENTS
-					current = Statement.checkAllStatements(current, table, gen);
+					current = Statement.generateAllStatementCode(current, table, gen);
 					// DO ALL STATEMENTS
 					return;
 				}
@@ -132,7 +132,7 @@ public class ControlStructure
 			startLbl = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(startLbl));
 			// DO ALL STATEMENTS
-			Statement.checkAllStatements(current, table, gen);
+			Statement.generateAllStatementCode(current, table, gen);
 			// DO ALL STATEMENTS
 			endIfInserts.add(CodeGenerator.getNumberOfInstructions());
 			endLbl = gen.getUniqueLabel();
@@ -147,7 +147,7 @@ public class ControlStructure
 		{
 			current = SemanticsUtils.getNextChild(current);
 			// DO ALL STATEMENTS
-			Statement.checkAllStatements(current, table, gen);
+			Statement.generateAllStatementCode(current, table, gen);
 			// DO ALL STATEMENTS
 			endIf = gen.getUniqueLabel();
 			CodeGenerator.addInstruction(getLabel(endIf));

@@ -4,9 +4,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import malice_grammar.SemanticVerifier;
 import malice_grammar.malice_grammarLexer;
 import malice_grammar.malice_grammarParser;
-import malice_grammar.malice_grammarParser.map_test_return;
+import malice_grammar.malice_grammarParser.statementList_return;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
@@ -31,14 +32,19 @@ public class HighOrderFunctions
 		if (node.getChildCount() != 5)
 		{
 			printMessage(node, "Function map only takes in 2 arguments.");
+			SemanticVerifier.failed = true;
 			return null;
 		}
 		DATA_TYPES ret_type = checkOneArityFunction(node.getChild(1), table);
-		if (ret_type != DATA_TYPES.valueOf(table.lookup(node.getChild(2).getText()).getType().toString()
-				.substring("array_".length())))
+		if (ret_type != DATA_TYPES.valueOf(table.lookup(
+				node.getChild(2).getText()).getType().toString().substring(
+				"array_".length())))
 		{
-			printMessage(node, "Function " + node.getChild(1).getText() + " is not a scalar");
+			printMessage(node, "Function " + node.getChild(1).getText()
+					+ " is not a scalar");
+			SemanticVerifier.failed = true;
 		}
+		swapMapWithWhile(node, table);
 		return ret_type;
 	}
 
@@ -47,6 +53,7 @@ public class HighOrderFunctions
 		if (!table.checkItemWasDeclaredBefore(node.getText()))
 		{
 			printMessage(node, "Function " + node.getText() + " is not defined");
+			SemanticVerifier.failed = true;
 			return null;
 		}
 		try
@@ -57,6 +64,7 @@ public class HighOrderFunctions
 			{
 				printMessage(node, "Function " + node.getText()
 						+ " does not have an arity 1.");
+				SemanticVerifier.failed = true;
 			}
 			if (func.getType() != DATA_TYPES.LETTER
 					&& func.getType() != DATA_TYPES.NUMBER
@@ -65,6 +73,7 @@ public class HighOrderFunctions
 				printMessage(node, "Function " + node.getText()
 						+ " does not return a scalar "
 						+ "(number, letter or sentence) type .");
+				SemanticVerifier.failed = true;
 			}
 			DATA_TYPES arg_type = func.getArgs().get(0);
 			Tree nextChild = SemanticsUtils.getNextChild(node);
@@ -77,16 +86,19 @@ public class HighOrderFunctions
 				{
 					printMessage(nextChild, "The return type of function and "
 							+ "type of the array do not match.");
+					SemanticVerifier.failed = true;
 				}
 			} catch (NullPointerException e)
 			{
 				printMessage(nextChild, "The argument " + nextChild.getText()
 						+ " for function map is not defined.");
+				SemanticVerifier.failed = true;
 			}
 			return func.getType();
 		} catch (ClassCastException e)
 		{
 			printMessage(node, "Function " + node.getText() + " is not defined");
+			SemanticVerifier.failed = true;
 		}
 		return null;
 	}
@@ -98,37 +110,36 @@ public class HighOrderFunctions
 		String func_name = node.getChild(1).getText();
 		String in = node.getChild(2).getText();
 		String out = node.getChild(3).getText();
-		String map = "opened i was a number of " + val.getArraySize() + ".\n" 
-					+ "eventually (i==0) because \n"
-					+ out + "'s i piece became "
-					+ func_name + "(" + in + "'s i piece" + ")."
-					+ "\nenough times closed"
-					;
-		System.out.println(map);
+		String map = "opened i was a number of " + val.getArraySize() + ".\n"
+				+ "eventually (i==0) because \n" + out + "'s i piece became "
+				+ func_name + "(" + in + "'s i piece" + ")."
+				+ "\nenough times closed";
 		CharStream input = new ANTLRStringStream(map);
-		malice_grammarLexer lexer = new malice_grammarLexer(input );
+		malice_grammarLexer lexer = new malice_grammarLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		if (lexer.getNumberOfSyntaxErrors()==0)
+		if (lexer.getNumberOfSyntaxErrors() == 0)
 		{
-			malice_grammarParser parser = new malice_grammarParser(tokens ) ;
-			map_test_return prog = null;
+			malice_grammarParser parser = new malice_grammarParser(tokens);
+			statementList_return prog = null;
 			try
 			{
-				prog = parser.map_test();
+				prog = parser.statementList();
 			} catch (RecognitionException e)
 			{
 				e.printStackTrace();
 			}
-			if (parser.getNumberOfSyntaxErrors()==0) {
-				Tree tree =  (Tree) prog.getTree() ;
-				System.out.println(tree.toStringTree());
+			if (parser.getNumberOfSyntaxErrors() == 0)
+			{
+				Tree tree = (Tree) prog.getTree();
+				node.getParent().setChild(node.getChildIndex(), tree);
 			}
-		}		
+		}
 	}
 
 	private static void printMessage(Tree node, String msg)
 	{
 		System.err.println("Line " + node.getLine() + ": "
 				+ node.getCharPositionInLine() + ": " + msg);
+		SemanticVerifier.failed = true;
 	}
 }
