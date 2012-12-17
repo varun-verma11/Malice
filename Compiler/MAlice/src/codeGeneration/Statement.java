@@ -96,6 +96,7 @@ public class Statement
 			return false;
 		} else if (node.getText().contentEquals("had"))
 		{
+			writeArrayStatement(node, table, gen);
 			return false;
 		} else if (node.getText().contentEquals("perhaps"))
 		{
@@ -123,6 +124,12 @@ public class Statement
 			return false;
 		}
 		return true;
+	}
+
+	private static void writeArrayStatement(Tree node, SymbolTable table,
+			LabelGenerator gen)
+	{
+		
 	}
 
 	/**

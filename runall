@@ -1,0 +1,5 @@
+for f in ../malice_examples/valid/*.alice
+do
+	./compile $f
+  read cont
+done
