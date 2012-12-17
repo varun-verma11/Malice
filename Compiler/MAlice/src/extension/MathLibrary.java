@@ -2,7 +2,10 @@ package extension;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 import org.antlr.runtime.tree.Tree;
@@ -28,7 +31,17 @@ public class MathLibrary
 	 */
 	private static Set<String> math_func = new HashSet<String>(Arrays
 			.asList(func_names));
+	
+	
+	
+	private static Map<String, Boolean> declarations = new HashMap<String, Boolean>();
 
+	public static void setInitialDeclaration(){
+		for(int i = 0; i< func_names.length; i++){
+			declarations.put(func_names[i], false);
+		}
+	}
+	
 	/**
 	 * Adds function names as keys and corresponding functionSTValues to the
 	 * given SymbolTable
@@ -157,6 +170,7 @@ public class MathLibrary
 		double param = Double.parseDouble(node.getChild(1).getText());
 		CodeGenerator.addInstruction(regId + " = call double @" + func
 				+ "(double " + param + ") nounwind readnone");
+		declarations.put(func, true);
 		return regId;
 	}
 
@@ -165,9 +179,24 @@ public class MathLibrary
 	{
 		String regId = gen.getUniqueRegisterID();
 		double param = Double.parseDouble(node.getChild(1).getText());
-		CodeGenerator.addInstruction(regId + " = call double @" + func
-				+ "(double " + param + ") nounwind");
+		CodeGenerator.addInstruction(regId + " = call i32 (...)* @"+ func +"(double "+ param +")");
+		declarations.put(func, true);
 		return regId;
+	}
+	
+	public static void addMathsDeclarations(){
+		Iterator<String> it = declarations.keySet().iterator();		
+		while (it.hasNext()){
+			String func = it.next();
+			if (declarations.get(func).equals(true)){
+				if(func.equals("sin") || func.equals("cos") || func.equals("sqrt")){
+					CodeGenerator.addInstruction("declare double @"+ func +"(double) nounwind readnone");
+				}
+				else {
+					CodeGenerator.addInstruction("declare i32 @"+ func +"(...)");	
+				}
+			}
+		}
 	}
 
 	public static boolean checkIfMathFunction(String func)
